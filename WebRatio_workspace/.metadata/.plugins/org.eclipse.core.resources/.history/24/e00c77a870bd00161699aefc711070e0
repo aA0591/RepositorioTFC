@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StoreMapping> 
-  <ResourceBinding path="Units/GoogleMapUnit" store="WebRatio Add-ons" versionId="437" itemId="6"/>  
-  <ResourceBinding path="Units/SocialLoginUnit" store="WebRatio Add-ons" versionId="415" itemId="11"/>  
-  <ResourceBinding path="Units/JsonFunction" store="WebRatio Add-ons" versionId="384" itemId="111"/>  
-  <ResourceBinding path="Units/GoogleGeocodingUnit" store="WebRatio Add-ons" versionId="186" itemId="52"/>  
-  <ResourceBinding path="Units/RTFFillerUnit" store="WebRatio Add-ons" versionId="168" itemId="24"/>
-</StoreMapping>

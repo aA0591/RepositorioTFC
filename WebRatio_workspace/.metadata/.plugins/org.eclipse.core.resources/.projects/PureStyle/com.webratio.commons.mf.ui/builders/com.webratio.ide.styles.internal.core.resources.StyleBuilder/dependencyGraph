@@ -1,4 +1,0 @@
-#Resource Dependency Graph
-#Thu Dec 08 19:58:03 CET 2016
-layoutConf=/PureStyle/Units/RecursiveHierarchicalIndexUnit/Default.unit.template|/PureStyle/Units/ProcessUnit/Normal.unit.template|/PureStyle/Units/MultiDataUnit/Default.unit.template|/PureStyle/Units/HierarchicalIndexUnit/Default.unit.template|/PureStyle/Default.frame.template|/PureStyle/Units/ProcessUnit/Parameters.unit.template|/PureStyle/Units/ProcessUnit/VerifyMetadata.unit.template|/PureStyle/Units/IndexUnit/Default.unit.template|/PureStyle/Default.link.template|/PureStyle/Default.page.template|/PureStyle/Units/MultiChoiceIndexUnit/Default.unit.template|/PureStyle/Units/PowerIndexUnit/Default.unit.template|/PureStyle/Units/MultiMessageUnit/Default.unit.template|/PureStyle/Units/EntryUnit/Default.unit.template|/PureStyle/EntryUnit.field.template|/PureStyle/Units/DataUnit/Default.unit.template
-id.layoutConf=/PureStyle/Layout.xml

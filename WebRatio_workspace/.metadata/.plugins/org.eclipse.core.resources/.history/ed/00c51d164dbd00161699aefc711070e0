@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Layout>
-  <Resources alwaysRequired="BootstrapStyle-components-style">
-	  <Resource name="BootstrapStyle-components-style" type="css" path="BootstrapStyle/css/components.css"/>
-  </Resources>
-</Layout>
