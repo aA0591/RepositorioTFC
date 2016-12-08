@@ -37,4 +37,7 @@
     <Attribute id="ent1#att4" name="author" type="string"/>
     <Attribute id="ent1#att6" name="pubDate" type="timestamp"/>
   </Entity>
+  <Entity gr:x="340" gr:y="95" id="ent2" name="prueba" duration="persistent">
+    <Attribute id="ent2#att5" key="true" name="oid" type="integer"/>
+  </Entity>
 </DataModel>

@@ -1,10 +1,10 @@
-<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" gr:x="300" gr:y="210" id="sv1#page1" name="Scroll to top sample" landmark="false">
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" gr:x="245" gr:y="95" id="sv1#page1" name="Scroll to top sample" landmark="false">
   <ContentUnits>
-    <PowerIndexUnit gr:x="0" gr:y="0" id="sv1#page1#pwu1" name="Arguments" sortable="true" checkable="false" useCountQuery="false" entity="ent1" displayAttributes="ent1#att2 ent1#att4 ent1#att6" blockFactor="100">
+    <PowerIndexUnit gr:x="5" gr:y="0" id="sv1#page1#pwu1" name="Arguments" sortable="true" checkable="false" useCountQuery="false" entity="ent1" displayAttributes="ent1#att2 ent1#att4 ent1#att6" blockFactor="100">
       <SortAttribute attribute="ent1#att6" order="descending"/>
     </PowerIndexUnit>
-    <MultiMessageUnit gr:x="4" gr:y="104" id="sv1#page1#mssu1y" name="Scroll to top">
-      <Message xml:space="preserve">scroll-to-top</Message>
+    <MultiMessageUnit gr:x="0" gr:y="100" id="sv1#page1#mssu1y" name="Scroll to top">
+      <Message xml:space="preserve">go-to-top</Message>
     </MultiMessageUnit>
   </ContentUnits>
   <layout:Grid>
