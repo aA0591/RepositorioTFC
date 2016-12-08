@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="com.webratio.ide.deploy.core.WebRatioCloudLaunchConfigurationType">
-<stringAttribute key="main.cloudApplication" value="freeapp"/>
+<stringAttribute key="main.cloudApplication" value=""/>
 <stringAttribute key="main.cloudBucket" value=""/>
 <stringAttribute key="main.cloudEnvironment" value=""/>
-<stringAttribute key="main.cloudService" value="WebRatioCloud:AA368391X8C19X4321XAC1FX044EF2B926E6"/>
+<stringAttribute key="main.cloudService" value=""/>
 <booleanAttribute key="main.validateProjectDependencies" value="false"/>
 <booleanAttribute key="model.authenticationAccess.adminEncryptPassword" value="false"/>
 <stringAttribute key="model.authenticationAccess.adminPassword" value=""/>

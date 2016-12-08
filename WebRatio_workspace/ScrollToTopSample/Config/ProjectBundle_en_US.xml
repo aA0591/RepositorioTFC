@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <Bundle>
+  <Entry key="go-to-top">^ Go to top ^</Entry>
   <Entry key="scroll-to-top">^ Scroll to top ^</Entry>
 </Bundle>

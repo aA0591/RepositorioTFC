@@ -15,7 +15,9 @@ jQuery(document).ready(function () {
 			else if(displayed == false)
 			{
 				displayed = true;
-				$message.stop(true, true).show().click(function () { $message.fadeOut(500); });
+				$message.stop(true, true).show().click(function () { $message.fadeOut(500); 
+				$("html, body").animate({ scrollTop: 0 }, "slow");
+				});
 			}
 		}, 100);
 	});
