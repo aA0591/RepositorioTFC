@@ -1,0 +1,29 @@
+<OperationGroup xmlns:gr="http://www.webratio.com/2006/WebML/Graph" id="mov2#mpkg5#opm1#opg1" name="User Operations" transaction="true" gr:x="280" gr:y="55">
+  <OperationUnits>
+    <TimeUnit id="mov2#mpkg5#opm1#opg1#tmu1" name="Current Time" gr:x="155" gr:y="10">
+      <OKLink id="mov2#mpkg5#opm1#opg1#tmu1#oln12" name="OKLink12" to="mov2#mpkg5#opm1#opg1#cru2">
+        <LinkParameter id="mov2#mpkg5#opm1#opg1#tmu1#oln12#par48" name="Current Date" source="currentDate" target="mov2#mpkg5#opm1#opg1#cru2.ent3#att10"/>
+        <LinkParameter id="mov2#mpkg5#opm1#opg1#tmu1#oln12#par49" name="Calendar Description" target="mov2#mpkg5#opm1#opg1#cru2.ent3#att11" sourceValue="Shared Calendar"/>
+        <LinkParameter id="mov2#mpkg5#opm1#opg1#tmu1#oln12#par50" name="Calendar Name" target="mov2#mpkg5#opm1#opg1#cru2.ent3#att9" sourceValue="Home Calendar"/>
+      </OKLink>
+    </TimeUnit>
+    <CreateUnit id="mov2#mpkg5#opm1#opg1#cru1" name="Create User" gr:x="0" gr:y="0" entity="User">
+      <OKLink id="mov2#mpkg5#opm1#opg1#cru1#oln13" name="OKLink13" to="mov2#mpkg5#opm1#opg1#tmu1"/>
+      <Link id="mov2#mpkg5#opm1#opg1#cru1#ln43" name="Link6" to="mov2#mpkg5#opm1#opg1#cru2" type="transport" automaticCoupling="true" validate="true" gr:bendpoints="145,-66,-190,-66"/>
+    </CreateUnit>
+    <ModifyUnit id="mov2#mpkg5#opm1#opg1#mfu3" name="Modify User" gr:x="160" gr:y="100" entity="User">
+      <Selector id="mov2#mpkg5#opm1#opg1#mfu3#su12" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="mov2#mpkg5#opm1#opg1#mfu3#su12#kcond35" name="User" predicate="in" implied="false"/>
+      </Selector>
+      <OKLink id="mov2#mpkg5#opm1#opg1#mfu3#oln15" name="OKLink7" to="mov2#mpkg5#opm1#okcu3"/>
+    </ModifyUnit>
+    <CreateUnit id="mov2#mpkg5#opm1#opg1#cru2" name="Create Calendar" gr:x="315" gr:y="0" entity="ent3">
+      <OKLink id="mov2#mpkg5#opm1#opg1#cru2#oln16" name="OKLink6" to="mov2#mpkg5#opm1#okcu3"/>
+    </CreateUnit>
+    <IsNotNullUnit id="mov2#mpkg5#opm1#opg1#inn3" name="User Exists?" gr:x="15" gr:y="115">
+      <OKLink id="mov2#mpkg5#opm1#opg1#inn3#oln17" name="OKLink2" to="mov2#mpkg5#opm1#opg1#mfu3"/>
+      <KOLink id="mov2#mpkg5#opm1#opg1#inn3#kln11" name="KOLink1" to="mov2#mpkg5#opm1#opg1#cru1"/>
+    </IsNotNullUnit>
+  </OperationUnits>
+  <KOLink id="mov2#mpkg5#opm1#opg1#kln13" name="KOLink11" to="mov2#mpkg5#opm1#kocu3" automaticCoupling="true"/>
+</OperationGroup>

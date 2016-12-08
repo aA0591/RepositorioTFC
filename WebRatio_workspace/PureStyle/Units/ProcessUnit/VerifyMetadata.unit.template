@@ -1,0 +1,121 @@
+#?delimiters [%, %], [%=, %]
+[%setHTMLOutput()
+
+def createLink = unit.selectSingleNode("layout:Link[@name='create']")
+def updateLink = unit.selectSingleNode("layout:Link[@name='update']")
+def forceUpdateLink = unit.selectSingleNode("layout:Link[@name='forceUpdate']")
+def deleteLink = unit.selectSingleNode("layout:Link[@name='delete']")
+def diagramLink = unit.selectSingleNode("layout:Link[@name='diagram']")
+
+def updateAllLink = unit.selectSingleNode("layout:Link[@name='updateAll']")
+def deleteAllLink = unit.selectSingleNode("layout:Link[@name='deleteAll']")
+
+def layoutId = getLayoutId(unit)
+
+%]
+<wr:RequireResource ref="wrdefault-bpm-style"/>
+<c:if test="${not(empty <wr:Id context="unit"/>)}">
+<wr:Frame>
+<div class="plain <wr:StyleClass/>">
+ <div class="plain ProcessUnit">
+	<c:if test="${not(empty <wr:Id context="unit"/>.status)}">
+	<div class="process-status status-${<wr:Id context="unit"/>.status}-icon">
+         <bean:message key="Process.metadata.${<wr:Id context="unit"/>.status}"/>
+	</div>	
+	</c:if>
+	
+	<table class="process-list pure-table pure-table-bordered">
+       <thead>
+       <tr>
+            <th class="<wr:StyleClass/> header small-cell">
+                <script>multiChoiceMap["[%= layoutId%]"] = "all"</script>
+                <a href="" onmouseover="this.cursor='pointer'" onmouseout="this.cursor='default'" onclick="return toggleCheckboxes('[%= layoutId%]', 'Checked')"> <img id="[%= layoutId%]image" src="WRResources/spacer.gif" class="unSelectAll" border="0" /></a>
+            </th>
+			<th class="<wr:StyleClass/> header">Process</th>
+			<th class="<wr:StyleClass/> header">Version</th>
+			<th class="<wr:StyleClass/> header">Status</th>	
+			<th class="<wr:StyleClass/> header small-cell" colspan="3">Commands</th>
+		</tr>
+		</thead>
+		<c:if test="${not(empty <wr:Id context="unit"/>.data)}">
+		<tbody>
+		   <c:forEach var="current" varStatus="status" items="${<wr:Id context="unit"/>.data}">
+		      <c:set var="index" value="${status.index}"/>
+		      <c:set var="processStatus" value="${current.status}"/>
+		      <tr class="row">
+		         <td class="<wr:StyleClass/> value small-cell status-${processStatus}">
+		           <c:choose>
+		             <c:when test="${current.status eq 'invalid'}">
+		                <html:multibox disabled="true" property="<wr:Id context="unit"/>Checked" styleClass="checkBox" value="${current.key}"/>
+		             </c:when>
+		             <c:otherwise>
+		                <html:multibox styleId="[%= layoutId%]_${index}" property="<wr:Id context="unit"/>Checked" styleClass="checkBox" value="${current.key}"/>
+		             </c:otherwise>
+		           </c:choose>
+		         </td>
+		         
+		         <td class="<wr:StyleClass/> value status-${processStatus}"><c:out value="${current.[%=getFieldName("processName")%]}"/></td>
+		         <td class="<wr:StyleClass/> value status-${processStatus}"><c:out value="${current.[%=getFieldName("processVersion")%]}"/></td>
+		         <td class="<wr:StyleClass/> value status-${processStatus}">${current.status}</td>
+		         <td class="<wr:StyleClass/> value status-${processStatus} small-cell">
+		         <c:choose>
+		           <c:when test="${current.status eq 'new'}">
+		               <a title="<wr:Label context="createLink"/>" href="<wr:URL context="createLink"/>">
+		               	<img src="Resources/create.png" alt="<wr:Label context="createLink"/>" title="<wr:Label context="createLink"/>"/>
+		               </a>
+		           </c:when>
+		           <c:when test="${current.status eq 'invalid'}">
+		               <a title="<wr:Label context="forceUpdateLink"/>" href="<wr:URL context="forceUpdateLink"/>">
+		               	<img src="Resources/forceUpdate.png" alt="<wr:Label context="forceUpdateLink"/>" title="<wr:Label context="forceUpdateLink"/>"/>
+		               </a>
+		           </c:when>
+		           <c:when test="${current.status eq 'outdated'}">
+		               <a title="<wr:Label context="updateLink"/>" href="<wr:URL context="updateLink"/>">
+		               	<img src="Resources/update.png" alt="<wr:Label context="updateLink"/>" title="<wr:Label context="updateLink"/>"/>
+		               </a>
+		           </c:when>
+		           <c:otherwise>
+		               <img src="Resources/update_dis.png" alt="<wr:Label context="updateLink"/>" title="<wr:Label context="updateLink"/>"/>
+		           </c:otherwise>
+		         </c:choose>
+		         </td>
+		         <td class="<wr:StyleClass/> value status-${processStatus} nowrap small-cell">
+		         <c:choose>
+		           <c:when test="${current.status ne 'new'}">
+		             <a title="<wr:Label context="deleteLink"/>" href="<wr:URL context="deleteLink"/>">
+		               	<img src="Resources/delete.png" alt="<wr:Label context="deleteLink"/>" title="<wr:Label context="deleteLink"/>"/>
+		             </a>
+		           </c:when>
+		           <c:otherwise><img src="Resources/delete_dis.png" alt="<wr:Label context="deleteLink"/>" title="<wr:Label context="deleteLink"/>"/></c:otherwise>
+		         </c:choose>
+		         </td>
+		         <td class="<wr:StyleClass/> value status-${processStatus} small-cell">
+		         	<a title="<wr:Label context="diagramLink"/>" href="<wr:URL context="diagramLink" position="'index'"/>" [% if (diagramLink["newWindow"] == "true") { %]target="_blank"[% } %]><img src="Resources/diagram.png" alt="<wr:Label context="deleteLink"/>" title="<wr:Label context="deleteLink"/>"/></a>
+		         </td>
+		      </tr>
+		      <c:if test="${not(empty current.details)}">
+		      <tr>
+		        <td colspan="7" class="status-${processStatus} detail" style="padding-left:50px">
+		            <ul>
+		            <c:forEach var="detail" items="${current.details}">
+		              <li><c:out value="${detail}"/></li>
+		            </c:forEach>
+		            </ul>
+		        </td>
+		      </tr>
+		      </c:if>
+		   </c:forEach>
+		</tbody>
+		</c:if>
+	</table>	
+    
+    <div class="button-bar">
+    	<wr:Link class="button" context="updateAllLink" type="button"/>
+        <wr:Link class="button" context="deleteAllLink" type="button"/>
+        <span class="error"><html:errors property="<wr:Id context="unit"/>Checked" /></span>
+    </div>         
+    
+   </div>
+  </div>   
+</wr:Frame>
+</c:if>   

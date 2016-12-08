@@ -1,0 +1,30 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" gr:x="190" gr:y="195" id="sv1#page1" name="Roadmap" landmark="true">
+  <ContentUnits>
+    <GoogleMapUnit gr:x="135" gr:y="15" id="sv1#page1#gmu1" name="Google Map" mapType="ROADMAP" mapCoordinates="45.541946,9.192696" mapZoomLevel="10" mapWidth="640" mapHeight="480" mapsProvider="sdp1w"/>
+    <SelectorUnit gr:x="0" gr:y="0" id="sv1#page1#seu1" name="Locations" entity="ent1">
+      <Link id="sv1#page1#seu1#ln1" name="Link1" to="sv1#page1#gmu1" type="transport" validate="true">
+        <LinkParameter id="sv1#page1#seu1#ln1#par1" name="info_Marker Info(s)" source="ent1#att5Array" target="sv1#page1#gmu1.markerInfo"/>
+        <LinkParameter id="sv1#page1#seu1#ln1#par2" name="title_Marker Title(s)" source="ent1#att2Array" target="sv1#page1#gmu1.markerTitle"/>
+        <LinkParameter id="sv1#page1#seu1#ln1#par3" name="coordinates_Marker Coordinates" source="ent1#att3Array" target="sv1#page1#gmu1.markerCoords"/>
+      </Link>
+    </SelectorUnit>
+  </ContentUnits>
+  <layout:Grid>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv1#page1#gmu1" layout:unitLayout="StoreTemplates/Default"/>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+</Page>

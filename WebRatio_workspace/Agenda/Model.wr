@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?webml version="7.2.0.4"?>
+
+<WebProject xmlns:gr="http://www.webratio.com/2006/WebML/Graph" outputPath="${webapps_loc}/${project_name}" gr:showUnitContent="true" httpPort="8080" httpsPort="8443" gr:showTooltip="true" enableBrowserIntegration="true" protectURL="false" digestType="provider">
+  <ServiceDataProviders>
+    <SMTPServer id="smtp1" name="MyMail" url="mail.provider.com" port="000" username="username" cryptedPassword="true" password="cGFzc3dvcmQ=" defaultFrom="myaddress@provider.com">
+      <Property id="smtp1#prop3" name="mail.smtp.ssl.enable" value="true"/>
+    </SMTPServer>
+  </ServiceDataProviders>
+  <BundleKey name="areyousure"/>
+  <BundleKey name="noappointments"/>
+  <BundleKey name="updating"/>
+  <BundleKey name="saving"/>
+  <BundleKey name="logging"/>
+  <Comment xml:space="preserve">This is the Calendar Project View.
+
+By default the views composing this project are:
+- Data Model View
+- Site Views
+	- Administration
+	- Calendar
+	- Public
+- Module View
+	- Calendar Modules
+	- User Modules
+- Service View
+	- Calendar Services
+
+The Calendar project by default depends on all the projects installed in your workspace.</Comment>
+  <BundleKey name="Welcome"/>
+</WebProject>

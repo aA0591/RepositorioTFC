@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StoreMapping> 
+  <ResourceBinding path="Units/StringsFunctionUnit" store="WebRatio Add-ons" versionId="174" itemId="44"/>  
+  <ResourceBinding path="Units/DatesFunctionUnit" store="WebRatio Add-ons" versionId="120" itemId="45"/>  
+  <ResourceBinding path="ValidationRules/textValidation" store="WebRatio Add-ons" versionId="371" itemId="108"/>
+</StoreMapping>

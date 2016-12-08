@@ -1,0 +1,8 @@
+#?delimiters <%,%>,<%=,%>
+<% setXMLOutput() %>
+
+<OutputParameters>
+	<% if (unit["isAdjustable"] == "true") { %>  	  
+		<OutputParameter name="mapCoordinates" label="Marker Coordinates"/>
+	<% } %>
+</OutputParameters>

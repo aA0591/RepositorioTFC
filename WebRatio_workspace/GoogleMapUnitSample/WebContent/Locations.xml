@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Root>
+  <Location>
+    <Instance>
+      <title>WebRatio Factory</title>
+      <info><![CDATA[<div>
+  <h1 style="border-bottom: 1px solid #001860;">WebRatio s.r.l.</h1>
+  <div>
+    <p><b>WebRatio Factory</b>: software factory, support and customer services.</p>
+    <p>Via Cavour, 2 22074 Lomazzo c/o Science and Technology Park</p>
+    <p>Web site: <a href="http://www.webratio.com">www.webratio.com</a></p>
+    <p>Email: <a href="mailto:contact@webratio.com">contact@webratio.com</a></p>
+  </div>
+</div>]]>
+      </info>
+      <coordinates>45.697038,9.034654</coordinates>
+    </Instance>
+    
+    <Instance>
+      <title>WebRatio Offices</title>
+      <info><![CDATA[<div>
+  <h1 style="border-bottom: 1px solid #001860;">WebRatio s.r.l.</h1>
+  <div>
+    <p><b>WebRatio Offices</b>: administrative and pre-sales offices.</p>
+    <p>Piazza Cadorna, 10 20123 Milano</p>
+    <p>Web site: <a href="http://www.webratio.com">www.webratio.com</a></p>
+    <p>Email: <a href="mailto:sales@webratio.com">sales@webratio.com</a></p>
+  </div>
+</div>]]>
+      </info>
+      <coordinates>45.468468,9.176694</coordinates>
+    </Instance>
+    
+     <Instance>
+      <title>WebRatio Ecuador</title>
+      <info><![CDATA[<div>
+  <h1 style="border-bottom: 1px solid #001860;">WebRatio s.r.l.</h1>
+  <div>
+    <p><b>WebRatio Cuenca</b>: administrative and service offices of Ecuador.</p>
+    <p>Alfonso Cordero y Manuel J. Calle, Atlantis Building, Cuenca, Ecuador</p>
+    <p>Web site: <a href="http://www.webratio.com">www.webratio.com</a></p>
+    <p>Email: <a href="mailto:support.ecuador@webratio.com">support.ecuador@webratio.com</a></p>
+  </div>
+</div>]]>
+      </info>
+      <coordinates>-2.908153,-79.003996</coordinates>
+    </Instance>
+    
+    
+  </Location>
+</Root>

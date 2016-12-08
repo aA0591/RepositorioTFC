@@ -1,0 +1,14 @@
+<Job xmlns:gr="http://www.webratio.com/2006/WebML/Graph" id="wsv1y#job1y" name="Fill Volatile Job" gr:x="210" gr:y="90">
+  <OperationUnits>
+    <InitJobUnit id="wsv1y#job1y#iju1y" name="Init Job" gr:x="0" gr:y="0">
+      <OKLink id="wsv1y#job1y#iju1y#oln1y" name="OKLink2" to="wsv1y#job1y#gxu2y" automaticCoupling="true"/>
+    </InitJobUnit>
+    <XMLInUnit id="wsv1y#job1y#xiu2y" name="Import" gr:x="240" gr:y="50" oldDocStyle="false">
+      <XMLInEntity id="wsv1y#job1y#xiu2y#xie2y" name="Argument" updatePolicy="noAction" useNames="true" entity="ent1"/>
+    </XMLInUnit>
+    <GetXMLUnit id="wsv1y#job1y#gxu2y" name="Read" gr:x="120" gr:y="50" sourceType="static" url="Arguments.xml">
+      <OKLink id="wsv1y#job1y#gxu2y#oln3y" name="OKLink2" to="wsv1y#job1y#xiu2y" automaticCoupling="true"/>
+    </GetXMLUnit>
+  </OperationUnits>
+  <Trigger id="wsv1y#job1y#trg1y" name="On Session Create" schedulePolicy="onSessionCreate"/>
+</Job>

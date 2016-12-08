@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Root>
+  <Argument>
+    <Instance>
+      <title>How to dynamically set page title</title>
+      <description>Hi, &lt;br&gt; I'm looking for solution to set page title basing on value from data &lt;br&gt; unit e.g. news title. So far, I find only one way to do this, by &lt;br&gt; adding &amp;lt;c:out /&amp;gt; tag which print news title in page template. Is there &lt;br&gt; way to set title in data unit template? &lt;br&gt; Thanks in advance &lt;br&gt; Wojciech Guzowski</description>
+      <author>wojt...@gmail.com (wojt3k9)</author>
+      <pubDate>2011-07-23 10:11:12.0</pubDate>
+    </Instance>
+    <Instance>
+      <title>Simple Conditional Rendering</title>
+      <description>Hi Everyone, &lt;br&gt; &lt;p&gt;I was wondering if someone could help me with a simple problem that I &lt;br&gt; am facing with WebML. &lt;br&gt; I have an entity called &amp;quot;News&amp;quot;, composed by attributes such as Title, &lt;br&gt; Content, and other information. &lt;br&gt; &lt;p&gt;So, I was designing a page with a Entry Unit, where user could input &lt;br&gt; text on it. This text would to filter News that contains the text,</description>
+      <author>fernando.tri...@gmail.com (Fernando Trinta)</author>
+      <pubDate>2011-07-21 16:13:07.0</pubDate>
+    </Instance>
+    <Instance>
+      <title>Confirm dialog su link</title>
+      <description>Ciao a tutti. &lt;br&gt; Sono un nuovo utilizzatore di webratio e mi sto perdendo in un &lt;br&gt; bicchiere d'acqua. &lt;br&gt; Esiste un modo per associare un confirm dialog javascript a un link &lt;br&gt; mediante IDE webratio oppure l'unica soluzione &#233; agire sulla pagina &lt;br&gt; jsp aggiungendo a mano la visualizzazione del dialog all'evento</description>
+      <author>alessandro.pezz...@k-lever.it (Alessandro P.)</author>
+      <pubDate>2011-07-14 14:51:05.0</pubDate>
+    </Instance>
+    <Instance>
+      <title>Setting up MS SQL Server 2008 R2</title>
+      <description>I'm trying to connect to MS SQL Server 2008 r2, from a simple &lt;br&gt; WebRatio application. However I have a few questions: &lt;br&gt; &lt;p&gt;When it asks for the default schema, which item should I select ? &lt;br&gt; &lt;p&gt;INFORMATION_SCHEMA &lt;br&gt; dbo &lt;br&gt; sys &lt;br&gt; guest &lt;br&gt; &lt;p&gt;those are a few listed in the window. &lt;br&gt; &lt;p&gt;After that I suppose I have to synchronize the databases, however it</description>
+      <author>pablovela...@gmail.com (Pablo)</author>
+      <pubDate>2011-07-04 21:33:52.0</pubDate>
+    </Instance>
+    <Instance>
+      <title>Stile su pagine Ajax</title>
+      <description>Volendo modificare lo stile grafico di una pagina Ajax a quale livello &#232; &lt;br&gt; necessario agire? &lt;br&gt; Posso definire di usare un foglio stile specifico nelle propriet&#224; della &lt;br&gt; pagina. &lt;br&gt; Quali Tag css vengono utilizzati?</description>
+      <author>cossu.gabri...@gmail.com (Gabriele Cossu)</author>
+      <pubDate>2011-06-30 11:51:52.0</pubDate>
+    </Instance>
+    <Instance>
+      <title>Connettere le varie Site View</title>
+      <description>Ciao a tutti, &lt;br&gt; &lt;p&gt;ho un problema con la gestione delle site view.Mi spiego meglio: &lt;br&gt; Ho 3 viste una Pubblica(Login) e 2 con accesso vincolato al login. &lt;br&gt; Come faccio a fare in modo che a seconda del gruppo dell'utente che &lt;br&gt; effettua l'accesso, &lt;br&gt; viene redirezionato alla siteview di competenza. &lt;br&gt; &lt;p&gt;Spero dio essermi spiegato.</description>
+      <author>francescal...@gmail.com (Francesco Scalise)</author>
+      <pubDate>2011-06-29 07:30:41.0</pubDate>
+    </Instance>
+    <Instance>
+      <title>Autocomplete on Ajax Windows</title>
+      <description>I have modeled a entry unit with a autocompletion field as shown in the &lt;br&gt; tutorial. &lt;br&gt; If i put my model in a normal page it works, but if the page containing the &lt;br&gt; entry unit is an ajax window it doesn't work. &lt;br&gt; Any suggestion?</description>
+      <author>cr...@libero.it (crich)</author>
+      <pubDate>2011-06-24 13:50:02.0</pubDate>
+    </Instance>
+    <Instance>
+      <title>MYSQL driver</title>
+      <description>I am trying to create a new BAM project but when I try to setup the &lt;br&gt; connection parameters I get the error that the class for the MYSQL &lt;br&gt; driver is not found. Where can I add the driver for Webratio so that I &lt;br&gt; can complete the connection wizard? &lt;br&gt; &lt;p&gt;Thanx in advance...</description>
+      <author>vasko.gjurov...@gmail.com (Vasko Gjurovski)</author>
+      <pubDate>2011-06-23 08:31:07.0</pubDate>
+    </Instance>
+    <Instance>
+      <title>Link Visibility Conditions not working</title>
+      <description>Hi, &lt;br&gt; &lt;p&gt;i exactly follow this tutorial &amp;quot;Link Visibility Conditions&amp;quot; ( &lt;br&gt; &lt;a target="_blank" rel=nofollow href="http://wiki.webratio.com/index.php/Getting_started_with_Visibility_Conditions"&gt;[link]&lt;/a&gt; &lt;br&gt; ) but after all in the Properties View of a link I cannot see a new &lt;br&gt; tab for a link visibility condition. &lt;br&gt; &lt;p&gt;I can only see the condition in the properties dialog of the _page_.</description>
+      <author>ch.sunt...@web.de (Chris)</author>
+      <pubDate>2011-06-21 20:24:04.0</pubDate>
+    </Instance>
+    <Instance>
+      <title>Modeling loops.</title>
+      <description>Hallo, &lt;br&gt; &lt;p&gt;I wasn&#180;t able to figure out how to model loops. I wanted to model a &lt;br&gt; survey tool, but for the &amp;quot;reply-part&amp;quot; I need a loop to walk through &lt;br&gt; the questions of a specific survey. &lt;br&gt; &lt;p&gt;The datamodel consists of a survey with a name, state and password. &lt;br&gt; Every survey has a bunch of questions. &lt;br&gt; &lt;p&gt;To reply a survey the user should login with the password. Password</description>
+      <author>m.baumg...@gmail.com (Matthias Baumgart)</author>
+      <pubDate>2011-06-21 17:51:51.0</pubDate>
+    </Instance>
+    <Instance>
+      <title>Modeling Login</title>
+      <description>Hello, &lt;br&gt; &lt;p&gt; I have some trouble modeling a simple login for a blog application. &lt;br&gt; I created two siteviews one public and one protected for the &lt;br&gt; administration. On the public siteview I created an entry unit with &lt;br&gt; username and password field inside the homepage. Outside the page I &lt;br&gt; created the loginunit and connected it with the entry unit (coupled</description>
+      <author>m.baumg...@gmail.com (Matthias Baumgart)</author>
+      <pubDate>2011-06-19 21:10:30.0</pubDate>
+    </Instance>
+    <Instance>
+      <title>How can I use "request.getQueryString();" in a correct way??</title>
+      <description>Hi dear all. I was tryng to pass some information from a template to another &lt;br&gt; template using custom content units, I was understanding Emmanuels D'Andreis &lt;br&gt; TagCloudUnit, and I saw that there it is used, I tried to emulate with a &lt;br&gt; simple example only passing HelloWorld&#168; but it didn't work. Later I read&#209;</description>
+      <author>sapa...@gmail.com (Santiag Apaza)</author>
+      <pubDate>2011-06-18 22:51:52.0</pubDate>
+    </Instance>
+    <Instance>
+      <title>Aggiunta libreria Mysql</title>
+      <description>Ciao a tutti. Mi avvicino ora a WebRatio per un progetto e siccome ho &lt;br&gt; utilizzato Java solo per l'universit&#224;, vorrei sapere come fare per &lt;br&gt; aggiungere il jar della libraria mysql. &lt;br&gt; &lt;p&gt;Grazie in anticipo. &lt;br&gt; &lt;p&gt;Francesco</description>
+      <author>francescal...@gmail.com (Francesco Scalise)</author>
+      <pubDate>2011-06-13 18:26:33.0</pubDate>
+    </Instance>
+    <Instance>
+      <title>plugin</title>
+      <description>hello, i was trying to use a plugin in webratio, usually as in any &lt;br&gt; eclipse distribution, by putting the plugin in the plugin folder it &lt;br&gt; works, but here i doesn't seems to work, does any one know how can i &lt;br&gt; do it?</description>
+      <author>fgiac...@gmail.com (GiacosaF)</author>
+      <pubDate>2011-06-08 17:59:37.0</pubDate>
+    </Instance>
+    <Instance>
+      <title>Calendar unit</title>
+      <description>I'm using the Calendar Unit based on a entity. &lt;br&gt; When I make a reload of the page, the unit uses the current date to render &lt;br&gt; the calendar. &lt;br&gt; Is it possible to define the actual date that the unit must use to select &lt;br&gt; the period? &lt;br&gt; Thanks &lt;br&gt; gabriele</description>
+      <author>cossu.gabri...@gmail.com (Gabriele Cossu)</author>
+      <pubDate>2011-06-06 08:42:58.0</pubDate>
+    </Instance>
+    <Instance>
+      <title>WebRatio 6.1 has just been released!</title>
+      <description>WebRatio 6.1 has just been released! &lt;br&gt; &lt;p&gt; *Download WebRatio 6.1* *Discover the Release Notes* *How to Use WebRatio &lt;br&gt; 6.1?* [image: Download WebRatio]&amp;lt;&lt;a target="_blank" rel=nofollow href="http://www.webratio.com/portal/downloadPage/en/Download"&gt;[link]&lt;/a&gt;&amp;gt; [image: &lt;br&gt; WebRatio - Visual Model Debug]&amp;lt;&lt;a target="_blank" rel=nofollow href="http://downloads.webratio.com/6.1/ReleaseNotes.html"&gt;[link]&lt;/a&gt;&amp;gt; [image:</description>
+      <author>elena.cavicchi...@gmail.com (WebRatio Staff)</author>
+      <pubDate>2011-06-06 07:54:49.0</pubDate>
+    </Instance>
+    <Instance>
+      <title>Can you use one selector unit in multiple pages?</title>
+      <description>Hi, &lt;br&gt; I realized I got multiple selector units with exactly the same &lt;br&gt; function in different pages. Can I replace them with a single selector &lt;br&gt; unit? I tired placing the selector unit outside of pages, but it only &lt;br&gt; works when I use an OK link. Since the unit can have only one OK link &lt;br&gt; at a time, I'm back to one per page again.</description>
+      <author>kp...@gmx.de (Kai)</author>
+      <pubDate>2011-05-31 15:02:44.0</pubDate>
+    </Instance>
+    <Instance>
+      <title>Help: Error creating service</title>
+      <description>Hi, &lt;br&gt; when I generate a full web project in WebRatio Enterprise and open it &lt;br&gt; in a browser, I often get this error: &lt;br&gt; &lt;p&gt;com.webratio.rtx.RTXException: Error creating service: page1 - WEB-INF/ &lt;br&gt; descr/page1.descr &lt;br&gt; at &lt;br&gt; com.webratio.rtx.core.ServiceP&lt;wbr&gt;rovider.createServiceFromClass&lt;wbr&gt;(ServiceProvider.java: &lt;br&gt; 139)</description>
+      <author>kp...@gmx.de (Kai)</author>
+      <pubDate>2011-05-25 13:52:32.0</pubDate>
+    </Instance>
+    <Instance>
+      <title>Group Management - help</title>
+      <description>Hi, I have a problem with the group management. &lt;br&gt; I read it: &lt;a target="_blank" rel=nofollow href="http://wiki.webratio.com/index.php/How_to_manage_users_and_groups"&gt;[link]&lt;/a&gt; &lt;br&gt; but I do not know what to give the &amp;quot;Group Form&amp;quot; to &amp;quot;Connect protected &lt;br&gt; modules&amp;quot; in the link. &lt;br&gt; Can someone help and make this project &amp;quot;group management&amp;quot; and put on &lt;br&gt; some server?</description>
+      <author>piotr.wro...@gmail.com (Piotr)</author>
+      <pubDate>2011-05-21 08:52:53.0</pubDate>
+    </Instance>
+    <Instance>
+      <title>Giving styles to a Search Box created with an Entry Unit</title>
+      <description>Hi everyone! I'm trying to create a simple project with &lt;br&gt; WebRatioPersonal, but I have some problems. I want to include a Search &lt;br&gt; Box in my project, but it doesn't works with styles. If I don't use &lt;br&gt; styles, I mean if I change the Layout into WRDefault/Default, the &lt;br&gt; Search Box works perfectly. &lt;br&gt; I think the problem is that I havent created the unit layouts</description>
+      <author>ionelatom...@gmail.com (ionela)</author>
+      <pubDate>2011-05-20 08:30:25.0</pubDate>
+    </Instance>
+    <Instance>
+      <title>When REST?</title>
+      <description>Hello! &lt;br&gt; &lt;p&gt;A few months ago I asked about REST support, and I was told that maybe &lt;br&gt; 6.2 will include it. &lt;br&gt; &lt;p&gt;Do you have this feature in your roadmap for future versions? &lt;br&gt; &lt;p&gt;Thanks a lot for help.</description>
+      <author>riru...@yahoo.es (Ricardo)</author>
+      <pubDate>2011-05-16 21:55:12.0</pubDate>
+    </Instance>
+    <Instance>
+      <title>mda features</title>
+      <description>Which features a tool has to be considered an MDA tool?</description>
+      <author>ricfe...@gmail.com (ricferal)</author>
+      <pubDate>2011-05-15 01:15:54.0</pubDate>
+    </Instance>
+    <Instance>
+      <title>tool MDA</title>
+      <description>Hello everyone, &lt;br&gt; Is there any tool more MDA used in the market?</description>
+      <author>ricfe...@gmail.com (ricferal)</author>
+      <pubDate>2011-05-15 00:15:57.0</pubDate>
+    </Instance>
+    <Instance>
+      <title>Path relativo del website in una script unit</title>
+      <description>Salve a tutti, &lt;br&gt; ho implementato uno script che esegue un comando da shell richiamando &lt;br&gt; l'eseguibile salvato nella cartella WebContent del progetto, che come &lt;br&gt; input richiede un file con estensione .pg6 salvato anch'esso nella &lt;br&gt; WebContent. &lt;br&gt; &lt;p&gt;def compile=&amp;quot;/home/hela/apache-tom&lt;wbr&gt;cat-6.0.26/webapps/SiSQ/Resour&lt;wbr&gt;ces/</description>
+      <author>alessia.sar...@gmail.com (Hela)</author>
+      <pubDate>2011-05-06 10:30:54.0</pubDate>
+    </Instance>
+    <Instance>
+      <title>generare file excell</title>
+      <description>buongiorno. &lt;br&gt; &lt;p&gt;Sto cercando di generare un file excell per esportare dei dati. &lt;br&gt; &lt;p&gt;per esempio da una entri unit ho una lista di email che voglio &lt;br&gt; incollare in un file excel. &lt;br&gt; Il file excell pero' non esiste. voglio qualcosa tipo: &lt;br&gt; &lt;p&gt;&amp;quot;ESPORTA IN EXCELL&amp;quot; che copia il contenuto della entry unit, lo &lt;br&gt; incolla in un file excell e m lo faccia scaricare in locale.</description>
+      <author>magnoni...@gmail.com (Stefano Magnoni)</author>
+      <pubDate>2011-04-27 11:34:36.0</pubDate>
+    </Instance>
+    <Instance>
+      <title>Meta-Model</title>
+      <description>Hi All, &lt;br&gt; Does the current version of WebRatio use MOF-based meta models? I found a &lt;br&gt; couple of papers citing work on mapping to MOF but I can't seem to find &lt;br&gt; anything on the wiki. &lt;br&gt; Cheers &lt;br&gt; Eban</description>
+      <author>e...@frontedge.tv (Eban Escott)</author>
+      <pubDate>2011-04-14 07:27:31.0</pubDate>
+    </Instance>
+    <Instance>
+      <title>New look and feel for www.webratio.com</title>
+      <description>A new look and feel for our website &lt;a target="_blank" rel=nofollow href="http://www.webratio.com"&gt;[link]&lt;/a&gt; ! &lt;br&gt; Do you like it??? :)</description>
+      <author>elena.cavicchi...@gmail.com (WebRatio Staff)</author>
+      <pubDate>2011-04-12 14:45:34.0</pubDate>
+    </Instance>
+    <Instance>
+      <title>Data Object Creation</title>
+      <description>Hi All &lt;br&gt; &lt;p&gt;I'm facing some troubles with WebRratio. First of all, I can't find a &lt;br&gt; clean way to represent the &amp;quot;Information Flow&amp;quot; into processes, &lt;br&gt; theoretically I should create a data-object and link to a task with a &lt;br&gt; &amp;quot;message flow&amp;quot;, but i still cannot create a data-object. &lt;br&gt; &lt;p&gt;I think maybe my &amp;quot;Information file&amp;quot; (Like an .xls file creation made</description>
+      <author>designer....@gmail.com (G. Meroni)</author>
+      <pubDate>2011-04-05 21:44:53.0</pubDate>
+    </Instance>
+    <Instance>
+      <title>Code issues</title>
+      <description>Hi, &lt;br&gt; &lt;p&gt;I was wonderin if anyone can help me with a few issues i have with &lt;br&gt; creating page templates. &lt;br&gt; &lt;p&gt;My problem is that i do not undestand how the href link works... I &lt;br&gt; have seen the tutorial &amp;quot;Create a style project from a mock up&amp;quot; and the &lt;br&gt; line: &lt;br&gt; [% def homePage = &lt;br&gt; getById(page.selectSingleNode(&lt;wbr&gt;&amp;quot;ancestor::SiteView&amp;quot;).valueOf(&lt;wbr&gt;&amp;quot;@homePage&amp;quot;))</description>
+      <author>elizyau1...@hotmail.com (Liz)</author>
+      <pubDate>2011-04-05 11:36:44.0</pubDate>
+    </Instance>
+    <Instance>
+      <title>Custom Units Repository</title>
+      <description>Hi all, &lt;br&gt; &lt;p&gt;I remember myself looking a quite long repository of Custom Units &lt;br&gt; (e.g., Paypal Unit, some mathematical functions,...). I think it was &lt;br&gt; in the old Webratio website under a category called Community (but I'm &lt;br&gt; not completely sure about this point). Anyway, I can't find this &lt;br&gt; repository now. Anyone now where is it?</description>
+      <author>marino.lin...@gmail.com (mlinaje)</author>
+      <pubDate>2011-04-01 17:55:43.0</pubDate>
+    </Instance>
+    <Instance>
+      <title>New Google Groups...GREAT!</title>
+      <description>Hi everybody, &lt;br&gt; I suggest you to switch immediately to the new Google groups layout; you can &lt;br&gt; do this from this page: &lt;br&gt; - &lt;a target="_blank" rel=nofollow href="https://groups.google.com/forum/#!overview"&gt;[link]&lt;/a&gt; &lt;br&gt; In my opinion that's a good improvement! What do you think?</description>
+      <author>gianni.foie...@gmail.com (whatcoow)</author>
+      <pubDate>2011-03-11 14:04:34.0</pubDate>
+    </Instance>
+    <Instance>
+      <title>New user.... Help!!</title>
+      <description>Hey all, &lt;br&gt; &lt;p&gt;I am a new user of webratio personal version 6 and i am studying webML &lt;br&gt; for my dissertation. Hope you guys can help me, it will be much &lt;br&gt; appreciated. &lt;br&gt; &lt;p&gt;Basically, I have just downloaded the programme to implement my &lt;br&gt; project and i am having a couple of problems. 1 is that i need to &lt;br&gt; register each time i open webratio and 2 is that for some reason i</description>
+      <author>elizyau1...@hotmail.com (Liz)</author>
+      <pubDate>2011-03-11 12:12:31.0</pubDate>
+    </Instance>
+    <Instance>
+      <title>Excel Unit</title>
+      <description>salve a tutti &lt;br&gt; &lt;p&gt;ho delle domande riguardo l'Excel Unit: &lt;br&gt; &lt;p&gt;1) tra le propriet&#224; ho constatato che &#232; possibile impostare dei &lt;br&gt; parametri per scegliere il foglio, la colonna e la riga di interesse; &lt;br&gt; in questo ultimo caso, la lettura delle righe, &#232; anche possibile &lt;br&gt; utilizzare l'operatore ':' (due punti) per dichiarare una serie</description>
+      <author>sere.stef...@gmail.com (Serena)</author>
+      <pubDate>2011-03-10 15:35:51.0</pubDate>
+    </Instance>
+    <Instance>
+      <title>Do you want to participate at WebRatio 6.1 Beta Program?</title>
+      <description>*WebRatio 6.1 BETA *is now available! &lt;br&gt; You can read the main release notes here: &lt;br&gt; - &lt;a target="_blank" rel=nofollow href="http://bit.ly/hkC7yq"&gt;[link]&lt;/a&gt; &lt;br&gt; &lt;p&gt;Contact us at beta.prog...@webratio.com to join the beta testing program! &lt;br&gt; Thanks in advance...</description>
+      <author>elena.cavicchi...@gmail.com (WebRatio Staff)</author>
+      <pubDate>2011-03-10 11:18:59.0</pubDate>
+    </Instance>
+    <Instance>
+      <title>Questions about using REST web services</title>
+      <description>Hello! &lt;br&gt; &lt;p&gt;I really wanted to try using REST services, publishing and invocating &lt;br&gt; them. &lt;br&gt; &lt;p&gt;I only see this in docs: &lt;br&gt; &lt;a target="_blank" rel=nofollow href="http://wiki.webratio.com/index.php/Getting_started_with_Web_Services#REST_Invocation"&gt;[link]&lt;/a&gt; &lt;br&gt; &lt;p&gt;Is there any more info about REST? How can I publish a REST ws? &lt;br&gt; &lt;p&gt;If I want to consume a REST ws, do I always have to use this style?</description>
+      <author>riru...@yahoo.es (Ricardo)</author>
+      <pubDate>2011-03-10 01:03:31.0</pubDate>
+    </Instance>
+    <Instance>
+      <title>sorgenti</title>
+      <description>la mia domanda &#232;: &lt;br&gt; una volta creato il modello (sia il DataModel ch il WebModel), e &lt;br&gt; avviata l'applicazione sull'ApplicationServer che nel mio caso &#232; &lt;br&gt; Tomcat, dove vanno a finire i sorgenti nell'application server? &lt;br&gt; &#232; spossibile agire su questi sorgenti per effettuare delle modifiche? &lt;br&gt; &lt;p&gt;grazie &lt;br&gt; Serena</description>
+      <author>sere.stef...@gmail.com (Serena)</author>
+      <pubDate>2011-02-17 11:32:46.0</pubDate>
+    </Instance>
+    <Instance>
+      <title>How to use a WebRatio UNIT - new tutorials available</title>
+      <description>We have just published on our *Wiki* 5 news articles about 'How to use the &lt;br&gt; Units'. &lt;br&gt; Please click on the following links to read the tutorials: &lt;br&gt; - Get Unit &amp;lt;&lt;a target="_blank" rel=nofollow href="http://wiki.webratio.com/index.php/Get_Unit"&gt;[link]&lt;/a&gt;&amp;gt; &lt;br&gt; - Set Unit &amp;lt;&lt;a target="_blank" rel=nofollow href="http://wiki.webratio.com/index.php/Set_Unit"&gt;[link]&lt;/a&gt;&amp;gt; &lt;br&gt; - Reset Unit &amp;lt;&lt;a target="_blank" rel=nofollow href="http://wiki.webratio.com/index.php/Reset_Unit"&gt;[link]&lt;/a&gt;&amp;gt;</description>
+      <author>elena.cavicchi...@gmail.com (WebRatio Staff)</author>
+      <pubDate>2011-02-11 08:51:25.0</pubDate>
+    </Instance>
+    <Instance>
+      <title>Questions about scalability, relational databases and cloud computing.</title>
+      <description>Hello! &lt;br&gt; &lt;p&gt;I have some questions about scalability, relational databases and &lt;br&gt; cloud computing. &lt;br&gt; &lt;p&gt;Let's say I create a web information system, and, moreover, it has a &lt;br&gt; REST or SOAP interface for an iPhone client. &lt;br&gt; As you know, there are about 147 millions of iOS devices, so if your &lt;br&gt; app is a success, you are goung to have many many requests in your</description>
+      <author>riru...@yahoo.es (Ricardo)</author>
+      <pubDate>2011-02-09 17:40:54.0</pubDate>
+    </Instance>
+    <Instance>
+      <title>Customizzazione web application</title>
+      <description>Salve, ho scaricato una versione free del prodotto. Ho creato un &lt;br&gt; processo con una form e l'ho deployato sul server tomcat. L'ho &lt;br&gt; lanciato e testato e fino ad ora tutto ok. &lt;br&gt; Se volessi customizzare l'applicazione associando ai task un &lt;br&gt; handlerAction come dovrei fare. C'&#232; una user developer guide che posso</description>
+      <author>luigicolell...@gmail.com (gigino)</author>
+      <pubDate>2011-02-04 16:20:45.0</pubDate>
+    </Instance>
+    <Instance>
+      <title>confiurazione per Email</title>
+      <description>volevo sapere quali sono i passi necessari per avviare le funzioni &lt;br&gt; email. &lt;br&gt; &lt;p&gt;va configurato Tomcat? &lt;br&gt; se si quale file, quali parametri, quali elementi? &lt;br&gt; &lt;p&gt;basta dare delle impostazioni a webratio? &lt;br&gt; quali impostazioni? in quale elemento? &lt;br&gt; &lt;p&gt;grazie del supporto &lt;br&gt; Serena &lt;br&gt; &lt;p&gt;********ING &lt;br&gt; I wanted to know what are the steps needed to start the email</description>
+      <author>sere.stef...@gmail.com (Serena)</author>
+      <pubDate>2011-02-02 16:45:30.0</pubDate>
+    </Instance>
+    <Instance>
+      <title>Problema in Ubuntu 10.04</title>
+      <description>Rispondo ad una mail di Giugno 2010. &lt;br&gt; Come far girare WebRatio su Ubuntu a 64 bit: &lt;br&gt; 1)Installare una jvm a 32 bit (non &#232; necessario disintallare la jvm a 64bit) &lt;br&gt; 2)Aprire con un editor il file WebRatio.ini presente nella cartella di &lt;br&gt; installazione del tool &lt;br&gt; 3)In cima al file aggiungere le righe &lt;br&gt; -vm &lt;br&gt; PATH_COMPLETO_DELLA_JVM_A_32_B&lt;wbr&gt;IT (es.: /usr/java32/jre1.6.0_23/bin/ja&lt;wbr&gt;va)</description>
+      <author>catena.mat...@gmail.com (Matteo Catena)</author>
+      <pubDate>2011-01-27 16:03:56.0</pubDate>
+    </Instance>
+    <Instance>
+      <title>Error Page</title>
+      <description>Hi, &lt;br&gt; &lt;p&gt;How we can make Error page specified in Web Model to be more &lt;br&gt; descriptive, rather than just showing &amp;quot;Unable to process request&amp;quot; &lt;br&gt; etc.? &lt;br&gt; &lt;p&gt;I would like to render more information, and a customized message to &lt;br&gt; understand what has failed? &lt;br&gt; &lt;p&gt;Thanks, &lt;br&gt; Preet</description>
+      <author>preet.jo...@gmail.com (Preet Johal)</author>
+      <pubDate>2011-01-27 12:01:49.0</pubDate>
+    </Instance>
+    <Instance>
+      <title>question</title>
+      <description>Hi, my name es Franco Giacosa, im from Argentina, im doing my thesis &lt;br&gt; in model transformations, from a web a requirement model to a webML &lt;br&gt; model in webratio, i was wondering if any one can help me, i need to &lt;br&gt; create an XML model and import it to webratio, is there any &lt;br&gt; documentation about wich is the best way to import a project in to</description>
+      <author>fgiac...@gmail.com (GiacosaF)</author>
+      <pubDate>2011-01-24 17:41:05.0</pubDate>
+    </Instance>
+    <Instance>
+      <title>definizione campi not null</title>
+      <description>salve a tutti &lt;br&gt; sono alla ricerca della modait&#224; per definire un campo not null su &lt;br&gt; webratio. &lt;br&gt; Qualcuno ha dei sugeriementi? &lt;br&gt; &lt;p&gt;hello &lt;br&gt; I'm looking for something that allows me to define fields as not &lt;br&gt; null. Can you give me tips? &lt;br&gt; &lt;p&gt;Serena</description>
+      <author>akelaro...@gmail.com (Serena)</author>
+      <pubDate>2011-01-20 15:41:02.0</pubDate>
+    </Instance>
+    <Instance>
+      <title>Design of hypertext for data entry wizard</title>
+      <description>Hi, &lt;br&gt; &lt;p&gt;I am planning to implement a Wizard interface for a data capture form &lt;br&gt; to obtain information about different aspects of an object, each &lt;br&gt; aspect showing data entry fields in one screen of the wizard. &lt;br&gt; &lt;p&gt;E.g. If there are 3 steps in the wizard, user will enter the value at &lt;br&gt; 1 step, and then click Next, and then enter forms value at Step 2, and</description>
+      <author>preet.jo...@gmail.com (Preet Johal)</author>
+      <pubDate>2011-01-13 22:42:47.0</pubDate>
+    </Instance>
+    <Instance>
+      <title>Query on hypertext design</title>
+      <description>Hi, &lt;br&gt; &lt;p&gt;I am designing an application hypertext as following: &lt;br&gt; - Registration Site View (Public): For new user registration &lt;br&gt; - Application Site View (Protected): Users can access via login page &lt;br&gt; only &lt;br&gt; &lt;p&gt;Now I want to provide single HOME page, which should show above two &lt;br&gt; options and then navigate user accordingly.</description>
+      <author>preet.jo...@gmail.com (Preet Johal)</author>
+      <pubDate>2011-01-11 23:11:43.0</pubDate>
+    </Instance>
+    <Instance>
+      <title>How much does WebRatio cost?</title>
+      <description>Hello everybody! &lt;br&gt; &lt;p&gt;We published a new section LICENSING and PRICES: &lt;a target="_blank" rel=nofollow href="http://bit.ly/hY6MLY"&gt;[link]&lt;/a&gt; &lt;br&gt; &lt;p&gt;In order to accede to the price list you have to REGISTER on our &lt;br&gt; portal: &lt;a target="_blank" rel=nofollow href="http://bit.ly/hvRuRC"&gt;[link]&lt;/a&gt;</description>
+      <author>elena.cavicchi...@gmail.com (WebRatio Staff)</author>
+      <pubDate>2011-01-11 07:53:01.0</pubDate>
+    </Instance>
+    <Instance>
+      <title>DOM Navigation and Form Validation</title>
+      <description>Hi everyone, I'm quite new to WebRatio and I have some question to ask &lt;br&gt; you. &lt;br&gt; &lt;p&gt;First of all I'm trying to understand how to make a template project &lt;br&gt; for an index unit. In particular I'm trying to retrieve some &lt;br&gt; information about an image saved into the database. &lt;br&gt; &lt;p&gt;I created a template for my photos:</description>
+      <author>nicol...@xfreeman17.it (Nicola17)</author>
+      <pubDate>2011-01-07 15:54:51.0</pubDate>
+    </Instance>
+    <Instance>
+      <title>Script unit: calculate difference from two dates</title>
+      <description>Hello, &lt;br&gt; I'm using webratio scripting unit. I used the groovy console to write &lt;br&gt; a script that calculates how many days difference there are between &lt;br&gt; two dates. &lt;br&gt; And it works perfectly. But when I imported to webratio, it doesn't &lt;br&gt; work: &lt;br&gt; &lt;p&gt;//inputs=data1|data2 &lt;br&gt; import static java.lang.Math.* &lt;br&gt; import java.util.*</description>
+      <author>luciano.cau...@gmail.com (Speciosus)</author>
+      <pubDate>2011-01-06 22:33:17.0</pubDate>
+    </Instance>
+    <Instance>
+      <title>Can I create something similar to an online UML editor?</title>
+      <description>Hello! &lt;br&gt; &lt;p&gt;I beleive this is not possible with WebML, but I prefer to ask. &lt;br&gt; My information system webapp has one feature that allows users to &lt;br&gt; create a very smallk diagram that describes game narrative, just &lt;br&gt; connecting a few boxes with arrows, not really complex, it is a &lt;br&gt; extremly simple metamodel (diagrams user create have to be saved and</description>
+      <author>riru...@yahoo.es (Ricardo)</author>
+      <pubDate>2011-01-05 22:55:49.0</pubDate>
+    </Instance>
+  </Argument>
+</Root>

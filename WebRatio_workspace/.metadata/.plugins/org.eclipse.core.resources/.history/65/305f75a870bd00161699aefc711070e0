@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<classpath> 
+  <classpathentry kind="src" path="src"/>  
+  <classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>  
+  <classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>  
+  <classpathentry kind="output" path="bin"/>  
+  <classpathentry kind="lib" path="lib/httpclient4.jar"/>  
+  <classpathentry kind="lib" path="lib/httpcore4.jar"/>  
+  <classpathentry kind="lib" path="lib/httpmime4.jar"/>  
+  <classpathentry kind="lib" path="lib/json-rpc.jar"/>  
+  <classpathentry kind="lib" path="lib/signpost-commonshttp4.jar"/>  
+  <classpathentry kind="lib" path="lib/signpost-core.jar"/>  
+  <classpathentry kind="lib" path="lib/google-api-client.jar"/>  
+  <classpathentry kind="lib" path="lib/google-api-services-drive.jar"/>  
+  <classpathentry kind="lib" path="lib/google-http-client-jackson.jar"/>  
+  <classpathentry kind="lib" path="lib/google-http-client.jar"/>  
+  <classpathentry kind="lib" path="lib/google-oauth-client.jar"/>  
+  <classpathentry kind="lib" path="lib/twitter4j-core.jar"/>  
+  <classpathentry kind="lib" path="lib/twitter4j-media-support.jar"/>  
+  <classpathentry kind="lib" path="lib/wr-commons-store.jar" sourcepath="lib/wr-commons-storesrc.zip"/>  
+  <classpathentry kind="con" path="com.webratio.ide.ui.WEBRATIO_CONTAINER/22"/>  
+  <classpathentry kind="lib" path="lib/json_simple.jar"/>
+</classpath>

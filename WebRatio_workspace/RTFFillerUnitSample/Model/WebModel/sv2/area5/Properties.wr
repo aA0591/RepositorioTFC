@@ -1,0 +1,38 @@
+<Area xmlns:gr="http://www.webratio.com/2006/WebML/Graph" id="sv2#area5" name="Use dynamic RTF template with predefined place holders" landmark="true" gr:x="320" gr:y="140" defaultPage="sv2#area5#dlu1">
+  <OperationUnits>
+    <RTFFillerUnit id="sv2#area5#rtffu6" name="Template Filler" gr:x="790" gr:y="283" mode="filler">
+      <OKLink id="sv2#area5#rtffu6#oln13" name="OKLink11" to="sv2#area5#miu5">
+        <LinkParameter id="sv2#area5#rtffu6#oln13#par45" name="RTF Document_blob" source="rtfDocument" target="sv2#area5#miu5.mov1#opm1#icu1#icp1"/>
+      </OKLink>
+      <PlaceHolder id="sv2#area5#rtffu6#ph13" name="WebRatioDescription"/>
+      <PlaceHolder id="sv2#area5#rtffu6#ph14" name="features"/>
+      <PlaceHolder id="sv2#area5#rtffu6#ph15" name="slogan"/>
+      <PlaceHolder id="sv2#area5#rtffu6#ph16" name="product"/>
+      <PlaceHolder id="sv2#area5#rtffu6#ph17" name="total"/>
+      <PlaceHolder id="sv2#area5#rtffu6#ph18" name="price"/>
+    </RTFFillerUnit>
+    <ModuleInstanceUnit id="sv2#area5#miu5" name="Save Document" gr:x="784" gr:y="608" moduleId="mov1#opm1">
+      <OKLink id="sv2#area5#miu5#oln14" name="OKLink12" to="sv2#area5#page11#dau5" preserveForm="true"/>
+    </ModuleInstanceUnit>
+    <DeleteUnit gr:x="0" gr:y="1" id="sv2#area5#dlu1" name="Delete All Filled RTF Documents" entity="ent1">
+      <Selector id="sv2#area5#dlu1#su1" defaultPolicy="fill" booleanOperator="and">
+        <AttributesCondition id="sv2#area5#dlu1#su1#acond1" name="OID Not Null" predicate="notNull" booleanOperator="or" implied="false" attributes="ent1#att1"/>
+      </Selector>
+      <OKLink id="sv2#area5#dlu1#oln5" name="OKLink5" to="sv2#area5#seu1"/>
+    </DeleteUnit>
+    <SelectorUnit id="sv2#area5#seu1" name="Sample Template" gr:x="275" gr:y="0" entity="ent2" distinctAttributes="ent2#att5 ent2#att4" maxResults="1">
+      <SortAttribute attribute="ent2#att5" order="ascending"/>
+      <Selector id="sv2#area5#seu1#su8" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="sv2#area5#seu1#su8#kcond1" name="KeyCondition4" predicate="in" implied="true"/>
+      </Selector>
+      <OKLink id="sv2#area5#seu1#oln15" name="OKLink15" to="sv2#area5#page11#seu3" automaticCoupling="true"/>
+    </SelectorUnit>
+    <ParameterCollectorUnit gr:x="157" gr:y="162" id="sv2#area5#pcu1" name="Params">
+      <CollectorParameter id="sv2#area5#pcu1#pcp1" name="oid"/>
+      <Link id="sv2#area5#pcu1#ln27" name="Link27" to="sv2#area5#seu1" type="transport" validate="true">
+        <LinkParameter id="sv2#area5#pcu1#ln27#par74" name="oid_KeyCondition4 [oid]" source="sv2#area5#pcu1#pcp1" target="sv2#area5#seu1#su8#kcond1.ent2#att3"/>
+      </Link>
+      <OKLink id="sv2#area5#pcu1#oln19" name="OKLink19" to="sv2#area5#dlu1"/>
+    </ParameterCollectorUnit>
+  </OperationUnits>
+</Area>

@@ -1,0 +1,14 @@
+<Job xmlns:gr="http://www.webratio.com/2006/WebML/Graph" id="wsv1#job1" name="Create Locations Job" gr:x="210" gr:y="80">
+  <OperationUnits>
+    <InitJobUnit id="wsv1#job1#iju1" name="Init Job" gr:x="0" gr:y="0">
+      <OKLink id="wsv1#job1#iju1#oln1" name="OKLink1" to="wsv1#job1#gxu1"/>
+    </InitJobUnit>
+    <GetXMLUnit id="wsv1#job1#gxu1" name="Read Locations" gr:x="137" gr:y="1" sourceType="static" url="Locations.xml">
+      <OKLink id="wsv1#job1#gxu1#oln2" name="OKLink2" to="wsv1#job1#xiu1" automaticCoupling="true"/>
+    </GetXMLUnit>
+    <XMLInUnit id="wsv1#job1#xiu1" name="Create Locations" gr:x="293" gr:y="1" oldDocStyle="false">
+      <XMLInEntity id="wsv1#job1#xiu1#xie1" name="Location" updatePolicy="noAction" useNames="true" deleteAllBefore="true" entity="ent1"/>
+    </XMLInUnit>
+  </OperationUnits>
+  <Trigger id="wsv1#job1#trg1" name="On Session Create" schedulePolicy="onSessionCreate"/>
+</Job>

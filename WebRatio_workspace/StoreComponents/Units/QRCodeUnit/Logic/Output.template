@@ -1,0 +1,6 @@
+#?delimiters <%,%>,<%=,%>
+<%setXMLOutput()%>
+<OutputParameters>
+   <OutputParameter name="qrCode" type="" label="QRCode BLOB"/>
+   <OutputParameter name="text" type="" label="QRCode Text"/>
+</OutputParameters>

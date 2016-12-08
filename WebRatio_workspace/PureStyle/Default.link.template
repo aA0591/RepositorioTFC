@@ -1,0 +1,168 @@
+#?delimiters [%, %], [%=, %]
+<wr:LayoutParameter label="Custom ID"  name="custom-id" type="string">
+Specifies a custom value for the "id" attribute of the generated
+HTML link. This overrides any identifier that is usually generated.
+Defaults to the link ID (for normal links) or "button:" followed by link ID (for button links).
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Link Style" name="link-style" type="enum" values="normal|button" default="normal">
+Defines the style of the link. 
+Allowed values are:
+- normal (default)
+- button
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Button style" name="btn-style" type="enum" values="default|primary|info|success|warning|error" default="default">
+Defines the style of the button. 
+Allowed values are:
+- default (default)
+- primary
+- info
+- success
+- warning
+- error
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Button size" name="btn-size" type="enum" values="xsmall|small|normal|large|xlarge" default="normal">
+Defines the size of the button. 
+Allowed values are:
+- xsmall
+- small
+- normal (default)
+- large
+- xlarge
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Use Confirm Dialog" name="confirmation" type="boolean" default="false">
+Defines if a confirmation dialog has to be shown before the link is navigated. 
+Allowed values are:
+- true 
+- false (default)
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Confirm Message Key" name="confirm-message" type="string" default="linkConfirmMessage">
+Defines the message to show to the user in the confirmation dialog. It is a key that has also to be added in the Localization dialog.
+</wr:LayoutParameter>
+
+[%
+	import org.apache.commons.lang.StringUtils
+	import org.apache.commons.lang.StringEscapeUtils
+	import java.io.File
+
+	def unitId = link.selectSingleNode("ancestor::layout:Unit")?.valueOf("@unitId")
+	if (unitId == "") {
+		unitId = link["unitId"]
+	} 
+	
+	def htmlId = StringUtils.defaultIfEmpty(params["custom-id"], getLinkId(link))
+	def htmlButtonId = StringUtils.defaultIfEmpty(params["custom-id"], "button:" + getLinkId(link))
+	def sortAtt = StringUtils.substringAfter(link["link"], unitId)
+	def linkStyle = params["link-style"]
+	def show = params["show"]
+	def confirmation = params["confirmation"]
+	def confirmMessage = params["confirm-message"]
+	def targetPage = getAncestorTopLevelPage(getById(link["to"]))
+	if (((type == "") || (type == "-ajax")) && (link["unitId"] != "")) {  // link individually placed
+	     type = (isFormBased(getById(link["unitId"])) ? "button" : "") + type
+	}
+	def btnStyle = (params["btn-style"] != 'default' && (linkStyle == "button" || type == "button") && "sort" != type) ? " pure-button-" + params["btn-style"] : ""
+	def btnSize = (params["btn-size"] != "normal" && (linkStyle == "button" || type == "button") && "sort" != type) ? " pure-button-" + params["btn-size"] : ""
+	def cssClass = ""
+	if ("button" == type || (linkStyle == "button" && "sort" != type)) {
+			cssClass = "pure-button" + btnStyle + btnSize	
+	}
+	def isAjax = isAjaxLink(link)
+	def formBean = getFormBeanName(page)
+
+%]
+[% if (confirmation == "true") { %]
+	<c:set var="_wr_message"><bean:message key="[%printJSPTagValue(confirmMessage)%]"/></c:set>
+	<% pageContext.setAttribute("_wr_message", org.apache.commons.lang.StringEscapeUtils.escapeJavaScript((String) pageContext.getAttribute("_wr_message")));%>
+[% } %]
+[%
+	def getAlternativeText() {
+		if (link["alternativeText"] != "") {
+			if (isLocalizedAncestorOrSelf(link)) {
+	   			return "<bean:message key=\"" + getJSPTagValue(link["alternativeText"]) +  "\"/>"
+			} else { 
+			  return link["alternativeText"]
+			} 
+		}
+		if (isLocalizedAncestorOrSelf(link)) {
+   			return "<bean:message key=\"" + getJSPTagValue(getTitle(link)) +  "\"/>"
+		} else { 
+		  return getTitle(link)
+		} 
+	}
+
+%]
+
+[% if (type.contains("-ajax")) { 
+	if (isAjax) { %]
+		return [% printRaw(getAjaxRequestCall(link, position)) %]
+	[% }
+ } else {
+ 
+ def disableCond =  getDisableCondition(link, position)
+ def visibility = StringUtils.defaultIfEmpty(getVisibilityPolicy(getById(link["to"])), "hide")
+ def isProtected = isProtectedAncestorOrSelf(getById(link["to"]))
+ 
+ if (isProtected || disableCond != null) {
+     if (isProtected && visibility == "hide" && disableCond == null) { %]
+		<c:if test="${webratio:isTargetAccessible('[%=getLinkId(link)%]', pageContext)}">
+	 [% } else if (isProtected && visibility == "hide" && disableCond != null) { %]
+		<c:choose>
+	       <c:when test="${not(webratio:isTargetAccessible('[%=getLinkId(link)%]', pageContext))}"/>
+	       <c:when test="${not([%printJSPTagValue(disableCond)%])}">
+	 [% } else if (visibility == "inactive" || disableCond != null) { %]
+	    [% def conds = []
+	       if(isProtected && visibility != "always"){
+	        conds.add("webratio:isTargetAccessible('" + getLinkId(link) + "', pageContext)")
+	       }
+	       if(disableCond != null){
+	         conds.add("not(" + disableCond + ")")
+	       }
+	    %]
+	    <c:choose>
+	       <c:when test="${[%printJSPTagValue(conds.join(" and "))%]}">
+	 [% } 
+ }%]
+ 	[% if ("button" == type) { %]
+ 		[% if (isAjax) { %]
+ 			<button title="[%= getAlternativeText() %]" onclick="[% if (confirmation == "true") { %] var c = confirm('<c:out value="${_wr_message}"/>'); if (c) { [% } %]return [% printRaw(getAjaxRequestCall(link, position)) %] [% if (confirmation == "true") { %] } else  { $('#[%= escapeCSS(formBean) %]')[0].target='_self' }  return c; [% } %]" class="[%= cssClass %] [%= styleClass %]" id="[%= htmlButtonId %]" name="button:[%= getLinkId(link) %]" type="submit" value="<wr:Label context="link"/>"><wr:Label context="link"/></button>
+ 		[% } else { %]
+			<button title="[%= getAlternativeText() %]" onclick="[% if (confirmation == "true") { %] var c = confirm('<c:out value="${_wr_message}"/>'); if (c) { [% } %][%if (link["newWindow"] == "true") { %] $('#[%= escapeCSS(formBean) %]')[0].target='_blank'[% } else { %]$('#[%= escapeCSS(formBean) %]')[0].target='_self'[% } %][% if (confirmation == "true") { %] }; return c; [% } %]" class="[%= cssClass %] [%= styleClass %]" id="[%= htmlButtonId %]" name="button:[%= getLinkId(link) %]" type="submit" value="<wr:Label context="link"/>"><wr:Label context="link"/></button>
+		[% } %]
+	[% } else { %]
+		[% if (linkStyle == "button" && "sort" != type) { %]
+			[% if (isAjax) { %]
+				<button title="[%= getAlternativeText() %]" id="[%= htmlId %]" class="[%= cssClass %] [%= styleClass %]" type="button" value="<wr:Label context="link"/>" onclick="[% if (confirmation == "true") { %] var c = confirm('<c:out value="${_wr_message}"/>'); if (c) { [% } %]return [% printRaw(getAjaxRequestCall(link, position)) %][% if (confirmation == "true") { %] }  return c; [% } %]"><wr:Label context="link"/></button>
+ 			[% } else { %]
+				<button title="[%= getAlternativeText() %]" id="[%= htmlId %]" class="[%= cssClass %] [%= styleClass %]" type="button" value="<wr:Label context="link"/>" onclick="[% if (confirmation == "true") { %] if (confirm('<c:out value="${_wr_message}"/>')) { [% } %][%if (link["newWindow"] == "true") { %]window.open('<webratio:Link link="[%= getLinkId(link) %]" position="[%= position %]"/>','',''); return false;[% } else { %]setWindowLocation('<webratio:Link link="[%= getLinkId(link) %]" position="[%= position %]"/>')[% } %][% if (confirmation == "true") { %] } [% } %]"><wr:Label context="link"/></button>
+			[% } %]
+		[% } else  { %]
+			[% if (isAjax) { %]
+	 			<a title="[%= getAlternativeText() %]" id="[%= htmlId %]" onclick="[% if (confirmation == "true") { %] var c = confirm('<c:out value="${_wr_message}"/>'); if (c) { [% } %]return [% printRaw(getAjaxRequestCall(link, position)) %][% if (confirmation == "true") { %] }  return c; [% } %]" class="[%= cssClass %] [%= styleClass %]" href="<webratio:Link link="[%= getLinkId(link) %]" position="[%= position %]"/>">							
+	 		[% } else { %]
+	 			<a title="[%= getAlternativeText() %]" id="[%= htmlId %]" class="[%= cssClass %] [%= styleClass %]" href="<webratio:Link link="[%= getLinkId(link) %]" position="[%= position %]"/>"[%if (link["newWindow"] == "true") { %] target="_blank"[% } %][% if (confirmation == "true") { %] onclick="return confirm('<c:out value="${_wr_message}"/>')"[% } %]>
+			[% } %]
+				<wr:Label context="link"/></a>
+		[% } %]
+	[% } %]									
+ [% if (isProtected || disableCond != null) {
+ 	if (visibility == "inactive"  || disableCond != null) { %]
+     </c:when>
+	 <c:otherwise>
+	 	[% if ("button" == type) { %]
+			<button title="[%= getAlternativeText() %]" disabled="disabled" class="[%= cssClass %] pure-button-disabled [%= styleClass %]" id="[%= htmlButtonId %]" name="button:[%= getLinkId(link) %]" type="submit" value="<wr:Label context="link"/>"><wr:Label context="link"/></button>
+		[% } else { %]
+			[% if (linkStyle == "button" && "sort" != type) { %]
+				<button title="[%= getAlternativeText() %]" disabled="disabled" class="[%= cssClass %] pure-button-disabled [%= styleClass %]" id="[%= htmlId %]" type="button" value="<wr:Label context="link"/>"><wr:Label context="link"/></button>
+			[% } else  { %]
+				<span title="[%= getAlternativeText() %]" id="[%= htmlId %]" class="[%= cssClass %] [%= styleClass %]" >
+					<wr:Label context="link"/></span>		
+			[% } %]
+		[% } %]
+	 </c:otherwise>
+  </c:choose>	 
+ [% } else if(visibility == "hide" && disableCond == null){ %]
+	</c:if>
+ [% } %]
+ [% } %]
+ [% } %]
+ 

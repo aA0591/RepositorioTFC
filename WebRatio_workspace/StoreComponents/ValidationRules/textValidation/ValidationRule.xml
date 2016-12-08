@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValidationRule type="singleField" idPrefix="txtval" namePrefix="textValidation" label="textValidation" unitContexts="EntryUnit/Field"> 
+  <EnumProperty attributeName="validateAs" defaultValue="" label="Validate As"> 
+    <EnumItem value="TEXT" label="Text"/>  
+    <EnumItem value="NUMERIC" label="Numeric"/>  
+    <EnumItem value="ALPHA" label="Alpha numeric"/>  
+    <EnumItem value="SPECIAL" label="Special Chars"/>  
+    <EnumItem value="PASSWORD" label="Password"/> 
+  </EnumProperty> 
+</ValidationRule>

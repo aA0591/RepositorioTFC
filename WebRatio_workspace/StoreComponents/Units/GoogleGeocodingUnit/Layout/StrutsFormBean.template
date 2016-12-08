@@ -1,0 +1,9 @@
+#?delimiters <%,%>,<%=,%>
+<%setXMLOutput()%>
+<% for (link in unit.selectNodes("Link[@type != 'transport']")) { %>
+  <form-property name="<%=link["id"]%>" type="java.lang.String"/>
+<% } %>
+<form-property name="<%=unit["id"]%>" type="java.lang.String"/>
+
+<!-- unit form properties -->
+<!-- <form-property name="FIELD_ID" type="java.lang.String"/> -->

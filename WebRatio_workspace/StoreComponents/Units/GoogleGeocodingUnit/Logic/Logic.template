@@ -1,0 +1,8 @@
+#?delimiters <%,%>,<%=,%>
+<%
+setXMLOutput();
+%>
+
+<Descriptor service="com.webratio.units.store.googlegeocodingunit.GoogleGeocodingUnitService">
+   <% printRaw(serializeXML(unit, false)) %>
+</Descriptor>

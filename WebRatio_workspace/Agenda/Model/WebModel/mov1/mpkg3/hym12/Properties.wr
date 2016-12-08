@@ -1,0 +1,17 @@
+<HybridModule xmlns:gr="http://www.webratio.com/2006/WebML/Graph" id="mov1#mpkg3#hym12" name="Save Calendar" gr:x="0" gr:y="65" gr:icon="ModulesIcons/Save.png">
+  <OperationUnits>
+    <CreateUnit id="mov1#mpkg3#hym12#cru7" name="Create Calendar" gr:x="565" gr:y="175" entity="ent3">
+      <OKLink id="mov1#mpkg3#hym12#cru7#oln65" name="OKLink65" to="mov1#mpkg3#hym12#okcu12"/>
+    </CreateUnit>
+    <GetUnit id="mov1#mpkg3#hym12#gtu9" name="Get Current User" gr:x="565" gr:y="50" contextParameters="UserCtxParam">
+      <Link id="mov1#mpkg3#hym12#gtu9#ln159" name="Link159" to="mov1#mpkg3#hym12#cru7" type="transport" validate="true">
+        <LinkParameter id="mov1#mpkg3#hym12#gtu9#ln159#par181" name="User Key" source="mov1#mpkg3#hym12#gtu9.UserCtxParam" target="mov1#mpkg3#hym12#cru7.rel21#role10.userOID"/>
+      </Link>
+    </GetUnit>
+    <InputCollectorUnit id="mov1#mpkg3#hym12#icu14" name="Input" gr:x="-5" gr:y="120">
+      <OKLink id="mov1#mpkg3#hym12#icu14#oln66" name="OKLink66" to="mov1#mpkg3#hym12#page13"/>
+    </InputCollectorUnit>
+    <OKCollectorUnit id="mov1#mpkg3#hym12#okcu12" name="Success" gr:x="765" gr:y="175"/>
+  </OperationUnits>
+  <Comment xml:space="preserve">Hybrid Module that contains the logic to save a new Calendar into the Database.</Comment>
+</HybridModule>

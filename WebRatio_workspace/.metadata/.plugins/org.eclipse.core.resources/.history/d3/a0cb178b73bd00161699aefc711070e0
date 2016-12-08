@@ -1,0 +1,21 @@
+
+<Warnings>
+
+<Warning xpath="id('wsv1#job1#iju1#oln2')" rootXPath="id('wsv1')" key="AUTOMATIC_COUPLING_WITHOUT_EFFECT" label="OKLink2">
+        <Message>Neither explicit nor implicit parameters' bindings could be found for the flow 'OKLink2'</Message>
+        <Resolution 
+            class="com.webratio.ide.ui.resources.ChangeAttributeResolutionGenerator" 
+            attribute="automaticCoupling"
+            value="">Remove the 'Automatic Coupling' property</Resolution>
+      </Warning>
+    	<Warning xpath="id('wsv1#job1#gxu1')" rootXPath="id('wsv1')" error="false" label="Home" key="NO_OUTGOING_KO_LINKS">
+          <Message>No outgoing KO flow(s) for the operation 'Home'</Message>
+        </Warning>
+     <Warning xpath="id('wsv1#job1#xiu1')" rootXPath="id('wsv1')" error="false" label="XMLInUnit1" key="NO_OUTGOING_OK_LINKS">
+          <Message>No outgoing OK flow(s) for the operation 'XMLInUnit1'</Message>
+        </Warning>
+    	<Warning xpath="id('wsv1#job1#xiu1')" rootXPath="id('wsv1')" error="false" label="XMLInUnit1" key="NO_OUTGOING_KO_LINKS">
+          <Message>No outgoing KO flow(s) for the operation 'XMLInUnit1'</Message>
+        </Warning>
+    
+</Warnings>

@@ -1,0 +1,33 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" gr:x="744" gr:y="182" id="sv1#page2" name="QRCodes" landmark="true">
+  <ContentUnits>
+    <IndexUnit id="sv1#page2#inu1" entity="ent1" displayAttributes="ent1#att3 ent1#att2" gr:x="0" gr:y="0" name="QRCodes">
+      <SortAttribute attribute="ent1#att1" order="ascending"/>
+    </IndexUnit>
+  </ContentUnits>
+  <layout:Grid>
+    <layout:Row>
+      <layout:Cell>
+        <layout:Unit unitId="sv1#page2#inu1">
+          <layout:Attribute attribute="ent1#att3"/>
+          <layout:Attribute attribute="ent1#att2"/>
+          <layout:LayoutParameter name="show-header" value="false" type="unit"/>
+          <layout:LayoutParameter name="show-attribute-name" value="false" type="unit"/>
+          <layout:LayoutParameter name="show-bullet" value="false" type="unit"/>
+          <layout:LayoutParameter name="use-alternate" value="true" type="unit"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+</Page>

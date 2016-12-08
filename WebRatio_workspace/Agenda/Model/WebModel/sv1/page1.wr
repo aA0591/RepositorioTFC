@@ -1,0 +1,123 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" gr:x="-205" gr:y="-110" id="sv1#page1" name="Users Administration" layout:layoutManager="grid">
+  <ContentUnits>
+    <PowerIndexUnit gr:x="275" gr:y="85" id="sv1#page1#pwu1" name="Users List" sortable="true" checkable="false" useCountQuery="false" entity="User" displayAttributes="userName email User#att23" linkOrder="sv1#page1#pwu1#ln1 sv1#page1#pwu1#ln13" blockFactor="10" blockWindow="3">
+      <Link id="sv1#page1#pwu1#ln1" name="Edit" to="sv1#page3#enu1" type="normal" validate="true" ajaxEnabled="true" ajaxOpenWindow="true" ajaxWindowUseTitle="true" ajaxWindowTitle="Edit USer" ajaxWindowAutoResizing="false" ajaxWindowWidth="410" ajaxWindowHeight="340" ajaxWindowModal="true" ajaxWindowClosable="false" automaticCoupling="true" ajaxWindowDraggable="true"/>
+      <Link id="sv1#page1#pwu1#ln13" name="Delete" to="sv1#dlu1" automaticCoupling="true" type="normal" validate="true"/>
+      <Selector id="sv1#page1#pwu1#su15" defaultPolicy="fill" booleanOperator="and">
+        <RelationshipRoleCondition id="sv1#page1#pwu1#su15#rcond6" name="Default Group Key" predicate="in" implied="false" role="DefaultGroup2User"/>
+      </Selector>
+      <SortAttribute attribute="userName" order="ascending"/>
+      <SortAttribute attribute="User#att23" order="ascending"/>
+    </PowerIndexUnit>
+    <MultiChoiceIndexUnit gr:x="0" gr:y="85" id="sv1#page1#mciu2" name="Filter Users By Group" entity="Group" displayAttributes="groupName" linkOrder="sv1#page1#mciu2#ln39">
+      <Link id="sv1#page1#mciu2#ln39" name="Filter" to="sv1#page1#seu22" automaticCoupling="true" type="normal" validate="true"/>
+      <PreSelector id="sv1#page1#mciu2#su16" booleanOperator="and">
+        <KeyCondition id="sv1#page1#mciu2#su16#kcond34" name="Group Key" predicate="in" implied="false"/>
+      </PreSelector>
+      <SortAttribute attribute="groupName" order="ascending"/>
+    </MultiChoiceIndexUnit>
+    <NoOpContentUnit gr:x="20" gr:y="0" id="sv1#page1#gctu4" name="Operations" linkOrder="sv1#page1#gctu4#ln20 sv1#page1#gctu4#ln26">
+      <Link id="sv1#page1#gctu4#ln20" name="New Group" to="sv1#page19" automaticCoupling="true" type="normal" validate="true" ajaxEnabled="true" ajaxOpenWindow="true" ajaxWindowUseTitle="true" ajaxWindowTitle="Create New Group" ajaxWindowWidth="410" ajaxWindowHeight="235" ajaxWindowClosable="false" ajaxWindowModal="true" ajaxWindowDraggable="true" gr:bendpoints="-86,0,119,-30"/>
+      <Link id="sv1#page1#gctu4#ln26" name="New User" to="sv1#page3" automaticCoupling="true" type="normal" validate="true" ajaxEnabled="true" ajaxOpenWindow="true" ajaxWindowUseTitle="true" ajaxWindowTitle="Create New User" ajaxWindowWidth="400" ajaxWindowHeight="400" ajaxWindowClosable="false" ajaxWindowModal="true" ajaxWindowDraggable="true" gr:bendpoints="100,-1,0,184"/>
+    </NoOpContentUnit>
+    <PowerIndexUnit gr:x="25" gr:y="190" id="sv1#page1#pwu3" name="Groups" sortable="true" checkable="false" useCountQuery="false" entity="Group" linkOrder="sv1#page1#pwu3#ln24 sv1#page1#pwu3#ln36" displayAttributes="groupName" blockFactor="10" blockWindow="3">
+      <Link id="sv1#page1#pwu3#ln24" name="Edit" to="sv1#page19#enu14" automaticCoupling="true" type="normal" validate="true" ajaxEnabled="true" ajaxOpenWindow="true" ajaxWindowUseTitle="true" ajaxWindowTitle="Edit Group" ajaxWindowWidth="410" ajaxWindowHeight="220" ajaxWindowClosable="false" ajaxWindowModal="true" ajaxWindowDraggable="true"/>
+      <Link id="sv1#page1#pwu3#ln36" name="Delete" to="sv1#miu11" type="normal" validate="true" ajaxEnabled="true" ajaxOpenWindow="true" ajaxWindowUseTitle="true" ajaxWindowWidth="480" ajaxWindowHeight="380" ajaxWindowClosable="false" ajaxWindowModal="true">
+        <LinkParameter id="sv1#page1#pwu3#ln36#par98" name="Group Key" source="data[].groupOID" target="sv1#miu11.mov2#mpkg5#hym3#icu2#icp3"/>
+      </Link>
+      <SortAttribute attribute="groupName" order="ascending"/>
+    </PowerIndexUnit>
+    <MultiMessageUnit gr:x="270" gr:y="200" id="sv1#page1#mssu2" name="Information Message"/>
+    <SelectorUnit id="sv1#page1#seu22" name="Select Groups" gr:x="155" gr:y="85" entity="Group">
+      <Link id="sv1#page1#seu22#ln38" name="Link38" to="sv1#page1#mciu2" type="transport" automaticCoupling="true" validate="true" gr:bendpoints="-70,70,90,70"/>
+      <Selector id="sv1#page1#seu22#su11" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="sv1#page1#seu22#su11#kcond32" name="Group Key" predicate="in" implied="true"/>
+      </Selector>
+      <Link id="sv1#page1#seu22#ln40" name="Link40" to="sv1#page1#pwu1" automaticCoupling="true" type="transport" validate="true"/>
+    </SelectorUnit>
+  </ContentUnits>
+  <layout:Grid>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv1#page1#mssu2"/>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="4">
+        <layout:Unit unitId="sv1#page1#pwu3">
+          <layout:Attribute attribute="groupName"/>
+          <layout:Link link="sv1#page1#pwu3#ln24"/>
+          <layout:Link link="sv1#page1#pwu3#ln36">
+            <layout:LayoutParameter name="confirmation" value="true" type="link"/>
+            <layout:LayoutParameter name="confirm-message" value="areyousure" type="link"/>
+          </layout:Link>
+          <layout:Link link="sv1#page1#pwu3groupName"/>
+          <layout:Link link="sv1#page1#pwu3First"/>
+          <layout:Link link="sv1#page1#pwu3Previous"/>
+          <layout:Link link="sv1#page1#pwu3Block"/>
+          <layout:Link link="sv1#page1#pwu3Next"/>
+          <layout:Link link="sv1#page1#pwu3Last"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell colspan="5">
+        <layout:Unit unitId="sv1#page1#pwu1">
+          <layout:Attribute attribute="userName"/>
+          <layout:Attribute attribute="email"/>
+          <layout:Attribute attribute="User#att23"/>
+          <layout:Link link="sv1#page1#pwu1#ln1"/>
+          <layout:Link link="sv1#page1#pwu1#ln13">
+            <layout:LayoutParameter name="confirmation" value="true" type="link"/>
+            <layout:LayoutParameter name="confirm-message" value="areyousure" type="link"/>
+          </layout:Link>
+          <layout:Link link="sv1#page1#pwu1userName"/>
+          <layout:Link link="sv1#page1#pwu1User#att23"/>
+          <layout:Link link="sv1#page1#pwu1First"/>
+          <layout:Link link="sv1#page1#pwu1Previous"/>
+          <layout:Link link="sv1#page1#pwu1Block"/>
+          <layout:Link link="sv1#page1#pwu1Next"/>
+          <layout:Link link="sv1#page1#pwu1Last"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell colspan="3">
+        <layout:Unit unitId="sv1#page1#mciu2">
+          <layout:Attribute attribute="groupName"/>
+          <layout:Link link="sv1#page1#mciu2#ln39"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+  <Comment xml:space="preserve">Home Page of the Site View. It gives the possibility to handle Users and Groups. A list of all the available Groups and Users is shown, with also some additional filters.</Comment>
+  <layout:CustomLocation name="Page Links">
+    <layout:Grid containerType="cell">
+      <layout:Row>
+        <layout:Cell>
+          <layout:Unit unitId="sv1#page1#gctu4" layout:frameLayout="None">
+            <layout:Link link="sv1#page1#gctu4#ln20"/>
+            <layout:Link link="sv1#page1#gctu4#ln26"/>
+            <layout:LayoutParameter name="link-alignment" value="right" type="unit"/>
+          </layout:Unit>
+        </layout:Cell>
+      </layout:Row>
+    </layout:Grid>
+  </layout:CustomLocation>
+</Page>

@@ -1,0 +1,42 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" gr:x="190" gr:y="180" id="sv1#page1" name="QRCode Unit Sample" landmark="true">
+  <ContentUnits>
+    <QRCodeUnit gr:x="23" gr:y="104" id="sv1#page1#qrcu1" name="QRCode" size="256"/>
+    <EntryUnit gr:x="0" gr:y="0" id="sv1#page1#enu1" name="Generate QRCode" linkOrder="sv1#page1#enu1#ln1 sv1#page1#enu1#ln3">
+      <Field id="sv1#page1#enu1#fld1" name="text" type="text" modifiable="true" preloaded="true">
+        <Slot id="sv1#page1#enu1#fld1#slot1" name="value" label="true" output="true" value="http://www.webratio.com"/>
+      </Field>
+      <Link id="sv1#page1#enu1#ln1" name="generate" to="sv1#page1#qrcu1" type="automatic" validate="true">
+        <LinkParameter id="sv1#page1#enu1#ln1#par1" name="text_QRCode Text" source="sv1#page1#enu1#fld1" target="sv1#page1#qrcu1.text"/>
+      </Link>
+      <Link id="sv1#page1#enu1#ln3" name="save" to="sv1#qrcu2" type="normal" validate="true">
+        <LinkParameter id="sv1#page1#enu1#ln3#par2" name="text_QRCode Text" source="sv1#page1#enu1#fld1" target="sv1#qrcu2.text"/>
+      </Link>
+    </EntryUnit>
+  </ContentUnits>
+  <layout:Grid>
+    <layout:Row>
+      <layout:Cell>
+        <layout:Unit unitId="sv1#page1#enu1">
+          <layout:Field field="sv1#page1#enu1#fld1"/>
+          <layout:LayoutParameter name="show-label" value="false" type="unit"/>
+          <layout:Link link="sv1#page1#enu1#ln1"/>
+          <layout:Link link="sv1#page1#enu1#ln3"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell>
+        <layout:Unit unitId="sv1#page1#qrcu1" layout:unitLayout="StoreTemplates/Default"/>
+      </layout:Cell>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+</Page>

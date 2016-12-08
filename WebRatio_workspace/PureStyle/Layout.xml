@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Layout pageLayout="Default" linkLayout="Default" frameLayout="Default" fieldLayout="EntryUnit" loginPage="Default"> 
+  <Resources> 
+    <Resource type="css" path="PureStyle/css/pure.min.css" name="pure-css" version="0.3.0"/>  
+    <Resource type="css" path="PureStyle/css/app.css" name="app-css" requires="pure-css"/>  
+    <Resource type="javascript" path="PureStyle/js/app.js" name="app-js" requires="jquery"/> 
+  </Resources>  
+  <UnitConfiguration unitType="MultiMessageUnit" unitLayout="Default" linkLayout="Default"> 
+    <LayoutParameter name="link-style" value="button" type="link"/> 
+  </UnitConfiguration>  
+  <UnitConfiguration unitType="PowerIndexUnit" unitLayout="Default"/>  
+  <UnitConfiguration unitType="DataUnit" unitLayout="Default" linkLayout="Default"> 
+    <LayoutParameter name="link-style" value="button" type="link"/> 
+  </UnitConfiguration>  
+  <UnitConfiguration unitType="EntryUnit" unitLayout="Default"/>  
+  <UnitConfiguration unitType="MultiEntryUnit" fieldLayout="WRDefault/MultiEntryUnit"/>  
+  <UnitConfiguration unitType="MultiDataUnit" unitLayout="Default" linkLayout="Default"> 
+    <LayoutParameter name="link-style" value="button" type="link"/> 
+  </UnitConfiguration>  
+  <UnitConfiguration unitType="IndexUnit" unitLayout="Default"/>  
+  <UnitConfiguration unitType="MultiChoiceIndexUnit" unitLayout="Default"/>  
+  <UnitConfiguration unitType="ProcessUnit" unitLayout="Normal"/>  
+  <UnitConfiguration unitType="HierarchicalIndexUnit" unitLayout="Default"/>
+  <UnitConfiguration unitType="RecursiveHierarchicalIndexUnit" unitLayout="Default"/>
+</Layout>

@@ -1,0 +1,74 @@
+#?delimiters [%, %], [%=, %]
+<wr:LayoutParameter label="Label Position" name="label-position" type="enum" values="top|left" default="left">
+Position of the attribute label in relation to the attribute value.
+Applicable only when rendering the entire Layout Attribute at once (mode = "full"), 
+Allowed values are:
+- left (default): label on the left side of the attribute value,
+- top: label just above the attribute value.
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Label width" name="label-width" type="string" default="15ex">
+CSS width of the attribute label.
+Applicable only when rendering the entire Layout Attribute at once (mode = "full"), 
+Most useful when placing labels on left, in order to visually align attribute values.
+</wr:LayoutParameter>
+<wr:LayoutParameter name="show-value" label="Show Value" type="boolean" default="true">
+Define if show the value next to the stars.
+</wr:LayoutParameter>
+<wr:LayoutParameter name="max-value" label="Max Value" type="string" default="5">
+Define the max value of the attribute and the numbers of stars to show.
+</wr:LayoutParameter>
+[%
+setHTMLOutput()
+def type = attr["type"]
+def subType = attr["subType"]
+def typeId = (subType != "") ? subType : type
+def pattern = typeId + "Pattern"
+def attrProp = getFieldName(getAttributeById(attr["attribute"]))
+def mode = attr["mode"]
+def showValue = params["show-value"] == "true"
+def maxValue = params["max-value"]
+
+def printLabel = { %]
+	<span class="<wr:StyleClass context="attr"/> header"><wr:Label context="attr"/></span>
+[% }
+
+def printValue = { %]
+	[% if ((type == "float") || (type == "integer") || (type == "decimal")) { %]
+		<c:set var="ratingValue" value="${[%=item%].[%=attrProp%]}"/>
+		<c:if test="${empty ratingValue or ratingValue eq ''}">
+			<c:set var="ratingValue" value="0"/>
+		</c:if>
+		<%  { 	double rating = Double.parseDouble(pageContext.getAttribute("ratingValue").toString());
+				pageContext.setAttribute("ceilRatingValue", java.lang.Math.ceil(rating));
+			}	%>
+		<div class="rating_container">
+		<c:forEach var="current" begin="${1}" end="${[%= maxValue %]}" >
+			<c:choose>
+			  <c:when test="${current le ceilRatingValue and current le ratingValue}">
+			    <span class="rating_on"></span>
+			  </c:when>
+			  <c:when test="${current le ceilRatingValue}">
+			    <span class="rating_half"></span>
+			  </c:when>
+			  <c:otherwise>
+			    <span class="rating_off"></span>
+			  </c:otherwise>
+			</c:choose>
+		</c:forEach>
+		[% if (showValue) { %]<div class="rating_container_value">&nbsp;(<fmt:formatNumber value="${ratingValue}" pattern="${[%=pattern%]}"/>)</div>[% } %]
+		</div>
+	[% } else { %]
+		<c:out value="${[%=item%].[%=attrProp%]}"/>
+	[% } 
+} %]
+<wr:RequireResource ref="Rating-style" />
+[% if (mode == "full") { %]
+<div class="fullAttr">
+	<div class="labelWrapper" [% if (params["label-position"] == "left") { %]style="width: [%= params["label-width"] %]; float: left"[% } %]>[% printLabel() %]</div>
+	[% printValue() %]
+</div>
+[% } else if (mode == "label") { %]
+	[% printLabel() %]
+[% } else { %]
+	[% printValue() %]
+[% } %]

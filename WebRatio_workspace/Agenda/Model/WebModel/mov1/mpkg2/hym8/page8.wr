@@ -1,0 +1,166 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" id="mov1#mpkg2#hym8#page8" name="Appointment" layout:pageLayout="WRDefault/Empty" gr:x="485" gr:y="-70">
+  <ContentUnits>
+    <EntryUnit id="mov1#mpkg2#hym8#page8#enu7" name="Appointment Information" linkOrder="mov1#mpkg2#hym8#page8#enu7#ln170 mov1#mpkg2#hym8#page8#enu7#ln115 mov1#mpkg2#hym8#page8#enu7#ln117 mov1#mpkg2#hym8#page8#enu7#ln122 mov1#mpkg2#hym8#page8#enu7#ln49" gr:x="25" gr:y="310" entity="ent1" fieldOrder="mov1#mpkg2#hym8#page8#enu7#fld16 mov1#mpkg2#hym8#page8#enu7#fld20 mov1#mpkg2#hym8#page8#enu7#fld17 mov1#mpkg2#hym8#page8#enu7#fld18 mov1#mpkg2#hym8#page8#enu7#sfld2 mov1#mpkg2#hym8#page8#enu7#sfld1 mov1#mpkg2#hym8#page8#enu7#fld19 mov1#mpkg2#hym8#page8#enu7#sfld3 mov1#mpkg2#hym8#page8#enu7#fld21 mov1#mpkg2#hym8#page8#enu7#msfld2 mov1#mpkg2#hym8#page8#enu7#fld25 mov1#mpkg2#hym8#page8#enu7#fld24">
+      <Field id="mov1#mpkg2#hym8#page8#enu7#fld16" name="subject" type="string" modifiable="true" attribute="ent1#att2">
+        <VRules>
+          <MandatoryValidationRule id="mov1#mpkg2#hym8#page8#enu7#fld16#mnd10" name="Mandatory Field"/>
+        </VRules>
+      </Field>
+      <Field id="mov1#mpkg2#hym8#page8#enu7#fld17" name="start date" type="date" modifiable="true" attribute="ent1#att3" preloaded="true">
+        <VRules>
+          <MandatoryValidationRule id="mov1#mpkg2#hym8#page8#enu7#fld17#mnd11" name="Mandatory Field"/>
+        </VRules>
+      </Field>
+      <Field id="mov1#mpkg2#hym8#page8#enu7#fld18" name="all day event" ajaxEventEnabled="true" ajaxEventLink="mov1#mpkg2#hym8#page8#enu7#ln115" ajaxEventIndicator="true" type="boolean" modifiable="true" attribute="ent1#att5"/>
+      <Field id="mov1#mpkg2#hym8#page8#enu7#fld19" name="location" type="string" modifiable="true" attribute="ent1#att6" ajaxAutocompleteEnabled="true" ajaxAutocompleteLink="mov1#mpkg2#hym8#page8#enu7#ln49" ajaxAutocompleteIndicator="true"/>
+      <Field id="mov1#mpkg2#hym8#page8#enu7#fld20" name="description" type="text" modifiable="true" attribute="ent1#att15">
+        <VRules>
+          <MandatoryValidationRule id="mov1#mpkg2#hym8#page8#enu7#fld20#mnd12" name="Mandatory Field"/>
+        </VRules>
+      </Field>
+      <Field id="mov1#mpkg2#hym8#page8#enu7#fld21" name="private" type="boolean" modifiable="true" attribute="ent1#att16"/>
+      <Link id="mov1#mpkg2#hym8#page8#enu7#ln115" name="Refresh" to="mov1#mpkg2#hym8#opu2" type="normal" validate="false" ajaxEnabled="true"/>
+      <SelectionField id="mov1#mpkg2#hym8#page8#enu7#sfld1" name="end time" type="time" role="rel6#role13">
+        <VRules>
+          <MandatoryValidationRule id="mov1#mpkg2#hym8#page8#enu7#sfld1#mnd13" name="Mandatory Field"/>
+        </VRules>
+      </SelectionField>
+      <SelectionField id="mov1#mpkg2#hym8#page8#enu7#sfld2" name="start time" type="time" role="rel4#role3">
+        <VRules>
+          <MandatoryValidationRule id="mov1#mpkg2#hym8#page8#enu7#sfld2#mnd14" name="Mandatory Field"/>
+        </VRules>
+      </SelectionField>
+      <SelectionField id="mov1#mpkg2#hym8#page8#enu7#sfld3" name="category" type="string" role="rel15#rel1">
+        <VRules>
+          <MandatoryValidationRule id="mov1#mpkg2#hym8#page8#enu7#sfld3#mnd17" name="Mandatory Field"/>
+        </VRules>
+      </SelectionField>
+      <Field id="mov1#mpkg2#hym8#page8#enu7#fld22" name="calendar key" type="string" modifiable="false" preloaded="true" hidden="true"/>
+      <MultiSelectionField id="mov1#mpkg2#hym8#page8#enu7#msfld2" name="attendees" type="string" role="rel20#role8"/>
+      <Field id="mov1#mpkg2#hym8#page8#enu7#fld23" name="reminder message" type="text" modifiable="false" attribute="ent1#att13" preloaded="true" hidden="true"/>
+      <Field id="mov1#mpkg2#hym8#page8#enu7#fld24" name="reminder date" type="date" modifiable="true">
+        <VRules>
+          <MandatoryValidationRule id="mov1#mpkg2#hym8#page8#enu7#fld24#mnd19" name="Mandatory Field"/>
+        </VRules>
+      </Field>
+      <Link id="mov1#mpkg2#hym8#page8#enu7#ln117" name="Edit Reminder Message" to="mov1#mpkg2#hym8#page7#enu6" type="normal" validate="false" ajaxEnabled="true" ajaxOpenWindow="true" ajaxWindowUseTitle="true" ajaxWindowTitle="Reminder Message" ajaxWindowWidth="400" ajaxWindowHeight="500" ajaxWindowClosable="true" ajaxWindowDraggable="true" ajaxWindowModal="true" gr:bendpoints="-142,-187,208,138">
+        <LinkParameter id="mov1#mpkg2#hym8#page8#enu7#ln117#par102" name="Message" source="mov1#mpkg2#hym8#page8#enu7#fld23" target="mov1#mpkg2#hym8#page7#enu6#fld15_slot"/>
+      </Link>
+      <Field id="mov1#mpkg2#hym8#page8#enu7#fld25" name="remind attendees" ajaxEventEnabled="true" ajaxEventLink="mov1#mpkg2#hym8#page8#enu7#ln115" ajaxEventIndicator="true" type="boolean" modifiable="true"/>
+      <Link id="mov1#mpkg2#hym8#page8#enu7#ln122" name="Cancel" to="mov1#mpkg2#hym8#okcu6" type="normal" validate="false" gr:bendpoints="0,415,-1040,5"/>
+      <Link id="mov1#mpkg2#hym8#page8#enu7#ln170" name="Save" to="mov1#mpkg2#hym8#opg9#cru8" type="normal" validate="true" ajaxEnabled="true" ajaxOpenWaitingDialog="true" ajaxWaitingDialogMessage="saving" ajaxWaitingDialogMinDuration="3000">
+        <LinkParameter id="mov1#mpkg2#hym8#page8#enu7#ln170#par203" name="Appointment Object" source="entityBean" target="mov1#mpkg2#hym8#opg9#cru8.entityBeans"/>
+        <LinkParameter id="mov1#mpkg2#hym8#page8#enu7#ln170#par204" name="Calendar Key" source="mov1#mpkg2#hym8#page8#enu7#fld22" target="mov1#mpkg2#hym8#opg9#cru8.rel22#role12.ent3#att4"/>
+        <LinkParameter id="mov1#mpkg2#hym8#page8#enu7#ln170#par205" name="Calendar Key" source="mov1#mpkg2#hym8#page8#enu7#fld22" target="mov1#mpkg2#hym8#opg9#cru8.rel7#role15.ent3#att4"/>
+      </Link>
+      <Link id="mov1#mpkg2#hym8#page8#enu7#ln171" name="Link171" to="mov1#mpkg2#hym8#opg9#seu21" type="transport" validate="true" gr:bendpoints="327,62,-558,57;745,63,-140,58">
+        <LinkParameter id="mov1#mpkg2#hym8#page8#enu7#ln171#par206" name="Attendees Key" source="mov1#mpkg2#hym8#page8#enu7#msfld2" target="mov1#mpkg2#hym8#opg9#seu21#su72#rcond13.userOID"/>
+      </Link>
+      <Link id="mov1#mpkg2#hym8#page8#enu7#ln173" name="Link173" to="mov1#mpkg2#hym8#opg10#switch4" type="transport" validate="true">
+        <LinkParameter id="mov1#mpkg2#hym8#page8#enu7#ln173#par209" name="Attendees Key" source="mov1#mpkg2#hym8#page8#enu7#fld25" target="mov1#mpkg2#hym8#opg10#switch4.switch"/>
+      </Link>
+      <Link id="mov1#mpkg2#hym8#page8#enu7#ln174" name="Link174" to="mov1#mpkg2#hym8#opg10#scju2" type="transport" validate="true" gr:bendpoints="510,211,-270,-74">
+        <LinkParameter id="mov1#mpkg2#hym8#page8#enu7#ln174#par210" name="Message" source="mov1#mpkg2#hym8#page8#enu7#fld23" target="mov1#mpkg2#hym8#opg10#scju2.wsv1#job1#iju1#iji1"/>
+      </Link>
+      <Link id="mov1#mpkg2#hym8#page8#enu7#ln175" name="Link175" to="mov1#mpkg2#hym8#opg10#scu6" type="transport" validate="false" gr:bendpoints="330,286,-240,1">
+        <LinkParameter id="mov1#mpkg2#hym8#page8#enu7#ln175#par211" name="Reminder Date" source="mov1#mpkg2#hym8#page8#enu7#fld24" target="mov1#mpkg2#hym8#opg10#scu6.reminderdate"/>
+      </Link>
+      <Link id="mov1#mpkg2#hym8#page8#enu7#ln49" name="Autocomplete" to="mov1#mpkg2#hym8#page4#inu1" type="normal" validate="false">
+        <LinkParameter id="mov1#mpkg2#hym8#page8#enu7#ln49#par78" name="Location" source="mov1#mpkg2#hym8#page8#enu7#fld19" target="mov1#mpkg2#hym8#page4#inu1#su20#acond4"/>
+      </Link>
+    </EntryUnit>
+    <SelectorUnit id="mov1#mpkg2#hym8#page8#seu3" name="Select Times" gr:x="280" gr:y="0" entity="ent5">
+      <Link id="mov1#mpkg2#hym8#page8#seu3#ln123" name="Link123" to="mov1#mpkg2#hym8#page8#enu7" type="transport" validate="true">
+        <LinkParameter id="mov1#mpkg2#hym8#page8#seu3#ln123#par106" name="End Time Name" source="ent5#att22Array" target="mov1#mpkg2#hym8#page8#enu7#sfld1_label"/>
+        <LinkParameter id="mov1#mpkg2#hym8#page8#seu3#ln123#par107" name="End Time Key" source="ent5#att21Array" target="mov1#mpkg2#hym8#page8#enu7#sfld1_output"/>
+        <LinkParameter id="mov1#mpkg2#hym8#page8#seu3#ln123#par108" name="Start Time Name" source="ent5#att22Array" target="mov1#mpkg2#hym8#page8#enu7#sfld2_label"/>
+        <LinkParameter id="mov1#mpkg2#hym8#page8#seu3#ln123#par109" name="Start Time Key" source="ent5#att21Array" target="mov1#mpkg2#hym8#page8#enu7#sfld2_output"/>
+      </Link>
+    </SelectorUnit>
+    <SelectorUnit id="mov1#mpkg2#hym8#page8#seu4" name="Select Categories" gr:x="265" gr:y="130" entity="ent2">
+      <Link id="mov1#mpkg2#hym8#page8#seu4#ln124" name="Link124" to="mov1#mpkg2#hym8#page8#enu7" type="transport" validate="true">
+        <LinkParameter id="mov1#mpkg2#hym8#page8#seu4#ln124#par110" name="Category Name" source="ent2#att8Array" target="mov1#mpkg2#hym8#page8#enu7#sfld3_label"/>
+        <LinkParameter id="mov1#mpkg2#hym8#page8#seu4#ln124#par111" name="Category Key" source="ent2#att7Array" target="mov1#mpkg2#hym8#page8#enu7#sfld3_output"/>
+      </Link>
+    </SelectorUnit>
+    <SelectorUnit id="mov1#mpkg2#hym8#page8#seu5" name="Select Attendees" gr:x="55" gr:y="130" entity="User">
+      <Link id="mov1#mpkg2#hym8#page8#seu5#ln125" name="Link125" to="mov1#mpkg2#hym8#page8#enu7" type="transport" validate="true">
+        <LinkParameter id="mov1#mpkg2#hym8#page8#seu5#ln125#par112" name="Attendees Full Name" source="User#att23Array" target="mov1#mpkg2#hym8#page8#enu7#msfld2_label"/>
+        <LinkParameter id="mov1#mpkg2#hym8#page8#seu5#ln125#par113" name="Attendees Key" source="userOIDArray" target="mov1#mpkg2#hym8#page8#enu7#msfld2_output"/>
+      </Link>
+      <Selector id="mov1#mpkg2#hym8#page8#seu5#su46" defaultPolicy="fill" booleanOperator="and">
+        <RelationshipRoleCondition id="mov1#mpkg2#hym8#page8#seu5#su46#rcond1" name="Group" predicate="in" implied="false" role="DefaultGroup2User"/>
+        <KeyCondition id="mov1#mpkg2#hym8#page8#seu5#su46#kcond5" name="User" predicate="in" implied="false"/>
+      </Selector>
+    </SelectorUnit>
+    <GetUnit id="mov1#mpkg2#hym8#page8#gtu3" name="Get Current User" gr:x="145" gr:y="0" contextParameters="UserCtxParam">
+      <Link id="mov1#mpkg2#hym8#page8#gtu3#ln126" name="Link96" to="mov1#mpkg2#hym8#page8#seu5" type="transport" automaticCoupling="true" validate="true"/>
+      <Link id="mov1#mpkg2#hym8#page8#gtu3#ln169" name="Link169" to="mov1#mpkg2#hym8#opg9#cru8" type="transport" automaticCoupling="true" validate="true"/>
+    </GetUnit>
+    <MultiMessageUnit gr:x="250" gr:y="235" id="mov1#mpkg2#hym8#page8#mssu6" name="Information Message"/>
+    <GetUnit gr:x="0" gr:y="0" id="mov1#mpkg2#hym8#page8#gtu1" name="Get Current Group" contextParameters="GroupCtxParam">
+      <Link id="mov1#mpkg2#hym8#page8#gtu1#ln32" name="Link32" to="mov1#mpkg2#hym8#page8#seu5" automaticCoupling="true" type="transport" validate="true"/>
+    </GetUnit>
+  </ContentUnits>
+  <layout:Grid>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="mov1#mpkg2#hym8#page8#mssu6"/>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="mov1#mpkg2#hym8#page8#enu7">
+          <layout:Field field="mov1#mpkg2#hym8#page8#enu7#fld16"/>
+          <layout:Field field="mov1#mpkg2#hym8#page8#enu7#fld20"/>
+          <layout:Field field="mov1#mpkg2#hym8#page8#enu7#fld17"/>
+          <layout:Field field="mov1#mpkg2#hym8#page8#enu7#fld18"/>
+          <layout:Field field="mov1#mpkg2#hym8#page8#enu7#sfld2" layout:fieldVisibilityCondition="mov1#mpkg2#hym8#page8#cexpr5" layout:fieldVisibilityConditionNegated="true"/>
+          <layout:Field field="mov1#mpkg2#hym8#page8#enu7#sfld1" layout:fieldVisibilityCondition="mov1#mpkg2#hym8#page8#cexpr5" layout:fieldVisibilityConditionNegated="true"/>
+          <layout:Field field="mov1#mpkg2#hym8#page8#enu7#fld19"/>
+          <layout:Field field="mov1#mpkg2#hym8#page8#enu7#sfld3"/>
+          <layout:Field field="mov1#mpkg2#hym8#page8#enu7#fld21"/>
+          <layout:Field field="mov1#mpkg2#hym8#page8#enu7#msfld2"/>
+          <layout:Field field="mov1#mpkg2#hym8#page8#enu7#fld25"/>
+          <layout:Field field="mov1#mpkg2#hym8#page8#enu7#fld24" layout:fieldVisibilityCondition="mov1#mpkg2#hym8#page8#cexpr6"/>
+          <layout:LayoutParameter name="mandatory-fields" value="true" type="unit"/>
+          <layout:Link link="mov1#mpkg2#hym8#page8#enu7#ln170"/>
+          <layout:Link link="mov1#mpkg2#hym8#page8#enu7#ln115"/>
+          <layout:Link link="mov1#mpkg2#hym8#page8#enu7#ln117" layout:linkVisibilityCondition="mov1#mpkg2#hym8#page8#cexpr6"/>
+          <layout:Link link="mov1#mpkg2#hym8#page8#enu7#ln122"/>
+          <layout:Link link="mov1#mpkg2#hym8#page8#enu7#ln49"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+  <ConditionExpression id="mov1#mpkg2#hym8#page8#cexpr5" name="seealldayevent">
+    <TextValue xml:space="preserve">alldayevent == true</TextValue>
+  </ConditionExpression>
+  <Variable id="mov1#mpkg2#hym8#page8#var4" name="alldayevent" type="boolean" unitId="mov1#mpkg2#hym8#page8#enu7" parameter="mov1#mpkg2#hym8#page8#enu7#fld18"/>
+  <Variable id="mov1#mpkg2#hym8#page8#var5" name="reminders" type="boolean" unitId="mov1#mpkg2#hym8#page8#enu7" parameter="mov1#mpkg2#hym8#page8#enu7#fld25"/>
+  <ConditionExpression id="mov1#mpkg2#hym8#page8#cexpr6" name="remindateendees">
+    <TextValue xml:space="preserve">reminders == true</TextValue>
+  </ConditionExpression>
+</Page>

@@ -1,0 +1,20 @@
+#?delimiters <%,%>,<%=,%>
+<%
+setXMLOutput()
+def unitId = unit.valueOf("@id")
+%>
+
+<OutputParameters>	
+	
+	<% if (unit["mode"] == "codeJson") { %>
+		<OutputParameter name="resultJson" label="Result Json" />   		
+  	<% } else if (unit["mode"] == "decodeJson") { %>
+		<OutputParameter name="resultDecodeJsonKeys" type="" label="Result Decode Json Keys" />
+		<OutputParameter name="resultDecodeJsonValues" type="" label="Result Decode Json Values" />
+	<% } else if (unit["mode"] == "replaceTextWithJson") { %>
+		<OutputParameter name="resultText" type="" label="Result Text" />
+  	<% }%>
+	
+	<OutputParameter name="errorMessage" label="Error Message" />
+    <OutputParameter name="exception" label="Exception" />
+</OutputParameters>

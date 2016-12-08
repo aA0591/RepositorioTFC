@@ -1,0 +1,6 @@
+#?delimiters <%,%>,<%=,%>
+<%
+// if (condition == true) {
+// 	addWarning(Element element, boolean error, String message, String Key);
+// }
+%>

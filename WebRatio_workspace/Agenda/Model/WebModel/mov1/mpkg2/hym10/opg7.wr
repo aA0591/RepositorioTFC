@@ -1,0 +1,94 @@
+<OperationGroup xmlns:gr="http://www.webratio.com/2006/WebML/Graph" id="mov1#mpkg2#hym10#opg7" name="Save Changes" transaction="true" gr:x="505" gr:y="-70">
+  <OperationUnits>
+    <ModifyUnit id="mov1#mpkg2#hym10#opg7#mfu2" name="Modify Appointment" gr:x="65" gr:y="10" entity="ent1">
+      <Selector id="mov1#mpkg2#hym10#opg7#mfu2#su54" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="mov1#mpkg2#hym10#opg7#mfu2#su54#kcond11" name="Appointment" predicate="in" implied="false"/>
+      </Selector>
+      <OKLink id="mov1#mpkg2#hym10#opg7#mfu2#oln50" name="OKLink50" to="mov1#mpkg2#hym10#opg7#rcnu1">
+        <LinkParameter id="mov1#mpkg2#hym10#opg7#mfu2#oln50#par158" name="Appointment Key" source="ent1#att1Array" target="mov1#mpkg2#hym10#opg7#rcnu1#su56#kcond13.ent1#att1"/>
+      </OKLink>
+      <Link id="mov1#mpkg2#hym10#opg7#mfu2#ln154" name="Link154" to="mov1#mpkg2#hym10#opg7#rcnu2" type="transport" automaticCoupling="true" validate="true"/>
+      <Link id="mov1#mpkg2#hym10#opg7#mfu2#ln155" name="Link155" to="mov1#mpkg2#hym10#opg7#miu13" type="transport" validate="true">
+        <LinkParameter id="mov1#mpkg2#hym10#opg7#mfu2#ln155#par188" name="Appointment Key" source="ent1#att1Array" target="mov1#mpkg2#hym10#opg7#miu13.mov1#mpkg2#opm2#icu10#icp10"/>
+        <LinkParameter id="mov1#mpkg2#hym10#opg7#mfu2#ln155#par189" name="Operation" sourceValue="update" target="mov1#mpkg2#hym10#opg7#miu13.mov1#mpkg2#opm2#icu10#icp11"/>
+      </Link>
+    </ModifyUnit>
+    <GetUnit id="mov1#mpkg2#hym10#opg7#gtu7" name="Get Current User" gr:x="940" gr:y="15" contextParameters="UserCtxParam">
+      <Link id="mov1#mpkg2#hym10#opg7#gtu7#ln156" name="Link156" to="mov1#mpkg2#hym10#opg7#cnu3" type="transport" automaticCoupling="true" validate="true"/>
+    </GetUnit>
+    <SelectorUnit id="mov1#mpkg2#hym10#opg7#seu13" name="Select Origin Calendar" gr:x="55" gr:y="160" entity="ent1">
+      <Selector id="mov1#mpkg2#hym10#opg7#seu13#su55" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="mov1#mpkg2#hym10#opg7#seu13#su55#kcond12" name="Appointment" predicate="in" implied="false"/>
+      </Selector>
+      <OKLink id="mov1#mpkg2#hym10#opg7#seu13#oln51" name="OKLink51" to="mov1#mpkg2#hym10#opg7#cnu2">
+        <LinkParameter id="mov1#mpkg2#hym10#opg7#seu13#oln51#par161" name="Appointment Key" source="ent1#att1Array" target="mov1#mpkg2#hym10#opg7#cnu2#su58#kcond15.ent1#att1"/>
+        <LinkParameter id="mov1#mpkg2#hym10#opg7#seu13#oln51#par162" name="Calendar Key" source="rel7#role15_ent3#att4Array" target="mov1#mpkg2#hym10#opg7#cnu2#su59#kcond16.ent3#att4"/>
+      </OKLink>
+    </SelectorUnit>
+    <ReconnectUnit id="mov1#mpkg2#hym10#opg7#rcnu1" name="Reconnect New Attendees With Appointment" gr:x="295" gr:y="0" relationship="rel20#role8">
+      <SourceSelector id="mov1#mpkg2#hym10#opg7#rcnu1#su56" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="mov1#mpkg2#hym10#opg7#rcnu1#su56#kcond13" name="Appointment" predicate="in" implied="false"/>
+      </SourceSelector>
+      <TargetSelector id="mov1#mpkg2#hym10#opg7#rcnu1#su57" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="mov1#mpkg2#hym10#opg7#rcnu1#su57#kcond14" name="Attendees" predicate="in" implied="false"/>
+      </TargetSelector>
+      <OKLink id="mov1#mpkg2#hym10#opg7#rcnu1#oln52" name="OKLink52" to="mov1#mpkg2#hym10#opg7#cnu3">
+        <LinkParameter id="mov1#mpkg2#hym10#opg7#rcnu1#oln52#par163" name="Appointment Key" source="sourceent1#att1" target="mov1#mpkg2#hym10#opg7#cnu3#su62#kcond19.ent1#att1"/>
+      </OKLink>
+    </ReconnectUnit>
+    <ConnectUnit id="mov1#mpkg2#hym10#opg7#cnu2" name="Connect Appointment With Origin Calendar" gr:x="0" gr:y="305" relationship="rel22#role12">
+      <SourceSelector id="mov1#mpkg2#hym10#opg7#cnu2#su58" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="mov1#mpkg2#hym10#opg7#cnu2#su58#kcond15" name="Appointment" predicate="in" implied="false"/>
+      </SourceSelector>
+      <TargetSelector id="mov1#mpkg2#hym10#opg7#cnu2#su59" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="mov1#mpkg2#hym10#opg7#cnu2#su59#kcond16" name="Calendar" predicate="in" implied="false"/>
+      </TargetSelector>
+      <OKLink id="mov1#mpkg2#hym10#opg7#cnu2#oln53" name="OKLink53" to="mov1#mpkg2#hym10#opg7#cnu4">
+        <LinkParameter id="mov1#mpkg2#hym10#opg7#cnu2#oln53#par164" name="Appointment Key" source="sourceent1#att1" target="mov1#mpkg2#hym10#opg7#cnu4#su64#kcond21.ent1#att1"/>
+      </OKLink>
+    </ConnectUnit>
+    <ModuleInstanceUnit id="mov1#mpkg2#hym10#opg7#miu13" name="Send Update email" gr:x="965" gr:y="320" moduleId="mov1#mpkg2#opm2">
+      <OKLink id="mov1#mpkg2#hym10#opg7#miu13#oln54" name="OKLink54" to="mov1#mpkg2#hym10#okcu9" automaticCoupling="true"/>
+    </ModuleInstanceUnit>
+    <ReconnectUnit id="mov1#mpkg2#hym10#opg7#rcnu2" name="Reconnect Appointment With Attendees Shared Calendar" gr:x="265" gr:y="150" relationship="rel22#role12">
+      <SourceSelector id="mov1#mpkg2#hym10#opg7#rcnu2#su60" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="mov1#mpkg2#hym10#opg7#rcnu2#su60#kcond17" name="Appointment" predicate="in" implied="false"/>
+      </SourceSelector>
+      <TargetSelector id="mov1#mpkg2#hym10#opg7#rcnu2#su61" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="mov1#mpkg2#hym10#opg7#rcnu2#su61#kcond18" name="Calendar" predicate="in" implied="false"/>
+      </TargetSelector>
+      <OKLink id="mov1#mpkg2#hym10#opg7#rcnu2#oln55" name="OKLink55" to="mov1#mpkg2#hym10#opg7#seu13">
+        <LinkParameter id="mov1#mpkg2#hym10#opg7#rcnu2#oln55#par165" name="Appointment Key" source="sourceent1#att1" target="mov1#mpkg2#hym10#opg7#seu13#su55#kcond12.ent1#att1"/>
+      </OKLink>
+    </ReconnectUnit>
+    <ConnectUnit id="mov1#mpkg2#hym10#opg7#cnu3" name="Connect Current User with Appointment" gr:x="615" gr:y="5" relationship="rel20#role8">
+      <SourceSelector id="mov1#mpkg2#hym10#opg7#cnu3#su62" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="mov1#mpkg2#hym10#opg7#cnu3#su62#kcond19" name="Appointment" predicate="in" implied="false"/>
+      </SourceSelector>
+      <TargetSelector id="mov1#mpkg2#hym10#opg7#cnu3#su63" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="mov1#mpkg2#hym10#opg7#cnu3#su63#kcond20" name="Current User" predicate="in" implied="false"/>
+      </TargetSelector>
+      <OKLink id="mov1#mpkg2#hym10#opg7#cnu3#oln56" name="OKLink56" to="mov1#mpkg2#hym10#opg7#seu15"/>
+    </ConnectUnit>
+    <ConnectUnit id="mov1#mpkg2#hym10#opg7#cnu4" name="Connect Appointment With Current User Calendar" gr:x="390" gr:y="305" relationship="rel22#role12">
+      <SourceSelector id="mov1#mpkg2#hym10#opg7#cnu4#su64" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="mov1#mpkg2#hym10#opg7#cnu4#su64#kcond21" name="Appointment" predicate="in" implied="false"/>
+      </SourceSelector>
+      <TargetSelector id="mov1#mpkg2#hym10#opg7#cnu4#su65" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="mov1#mpkg2#hym10#opg7#cnu4#su65#kcond22" name="Calendar" predicate="in" implied="false"/>
+      </TargetSelector>
+      <OKLink id="mov1#mpkg2#hym10#opg7#cnu4#oln57" name="OKLink57" to="mov1#mpkg2#hym10#opg7#miu13"/>
+    </ConnectUnit>
+    <SelectorUnit id="mov1#mpkg2#hym10#opg7#seu15" name="Select Attendees Shared Calendars" gr:x="635" gr:y="160" entity="User">
+      <Selector id="mov1#mpkg2#hym10#opg7#seu15#su66" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="mov1#mpkg2#hym10#opg7#seu15#su66#kcond23" name="User" predicate="in" implied="false"/>
+      </Selector>
+      <OKLink id="mov1#mpkg2#hym10#opg7#seu15#oln58" name="OKLink58" to="mov1#mpkg2#hym10#opg7#rcnu2">
+        <LinkParameter id="mov1#mpkg2#hym10#opg7#seu15#oln58#par167" name="Calendar Key" source="rel5#role6_ent3#att4Array" target="mov1#mpkg2#hym10#opg7#rcnu2#su61#kcond18.ent3#att4"/>
+      </OKLink>
+    </SelectorUnit>
+  </OperationUnits>
+  <KOLink id="mov1#mpkg2#hym10#opg7#kln6" name="KOLink6" to="mov1#mpkg2#hym10#page11#mssu5" gr:bendpoints="-3,-390,507,0" preserveForm="true">
+    <LinkParameter id="mov1#mpkg2#hym10#opg7#kln6#par175" name="Message" target="mov1#mpkg2#hym10#page11#mssu5.shownMessages" sourceValue="There was an error updating the appointment."/>
+  </KOLink>
+</OperationGroup>

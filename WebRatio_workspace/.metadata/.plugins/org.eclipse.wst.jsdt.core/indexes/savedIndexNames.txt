@@ -1,0 +1,2 @@
+INDEX VERSION 1.122+/Users/miguelsdevega/Documents/WebRatio_workspace/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
+3056847829.index

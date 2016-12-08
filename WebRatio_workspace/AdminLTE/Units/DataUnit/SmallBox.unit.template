@@ -1,0 +1,59 @@
+#?delimiters [%, %], [%=, %]
+<wr:LayoutParameter name="box-color" label="Box color" type="enum" default="blue" values="blue|green|light-blue|maroon|navy|purple|red|yellow">
+Define the background color of the box.
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Box icon" name="box-icon" type="string">
+Defines the css class to render the icon.
+The class should be "glyphicons-icon-name" (ie: glyphicon-calendar)
+See the list of available icons at http://getbootstrap.com/components/#glyphicons
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Use Empty Unit Message" name="use-empty-unit-message" type="boolean" default="false">
+Defines the usage of a message for empty units.
+Allowed values are: true(default) or false.
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Empty Unit Message" name="empty-unit-message" type="string" default="emptyUnitMessage">
+Defines the key of the message to use if the unit is empty.
+Default value: emptyUnitMessage
+</wr:LayoutParameter>
+[%import org.apache.commons.lang.StringUtils
+import org.apache.commons.lang.math.NumberUtils
+ setHTMLOutput()
+def boxColor = "bg-" + params["box-color"]
+def iconClass = "glyphicon " + params["box-icon"]
+def useEmptyUnitMessage = params["use-empty-unit-message"]
+def emptyUnitMessage = params["empty-unit-message"]
+
+def firstAttribute = unit.selectSingleNode("layout:Attribute")
+def firstLink = unit.selectSingleNode("layout:Link")
+%]
+[% if (useEmptyUnitMessage != "true") { %]
+<c:if test="${not(empty <wr:Id context="unit"/>) and (<wr:Id context="unit"/>.dataSize gt 0)}">
+[% } else { %]
+<c:choose>
+<c:when test="${not(empty <wr:Id context="unit"/>) and (<wr:Id context="unit"/>.dataSize gt 0)}">
+[% } %]
+<div class="<wr:StyleClass/>">
+	<div class="small-box [%= boxColor %]">
+        <div class="inner">
+            <h3><wr:Value context="firstAttribute"/></h3>
+            <p><wr:Label context="firstAttribute"/></p>
+        </div>
+        [% if (StringUtils.isNotBlank(params["box-icon"])) { %]
+        <div class="icon"><span class="[%= iconClass %]"></span></div>
+        [% } %]
+        [% if (firstLink) { %]
+        <wr:Link context="firstLink" type="anchor" class="small-box-footer"/>
+        [% } %]
+    </div>
+</div>    
+[% if (useEmptyUnitMessage != "true") { %]
+</c:if>
+[% } else { %]
+</c:when>
+<c:otherwise>
+	<div class="alert alert-info empty-message <wr:StyleClass/>">
+		<bean:message key="[%printJSPTagValue(emptyUnitMessage)%]"/>
+	</div>
+</c:otherwise>
+</c:choose>
+[% } %]   

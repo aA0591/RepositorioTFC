@@ -1,0 +1,37 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" id="mov1#mpkg2#hym10#page14" name="Autocomplete locations" layout:pageLayout="WRDefault/Autocomplete" ajaxEnabled="false" gr:x="165" gr:y="-525">
+  <ContentUnits>
+    <IndexUnit id="mov1#mpkg2#hym10#page14#inu2" name="Locations" gr:x="0" gr:y="0" entity="ent1" displayAttributes="ent1#att6">
+      <Selector id="mov1#mpkg2#hym10#page14#inu2#su21" defaultPolicy="fill" booleanOperator="and">
+        <AttributesCondition id="mov1#mpkg2#hym10#page14#inu2#su21#acond5" name="Location" predicate="beginsWith" booleanOperator="or" implied="false" ignoreCase="true" attributes="ent1#att6"/>
+      </Selector>
+      <SortAttribute attribute="ent1#att6" order="ascending"/>
+    </IndexUnit>
+  </ContentUnits>
+  <layout:Grid>
+    <layout:Row>
+      <layout:Cell colspan="12"/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+  <layout:CustomLocation name="source">
+    <layout:Grid containerType="cell">
+      <layout:Row>
+        <layout:Cell>
+          <layout:Unit unitId="mov1#mpkg2#hym10#page14#inu2" layout:frameLayout="None" layout:unitLayout="WRDefault/Autocomplete">
+            <layout:Attribute attribute="ent1#att6"/>
+          </layout:Unit>
+        </layout:Cell>
+      </layout:Row>
+    </layout:Grid>
+  </layout:CustomLocation>
+</Page>

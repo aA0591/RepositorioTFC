@@ -1,0 +1,31 @@
+#?delimiters <%,%>,<%=,%>
+<%
+import org.apache.commons.lang.StringUtils
+setXMLOutput()
+
+def checkDataProvider = {id ->
+    def serviceDataProvider = getById(id)
+    if (serviceDataProvider == null){
+		addWarning(unit, true, "Could not find '" + id + "' social network data provider")
+    } else {
+       if(wr.invalidSocialNetworks == null){
+          wr.invalidSocialNetworks = []
+       }
+       if(!wr.invalidSocialNetworks.contains(serviceDataProvider)){
+         wr.invalidSocialNetworks.add(serviceDataProvider)
+         if (serviceDataProvider["apiKey"] == ""){
+    	     addWarning(serviceDataProvider, true, "Missing API keys for the '" + StringUtils.defaultIfEmpty(serviceDataProvider["name"], serviceDataProvider["id"]) + "' social network data provider")
+         }
+       }  
+    }     
+}
+
+if(unit["socialNetworks"] == ""){
+   addWarning(unit, true, "At least one social network must be selected")
+} else { 
+   for(serviceDataProviderId in unit["socialNetworks"].tokenize(" ")){
+     checkDataProvider(serviceDataProviderId)
+   }
+}
+
+%>

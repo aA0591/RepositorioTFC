@@ -1,0 +1,4 @@
+<ModulePackage xmlns:gr="http://www.webratio.com/2006/WebML/Graph" gr:x="525" gr:y="-5" id="mov1#mpkg3" name="Calendar Operations">
+  <OperationUnits/>
+  <Comment xml:space="preserve">Module Package that contains the modules for handling a Calendar.</Comment>
+</ModulePackage>

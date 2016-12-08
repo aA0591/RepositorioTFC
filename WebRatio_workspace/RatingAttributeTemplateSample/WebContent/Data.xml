@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Root>
+  <Entity id="ent1" xmlOutEntityName="TestValue">
+    <Instance>      
+      <Attribute id="att1">1</Attribute>
+      <Attribute id="att3">Getting started with WebRatio</Attribute>
+      <Attribute id="att2">5</Attribute>
+    </Instance>
+    <Instance>  
+      <Attribute id="att1">2</Attribute>    
+      <Attribute id="att3">Introducing the Web Modeling Language</Attribute>
+      <Attribute id="att2">4</Attribute>
+    </Instance>
+    <Instance>
+      <Attribute id="att1">3</Attribute>      
+      <Attribute id="att3">BPMN Editor</Attribute>
+      <Attribute id="att2">2.5</Attribute>
+    </Instance>
+    <Instance>   
+      <Attribute id="att1">4</Attribute>   
+      <Attribute id="att3">Team working with WebRatio</Attribute>
+      <Attribute id="att2">1.5</Attribute>
+    </Instance>
+    <Instance>   
+      <Attribute id="att1">5</Attribute>   
+      <Attribute id="att3">Custom components WebRatio</Attribute>
+      <Attribute id="att2">0</Attribute>
+    </Instance>
+  </Entity>
+</Root>

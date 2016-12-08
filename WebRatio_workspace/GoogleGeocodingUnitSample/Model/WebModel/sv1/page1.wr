@@ -1,0 +1,47 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" gr:x="80" gr:y="270" id="sv1#page1" name="Retrieve Map Coordinates from full Address" landmark="true">
+  <ContentUnits>
+    <EntryUnit id="sv1#page1#enu2" name="Full Address" gr:x="0" gr:y="0" fieldOrder="sv1#page1#enu2#fld1" linkOrder="sv1#page1#enu2#ln5">
+      <Field id="sv1#page1#enu2#fld1" name="Address" type="string" modifiable="true" slotOrder="sv1#page1#enu2#fld1#slot1" preloaded="true">
+        <Slot id="sv1#page1#enu2#fld1#slot1" name="address" label="true" output="true" value="via valleggio 7, Como"/>
+      </Field>
+      <Link id="sv1#page1#enu2#ln5" name="Calculate" to="sv1#page1#ggu3" type="normal" validate="true">
+        <LinkParameter id="sv1#page1#enu2#ln5#par10" name="Address_Full Address" source="sv1#page1#enu2#fld1" target="sv1#page1#ggu3.fulladdr"/>
+      </Link>
+    </EntryUnit>
+    <MultiMessageUnit gr:x="162" gr:y="31" id="sv1#page1#mssu1" name="Retrieved Coordinates"/>
+    <MultiMessageUnit id="sv1#page1#mssu2" name="Retrieved Address" gr:x="170" gr:y="104"/>
+    <GoogleGeocodingUnit gr:x="0" gr:y="90" id="sv1#page1#ggu3" name="GoogleGeocodingUnit">
+      <Link id="sv1#page1#ggu3#ln6" name="Link6" to="sv1#page1#mssu1" type="transport" validate="true">
+        <LinkParameter id="sv1#page1#ggu3#ln6#par11" name="Map Coordinates_Shown Messages" source="coords" target="sv1#page1#mssu1.shownMessages"/>
+      </Link>
+      <Link id="sv1#page1#ggu3#ln7" name="Link7" to="sv1#page1#mssu2" type="transport" validate="true">
+        <LinkParameter id="sv1#page1#ggu3#ln7#par12" name="Retrieved address_Shown Messages" source="firstAddr" target="sv1#page1#mssu2.shownMessages"/>
+      </Link>
+    </GoogleGeocodingUnit>
+  </ContentUnits>
+  <layout:Grid>
+    <layout:Row>
+      <layout:Cell>
+        <layout:Unit unitId="sv1#page1#enu2">
+          <layout:Field field="sv1#page1#enu2#fld1"/>
+          <layout:Link link="sv1#page1#enu2#ln5"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell>
+        <layout:Unit unitId="sv1#page1#mssu1"/>
+        <layout:Unit unitId="sv1#page1#mssu2"/>
+      </layout:Cell>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+</Page>

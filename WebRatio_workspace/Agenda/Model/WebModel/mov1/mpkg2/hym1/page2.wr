@@ -1,0 +1,66 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" id="mov1#mpkg2#hym1#page2" name="Selected Date Appointments" layout:pageLayout="WRDefault/Empty" gr:x="305" gr:y="5" ajaxEnabled="false" layout:frameLayout="WRDefault/Empty">
+  <ContentUnits>
+    <MultiDataUnit id="mov1#mpkg2#hym1#page2#mdu2" name="My Appointments" gr:x="0" gr:y="115" entity="ent1" displayAttributes="ent1#att2 ent1#att15 ent1#att16 ent1#att3 ent1#att5 ent1#att28a ent1#att29a ent1#att6 ent1#att12 ent1#att13" maxResults="10">
+      <Selector id="mov1#mpkg2#hym1#page2#mdu2#su6" defaultPolicy="fill" booleanOperator="and">
+        <AttributesCondition id="mov1#mpkg2#hym1#page2#mdu2#su6#acond2" name="Start Date" predicate="eq" booleanOperator="or" implied="false" attributes="ent1#att3"/>
+        <RelationshipRoleCondition id="mov1#mpkg2#hym1#page2#mdu2#su6#rcond5" name="Calendar" predicate="in" implied="false" role="rel22#role11"/>
+      </Selector>
+      <SortAttribute attribute="ent1#att3" order="ascending"/>
+    </MultiDataUnit>
+    <DataUnit gr:x="30" gr:y="0" id="mov1#mpkg2#hym1#page2#dau5" name="Calendar" entity="ent3" displayAttributes="ent3#att9 ent3#att11">
+      <Selector id="mov1#mpkg2#hym1#page2#dau5#su7" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="mov1#mpkg2#hym1#page2#dau5#su7#kcond3" name="Calendar" predicate="in" implied="false"/>
+      </Selector>
+    </DataUnit>
+  </ContentUnits>
+  <layout:Grid>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="mov1#mpkg2#hym1#page2#dau5">
+          <layout:Attribute attribute="ent3#att9"/>
+          <layout:Attribute attribute="ent3#att11"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="mov1#mpkg2#hym1#page2#mdu2">
+          <layout:Attribute attribute="ent1#att2"/>
+          <layout:Attribute attribute="ent1#att15"/>
+          <layout:Attribute attribute="ent1#att16"/>
+          <layout:Attribute attribute="ent1#att3"/>
+          <layout:Attribute attribute="ent1#att5"/>
+          <layout:Attribute attribute="ent1#att28a"/>
+          <layout:Attribute attribute="ent1#att29a"/>
+          <layout:Attribute attribute="ent1#att6"/>
+          <layout:Attribute attribute="ent1#att12"/>
+          <layout:Attribute attribute="ent1#att13"/>
+          <layout:LayoutParameter name="use-empty-unit-message" value="true" type="unit"/>
+          <layout:LayoutParameter name="empty-unit-message" value="noappointments" type="unit"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+</Page>

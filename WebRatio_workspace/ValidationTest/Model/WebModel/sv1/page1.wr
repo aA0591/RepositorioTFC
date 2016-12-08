@@ -1,0 +1,57 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" gr:x="95" gr:y="125" id="sv1#page1" name="Home">
+  <ContentUnits>
+    <EntryUnit gr:x="0" gr:y="0" id="sv1#page1#enu1" name="Form" entity="ent1" linkOrder="sv1#page1#enu1#ln1">
+      <Field id="sv1#page1#enu1#fld1" name="TextOnly" type="string" modifiable="true" preloaded="true" attribute="ent1#att2">
+        <VRules>
+          <textValidation id="sv1#page1#enu1#fld1#txtval5" name="textValidation5" validateAs="TEXT"/>
+        </VRules>
+      </Field>
+      <Field id="sv1#page1#enu1#fld2" name="NumericOnly" type="string" modifiable="true" preloaded="true" attribute="ent1#att3">
+        <VRules>
+          <textValidation id="sv1#page1#enu1#fld2#txtval2" name="textValidation2" validateAs="NUMERIC"/>
+        </VRules>
+      </Field>
+      <Field id="sv1#page1#enu1#fld3" name="Alphanumeric" type="string" modifiable="true" preloaded="true" attribute="ent1#att4">
+        <VRules>
+          <textValidation id="sv1#page1#enu1#fld3#txtval1" name="textValidation1" validateAs="ALPHA"/>
+        </VRules>
+      </Field>
+      <Field id="sv1#page1#enu1#fld4" name="Special" type="string" modifiable="true" preloaded="true" attribute="ent1#att5">
+        <VRules>
+          <textValidation id="sv1#page1#enu1#fld4#txtval4" name="textValidation4" validateAs="SPECIAL"/>
+        </VRules>
+      </Field>
+      <Field id="sv1#page1#enu1#fld5" name="Password" type="string" modifiable="true" preloaded="true" attribute="ent1#att6">
+        <VRules>
+          <textValidation id="sv1#page1#enu1#fld5#txtval3" name="textValidation3" validateAs="PASSWORD"/>
+        </VRules>
+      </Field>
+      <Link id="sv1#page1#enu1#ln1" name="Save" to="sv1#cru1" automaticCoupling="true" type="normal" validate="true"/>
+    </EntryUnit>
+  </ContentUnits>
+  <layout:Grid containerType="grid">
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv1#page1#enu1">
+          <layout:Link link="sv1#page1#enu1#ln1"/>
+          <layout:Field field="sv1#page1#enu1#fld1"/>
+          <layout:Field field="sv1#page1#enu1#fld2"/>
+          <layout:Field field="sv1#page1#enu1#fld3"/>
+          <layout:Field field="sv1#page1#enu1#fld4"/>
+          <layout:Field field="sv1#page1#enu1#fld5"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+</Page>

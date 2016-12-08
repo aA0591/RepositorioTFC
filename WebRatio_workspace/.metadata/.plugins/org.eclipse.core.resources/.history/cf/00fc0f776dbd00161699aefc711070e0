@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Layout>
+  <Resources alwaysRequired="AdminLTE-components-style">
+	  <Resource name="AdminLTE-components-style" type="css" path="AdminLTE/css/components.css"/>
+  </Resources>
+</Layout>

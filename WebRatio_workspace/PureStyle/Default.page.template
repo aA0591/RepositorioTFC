@@ -1,0 +1,210 @@
+#?delimiters [%, %], [%=, %]
+<wr:LayoutParameter name="application-name" label="Application Name" type="string" default="WebRatio">
+Define the name of the application shown on top left of the page.
+</wr:LayoutParameter>
+<wr:LayoutParameter name="navbar-type" label="Navbar type" type="enum" values="standard|fixed-top|left" default="left">
+Define the type of the nav bar.
+Default value is fixed top.
+</wr:LayoutParameter>
+<wr:LayoutParameter name="show-left-column" label="Show left column" type="boolean" default="false">
+Defines if the left column is shown.
+Default value is false.
+</wr:LayoutParameter>
+<wr:LayoutParameter name="show-right-column" label="Show right column" type="boolean" default="false">
+Defines if the right column is shown.
+Default value is false.
+</wr:LayoutParameter>
+<wr:LayoutParameter name="show-breadcrumb" label="Show breadcrumb" type="boolean" default="true">
+Defines if breadcrumb is shown.
+Default value is true.
+</wr:LayoutParameter>
+<wr:LayoutParameter name="show-page-title" label="Show page title" type="boolean" default="true">
+Defines if breadcrumb is shown.
+Default value is true.
+</wr:LayoutParameter>
+[%import org.apache.commons.lang.StringEscapeUtils
+
+setHTMLOutput()
+
+def homePage = getHomePage(page.selectSingleNode("ancestor::SiteView"))
+def homeLink = homePage != null ? getPageId(homePage) + ".do" : "index.jsp"
+def hasPageLinks = !page.selectNodes("Link").isEmpty();
+
+def navbarType = (params["navbar-type"] == "standard") ? " pure-menu-horizontal" : ((params["navbar-type"] == "fixed-top") ? " pure-menu-fixed pure-menu-horizontal" : "")
+def showLeftColumn = params["show-left-column"] == "true"
+def showRightColumn = params["show-right-column"] == "true"
+def showBreadcrumb = params["show-breadcrumb"] == "true"
+def showPageTitle = params["show-page-title"] == "true"
+%]
+<wr:Page type="HTML5"/>
+<wr:Resources types="jspdeclaration"/>
+<%@ page contentType="text/html; charset=UTF-8"%>
+<% response.setHeader("X-UA-Compatible", "IE=edge"); %>
+<webratio:Page page="<wr:Id context="page"/>"/>
+<html>
+	<head>
+		
+  		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+  		<meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+  		[%if(enableURLFragments()){%]<wr:BaseURI/>[%}%]
+		<title><wr:Label context="page"/></title>
+    	<link href="Resources/favicon.png" rel="shortcut icon">
+
+		<wr:RequireResource ref="app-css"/>
+		<wr:RequireResource ref="app-js"/>
+		<wr:Resources types="css"/>
+		<wr:Resources types="javascript"/>
+	</head>
+<body>
+<wr:PageForm>
+<div id="layout" class="[%= (params["navbar-type"] == "fixed-top") ? " fixed-menu" : "" %][%= (params["navbar-type"] == "left") ? " left-menu" : "" %]">
+	<div class="navbar">
+		<div class="container">
+			<a href="#menu" id="menuLink" class="menu-link">
+		        <span></span>
+		    </a>
+		    <div id="menu">
+				<div class="pure-menu pure-menu-open[%= navbarType %]">
+					<a class="pure-menu-heading home-link" href="[%= homeLink %]">[%= StringEscapeUtils.escapeHtml(params["application-name"]) %]</a>
+					<div class="user-location">
+		            	<wr:CustomLocation name="User"/>
+		            </div>
+		            <ul class="pure-menu-children">
+						<wr:LandmarkMenu level="1" var="lm">
+						<wr:Visible>
+							<wr:Current>
+								<li class="pure-menu-selected[%= (!getLandmarkChildren(lm).isEmpty()) ? " pure-menu-can-have-children pure-menu-has-children" : "" %]">
+							</wr:Current>
+							<wr:NonCurrent>
+								<li[% printRaw((!getLandmarkChildren(lm).isEmpty()) ? " class=\"pure-menu-can-have-children pure-menu-has-children\"" : "") %]>
+							</wr:NonCurrent>
+									<wr:Link class="pure-menu-label"/>
+									[% if (!getLandmarkChildren(lm).isEmpty()) { %]
+									<ul class="pure-menu-children">
+										<wr:Current>
+											<wr:LandmarkMenu level="2" var="lm2">
+											<wr:Visible>
+												<wr:Current>
+													<li class="pure-menu-selected[% printRaw((!getLandmarkChildren(lm2).isEmpty()) ? " pure-menu-can-have-children pure-menu-has-children" : "") %]">
+												</wr:Current>
+												<wr:NonCurrent>
+													<li[% printRaw((!getLandmarkChildren(lm2).isEmpty()) ? " class=\"pure-menu-can-have-children pure-menu-has-children\"" : "") %]>
+												</wr:NonCurrent>
+													<wr:Link class="pure-menu-label"/>
+													[% if (!getLandmarkChildren(lm2).isEmpty()) { %]
+													<ul class="pure-menu-children">
+														<wr:Current>
+															<wr:LandmarkMenu level="3">
+															<wr:Visible>
+																<wr:Current><li class="pure-menu-selected"></wr:Current>
+																<wr:NonCurrent><li></wr:NonCurrent>
+																	<wr:Link class="pure-menu-label"/>
+																</li>
+															</wr:Visible>
+															</wr:LandmarkMenu>
+														</wr:Current>
+														<wr:NonCurrent>
+															<wr:LandmarkMenu level="3">
+															<wr:Visible>
+																<li><wr:Link class="pure-menu-label"/></li>
+															</wr:Visible>
+															</wr:LandmarkMenu>
+														</wr:NonCurrent>
+													</ul>
+													[% } %]
+												</li>
+											</wr:Visible>
+											</wr:LandmarkMenu>
+										</wr:Current>
+										<wr:NonCurrent>
+											<wr:LandmarkMenu level="2" var="lm2">
+											<wr:Visible>
+												<li[% printRaw((!getLandmarkChildren(lm2).isEmpty()) ? " class=\"pure-menu-can-have-children pure-menu-has-children\"" : "") %]>
+													<wr:Link class="pure-menu-label"/>
+													[% if (!getLandmarkChildren(lm2).isEmpty()) { %]
+													<ul class="pure-menu-children">
+														<wr:NonCurrent>
+															<wr:LandmarkMenu level="3">
+															<wr:Visible>
+																<li><wr:Link class="pure-menu-label"/></li>
+															</wr:Visible>
+															</wr:LandmarkMenu>
+														</wr:NonCurrent>
+													</ul>
+													[% } %]
+												</li>
+											</wr:Visible>
+											</wr:LandmarkMenu>
+										</wr:NonCurrent>
+									</ul>
+									[% } %]
+								</li>
+						</wr:Visible>
+						</wr:LandmarkMenu>
+		            </ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="container">
+		<div class="pure-g-r">
+			<div class="pure-u-1">
+			[% if (showPageTitle) { %]
+				<div class="page-title">
+					<h1><wr:Label context="page"/></h1>
+				</div>
+			[% } %]
+			[% if (showBreadcrumb) { %]
+				<ol class="breadcrumb pure-hidden-phone">
+					<wr:NavigationBar>
+					 <li><wr:Link class="small"/></li>
+					</wr:NavigationBar>
+					<li class="active"><wr:Label context="page"/></li>
+				</ol>
+			[% } %]
+			[% if (hasPageLinks || page.selectSingleNode("layout:CustomLocation[@name='Page Links']") != null) { %]
+		  		<div class="page-links">
+		  			<wr:CustomLocation name="Page Links"/>
+		  			<wr:PageLinks>
+						<wr:Visible>
+							<wr:Link class="pure-button pure-button-secondary pure-button-xsmall"/>
+						</wr:Visible>
+					</wr:PageLinks>
+				</div>
+			[% } %]
+			</div>
+			
+		[% if (showLeftColumn) { %]
+			<div class="pure-u-1-4 left-column">
+				<wr:CustomLocation name="Left"/>
+			</div>
+		[% } %]
+		[% if (showLeftColumn & showRightColumn) { %]
+			<div class="pure-u-1-2">
+		[% } else if (showLeftColumn ^ showRightColumn) { %]
+			<div class="pure-u-3-4">
+		[% } else { %]
+			<div class="pure-u-1">
+		[% } %]
+				<div class="grid">
+					<wr:CustomLocation name="Top"/>
+					<wr:Grid/>
+				</div>
+			</div>
+		[% if (showRightColumn) { %]
+			<div class="pure-u-1-4 right-column">
+				<wr:CustomLocation name="Right"/>
+			</div>
+		[% } %]
+		</div>
+	</div>
+</div>
+<footer class="copyright[%= (params["navbar-type"] == "left") ? " left-menu" : "" %]">
+	<div class="container">
+		<p class="text-center">Generated by <a href="http://www.webratio.com" target="_blank" title="High Productivity Web and Mobile App Dev Platform">WebRatio</a><sup>&reg;</sup></p>
+	</div>
+</footer>
+</wr:PageForm>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" gr:x="80" gr:y="510" id="sv1#page3" name="Save Address" landmark="true">
+  <ContentUnits>
+    <EntryUnit id="sv1#page3#enu3" name="Address" gr:x="0" gr:y="0" fieldOrder="sv1#page3#enu3#fld3 sv1#page3#enu3#fld9 sv1#page3#enu3#fld8 sv1#page3#enu3#fld4" linkOrder="sv1#page3#enu3#ln8">
+      <Field id="sv1#page3#enu3#fld3" name="Address" type="string" modifiable="true" slotOrder="sv1#page3#enu3#fld3#slot6" preloaded="true">
+        <Slot id="sv1#page3#enu3#fld3#slot6" name="address" label="true" output="true" value="via valleggio 7"/>
+      </Field>
+      <Field id="sv1#page3#enu3#fld4" name="Country" type="string" preloaded="true" modifiable="true">
+        <Slot id="sv1#page3#enu3#fld4#slot7" name="country" label="true" output="true" value="Italy"/>
+      </Field>
+      <Field id="sv1#page3#enu3#fld8" name="State or province" type="string" preloaded="true" modifiable="true">
+        <Slot id="sv1#page3#enu3#fld8#slot8" name="SoP" label="true" output="true" value="Como"/>
+      </Field>
+      <Field id="sv1#page3#enu3#fld9" name="City" type="string" preloaded="true" modifiable="true">
+        <Slot id="sv1#page3#enu3#fld9#slot9" name="city" label="true" output="true" value="Como"/>
+      </Field>
+      <Link id="sv1#page3#enu3#ln8" name="Save" to="sv1#ggu1" type="normal" validate="true">
+        <LinkParameter id="sv1#page3#enu3#ln8#par13" name="Street_Address" source="sv1#page3#enu3#fld3" target="sv1#ggu1.addr"/>
+        <LinkParameter id="sv1#page3#enu3#ln8#par14" name="City_City" source="sv1#page3#enu3#fld9" target="sv1#ggu1.city"/>
+        <LinkParameter id="sv1#page3#enu3#ln8#par15" name="Country_Country" source="sv1#page3#enu3#fld4" target="sv1#ggu1.country"/>
+        <LinkParameter id="sv1#page3#enu3#ln8#par16" name="State or province_State or Province" source="sv1#page3#enu3#fld8" target="sv1#ggu1.sop"/>
+      </Link>
+    </EntryUnit>
+    <DataUnit gr:x="4" gr:y="74" id="sv1#page3#dau1" name="Address" entity="ent1" displayAttributes="ent1#att2 ent1#att5 ent1#att3 ent1#att4">
+      <Selector id="sv1#page3#dau1#su1" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="sv1#page3#dau1#su1#kcond1" name="KeyCondition1" predicate="in" implied="false"/>
+      </Selector>
+    </DataUnit>
+  </ContentUnits>
+  <layout:Grid>
+    <layout:Row>
+      <layout:Cell>
+        <layout:Unit unitId="sv1#page3#enu3">
+          <layout:Field field="sv1#page3#enu3#fld3"/>
+          <layout:Field field="sv1#page3#enu3#fld9"/>
+          <layout:Field field="sv1#page3#enu3#fld8"/>
+          <layout:Field field="sv1#page3#enu3#fld4"/>
+          <layout:Link link="sv1#page3#enu3#ln8"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell>
+        <layout:Unit unitId="sv1#page3#dau1">
+          <layout:Attribute attribute="ent1#att2"/>
+          <layout:Attribute attribute="ent1#att5"/>
+          <layout:Attribute attribute="ent1#att3"/>
+          <layout:Attribute attribute="ent1#att4"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+</Page>

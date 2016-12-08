@@ -1,0 +1,21 @@
+<OperationModule xmlns:gr="http://www.webratio.com/2006/WebML/Graph" id="mov2#mpkg5#opm1" name="Save User" gr:x="0" gr:y="65" gr:icon="ModulesIcons/Save.png">
+  <OperationUnits>
+    <InputCollectorUnit id="mov2#mpkg5#opm1#icu3" name="Input" gr:x="35" gr:y="195">
+      <InputCollectorParameter id="mov2#mpkg5#opm1#icu3#icp4" name="User Object"/>
+      <InputCollectorParameter id="mov2#mpkg5#opm1#icu3#icp5" name="User Key"/>
+      <Link id="mov2#mpkg5#opm1#icu3#ln34" name="Link3" to="mov2#mpkg5#opm1#opg1#cru1" type="transport" validate="true">
+        <LinkParameter id="mov2#mpkg5#opm1#icu3#ln34#par42" name="User Object" source="mov2#mpkg5#opm1#icu3#icp4" target="mov2#mpkg5#opm1#opg1#cru1.entityBeans"/>
+      </Link>
+      <OKLink id="mov2#mpkg5#opm1#icu3#oln7" name="OKLink1" to="mov2#mpkg5#opm1#opg1#inn3">
+        <LinkParameter id="mov2#mpkg5#opm1#icu3#oln7#par44" name="User Key" source="mov2#mpkg5#opm1#icu3#icp5" target="mov2#mpkg5#opm1#opg1#inn3.isnotnull"/>
+      </OKLink>
+      <Link id="mov2#mpkg5#opm1#icu3#ln37" name="Link5" to="mov2#mpkg5#opm1#opg1#mfu3" type="transport" validate="true" gr:bendpoints="203,67,-147,67">
+        <LinkParameter id="mov2#mpkg5#opm1#icu3#ln37#par45" name="User Key" source="mov2#mpkg5#opm1#icu3#icp5" target="mov2#mpkg5#opm1#opg1#mfu3#su12#kcond35.userOID"/>
+        <LinkParameter id="mov2#mpkg5#opm1#icu3#ln37#par46" name="User Object" source="mov2#mpkg5#opm1#icu3#icp4" target="mov2#mpkg5#opm1#opg1#mfu3.entityBeans"/>
+      </Link>
+    </InputCollectorUnit>
+    <OKCollectorUnit id="mov2#mpkg5#opm1#okcu3" name="Success" gr:x="840" gr:y="195"/>
+    <KOCollectorUnit id="mov2#mpkg5#opm1#kocu3" name="Error" gr:x="840" gr:y="80"/>
+  </OperationUnits>
+  <Comment xml:space="preserve">Operation module that allows to save a new User.
+</Comment></OperationModule>

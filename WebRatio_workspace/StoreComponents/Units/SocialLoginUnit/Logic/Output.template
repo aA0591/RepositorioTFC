@@ -1,0 +1,19 @@
+#?delimiters <%,%>,<%=,%>
+<% setXMLOutput() %>
+<OutputParameters>
+  <%if(unit.parent.name == "ContentUnits"){%>
+     <OutputParameter name="data[].id" type="" label="Social Network Id" />
+  <%}else if(!unit["performLogout"]){%>
+     <OutputParameter name="user.id" type="" label="User ID" />
+     <OutputParameter name="user.userName" type="" label="User Name" />
+     <OutputParameter name="user.location" type="" label="User Location" />
+     <OutputParameter name="user.firstName" type="" label="User First Name" />
+     <OutputParameter name="user.lastName" type="" label="User Last Name" />
+     <OutputParameter name="user.email" type="" label="User Email" />
+     <OutputParameter name="user.profileImage" type="" label="User Profile Image" />
+     <OutputParameter name="user.largeProfileImage" type="" label="Large User Profile Image" />
+     <OutputParameter name="user.companies" type="" label="User Companies (Array)" />
+     <OutputParameter name="user.application.name" type="" label="Social Network Name" />
+     <OutputParameter name="user.publicProfileUrl" type="" label="User Profile URL" />
+  <%}%>
+</OutputParameters>

@@ -1,0 +1,7 @@
+#?delimiters <%,%>,<%=,%>
+<%
+setXMLOutput()
+%>
+<Descriptor service="com.webratio.units.custom.TextValidationValidationRuleService">
+   <validateAs><%=element["validateAs"]%></validateAs>
+</Descriptor>

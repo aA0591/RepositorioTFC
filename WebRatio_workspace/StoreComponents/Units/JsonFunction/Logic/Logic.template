@@ -1,0 +1,15 @@
+#?delimiters <%,%>,<%=,%>
+<%
+setXMLOutput()
+def unitId = unit["id"]
+%>
+
+<Descriptor service="com.webratio.units.custom.jsonfunction.JsonFunctionUnitService">
+	<Mode><%=unit["mode"]%></Mode>
+	<% for (stringElem in unit.selectNodes("Key")) { %>
+  	   <Key value="<%=stringElem["value"]%>"><%=stringElem["id"]%></Key>
+  	   <Name name="<%=stringElem["name"]%>"><%=stringElem["id"]%></Name>
+    <% } %>
+
+   <% printRaw(serializeXML(unit, false)) %>
+</Descriptor>

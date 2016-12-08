@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle>
+  <Entry key="textValidation.errorAlpha">Only letters and numbers allowed</Entry>
+  <Entry key="textValidation.errorNumericOnly">Only numbers allowed</Entry>
+  <Entry key="textValidation.errorPassword">You must enter an uppercase letter, lowercase letter, numbers and special characters (# @ $ %) Minimum 6 characters and maximum 20 characters</Entry>
+  <Entry key="textValidation.errorSpecialChars">You must enter . and - with your chars</Entry>
+  <Entry key="textValidation.errorText">Only letters allowed</Entry>
+</Bundle>

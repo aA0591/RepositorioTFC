@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StoreMapping> 
+  <ResourceBinding path="Units/GoogleMapUnit" store="WebRatio Add-ons" versionId="437" itemId="6"/>  
+  <ResourceBinding path="Units/SocialLoginUnit" store="WebRatio Add-ons" versionId="415" itemId="11"/>  
+  <ResourceBinding path="Units/QRCodeUnit" store="WebRatio Add-ons" versionId="42" itemId="16"/>  
+  <ResourceBinding path="Templates/Units/MultiDataUnit/Masonry.unit.template" store="WebRatio Add-ons" versionId="339" itemId="101"/>  
+  <ResourceBinding path="Templates/Units/MultiMessageUnit/NotificationMessage.unit.template" store="WebRatio Add-ons" versionId="299" itemId="8"/>  
+  <ResourceBinding path="Templates/Rating.attr.template" store="WebRatio Add-ons" versionId="298" itemId="25"/>  
+  <ResourceBinding path="Templates/Units/MultiMessageUnit/ScrollToTop.unit.template" store="WebRatio Add-ons" versionId="247" itemId="9"/>
+</StoreMapping>

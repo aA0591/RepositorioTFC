@@ -1,0 +1,6 @@
+#?delimiters [%, %], [%=, %]
+[%setHTMLOutput()%]
+<div class="pure-frame">
+	<h2 class="pure-frame-title"><wr:Label context="element"/></h2>
+	<div class="pure-frame-content"><wr:FrameContent/></div>
+</div>

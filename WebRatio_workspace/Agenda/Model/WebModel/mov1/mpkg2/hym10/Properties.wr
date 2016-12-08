@@ -1,0 +1,49 @@
+<HybridModule xmlns:gr="http://www.webratio.com/2006/WebML/Graph" id="mov1#mpkg2#hym10" name="Edit Appointment" gr:x="300" gr:y="0" gr:icon="ModulesIcons/Edit.png">
+  <OperationUnits>
+    <InputCollectorUnit id="mov1#mpkg2#hym10#icu12" name="Input" gr:x="-905" gr:y="135">
+      <InputCollectorParameter id="mov1#mpkg2#hym10#icu12#icp13" name="Appointment Key"/>
+      <Link id="mov1#mpkg2#hym10#icu12#ln135" to="mov1#mpkg2#hym10#page11#enu9" type="transport" validate="true" gr:bendpoints="228,-232,-852,98;796,-233,-284,97" name="Link135">
+        <LinkParameter id="mov1#mpkg2#hym10#icu12#ln135#par133" name="Appointment Key" source="mov1#mpkg2#hym10#icu12#icp13" target="mov1#mpkg2#hym10#page11#enu9.ent1#att1"/>
+        <LinkParameter id="mov1#mpkg2#hym10#icu12#ln135#par134" name="Calendar Key" source="mov1#mpkg2#hym10#icu12#icp14" target="mov1#mpkg2#hym10#page11#enu9#fld36_slot"/>
+      </Link>
+      <Link id="mov1#mpkg2#hym10#icu12#ln136" to="mov1#mpkg2#hym10#page10#dau3" type="transport" validate="true" gr:bendpoints="279,185,-811,0" name="Link136">
+        <LinkParameter id="mov1#mpkg2#hym10#icu12#ln136#par135" name="Appointment Key" source="mov1#mpkg2#hym10#icu12#icp13" target="mov1#mpkg2#hym10#page10#dau3#su50#kcond9.ent1#att1"/>
+      </Link>
+      <Link id="mov1#mpkg2#hym10#icu12#ln137" to="mov1#mpkg2#hym10#page11#seu11" type="transport" validate="true" gr:bendpoints="183,-331,-152,-1" name="Link137">
+        <LinkParameter id="mov1#mpkg2#hym10#icu12#ln137#par136" name="Appointment Key" source="mov1#mpkg2#hym10#icu12#icp13" target="mov1#mpkg2#hym10#page11#seu11#su52#rcond8.ent1#att1"/>
+      </Link>
+      <InputCollectorParameter id="mov1#mpkg2#hym10#icu12#icp14" name="Calendar Key"/>
+      <Link id="mov1#mpkg2#hym10#icu12#ln138" to="mov1#mpkg2#hym10#page11#mdu6" type="transport" validate="true" gr:bendpoints="164,-461,-171,-1" name="Link138">
+        <LinkParameter id="mov1#mpkg2#hym10#icu12#ln138#par137" name="Appointment Key" source="mov1#mpkg2#hym10#icu12#icp13" target="mov1#mpkg2#hym10#page11#mdu6#su53#rcond9.ent1#att1"/>
+      </Link>
+      <OKLink id="mov1#mpkg2#hym10#icu12#oln46" to="mov1#mpkg2#hym10#opg8#seu16" name="OKLink46">
+        <LinkParameter id="mov1#mpkg2#hym10#icu12#oln46#par138" name="Appointment Key" source="mov1#mpkg2#hym10#icu12#icp13" target="mov1#mpkg2#hym10#opg8#seu16#su67#kcond24.ent1#att1"/>
+      </OKLink>
+      <Link id="mov1#mpkg2#hym10#icu12#ln139" to="mov1#mpkg2#hym10#opg8#seu19" type="transport" validate="true" gr:bendpoints="247,92,-623,92;803,92,-67,92" name="Link139">
+        <LinkParameter id="mov1#mpkg2#hym10#icu12#ln139#par139" name="Appointment Key" source="mov1#mpkg2#hym10#icu12#icp13" target="mov1#mpkg2#hym10#opg8#seu19#su68#kcond25.ent1#att1"/>
+      </Link>
+    </InputCollectorUnit>
+    <NoOpOperationUnit id="mov1#mpkg2#hym10#opu3" name="Refresh All Day Event" gr:x="660" gr:y="-460">
+      <OKLink id="mov1#mpkg2#hym10#opu3#oln47" name="OKLink47" to="mov1#mpkg2#hym10#page11" automaticCoupling="true" preserveForm="true" gr:bendpoints="-2,115,688,-95"/>
+    </NoOpOperationUnit>
+    <DeleteUnit id="mov1#mpkg2#hym10#dlu2" name="Delete Appointment" gr:x="685" gr:y="-200" entity="ent1">
+      <Selector id="mov1#mpkg2#hym10#dlu2#su49" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="mov1#mpkg2#hym10#dlu2#su49#kcond8" name="Appointment" predicate="in" implied="false"/>
+      </Selector>
+      <OKLink id="mov1#mpkg2#hym10#dlu2#oln48" name="OKLink48" to="mov1#mpkg2#hym10#okcu11" automaticCoupling="true"/>
+      <KOLink id="mov1#mpkg2#hym10#dlu2#kln4" name="KOLink4" to="mov1#mpkg2#hym10#page11#mssu5" preserveForm="true">
+        <LinkParameter id="mov1#mpkg2#hym10#dlu2#kln4#par140" name="Message" target="mov1#mpkg2#hym10#page11#mssu5.shownMessages" sourceValue="It was not possible to delete the appointment."/>
+      </KOLink>
+    </DeleteUnit>
+    <ModuleInstanceUnit id="mov1#mpkg2#hym10#miu12" name="Comments" gr:x="505" gr:y="-465" moduleId="mov1#mpkg2#hym9">
+      <OKLink id="mov1#mpkg2#hym10#miu12#oln49" name="OKLink49" to="mov1#mpkg2#hym10#page11" preserveForm="true"/>
+      <KOLink id="mov1#mpkg2#hym10#miu12#kln5" name="KOLink5" to="mov1#mpkg2#hym10#page11#mssu5" preserveForm="true">
+        <LinkParameter id="mov1#mpkg2#hym10#miu12#kln5#par141" name="Message" target="mov1#mpkg2#hym10#page11#mssu5.shownMessages" sourceValue="There was an error saving your comment"/>
+      </KOLink>
+    </ModuleInstanceUnit>
+    <OKCollectorUnit id="mov1#mpkg2#hym10#okcu9" name="Success Modify" gr:x="1740" gr:y="140"/>
+    <OKCollectorUnit id="mov1#mpkg2#hym10#okcu10" name="Cancel" gr:x="1740" gr:y="315"/>
+    <OKCollectorUnit id="mov1#mpkg2#hym10#okcu11" name="Success Delete" gr:x="1740" gr:y="-195"/>
+  </OperationUnits>
+  <Comment xml:space="preserve">Hybrid Module that contains both the form and the operations needed to edit an Appointment.</Comment>
+</HybridModule>

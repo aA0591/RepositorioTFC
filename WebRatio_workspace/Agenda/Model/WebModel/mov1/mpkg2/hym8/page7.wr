@@ -1,0 +1,35 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" id="mov1#mpkg2#hym8#page7" name="Reminder" layout:pageLayout="WRDefault/Empty" gr:x="275" gr:y="115">
+  <ContentUnits>
+    <EntryUnit id="mov1#mpkg2#hym8#page7#enu6" name="Message Information" linkOrder="mov1#mpkg2#hym8#page7#enu6#ln113" gr:x="0" gr:y="0">
+      <Field id="mov1#mpkg2#hym8#page7#enu6#fld15" name="message" type="text" modifiable="true" contentType="text/html" preloaded="true">
+        <VRules/>
+      </Field>
+      <Link id="mov1#mpkg2#hym8#page7#enu6#ln113" name="Save" to="mov1#mpkg2#hym8#page8#enu7" type="normal" validate="true">
+        <LinkParameter id="mov1#mpkg2#hym8#page7#enu6#ln113#par97" name="Message" source="mov1#mpkg2#hym8#page7#enu6#fld15" target="mov1#mpkg2#hym8#page8#enu7#fld23_slot"/>
+      </Link>
+    </EntryUnit>
+  </ContentUnits>
+  <layout:Grid>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="mov1#mpkg2#hym8#page7#enu6">
+          <layout:Field field="mov1#mpkg2#hym8#page7#enu6#fld15"/>
+          <layout:Link link="mov1#mpkg2#hym8#page7#enu6#ln113"/>
+          <layout:LayoutParameter name="show-label" value="top" type="unit"/>
+          <layout:LayoutParameter name="mandatory-fields" value="true" type="unit"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+</Page>

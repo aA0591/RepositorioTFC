@@ -1,0 +1,89 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" id="sv2#area6#page6" name="Test Page" gr:x="453" gr:y="265">
+  <ContentUnits>
+    <IndexUnit id="sv2#area6#page6#inu6" name="Sample Templates" linkOrder="sv2#area6#page6#inu6#ln20 sv2#area6#page6#inu6#ln5" gr:x="2" gr:y="0" entity="ent2" displayAttributes="ent2#att5 ent2#att4">
+      <Link id="sv2#area6#page6#inu6#ln20" name="Select" to="sv2#area6#pcu2" type="normal" validate="true">
+        <LinkParameter id="sv2#area6#page6#inu6#ln20#par79" name="oid_oid" source="data[].ent2#att3" target="sv2#area6#pcu2#pcp2"/>
+      </Link>
+      <Link id="sv2#area6#page6#inu6#ln5" name="Delete" to="sv2#area6#dlu3" type="normal" automaticCoupling="true" validate="true"/>
+      <SortAttribute attribute="ent2#att7" order="descending"/>
+      <SortAttribute attribute="ent2#att5" order="ascending"/>
+    </IndexUnit>
+    <DataUnit id="sv2#area6#page6#dau6" name="Filled RTF Document" gr:x="486" gr:y="323" entity="ent1" displayAttributes="ent1#att2"/>
+    <EntryUnit id="sv2#area6#page6#enu8" name="New Sample Template" gr:x="0" gr:y="180" linkOrder="sv2#area6#page6#enu8#ln6">
+      <Field id="sv2#area6#page6#enu8#fld43" name="name" type="string" modifiable="true"/>
+      <Field id="sv2#area6#page6#enu8#fld44" name="blob" type="blob" modifiable="true">
+        <VRules>
+          <MandatoryValidationRule id="sv2#area6#page6#enu8#fld44#mnd1" name="Mandatory"/>
+        </VRules>
+      </Field>
+      <Link id="sv2#area6#page6#enu8#ln6" name="Upload" to="sv2#area6#miu2" type="normal" validate="true">
+        <LinkParameter id="sv2#area6#page6#enu8#ln6#par24" name="blob_Blob" source="sv2#area6#page6#enu8#fld44" target="sv2#area6#miu2.mov1#opm2#icu2#icp5"/>
+        <LinkParameter id="sv2#area6#page6#enu8#ln6#par25" name="name_Name" source="sv2#area6#page6#enu8#fld43" target="sv2#area6#miu2.mov1#opm2#icu2#icp4"/>
+      </Link>
+    </EntryUnit>
+    <MultiEntryUnit gr:x="478" gr:y="19" id="sv2#area6#page6#meu2" name="Available Place Holders" minLength="0" linkOrder="sv2#area6#page6#meu2#ln26" fieldOrder="sv2#area6#page6#meu2#fld45 sv2#area6#page6#meu2#fld46">
+      <Field id="sv2#area6#page6#meu2#fld45" name="Names" type="string" modifiable="false" preloaded="true" hidden="false"/>
+      <Field id="sv2#area6#page6#meu2#fld46" name="Values" type="text" modifiable="true" preloaded="false" contentType="text/html"/>
+      <Link id="sv2#area6#page6#meu2#ln26" name="Fill" to="sv2#area6#rtffu7" type="normal" validate="true">
+        <LinkParameter id="sv2#area6#page6#meu2#ln26#par93" name="Names_Place Holder Names" source="sv2#area6#page6#meu2#fld45" target="sv2#area6#rtffu7.placeHolderNames"/>
+        <LinkParameter id="sv2#area6#page6#meu2#ln26#par94" name="Values_Place Holder Values" source="sv2#area6#page6#meu2#fld46" target="sv2#area6#rtffu7.placeHolderValues"/>
+      </Link>
+    </MultiEntryUnit>
+    <DataUnit id="sv2#area6#page6#dau1" entity="ent2" displayAttributes="ent2#att5" name="Selected RTF Template" gr:x="304" gr:y="5">
+      <Selector id="sv2#area6#page6#dau1#su5" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="sv2#area6#page6#dau1#su5#kcond6" predicate="in" implied="true" name="KeyCondition4"/>
+      </Selector>
+    </DataUnit>
+    <SelectorUnit id="sv2#area6#page6#seu4" name="Sample Template" gr:x="226" gr:y="172" entity="ent2" distinctAttributes="ent2#att5 ent2#att4" maxResults="1">
+      <SortAttribute attribute="ent2#att5" order="ascending"/>
+      <Selector id="sv2#area6#page6#seu4#su12" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="sv2#area6#page6#seu4#su12#kcond5" name="KeyCondition4" predicate="in" implied="true"/>
+      </Selector>
+      <Link id="sv2#area6#page6#seu4#ln35" name="Link35" to="sv2#area6#page6#dau1" automaticCoupling="true" type="transport" validate="true"/>
+      <Link id="sv2#area6#page6#seu4#ln36" name="Link36" to="sv2#area6#miu7" type="transport" validate="true">
+        <LinkParameter id="sv2#area6#page6#seu4#ln36#par83" name="name_Used Sample Template Name" source="ent2#att5Array" target="sv2#area6#miu7.mov1#opm1#icu1#icp2"/>
+      </Link>
+      <Link id="sv2#area6#page6#seu4#ln37" name="Link37" to="sv2#area6#rtffu7" type="transport" validate="true">
+        <LinkParameter id="sv2#area6#page6#seu4#ln37#par82" name="blob_RTF Template" source="ent2#att4Array" target="sv2#area6#rtffu7.rtfTemplate"/>
+      </Link>
+    </SelectorUnit>
+  </ContentUnits>
+  <layout:Grid>
+    <layout:Row>
+      <layout:Cell>
+        <layout:Unit unitId="sv2#area6#page6#inu6">
+          <layout:Attribute attribute="ent2#att5"/>
+          <layout:Attribute attribute="ent2#att4"/>
+          <layout:Link link="sv2#area6#page6#inu6#ln20"/>
+          <layout:Link link="sv2#area6#page6#inu6#ln5" layout:linkVisibilityConditionVariable="sv2#area6#page6#var1" layout:linkVisibilityConditionNegated="true"/>
+        </layout:Unit>
+        <layout:Unit unitId="sv2#area6#page6#enu8">
+          <layout:Field field="sv2#area6#page6#enu8#fld43"/>
+          <layout:Field field="sv2#area6#page6#enu8#fld44"/>
+          <layout:Link link="sv2#area6#page6#enu8#ln6"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell>
+        <layout:Unit unitId="sv2#area6#page6#dau1">
+          <layout:Attribute attribute="ent2#att5"/>
+          <layout:LayoutParameter name="show-attribute-name" value="false" type="unit"/>
+        </layout:Unit>
+        <layout:Unit unitId="sv2#area6#page6#meu2">
+          <layout:LayoutParameter name="fck-toolbar" value="Full" type="field"/>
+          <layout:LayoutParameter name="width" value="82" type="field"/>
+          <layout:LayoutParameter name="height" value="2" type="field"/>
+          <layout:Link link="sv2#area6#page6#meu2#ln26"/>
+          <layout:LayoutParameter name="show-checkbox" value="false" type="unit"/>
+          <layout:Field field="sv2#area6#page6#meu2#fld45"/>
+          <layout:Field field="sv2#area6#page6#meu2#fld46"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell>
+        <layout:Unit unitId="sv2#area6#page6#dau6">
+          <layout:Attribute label=" " attribute="ent1#att2"/>
+        </layout:Unit>
+      </layout:Cell>
+    </layout:Row>
+  </layout:Grid>
+  <Variable id="sv2#area6#page6#var1" name="example" type="boolean" unitId="sv2#area6#page6#inu6" parameter="data[].ent2#att7"/>
+</Page>

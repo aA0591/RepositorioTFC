@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Unit version="1.0.0" type="content" idPrefix="gmu" linkSource="true" linkTarget="true" okLinkSource="false" okLinkTarget="true" koLinkSource="false" koLinkTarget="true" defaultIntraPageLinkType="normal" canPlaceLayoutUnit="true"> 
+  <ServiceDataProvider type="Google Maps">
+    <StringProperty attributeName="apiKey" label="API Key">
+      <Description xml:space="preserve">The Google Maps API Key.</Description>
+    </StringProperty>
+    <Description xml:space="preserve">The Google Maps Provider is necessary to show the Google Map in a page.</Description>
+  </ServiceDataProvider>
+  <ServiceDataProvidersProperty attributeName="mapsProvider" multiple="false" serviceDataProviderType="Google Maps">
+    <Description xml:space="preserve">The Maps Provider used to show the Google Map.</Description>
+  </ServiceDataProvidersProperty>
+  <EnumProperty attributeName="mapType" defaultValue="ROADMAP"> 
+    <EnumItem value="ROADMAP"/>  
+    <EnumItem value="SATELLITE"/>  
+    <EnumItem value="HYBRID"/>  
+    <EnumItem value="TERRAIN"/>  
+    <Description xml:space="preserve">Specifies displayed map type:
+        ROADMAP displays the normal (default), 
+        SATELLITE displays photographic tiles, 
+        HYBRID displays a mix of photographic tiles and a tile layer for prominent features (roads, city names),
+        TERRAIN displays physical relief tiles for displaying elevation and water features (mountains, rivers, etc.).
+     </Description> 
+  </EnumProperty>  
+  <IntegerProperty attributeName="mapZoomLevel"> 
+    <Description xml:space="preserve">The map initial zoom level.</Description> 
+  </IntegerProperty>  
+  <StringProperty attributeName="mapCoordinates"> 
+    <Description xml:space="preserve">The map center coordinates (e.g "42.5, 12.7").</Description> 
+  </StringProperty>  
+  <IntegerProperty attributeName="mapWidth"> 
+    <Description xml:space="preserve">The map width in pixels.</Description> 
+  </IntegerProperty>  
+  <IntegerProperty attributeName="mapHeight"> 
+    <Description xml:space="preserve">The map height in pixels.</Description> 
+  </IntegerProperty>  
+  <BooleanProperty attributeName="useSensor"> 
+    <Description xml:space="preserve">If checked the application will use a sensor (such as a GPS locator) 
+      to determine the user's location.</Description> 
+  </BooleanProperty>  
+  <BooleanProperty attributeName="isAdjustable" defaultValue="false"> 
+    <Description xml:space="preserve">If checked, the map coordinates will be adjusted according to the 
+	   position determined with a mouse click on the map.</Description> 
+  </BooleanProperty>  
+  <SubUnit elementName="Marker" idPrefix="mrk" namePrefix="Marker "> 
+    <TextProperty elementName="InfoText" label="Info"> 
+      <Description xml:space="preserve">The marker information.</Description> 
+    </TextProperty>  
+    <StringProperty attributeName="coordinates"> 
+      <Description xml:space="preserve">The marker coordinates (e.g "42.5, 12.7").</Description> 
+    </StringProperty>  
+    <BooleanProperty attributeName="infoWindowVisible"> 
+      <Description xml:space="preserve">If checked the marker information window is open on map loading.</Description> 
+    </BooleanProperty>  
+    <Description xml:space="preserve">The Marker sub-unit lets you add a location marker on the Google map.</Description> 
+  </SubUnit>  
+  <IsContextFreeUnit xml:space="preserve">return getIncomingLinksAllTypes(unit).empty</IsContextFreeUnit>  
+  <IsMultiConditionUnit xml:space="preserve">return getIncomingLinksAllTypes(unit).size() &gt;= 1</IsMultiConditionUnit>  
+  <Description xml:space="preserve">The Google Map unit lets you embed Google Maps in your own web pages.</Description>  
+  <InputDescription xml:space="preserve" name="Condition-Name">The parameter associated to one of the selector conditions of the unit.</InputDescription>  
+  <OutputDescription xml:space="preserve" name="Marker Coordinates">The coordinates of the point selected with a mouse click on the map.</OutputDescription> 
+</Unit>

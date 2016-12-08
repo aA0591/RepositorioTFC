@@ -1,0 +1,155 @@
+#?delimiters <%,%>,<%=,%>
+<%
+import org.apache.commons.lang.StringUtils
+
+setXMLOutput()
+def unitId = unit["id"]
+def mode = unit["mode"]
+
+	private static final java.util.regex.Pattern pattern = java.util.regex.Pattern
+			.compile("\\\$((?:\\\\(?!'|-|\\*|:|\\\\|_|\\{|\\||}|~|bullet|cell|chatn|chdate|chdpa|chdpl|chftn|chftnsep|chftnsepc|chpgn|chtime|column|emdash|emspace|endash|enspace|lbrN|ldblquote|line|lquote|ltrmark|nestcell|nestrow|page|par|qmspace|rdblquote|row|rquote|rtlmark|sect|sectnum|tab|zwbo|zwj|zwnbo)[A-Za-z0-9]+ ?)|[{}\\r\\n])*\\\$");
+			
+			
+			
+
+
+def preprocessText = {inputDocument ->
+  return pattern.matcher(inputDocument).replaceAll("\\\$\\\$");
+}
+
+%>
+<InputParameters>
+<%
+	/*
+	 * dynamic RTF template
+	 */		
+	%><InputParameter name="<%=unitId%>.rtfTemplate" type="" label="RTF Template"/><%
+
+	
+	/*
+	 * other input parameter nodes
+	 */
+    if ("filler" == mode) {
+    	/*
+    	 * Filler mode
+    	 */
+		def rtfTemplateValue = unit["rtfTemplate"];
+		if (!StringUtils.isBlank(rtfTemplateValue)) {
+		
+			/*
+			 * static place holder names read from file
+			 */
+			def rtfFile = new File(wr.projectDir + "/WebContent", rtfTemplateValue)
+			def rtfText = ""
+			if (rtfFile.isFile()) {
+				try {
+					rtfText = rtfFile.getText()
+				} catch (Throwable e) {
+			        // ignore any exception
+			    }
+			}
+			rtfText = preprocessText(rtfText);
+			
+            /*
+             * compute place holder keys
+             */
+			def placeHolderKeys = new ArrayList();
+			def stringToSplit = "_" + StringUtils.replace(rtfText, "\$\$\$\$", "\$\$_\$\$")
+			def holders = StringUtils.splitByWholeSeparator(stringToSplit, "\$\$")
+			def visitedHolders = new HashSet();
+			for (i in 0..holders.size() - 1) {
+				if (i % 2 != 0) {
+					def h = holders[i];
+					if (visitedHolders.contains(h)) {
+						continue;
+					}
+					visitedHolders.add(h);
+					def placeHolderKey = h; // with empty default value
+			        if (!StringUtils.isBlank(placeHolderKey)) {
+			            /*
+			             * compute place holder label
+			             */
+			            placeHolderKey = StringUtils.remove(placeHolderKey, '{');
+			            placeHolderKey = StringUtils.remove(placeHolderKey, '}');
+			            List parts = new ArrayList();
+			            String[] ss = StringUtils.split(placeHolderKey);
+			            for (int j = 0; j < ss.length; j++) {
+			                String part = ss[j];
+			                if (StringUtils.isBlank(part)) {
+			                    // skip empty parts
+			                    continue;
+			                }
+			                if (part.startsWith("\\")) {
+			                    // skip rtf code parts
+			                    continue;
+			                }
+			                /*
+			                 * replace \'hh codes e.g. StringUtils.replace(part, "\\'e0", "à");
+			                 * 
+			                 * \'hh A hexadecimal value, based on the specified character set (may be used to identify 8-bit values).
+			                 */
+		                    String newPart = "";
+		                    char[] partChars = part.toCharArray();
+		                    int partCharsLength = partChars.length;
+		                    for (int j2 = 0; j2 < partCharsLength;) {
+		                        char pc = partChars[j2++];
+		                        if ((pc == '\\') && (j2 < (partCharsLength + 2)) && (partChars[j2] == '\'')) {
+		                            // case of \'hh
+		                            j2++;
+		                            char c0 = partChars[j2++];
+		                            char c1 = partChars[j2++];
+		                            try {
+		                                int charCode = Integer.parseInt(("" + c0 + c1).toUpperCase(), 16);
+		                                newPart += ("" + ((char) charCode));
+		                            } catch (NumberFormatException e) {
+		                            }
+		                        } else {
+		                            newPart += pc;
+		                        }
+		                    }
+		                    part = newPart;
+			                /*
+			                 * add removing end codes
+			                 */
+			                parts.add(StringUtils.substringBefore(part, "\\"));
+			            }
+			            placeHolderKey = StringUtils.join(parts, "");
+			            if (!placeHolderKeys.contains(placeHolderKey)) {
+			            	placeHolderKeys.add(placeHolderKey);
+			            }
+			        }
+				}
+			}
+			
+			/*
+			 * create input parameter nodes
+			 */
+			for(placeHolderKey in placeHolderKeys) {
+		  		%><InputParameter name="<%=unitId%>.<%=placeHolderKey%>" type="" label="<%=placeHolderKey%>"/><%
+			}
+		} else {
+			def placeHolderSubUnits = unit.selectNodes("PlaceHolder");
+			if (!placeHolderSubUnits.isEmpty()) {
+				/*
+				 * dynamic place holder values: create input parameter nodes using sub units
+				 */		
+				for(p in placeHolderSubUnits) { 
+					%><InputParameter name="<%=unitId%>.<%=p["name"]%>" type="" label="<%=p["name"]%>" refId="<%=p["id"]%>"/><%
+				} 
+			} else {
+				/*
+				 * dynamic place holder names and values: create input parameter nodes for names and values
+				 */			
+				%><InputParameter name="<%=unit["id"]%>.placeHolderNames" label="Place Holder Names" mandatory="false"/><%
+				%><InputParameter name="<%=unit["id"]%>.placeHolderValues" label="Place Holder Values" mandatory="false"/><%
+			} 
+		}
+
+    } else if ("parser" == mode) {
+    	/*
+    	 * Parser mode
+    	 */
+    	// no other input parameter nodes 
+    }
+%>
+</InputParameters>

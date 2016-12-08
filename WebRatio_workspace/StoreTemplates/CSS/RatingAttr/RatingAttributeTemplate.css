@@ -1,0 +1,24 @@
+.rating_container, .rating_container_value  {
+	float:left;
+}
+
+.rating_container span {
+	float:left;
+	display:block;
+	width:16px;
+	height:16px;
+	border:0;
+	padding-right:0px;
+}
+
+.rating_container .rating_off {
+	background-image:url("../../Images/RatingAttr/empty_voted.png");
+}
+
+.rating_container .rating_half {
+	background-image:url("../../Images/RatingAttr/half_voted.png");
+}
+
+.rating_container .rating_on {
+	background-image:url("../../Images/RatingAttr/voted.png");
+}

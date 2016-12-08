@@ -1,0 +1,55 @@
+<OperationModule xmlns:gr="http://www.webratio.com/2006/WebML/Graph" gr:x="20" gr:y="120" id="mov1#opm2" name="Upload Sample Module">
+  <OperationUnits>
+    <InputCollectorUnit gr:x="0" gr:y="6" id="mov1#opm2#icu2" name="Input Collector" linkOrder="mov1#opm2#icu2#ln38">
+      <InputCollectorParameter id="mov1#opm2#icu2#icp4" name="Name"/>
+      <InputCollectorParameter id="mov1#opm2#icu2#icp5" name="Blob"/>
+      <OKLink id="mov1#opm2#icu2#oln24" to="mov1#opm2#dlu4" validate="true" name="Upload">
+        <LinkParameter id="mov1#opm2#icu2#oln24#par67" source="mov1#opm2#icu2#icp4" name="name_Name" target="mov1#opm2#dlu4#su7#acond7"/>
+        <LinkParameter id="mov1#opm2#icu2#oln24#par66" source="mov1#opm2#icu2#icp5" name="blob_Blob" target="mov1#opm2#dlu4#su7#acond8"/>
+      </OKLink>
+      <Link id="mov1#opm2#icu2#ln18" to="mov1#opm2#cru7" type="transport" validate="true" name="Link13" gr:bendpoints="219,-141,-467,-141">
+        <LinkParameter id="mov1#opm2#icu2#ln18#par71" source="mov1#opm2#icu2#icp5" name="blob_blob" target="mov1#opm2#cru7.ent2#att4"/>
+      </Link>
+      <Link id="mov1#opm2#icu2#ln38" name="Link38" to="mov1#opm2#scu3" type="transport" validate="true" gr:bendpoints="237,-107,-250,-107">
+        <LinkParameter id="mov1#opm2#icu2#ln38#par85" name="Blob_newTemplate" source="mov1#opm2#icu2#icp5" target="mov1#opm2#scu3.newTemplate"/>
+        <LinkParameter id="mov1#opm2#icu2#ln38#par86" name="Name_newName" source="mov1#opm2#icu2#icp4" target="mov1#opm2#scu3.newName"/>
+      </Link>
+    </InputCollectorUnit>
+    <OKCollectorUnit gr:x="890" gr:y="14" id="mov1#opm2#okcu2" name="OK Collector">
+      <OutputCollectorParameter id="mov1#opm2#okcu2#ocp1" name="OID"/>
+    </OKCollectorUnit>
+    <KOCollectorUnit gr:x="692" gr:y="167" id="mov1#opm2#kocu2" name="KO Collector"/>
+    <CreateUnit id="mov1#opm2#cru7" name="Create New Sample" gr:x="670" gr:y="15" entity="ent2">
+      <KOLink id="mov1#opm2#cru7#kln23" to="mov1#opm2#kocu2" name="KOLink17"/>
+      <OKLink id="mov1#opm2#cru7#oln28" to="mov1#opm2#okcu2" name="OKLink22" preserveForm="true"/>
+    </CreateUnit>
+    <DeleteUnit id="mov1#opm2#dlu4" name="Delete Obsoleted Samples" gr:x="210" gr:y="0" entity="ent2">
+      <Selector id="mov1#opm2#dlu4#su7" defaultPolicy="fill" booleanOperator="or">
+        <AttributesCondition id="mov1#opm2#dlu4#su7#acond7" name="Name" predicate="eq" booleanOperator="or" implied="false" attributes="ent2#att5"/>
+        <AttributesCondition id="mov1#opm2#dlu4#su7#acond8" name="Blob" predicate="eq" booleanOperator="or" implied="false" attributes="ent2#att4"/>
+      </Selector>
+      <OKLink id="mov1#opm2#dlu4#oln27" name="OKLink15" to="mov1#opm2#scu3"/>
+      <KOLink id="mov1#opm2#dlu4#kln24" to="mov1#opm2#kocu2" name="KOLink16"/>
+    </DeleteUnit>
+    <ScriptUnit gr:x="490" gr:y="21" id="mov1#opm2#scu3" name="Update Name">
+      <ScriptUnitText xml:space="preserve">#input newTemplate
+#input newName
+
+import org.apache.commons.lang.StringUtils
+import com.webratio.rtx.RTXBLOBData
+
+if (StringUtils.isEmpty(newName) &amp;&amp; (newTemplate != null)) {
+	String templateName = ((com.webratio.rtx.RTXBLOBData) newTemplate).getName();
+	String templateExt = ((com.webratio.rtx.RTXBLOBData) newTemplate).getExtension();
+	if (!StringUtils.isEmpty(templateExt)) {
+		return StringUtils.removeEndIgnoreCase(templateName, '.' + templateExt)
+	}
+}
+return newName;</ScriptUnitText>
+      <OKLink id="mov1#opm2#scu3#oln23" name="OKLink23" to="mov1#opm2#cru7">
+        <LinkParameter id="mov1#opm2#scu3#oln23#par87" name="false_example" sourceValue="false" target="mov1#opm2#cru7.ent2#att7"/>
+        <LinkParameter id="mov1#opm2#scu3#oln23#par88" name="Result_name" source="result" target="mov1#opm2#cru7.ent2#att5"/>
+      </OKLink>
+    </ScriptUnit>
+  </OperationUnits>
+</OperationModule>

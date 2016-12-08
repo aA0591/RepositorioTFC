@@ -1,0 +1,20 @@
+<MasterPage xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" gr:x="190" gr:y="60" id="sv1#mpage1w" name="Common Content">
+  <ContentUnits>
+    <MultiMessageUnit gr:x="0" gr:y="0" id="sv1#mpage1w#mssu2w" name="Instructions">
+      <Message xml:space="preserve">&lt;p&gt;Remember to configure the Google Maps Provider with your API Key.&lt;/p&gt;
+&lt;p&gt;Read &lt;a target="_blank" href="https://developers.google.com/maps/documentation/javascript/get-api-key#key"&gt;here&lt;/a&gt; for further information.&lt;/p&gt;
+&lt;p&gt;Select the map type you prefer to see the Google Maps.&lt;/p&gt;</Message>
+    </MultiMessageUnit>
+  </ContentUnits>
+  <layout:CustomLocation name="User">
+    <layout:Grid containerType="cell">
+      <layout:Row>
+        <layout:Cell>
+          <layout:Unit unitId="sv1#mpage1w#mssu2w" layout:frameLayout="None">
+            <layout:LayoutParameter name="contentType" value="text/html" type="unit"/>
+          </layout:Unit>
+        </layout:Cell>
+      </layout:Row>
+    </layout:Grid>
+  </layout:CustomLocation>
+</MasterPage>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Layout>
+  <Resources alwaysRequired="pruebaEstilo-components-style">
+	  <Resource name="pruebaEstilo-components-style" type="css" path="pruebaEstilo/css/components.css"/>
+  </Resources>
+</Layout>

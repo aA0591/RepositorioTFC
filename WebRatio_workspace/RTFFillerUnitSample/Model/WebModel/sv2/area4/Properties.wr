@@ -1,0 +1,18 @@
+<Area xmlns:gr="http://www.webratio.com/2006/WebML/Graph" gr:x="326" gr:y="-420" id="sv2#area4" name="Use predefined RTF template" landmark="true" defaultPage="sv2#area4#dlu6">
+  <OperationUnits>
+    <RTFFillerUnit gr:x="506" gr:y="178" id="sv2#area4#rtffu5" name="Template Filler" mode="filler" rtfTemplate="WebRatio RTF Filler Unit Sample.rtf">
+      <OKLink id="sv2#area4#rtffu5#oln11" name="OKLink11" to="sv2#area4#miu4">
+        <LinkParameter id="sv2#area4#rtffu5#oln11#par3" name="RTF Document_blob" source="rtfDocument" target="sv2#area4#miu4.mov1#opm1#icu1#icp1"/>
+      </OKLink>
+    </RTFFillerUnit>
+    <ModuleInstanceUnit id="sv2#area4#miu4" name="Save Document" gr:x="487" gr:y="340" moduleId="mov1#opm1">
+      <OKLink id="sv2#area4#miu4#oln12" name="OKLink12" to="sv2#area4#page10#dau4" preserveForm="true"/>
+    </ModuleInstanceUnit>
+    <DeleteUnit id="sv2#area4#dlu6" name="Delete All Filled RTF Documents" gr:x="6" gr:y="0" entity="ent1">
+      <Selector id="sv2#area4#dlu6#su10" defaultPolicy="fill" booleanOperator="and">
+        <AttributesCondition id="sv2#area4#dlu6#su10#acond4" name="OID Not Null" predicate="notNull" booleanOperator="or" implied="false" attributes="ent1#att1"/>
+      </Selector>
+      <OKLink id="sv2#area4#dlu6#oln18" name="OKLink18" to="sv2#area4#page10" automaticCoupling="true"/>
+    </DeleteUnit>
+  </OperationUnits>
+</Area>

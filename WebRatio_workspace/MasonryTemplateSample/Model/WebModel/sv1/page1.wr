@@ -1,0 +1,32 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" gr:x="320" gr:y="220" id="sv1#page1" name="Masonry Sample" landmark="true" ajaxEnabled="false">
+  <ContentUnits>
+    <MultiDataUnit gr:x="0" gr:y="0" id="sv1#page1#mdu1" name="Masonry Sample" entity="ent2" displayAttributes="ent2#att7 ent2#att9 ent2#att6">
+      <SortAttribute attribute="ent2#att7" order="ascending"/>
+    </MultiDataUnit>
+  </ContentUnits>
+  <layout:Grid>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv1#page1#mdu1" layout:unitLayout="StoreTemplates/Masonry">
+          <layout:Attribute attribute="ent2#att7"/>
+          <layout:Attribute attribute="ent2#att9">
+            <layout:LayoutParameter name="image-width" value="160" type="attribute"/>
+            <layout:LayoutParameter name="image-height" value="120" type="attribute"/>
+          </layout:Attribute>
+          <layout:Attribute attribute="ent2#att6"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+</Page>

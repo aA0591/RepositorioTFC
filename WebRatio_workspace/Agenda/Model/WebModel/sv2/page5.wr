@@ -1,0 +1,219 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" gr:x="-310" gr:y="55" id="sv2#page5" name="Calendar Manager" ajaxEnabled="true" protected="false">
+  <ContentUnits>
+    <EventCalendarUnit gr:x="165" gr:y="145" id="sv2#page5#ecu4" name="My Calendar" entityBased="true" entity="ent1" displayAttributes="ent1#att2" dateAttribute="ent1#att3" shortMonths="true" shortWeekdays="true" years="3" linkOrder="sv2#page5#ecu4#ln44 sv2#page5#ecu4#ln10" ajaxDragEnabled="false">
+      <Selector id="sv2#page5#ecu4#su3" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="sv2#page5#ecu4#su3#kcond41" name="Appointment Key" predicate="in" implied="false"/>
+      </Selector>
+      <Link id="sv2#page5#ecu4#ln44" name="New Appointment" to="sv2#miu4" type="normal" validate="true" ajaxEnabled="true" ajaxOpenWindow="true" ajaxWindowUseTitle="true" ajaxWindowTitle="New Appointment" ajaxWindowWidth="565" ajaxWindowHeight="570" ajaxWindowClosable="true" ajaxWindowModal="true">
+        <LinkParameter id="sv2#page5#ecu4#ln44#par68" name="Selected Date" source="date[].date" target="sv2#miu4.mov1#mpkg2#hym8#icu9#icp8"/>
+      </Link>
+      <SortAttribute attribute="ent1#att3" order="ascending"/>
+      <Link id="sv2#page5#ecu4#ln10" name="Select" to="sv2#miu5" type="normal" validate="true" ajaxEnabled="true" ajaxOpenWindow="true" ajaxWindowUseTitle="true" ajaxWindowTitle="Edit Appointment" ajaxWindowAutoResizing="false" ajaxWindowClosable="true" ajaxWindowDraggable="true" ajaxWindowModal="true" ajaxWindowWidth="500" ajaxWindowHeight="600">
+        <LinkParameter id="sv2#page5#ecu4#ln10#par47" name="Appointment Key" source="date[].data[].ent1#att1" target="sv2#miu5.mov1#mpkg2#hym10#icu12#icp13"/>
+      </Link>
+    </EventCalendarUnit>
+    <GetUnit gr:x="510" gr:y="10" id="sv2#page5#gtu4" name="Get Current User Key" contextParameters="UserCtxParam">
+      <Link id="sv2#page5#gtu4#ln6" name="Link6" to="sv2#page5#seu12" automaticCoupling="true" type="transport" validate="true"/>
+      <Link id="sv2#page5#gtu4#ln53" name="Link53" to="sv2#page5#seu17" automaticCoupling="true" type="transport" validate="true"/>
+    </GetUnit>
+    <EntryUnit gr:x="710" gr:y="160" id="sv2#page5#enu3" name="My Calendars" linkOrder="sv2#page5#enu3#ln58 sv2#page5#enu3#ln66">
+      <SelectionField id="sv2#page5#enu3#sfld7" name="calendars" type="string" ajaxEventEnabled="true" ajaxEventLink="sv2#page5#enu3#ln58"/>
+      <Link id="sv2#page5#enu3#ln58" name="Select Calendar" to="sv2#seu18" type="normal" validate="true" ajaxEnabled="true" ajaxOpenWaitingDialog="true" ajaxWaitingDialogMessage="updating" gr:bendpoints="133,-84,323,241;133,-325,323,0">
+        <LinkParameter id="sv2#page5#enu3#ln58#par40" name="Calendar Key" source="sv2#page5#enu3#sfld7" target="sv2#seu18#su14#kcond7.ent3#att4"/>
+      </Link>
+      <Link id="sv2#page5#enu3#ln66" name="New Calendar" to="sv2#miu10" type="normal" validate="true" ajaxEnabled="true" ajaxOpenWindow="true" ajaxWindowUseTitle="true" ajaxWindowTitle="Create New Calendar" ajaxWindowWidth="450" ajaxWindowHeight="320" ajaxWindowClosable="true" ajaxWindowModal="true"/>
+    </EntryUnit>
+    <SelectorUnit gr:x="690" gr:y="5" id="sv2#page5#seu12" name="Select All User Calendars" entity="ent3">
+      <Selector id="sv2#page5#seu12#su5" defaultPolicy="fill" booleanOperator="and">
+        <RelationshipRoleCondition id="sv2#page5#seu12#su5#rcond3" name="User Key" predicate="in" implied="false" role="rel21#role9"/>
+      </Selector>
+      <Link id="sv2#page5#seu12#ln7" name="Link7" to="sv2#page5#enu3" type="transport" validate="true">
+        <LinkParameter id="sv2#page5#seu12#ln7#par22" name="Calendar Name" source="ent3#att9Array" target="sv2#page5#enu3#sfld7_label"/>
+        <LinkParameter id="sv2#page5#seu12#ln7#par23" name="Calendar Key" source="ent3#att4Array" target="sv2#page5#enu3#sfld7_output"/>
+      </Link>
+      <Link id="sv2#page5#seu12#ln56" name="Link56" to="sv2#page5#seu17" type="transport" validate="true"/>
+    </SelectorUnit>
+    <TimeUnit gr:x="340" gr:y="310" id="sv2#page5#tmu3" name="Today Date">
+      <Link id="sv2#page5#tmu3#ln9" name="Link9" to="sv2#page5#mdu4" type="transport" validate="true">
+        <LinkParameter id="sv2#page5#tmu3#ln9#par25" name="Current Date" source="currentDate" target="sv2#page5#mdu4#su43#acond3"/>
+      </Link>
+    </TimeUnit>
+    <SelectorUnit gr:x="500" gr:y="145" id="sv2#page5#seu17" name="Select Default Calendar" entity="ent3">
+      <Selector id="sv2#page5#seu17#su13" defaultPolicy="fill" booleanOperator="and">
+        <RelationshipRoleCondition id="sv2#page5#seu17#su13#rcond2" name="User Key" predicate="in" implied="false" role="rel5#role6"/>
+      </Selector>
+      <Link id="sv2#page5#seu17#ln52" name="Link52" to="sv2#page5#seu14" type="transport" validate="true">
+        <LinkParameter id="sv2#page5#seu17#ln52#par166" name="Calendar Key" source="ent3#att4Array" target="sv2#page5#seu14#su37#rcond11.ent3#att4"/>
+      </Link>
+      <Link id="sv2#page5#seu17#ln62" name="Link62" to="sv2#page5#mdu4" automaticCoupling="true" type="transport" validate="true"/>
+      <Link id="sv2#page5#seu17#ln87" name="Link87" to="sv2#page5#seu24" automaticCoupling="true" type="transport" validate="true"/>
+    </SelectorUnit>
+    <SelectorUnit gr:x="155" gr:y="0" id="sv2#page5#seu24" name="Current Calendar" entity="ent3">
+      <Selector id="sv2#page5#seu24#su18" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="sv2#page5#seu24#su18#kcond10" name="Calendar Key" predicate="in" implied="false"/>
+      </Selector>
+      <Link id="sv2#page5#seu24#ln94" name="Link94" to="sv2#miu4" type="transport" validate="true">
+        <LinkParameter id="sv2#page5#seu24#ln94#par69" name="Calendar Key" source="ent3#att4Array" target="sv2#miu4.mov1#mpkg2#hym8#icu9#icp9"/>
+      </Link>
+      <Link id="sv2#page5#seu24#ln15" name="Link15" to="sv2#miu5" type="transport" validate="true">
+        <LinkParameter id="sv2#page5#seu24#ln15#par30" name="Calendar Key" source="ent3#att4Array" target="sv2#miu5.mov1#mpkg2#hym10#icu12#icp14"/>
+      </Link>
+      <Link id="sv2#page5#seu24#ln105" name="Link105" to="sv2#pcu2" type="transport" validate="true" gr:bendpoints="-69,-63,291,57">
+        <LinkParameter id="sv2#page5#seu24#ln105#par170" name="Calendar Key" source="ent3#att4Array" target="sv2#pcu2#pcp2"/>
+      </Link>
+      <Link id="sv2#page5#seu24#ln4" name="Link4" to="sv2#miu6" type="transport" validate="true">
+        <LinkParameter id="sv2#page5#seu24#ln4#par34" name="Calendar Key" source="ent3#att4Array" target="sv2#miu6.mov1#mpkg3#hym11#icu13#icp15"/>
+      </Link>
+      <Link id="sv2#page5#seu24#ln12" name="Link12" to="sv2#page5#enu3" type="transport" validate="true" gr:bendpoints="110,-72,-445,-217;422,-72,-133,-217;445,46,-110,-99">
+        <LinkParameter id="sv2#page5#seu24#ln12#par4" name="Calendar Key" source="ent3#att4Array" target="sv2#page5#enu3#sfld7_presel"/>
+      </Link>
+      <Link id="sv2#page5#seu24#ln18" name="Link18" to="sv2#miu3" type="transport" validate="true">
+        <LinkParameter id="sv2#page5#seu24#ln18#par43" name="Calendar Key" source="ent3#att4Array" target="sv2#miu3.mov1#mpkg2#hym1#icu1#icp1"/>
+      </Link>
+    </SelectorUnit>
+    <MultiChoiceIndexUnit gr:x="0" gr:y="0" id="sv2#page5#mciu1" name="Filter Events By" entity="ent2" displayAttributes="ent2#att8" linkOrder="sv2#page5#mciu1#ln104">
+      <PreSelector id="sv2#page5#mciu1#su41" booleanOperator="and">
+        <KeyCondition id="sv2#page5#mciu1#su41#kcond28" name="Category Key" predicate="in" implied="false"/>
+      </PreSelector>
+      <Link id="sv2#page5#mciu1#ln104" name="Filter" to="sv2#seu20" type="normal" validate="true" gr:bendpoints="-125,-1,80,-1">
+        <LinkParameter id="sv2#page5#mciu1#ln104#par169" name="Checked Calendar Key" source="ent2#att7Checked" target="sv2#seu20#su38#kcond42.ent2#att7"/>
+      </Link>
+      <SortAttribute attribute="ent2#att8" order="ascending"/>
+    </MultiChoiceIndexUnit>
+    <MultiMessageUnit gr:x="140" gr:y="310" id="sv2#page5#mssu1" name="Information Message"/>
+    <SelectorUnit gr:x="295" gr:y="135" id="sv2#page5#seu14" name="Select Appointment" entity="ent1">
+      <Selector id="sv2#page5#seu14#su37" defaultPolicy="fill" booleanOperator="and">
+        <RelationshipRoleCondition id="sv2#page5#seu14#su37#rcond11" name="Calendar Key" predicate="in" implied="false" role="rel22#role11"/>
+        <RelationshipRoleCondition id="sv2#page5#seu14#su37#rcond15" name="Category Key" predicate="in" implied="true" role="rel15#rel2"/>
+      </Selector>
+      <Link id="sv2#page5#seu14#ln91" name="Link91" to="sv2#page5#ecu4" automaticCoupling="true" type="transport" validate="true"/>
+    </SelectorUnit>
+    <NoOpContentUnit gr:x="660" gr:y="435" id="sv2#page5#gctu1" name="Operations" linkOrder="sv2#page5#gctu1#ln8">
+      <Link id="sv2#page5#gctu1#ln8" name="Export To Excel" to="sv2#miu6" type="normal" validate="true" newWindow="false"/>
+    </NoOpContentUnit>
+    <MultiDataUnit id="sv2#page5#mdu4" entity="ent1" displayAttributes="ent1#att28a ent1#att2 ent1#att6" gr:x="500" gr:y="285" name="Today Events" linkOrder="sv2#page5#mdu4#ln120" maxResults="4">
+      <SortAttribute attribute="ent1#att3" order="ascending"/>
+      <Selector id="sv2#page5#mdu4#su43" defaultPolicy="fill" booleanOperator="and">
+        <AttributesCondition id="sv2#page5#mdu4#su43#acond3" attributes="ent1#att3" predicate="eq" booleanOperator="or" implied="false" name="Start Date"/>
+        <RelationshipRoleCondition id="sv2#page5#mdu4#su43#rcond17" role="rel22#role11" predicate="in" implied="false" name="Calendar Key"/>
+      </Selector>
+      <Link id="sv2#page5#mdu4#ln120" name="Export To Excel" to="sv2#tmu7" type="normal" validate="true" newWindow="false"/>
+    </MultiDataUnit>
+    <EventCalendarUnit id="sv2#page5#ecu2" name="Quick Browse" linkOrder="sv2#page5#ecu2#ln25" ajaxDragEnabled="false" gr:x="315" gr:y="20" entityBased="false" shortMonths="true" shortWeekdays="true" years="3">
+      <Link id="sv2#page5#ecu2#ln25" name="Select" to="sv2#miu3" type="normal" validate="true" ajaxEnabled="true" ajaxOpenWindow="true" ajaxWindowUseTitle="true" ajaxWindowTitle="prueba" ajaxWindowWidth="600" ajaxWindowHeight="700" ajaxWindowAutoResizing="false" ajaxWindowClosable="true" ajaxWindowDraggable="true" ajaxWindowModal="true">
+        <LinkParameter id="sv2#page5#ecu2#ln25#par9" name="Selected Date" source="date[].date" target="sv2#miu3.mov1#mpkg2#hym1#icu1#icp2"/>
+      </Link>
+    </EventCalendarUnit>
+  </ContentUnits>
+  <layout:Grid>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv2#page5#mssu1" layout:unitVisibilityConditionNegated="true"/>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv2#page5#ecu4" layout:unitVisibilityConditionNegated="true">
+          <layout:Attribute attribute="ent1#att2"/>
+          <layout:Link link="sv2#page5#ecu4#ln44"/>
+          <layout:Link link="sv2#page5#ecu4#ln10"/>
+          <layout:Link link="sv2#page5#ecu4-month-0"/>
+          <layout:Link link="sv2#page5#ecu4-month-1"/>
+          <layout:Link link="sv2#page5#ecu4-month-2"/>
+          <layout:Link link="sv2#page5#ecu4-month-3"/>
+          <layout:Link link="sv2#page5#ecu4-month-4"/>
+          <layout:Link link="sv2#page5#ecu4-month-5"/>
+          <layout:Link link="sv2#page5#ecu4-month-6"/>
+          <layout:Link link="sv2#page5#ecu4-month-7"/>
+          <layout:Link link="sv2#page5#ecu4-month-8"/>
+          <layout:Link link="sv2#page5#ecu4-month-9"/>
+          <layout:Link link="sv2#page5#ecu4-month-10"/>
+          <layout:Link link="sv2#page5#ecu4-month-11"/>
+          <layout:Link link="sv2#page5#ecu4-year"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:LayoutParameter name="link-style" value="button" type="link"/>
+  </layout:Grid>
+  <Comment xml:space="preserve">This is the Home Page of the Site View. 
+
+It gives the Users the possibility to see all his Calendars, handle the Appointments (create, modify) based on the User's rights, export the Calendars and filter the events.
+
+The export and the filters are placed into a cell of the layout, on the left of the Calendar.</Comment>
+  <layout:CustomLocation name="Right">
+    <layout:Grid containerType="cell">
+      <layout:Row>
+        <layout:Cell>
+          <layout:Unit unitId="sv2#page5#enu3" layout:unitVisibilityConditionNegated="true">
+            <layout:Field field="sv2#page5#enu3#sfld7"/>
+            <layout:Link link="sv2#page5#enu3#ln58"/>
+            <layout:Link link="sv2#page5#enu3#ln66"/>
+          </layout:Unit>
+          <layout:Unit unitId="sv2#page5#mciu1" layout:unitVisibilityConditionNegated="true">
+            <layout:Attribute attribute="ent2#att8"/>
+            <layout:Link link="sv2#page5#mciu1#ln104"/>
+          </layout:Unit>
+          <layout:Unit unitId="sv2#page5#mdu4" layout:unitVisibilityConditionNegated="true">
+            <layout:Attribute attribute="ent1#att28a"/>
+            <layout:Attribute attribute="ent1#att2"/>
+            <layout:Attribute attribute="ent1#att6"/>
+            <layout:Link link="sv2#page5#mdu4#ln120"/>
+          </layout:Unit>
+          <layout:Unit unitId="sv2#page5#ecu2" layout:unitVisibilityConditionNegated="true">
+            <layout:Link link="sv2#page5#ecu2#ln25"/>
+            <layout:Link link="sv2#page5#ecu2-month-0"/>
+            <layout:Link link="sv2#page5#ecu2-month-1"/>
+            <layout:Link link="sv2#page5#ecu2-month-2"/>
+            <layout:Link link="sv2#page5#ecu2-month-3"/>
+            <layout:Link link="sv2#page5#ecu2-month-4"/>
+            <layout:Link link="sv2#page5#ecu2-month-5"/>
+            <layout:Link link="sv2#page5#ecu2-month-6"/>
+            <layout:Link link="sv2#page5#ecu2-month-7"/>
+            <layout:Link link="sv2#page5#ecu2-month-8"/>
+            <layout:Link link="sv2#page5#ecu2-month-9"/>
+            <layout:Link link="sv2#page5#ecu2-month-10"/>
+            <layout:Link link="sv2#page5#ecu2-month-11"/>
+            <layout:Link link="sv2#page5#ecu2-year"/>
+          </layout:Unit>
+        </layout:Cell>
+      </layout:Row>
+    </layout:Grid>
+  </layout:CustomLocation>
+  <layout:CustomLocation name="Page Links">
+    <layout:Grid containerType="cell">
+      <layout:Row>
+        <layout:Cell>
+          <layout:Unit unitId="sv2#page5#gctu1" layout:frameLayout="None">
+            <layout:Link link="sv2#page5#gctu1#ln8"/>
+            <layout:LayoutParameter name="link-alignment" value="right" type="unit"/>
+          </layout:Unit>
+        </layout:Cell>
+      </layout:Row>
+    </layout:Grid>
+  </layout:CustomLocation>
+  <layout:LayoutParameter name="header-and-menu-position" value="right" type="page"/>
+  <layout:LayoutParameter name="show-left-column" value="false" type="page"/>
+  <layout:LayoutParameter name="show-right-column" value="true" type="page"/>
+</Page>

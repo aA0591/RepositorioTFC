@@ -1,0 +1,30 @@
+#?delimiters <%,%>,<%=,%>
+<%
+import org.apache.commons.lang.StringUtils
+
+setXMLOutput()
+def unitId = unit["id"]
+def mode = unit["mode"]
+%>
+<OutputParameters>
+<%
+    if ("filler" == mode) {
+
+		/*
+		 * filler mode
+		 */
+	    %><OutputParameter name="rtfDocument" label="RTF Document"/><%
+    
+    } else if ("parser" == mode) {
+	
+		/*
+		 * parser mode: return an array containing the place holder names read from rtf template file
+		 */
+		%><OutputParameter name="rtfTemplate" label="RTF Template"/><%
+		%><OutputParameter name="placeHolderNames" label="Place Holder Names"/><%
+		%><OutputParameter name="placeHolderLabels" label="Place Holder Labels"/><%
+	    
+	}
+%>
+</OutputParameters>
+     

@@ -1,0 +1,6 @@
+<ServiceView id="wsv1" name="Agenda Services">
+  <OperationUnits/>
+  <Comment xml:space="preserve">This is the Service View for the Calendar Project.
+
+It contains only one Job, used to send a reminder email to all the attendees of an Appointment.</Comment>
+</ServiceView>

@@ -1,0 +1,72 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" id="sv1#page2" name="Decode" landmark="true" gr:x="405" gr:y="40">
+  <ContentUnits>
+    <EntryUnit id="sv1#page2#enu2" name="Personal" linkOrder="sv1#page2#enu2#ln2" gr:x="0" gr:y="0">
+      <Field id="sv1#page2#enu2#fld5" name="Json String" type="text" modifiable="true">
+        <Slot id="sv1#page2#enu2#fld5#slot3" name="text" label="true" output="true" value="{&quot;name&quot;:&quot;Luis&quot;,&quot;lastname&quot;:&quot;Paz y Mino&quot;}"/>
+      </Field>
+      <Link id="sv1#page2#enu2#ln2" name="Decode" to="sv1#jfu2" type="normal" validate="true">
+        <LinkParameter id="sv1#page2#enu2#ln2#par13" name="Code Json_Json String" source="sv1#page2#enu2#fld5" target="sv1#jfu2.jsonString"/>
+        <LinkParameter id="sv1#page2#enu2#ln2#par14" name="name_Key Parameter" target="sv1#jfu2.keyParameter" source="sv1#page2#enu2#fld9"/>
+      </Link>
+      <Field id="sv1#page2#enu2#fld9" name="key" type="string" modifiable="true">
+        <Slot id="sv1#page2#enu2#fld9#slot4" name="key" label="true" output="true" value="name"/>
+      </Field>
+    </EntryUnit>
+    <MultiMessageUnit id="sv1#page2#mssu3" name="Result" gr:x="5" gr:y="90"/>
+    <MultiMessageUnit id="sv1#page2#mssu4" name="Error" gr:x="15" gr:y="165"/>
+  </ContentUnits>
+  <layout:Grid containerType="grid">
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv1#page2#mssu4"/>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv1#page2#mssu3"/>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv1#page2#enu2">
+          <layout:Link link="sv1#page2#enu2#ln2"/>
+          <layout:Field field="sv1#page2#enu2#fld5"/>
+          <layout:Field field="sv1#page2#enu2#fld9"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+</Page>

@@ -1,0 +1,13 @@
+<SiteView xmlns:gr="http://www.webratio.com/2006/WebML/Graph" id="sv1" name="Home" homePage="sv1#page1" landmarks="sv1#page1 sv1#page2">
+  <OperationUnits>
+    <CreateUnit gr:x="580" gr:y="209" id="sv1#cru1" name="Create QRCode" entity="ent1">
+      <OKLink id="sv1#cru1#oln2" name="OKLink2" to="sv1#page2" automaticCoupling="true"/>
+    </CreateUnit>
+    <QRCodeUnit id="sv1#qrcu2" name="QRCode" gr:x="420" gr:y="215" size="128">
+      <OKLink id="sv1#qrcu2#oln1" name="OKLink1" to="sv1#cru1">
+        <LinkParameter id="sv1#qrcu2#oln1#par3" name="QRCode BLOB_image" source="qrCode" target="sv1#cru1.ent1#att3"/>
+        <LinkParameter id="sv1#qrcu2#oln1#par4" name="QRCode Text_text" source="text" target="sv1#cru1.ent1#att2"/>
+      </OKLink>
+    </QRCodeUnit>
+  </OperationUnits>
+</SiteView>

@@ -1,0 +1,6 @@
+<ModuleView id="mov1" name="Agenda Modules">
+  <OperationUnits/>
+  <Comment xml:space="preserve">This is the Module View related to the handing of Entities with all the allowed operations on them.
+
+The Modules are grouped by context, there is one section for Modules related to the handling of the Appointments and another one for the operations available on a Calendar.</Comment>
+</ModuleView>

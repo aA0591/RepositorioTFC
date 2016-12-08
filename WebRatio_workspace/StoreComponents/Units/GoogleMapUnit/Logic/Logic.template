@@ -1,0 +1,21 @@
+#?delimiters [%,%],[%=,%]
+[%
+import org.apache.commons.lang.StringUtils
+
+setXMLOutput()
+
+%]
+<Descriptor service="com.webratio.units.store.googlemapunit.GoogleMapUnitService">
+  <MapType>[%=StringUtils.defaultIfEmpty(unit["mapType"], "ROADMAP")%]</MapType>
+  <MapZoomLevel>[%=StringUtils.defaultIfEmpty(unit["mapZoomLevel"], "8")%]</MapZoomLevel>
+  <MapWidth>[%=StringUtils.defaultIfEmpty(unit["mapWidth"], "640")%]</MapWidth>
+  <MapHeight>[%=StringUtils.defaultIfEmpty(unit["mapHeight"], "480")%]</MapHeight>
+  <MapCoordinates>[%=StringUtils.defaultIfEmpty(unit["mapCoordinates"], "42,12")%]</MapCoordinates>
+  <UseSensor>[%=unit["useSensor"]%]</UseSensor>
+  <IsAdjustable>[%=unit["isAdjustable"]%]</IsAdjustable>  
+  <Markers>
+    [%for(marker in unit.selectNodes("Marker")){%]
+      <Marker title="[%=marker["name"]%]" coordinates="[%=marker["coordinates"]%]" xml:space="preserve" infoWindowVisible="[%=marker["infoWindowVisible"]%]">[%=marker.selectSingleNode("InfoText")?.getText()%]</Marker>        
+    [%}%]
+  </Markers>
+</Descriptor>

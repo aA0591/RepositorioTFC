@@ -1,0 +1,21 @@
+<OperationModule xmlns:gr="http://www.webratio.com/2006/WebML/Graph" id="mov2#mpkg5#opm3" name="Save Group" gr:x="165" gr:y="0" gr:icon="ModulesIcons/Save.png">
+  <OperationUnits>
+    <InputCollectorUnit id="mov2#mpkg5#opm3#icu4" name="Input" gr:x="5" gr:y="250">
+      <InputCollectorParameter id="mov2#mpkg5#opm3#icu4#icp6" name="Group Object"/>
+      <InputCollectorParameter id="mov2#mpkg5#opm3#icu4#icp7" name="Group Key"/>
+      <Link id="mov2#mpkg5#opm3#icu4#ln45" name="Link19" to="mov2#mpkg5#opm3#opg2#cru5" type="transport" validate="true" gr:bendpoints="192,-46,-198,-1">
+        <LinkParameter id="mov2#mpkg5#opm3#icu4#ln45#par56" name="Group Object" source="mov2#mpkg5#opm3#icu4#icp6" target="mov2#mpkg5#opm3#opg2#cru5.entityBeans"/>
+      </Link>
+      <OKLink id="mov2#mpkg5#opm3#icu4#oln18" name="OKLink20" to="mov2#mpkg5#opm3#opg2#inn4">
+        <LinkParameter id="mov2#mpkg5#opm3#icu4#oln18#par59" name="Group Key" source="mov2#mpkg5#opm3#icu4#icp7" target="mov2#mpkg5#opm3#opg2#inn4.isnotnull"/>
+      </OKLink>
+      <Link id="mov2#mpkg5#opm3#icu4#ln46" name="Link28" to="mov2#mpkg5#opm3#opg2#mfu4" type="transport" validate="true" gr:bendpoints="192,60,-198,0">
+        <LinkParameter id="mov2#mpkg5#opm3#icu4#ln46#par60" name="Group Object" source="mov2#mpkg5#opm3#icu4#icp6" target="mov2#mpkg5#opm3#opg2#mfu4.entityBeans"/>
+        <LinkParameter id="mov2#mpkg5#opm3#icu4#ln46#par61" name="Group Key" source="mov2#mpkg5#opm3#icu4#icp7" target="mov2#mpkg5#opm3#opg2#mfu4#su17#kcond36.groupOID"/>
+      </Link>
+    </InputCollectorUnit>
+    <OKCollectorUnit id="mov2#mpkg5#opm3#okcu4" name="Success" gr:x="635" gr:y="310"/>
+    <KOCollectorUnit id="mov2#mpkg5#opm3#kocu4" name="Error" gr:x="635" gr:y="190"/>
+  </OperationUnits>
+  <Comment xml:space="preserve">Operation Module that allows to save a new Group.
+</Comment></OperationModule>

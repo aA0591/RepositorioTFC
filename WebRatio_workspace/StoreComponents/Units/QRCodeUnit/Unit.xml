@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Unit type="content|operation" formBased="false" idPrefix="qrcu" namePrefix="QR Code Unit " label="QR Code Unit" linkSource="true" linkTarget="true" koLinkSource="true" koLinkTarget="true" okLinkSource="true" okLinkTarget="true" version="1.0.0" canPlaceLayoutUnit="true" author="Web Models s.r.l."> 
+  
+  <IntegerProperty attributeName="size" defaultValue="">
+	<Description xml:space="preserve">The image size in pixels.</Description> 
+  </IntegerProperty>
+  
+  <StringProperty attributeName="backgroundColor">
+	<Description xml:space="preserve">The QRCode image background hexadecimal color (default #FFFFFF).</Description> 
+  </StringProperty>
+  
+  <StringProperty attributeName="foregroundColor" defaultValue="">
+	<Description xml:space="preserve">The QRCode image foreground hexadecimal color (default #000000).</Description> 
+  </StringProperty>
+  
+  <IsContextFreeUnit xml:space="preserve">return getIncomingLinksAllTypes(unit).empty</IsContextFreeUnit>  
+  <IsMultiConditionUnit xml:space="preserve">return getIncomingLinksAllTypes(unit).size &gt; 1</IsMultiConditionUnit> 
+  
+  <Description xml:space="preserve">The QRCode Unit permits to encode a text and generate a QRCode image.</Description>
+  
+  <InputDescription xml:space="preserve" name="QRCode Image Size">The parameter identifying the QRCode image size.</InputDescription>
+  <InputDescription xml:space="preserve" name="QRCode Text">The parameter identifying the text to encode within the QRCode image.</InputDescription>
+  <InputDescription xml:space="preserve" name="QRCode Image Name">The parameter identifying the QRCode image name.</InputDescription>
+  <OutputDescription xml:space="preserve" name="QRCode BLOB">The result QRCode image BLOB data.</OutputDescription>
+  <OutputDescription xml:space="preserve" name="QRCode Text">The text encoded within the QRCode image.</OutputDescription>
+  
+</Unit>

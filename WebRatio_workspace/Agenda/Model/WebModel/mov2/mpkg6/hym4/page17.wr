@@ -1,0 +1,80 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" id="mov2#mpkg6#hym4#page17" name="Registration" layout:layoutManager="grid" gr:x="170" gr:y="45">
+  <ContentUnits>
+    <EntryUnit id="mov2#mpkg6#hym4#page17#enu5" name="Registration" linkOrder="mov2#mpkg6#hym4#page17#enu5#ln61" gr:x="0" gr:y="0" fieldOrder="mov2#mpkg6#hym4#page17#enu5#fld5 mov2#mpkg6#hym4#page17#enu5#fld4 mov2#mpkg6#hym4#page17#enu5#fld2 mov2#mpkg6#hym4#page17#enu5#fld3" entity="User">
+      <Field id="mov2#mpkg6#hym4#page17#enu5#fld2" name="username" type="string" modifiable="true" attribute="userName">
+        <VRules>
+          <MandatoryValidationRule id="mov2#mpkg6#hym4#page17#enu5#fld2#mnd31" name="Mandatory Field"/>
+        </VRules>
+      </Field>
+      <Field id="mov2#mpkg6#hym4#page17#enu5#fld3" name="password" type="password" modifiable="true" attribute="password">
+        <VRules>
+          <MandatoryValidationRule id="mov2#mpkg6#hym4#page17#enu5#fld3#mnd32" name="Mandatory Field"/>
+        </VRules>
+      </Field>
+      <Field id="mov2#mpkg6#hym4#page17#enu5#fld4" name="e-mail" type="string" modifiable="true" attribute="email">
+        <VRules>
+          <MandatoryValidationRule id="mov2#mpkg6#hym4#page17#enu5#fld4#mnd33" name="Mandatory Field"/>
+          <EMailValidationRule id="mov2#mpkg6#hym4#page17#enu5#fld4#email1" name="EMail Validation"/>
+        </VRules>
+      </Field>
+      <Field id="mov2#mpkg6#hym4#page17#enu5#fld5" name="full name" type="string" modifiable="true" attribute="User#att23">
+        <VRules>
+          <MandatoryValidationRule id="mov2#mpkg6#hym4#page17#enu5#fld5#mnd34" name="Mandatory Field"/>
+        </VRules>
+      </Field>
+      <Link id="mov2#mpkg6#hym4#page17#enu5#ln61" name="Sign Up" to="mov2#mpkg6#hym4#cru9" type="normal" automaticCoupling="true" validate="true"/>
+    </EntryUnit>
+  </ContentUnits>
+  <layout:Grid>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="mov2#mpkg6#hym4#page17#enu5">
+          <layout:Field field="mov2#mpkg6#hym4#page17#enu5#fld5"/>
+          <layout:Field field="mov2#mpkg6#hym4#page17#enu5#fld4"/>
+          <layout:Field field="mov2#mpkg6#hym4#page17#enu5#fld2"/>
+          <layout:Field field="mov2#mpkg6#hym4#page17#enu5#fld3"/>
+          <layout:Link link="mov2#mpkg6#hym4#page17#enu5#ln61"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="12"/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="12"/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+</Page>

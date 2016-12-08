@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle>
+  <Entry key="areyousure">Are you Sure?</Entry>
+  <Entry key="logging">logging</Entry>
+  <Entry key="noappointments">Currently, There are no appointments for the date you selected.</Entry>
+  <Entry key="saving">Saving your appointment</Entry>
+  <Entry key="updating">Updating Calendar</Entry>
+  <Entry key="Welcome">Welcome</Entry>
+</Bundle>

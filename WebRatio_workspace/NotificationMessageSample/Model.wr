@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?webml version="7.1.0.0"?>
+
+<WebProject xmlns:gr="http://www.webratio.com/2006/WebML/Graph" outputPath="${webapps_loc}/${project_name}" gr:showUnitContent="true" gr:showTooltip="true" httpPort="8080" httpsPort="8443" jobGroupName="WEBRATIO" enableBrowserIntegration="false">
+  <ServiceDataProviders/>
+  <BundleKey name="SuccessSub"/>
+  <BundleKey name="Warning"/>
+  <BundleKey name="Success"/>
+  <BundleKey name="Error"/>
+  <BundleKey name="WarningSub"/>
+  <BundleKey name="ErrorSub"/>
+  <BundleKey name="InfoSub"/>
+  <BundleKey name="Info"/>
+</WebProject>

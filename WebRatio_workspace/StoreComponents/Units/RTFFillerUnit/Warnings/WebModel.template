@@ -1,0 +1,18 @@
+#?delimiters <%,%>,<%=,%>
+<%
+import org.apache.commons.lang.StringUtils
+
+setXMLOutput()
+
+def uniId = unit["id"]
+def existsRTFTemplateProperty = !StringUtils.isBlank(unit["rtfTemplate"]);
+def existsRTFTemplateCoupling = false;
+for (link in getIncomingLinksAllTypes(unit)) {
+	existsRTFTemplateCoupling |= (link.selectSingleNode("LinkParameter[string(@target) = '" + uniId + ".rtfTemplate']") != null);
+}
+if (!existsRTFTemplateProperty && !existsRTFTemplateCoupling) {
+	addWarning(unit, true, "Missing RTF Template: fill coupling or RTF Template property", "RTF_FILLER_UNIT_MISSING_RTF_TEMPLATE");
+} else if (existsRTFTemplateProperty && existsRTFTemplateCoupling) {
+	addWarning(unit, false, "RTF Template set in both RTF Template property and coupling", "RTF_FILLER_UNIT_BOTH_SET_PROPERTY_AND_COUPLING");
+}
+%>

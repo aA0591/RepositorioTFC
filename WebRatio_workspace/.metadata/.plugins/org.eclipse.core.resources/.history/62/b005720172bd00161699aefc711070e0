@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: StoreComponents
+Bundle-SymbolicName: StoreComponents;singleton:=true
+Bundle-Version: 1.0.0
+Bundle-Vendor: 
+Require-Bundle: com.webratio.commons.libs,
+ com.webratio.rtx,
+ com.webratio.ide.units,
+ com.webratio.struts13
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6

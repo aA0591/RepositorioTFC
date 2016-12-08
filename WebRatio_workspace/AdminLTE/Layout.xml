@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Layout pageLayout="Default" frameLayout="Box" loginPage="Login" linkLayout="Default" attributeLayout="Default" errorPage="Error" fieldLayout="EntryUnit"> 
+  <UnitConfiguration unitType="MultiEntryUnit" fieldLayout="MultiEntryUnit" unitLayout="Default"/>  
+  <UnitConfiguration unitType="EntryUnit" unitLayout="Default"/>  
+  <UnitConfiguration unitType="IndexUnit" unitLayout="Default"/>  
+  <UnitConfiguration unitType="DataUnit" unitLayout="Default"/>  
+  <UnitConfiguration unitType="PowerIndexUnit" unitLayout="Default"/>  
+  <UnitConfiguration unitType="MultiMessageUnit" unitLayout="Default" linkLayout="Default"> 
+    <LayoutParameter name="link-style" value="button" type="link"/> 
+  </UnitConfiguration>  
+  <UnitConfiguration unitType="EntityEntryUnit" linkLayout="Default"> 
+    <LayoutParameter name="link-style" value="button" type="link"/> 
+  </UnitConfiguration>  
+  <UnitConfiguration unitType="MultiChoiceIndexUnit" unitLayout="Default"/>  
+  <Resources alwaysRequired="app-css app-js"> 
+    <Resource type="css" path="AdminLTE/css/app.css" name="app-css"/>  
+    <Resource type="javascript" path="AdminLTE/js/app.min.js" name="app-js" requires="bootstrap-js jquery"/>  
+    <Resource type="javascript" path="AdminLTE/js/html5shiv.min.js" name="aFarkas-html5shiv" ieCondition="lt IE 9"/>  
+    <Resource type="javascript" path="AdminLTE/js/respond.min.js" name="Scott-Jehl-respond" ieCondition="lt IE 9"/>  
+    <Resource type="javascript" path="AdminLTE/js/bootstrap.min.js" name="bootstrap-js" requires="aFarkas-html5shiv jquery Scott-Jehl-respond"/>  
+    <Resource type="javascript" path="AdminLTE/js/bootstrap-filestyle.min.js" name="bootstrap-filestyle-js" requires="bootstrap-js"/>  
+    <Resource type="css" path="AdminLTE/css/bpm.css" name="bpm-css"/> 
+  </Resources>  
+  <UnitConfiguration unitType="MultiDataUnit" unitLayout="Default" linkLayout="Default"> 
+    <LayoutParameter name="link-style" value="button" type="link"/> 
+  </UnitConfiguration>  
+  <UnitConfiguration unitType="HierarchicalIndexUnit" unitLayout="Default"/>  
+  <UnitConfiguration unitType="RecursiveHierarchicalIndexUnit" unitLayout="Default"/>  
+  <UnitConfiguration unitType="ProcessUnit" unitLayout="Normal"/>  
+  <UnitConfiguration unitType="EventCalendarUnit" unitLayout="Default"/>  
+  <UnitConfiguration unitType="QueryUnit" unitLayout="Default"/>
+</Layout>

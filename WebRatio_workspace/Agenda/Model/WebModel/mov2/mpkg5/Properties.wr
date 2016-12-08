@@ -1,0 +1,3 @@
+<ModulePackage xmlns:gr="http://www.webratio.com/2006/WebML/Graph" id="mov2#mpkg5" name="Administration Operations" gr:x="25" gr:y="10">
+  <Comment xml:space="preserve">Module Package that contains a series of operations related to Groups and Users.</Comment>
+</ModulePackage>

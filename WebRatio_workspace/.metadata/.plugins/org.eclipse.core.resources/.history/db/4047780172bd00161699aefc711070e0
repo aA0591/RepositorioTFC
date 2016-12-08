@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StoreMapping>
+  <ResourceBinding path="ValidationRules/textValidation" store="WebRatio Add-ons" versionId="371" itemId="108"/>
+</StoreMapping>

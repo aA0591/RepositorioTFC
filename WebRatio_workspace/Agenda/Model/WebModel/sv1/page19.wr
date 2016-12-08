@@ -1,0 +1,51 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" gr:x="-410" gr:y="-135" id="sv1#page19" name="Group" layout:pageLayout="WRDefault/Empty" ignoreMasterPage="true">
+  <ContentUnits>
+    <EntryUnit gr:x="0" gr:y="110" id="sv1#page19#enu14" name="Group Information" entity="Group" linkOrder="sv1#page19#enu14#ln35 sv1#page19#enu14#ln41">
+      <Field id="sv1#page19#enu14#fld50" name="groupname" type="string" modifiable="true" attribute="groupName">
+        <VRules>
+          <MandatoryValidationRule id="sv1#page19#enu14#fld50#mnd29" name="Mandatory Field"/>
+        </VRules>
+      </Field>
+      <SelectionField id="sv1#page19#enu14#sfld13" name="module" type="string" role="Group2DefaultModule">
+        <VRules>
+          <MandatoryValidationRule id="sv1#page19#enu14#sfld13#mnd28" name="Mandatory Field"/>
+        </VRules>
+      </SelectionField>
+      <Link id="sv1#page19#enu14#ln35" name="Save" to="sv1#miu9" type="normal" validate="true">
+        <LinkParameter id="sv1#page19#enu14#ln35#par79" name="Group Key" source="key.groupOID" target="sv1#miu9.mov2#mpkg5#opm3#icu4#icp7"/>
+        <LinkParameter id="sv1#page19#enu14#ln35#par80" name="Group Object" source="entityBean" target="sv1#miu9.mov2#mpkg5#opm3#icu4#icp6"/>
+      </Link>
+      <Link id="sv1#page19#enu14#ln41" name="Cancel" to="sv1#page1" automaticCoupling="true" type="normal" validate="false"/>
+    </EntryUnit>
+    <SelectorUnit gr:x="35" gr:y="0" id="sv1#page19#seu26" name="Modules" entity="Module">
+      <Link id="sv1#page19#seu26#ln22" name="Link22" to="sv1#page19#enu14" type="transport" validate="true">
+        <LinkParameter id="sv1#page19#seu26#ln22#par16" name="Module Name" source="moduleNameArray" target="sv1#page19#enu14#sfld13_label"/>
+        <LinkParameter id="sv1#page19#seu26#ln22#par19" name="Module Key" source="moduleOIDArray" target="sv1#page19#enu14#sfld13_output"/>
+      </Link>
+    </SelectorUnit>
+  </ContentUnits>
+  <layout:Grid>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv1#page19#enu14">
+          <layout:Field field="sv1#page19#enu14#fld50"/>
+          <layout:Field field="sv1#page19#enu14#sfld13"/>
+          <layout:Link link="sv1#page19#enu14#ln35"/>
+          <layout:Link link="sv1#page19#enu14#ln41"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+  <Comment xml:space="preserve">Popup Page that allows the administrator to create or modify a Group.</Comment>
+</Page>

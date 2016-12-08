@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bundle>
+  <Entry key="textValidation.error">Validation Failed. Text Only is allowed.</Entry>
+  <Entry key="textValidation.errorSpecialChars">Validation Failed. Only Text with dots(.) and dash (-) is allowed.</Entry>
+  <Entry key="textValidation.errorAlphaNumeric">Validation Failed. Only Text and Numbers are allowed.</Entry>
+  <Entry key="textValidation.errorNumeric">Validation Failed. Only Numbers are allowed.</Entry>
+</Bundle>

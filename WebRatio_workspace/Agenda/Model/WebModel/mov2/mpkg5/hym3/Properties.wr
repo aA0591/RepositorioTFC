@@ -1,0 +1,49 @@
+<HybridModule xmlns:gr="http://www.webratio.com/2006/WebML/Graph" id="mov2#mpkg5#hym3" name="Delete Group" gr:x="0" gr:y="0" gr:icon="ModulesIcons/Delete.png">
+  <OperationUnits>
+    <InputCollectorUnit id="mov2#mpkg5#hym3#icu2" name="Input" gr:x="10" gr:y="280">
+      <InputCollectorParameter id="mov2#mpkg5#hym3#icu2#icp3" name="Group Key"/>
+      <OKLink id="mov2#mpkg5#hym3#icu2#oln1" name="OKLink94" to="mov2#mpkg5#hym3#seu2">
+        <LinkParameter id="mov2#mpkg5#hym3#icu2#oln1#par12" name="Group Key" source="mov2#mpkg5#hym3#icu2#icp3" target="mov2#mpkg5#hym3#seu2#su1#rcond18.groupOID"/>
+      </OKLink>
+      <Link id="mov2#mpkg5#hym3#icu2#ln5" name="Link51" to="mov2#mpkg5#hym3#dlu3" type="transport" validate="true" gr:bendpoints="97,-243,-653,-243;445,-243,-305,-243">
+        <LinkParameter id="mov2#mpkg5#hym3#icu2#ln5#par13" name="Group Key" source="mov2#mpkg5#hym3#icu2#icp3" target="mov2#mpkg5#hym3#dlu3#su4#kcond30.groupOID"/>
+      </Link>
+      <Link id="mov2#mpkg5#hym3#icu2#ln11" name="Link54" to="mov2#mpkg5#hym3#page16#pwu4" type="transport" validate="true">
+        <LinkParameter id="mov2#mpkg5#hym3#icu2#ln11#par17" name="Group Key" source="mov2#mpkg5#hym3#icu2#icp3" target="mov2#mpkg5#hym3#page16#pwu4#su9#rcond19.groupOID"/>
+      </Link>
+      <Link id="mov2#mpkg5#hym3#icu2#ln14" name="Link57" to="mov2#mpkg5#hym3#page16#seu23" type="transport" validate="true">
+        <LinkParameter id="mov2#mpkg5#hym3#icu2#ln14#par18" name="Group Key" source="mov2#mpkg5#hym3#icu2#icp3" target="mov2#mpkg5#hym3#page16#seu23#su10#kcond33.groupOID"/>
+      </Link>
+      <Link id="mov2#mpkg5#hym3#icu2#ln16" name="Link63" to="mov2#mpkg5#hym3#page16#enu4" type="transport" validate="true" gr:bendpoints="177,148,-238,148;415,148,0,148">
+        <LinkParameter id="mov2#mpkg5#hym3#icu2#ln16#par8" name="Group Key" source="mov2#mpkg5#hym3#icu2#icp3" target="mov2#mpkg5#hym3#page16#enu4.groupOID"/>
+      </Link>
+    </InputCollectorUnit>
+    <SelectorUnit id="mov2#mpkg5#hym3#seu2" name="Select Group Users" gr:x="225" gr:y="90" entity="User">
+      <Selector id="mov2#mpkg5#hym3#seu2#su1" defaultPolicy="fill" booleanOperator="and">
+        <RelationshipRoleCondition id="mov2#mpkg5#hym3#seu2#su1#rcond18" name="Default Group" predicate="in" implied="false" role="DefaultGroup2User"/>
+      </Selector>
+      <OKLink id="mov2#mpkg5#hym3#seu2#oln2" name="OKLink95" to="mov2#mpkg5#hym3#inn2">
+        <LinkParameter id="mov2#mpkg5#hym3#seu2#oln2#par28" name="User Key" source="userOIDArray" target="mov2#mpkg5#hym3#inn2.isnotnull"/>
+      </OKLink>
+    </SelectorUnit>
+    <IsNotNullUnit id="mov2#mpkg5#hym3#inn2" name="Is Group Empty?" gr:x="395" gr:y="105">
+      <KOLink id="mov2#mpkg5#hym3#inn2#kln8" name="KOLink21" to="mov2#mpkg5#hym3#dlu3" gr:bendpoints="133,0,-287,-185"/>
+      <OKLink id="mov2#mpkg5#hym3#inn2#oln3" name="OKLink96" to="mov2#mpkg5#hym3#page16" automaticCoupling="true"/>
+    </IsNotNullUnit>
+    <DeleteUnit id="mov2#mpkg5#hym3#dlu3" name="Delete Group" gr:x="825" gr:y="275" entity="Group">
+      <Selector id="mov2#mpkg5#hym3#dlu3#su4" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="mov2#mpkg5#hym3#dlu3#su4#kcond30" predicate="in" implied="false" name="Group"/>
+      </Selector>
+      <OKLink id="mov2#mpkg5#hym3#dlu3#oln5" name="OKLink97" to="mov2#mpkg5#hym3#okcu1" automaticCoupling="true"/>
+    </DeleteUnit>
+    <ModifyUnit id="mov2#mpkg5#hym3#mfu1" name="Modify User" gr:x="650" gr:y="275" entity="User">
+      <Selector id="mov2#mpkg5#hym3#mfu1#su8" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="mov2#mpkg5#hym3#mfu1#su8#kcond31" name="User" predicate="in" implied="false"/>
+      </Selector>
+      <OKLink id="mov2#mpkg5#hym3#mfu1#oln6" name="OKLink98" to="mov2#mpkg5#hym3#dlu3"/>
+    </ModifyUnit>
+    <OKCollectorUnit id="mov2#mpkg5#hym3#okcu1" name="Success" gr:x="950" gr:y="280"/>
+    <OKCollectorUnit id="mov2#mpkg5#hym3#okcu2" name="Cancel" gr:x="950" gr:y="390"/>
+  </OperationUnits>
+  <Comment xml:space="preserve">Hybrid Module that allows to delete a group.</Comment>
+</HybridModule>

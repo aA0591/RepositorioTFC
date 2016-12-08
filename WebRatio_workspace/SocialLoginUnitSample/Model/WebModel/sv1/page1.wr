@@ -1,0 +1,35 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" gr:x="240" gr:y="230" id="sv1#page1" name="Social Login Sample">
+  <ContentUnits>
+    <SocialLoginUnit gr:x="0" gr:y="0" id="sv1#page1#slu1" name="Social Networks" linkOrder="sv1#page1#slu1#ln1 sv1#page1#slu1#ln4" socialNetworks="sdp1 sdp2 sdp3 sdp5">
+      <Link id="sv1#page1#slu1#ln1" name="Login" to="sv1#slu2" type="normal" validate="true">
+        <LinkParameter id="sv1#page1#slu1#ln1#par1" name="Social Network_Social Network" source="data[].id" target="sv1#slu2.socialNetwork"/>
+      </Link>
+      <Link id="sv1#page1#slu1#ln4" name="Logout" to="sv1#slu4" type="normal" validate="true">
+        <LinkParameter id="sv1#page1#slu1#ln4#par4" name="Social Network_Social Network" source="data[].id" target="sv1#slu4.socialNetwork"/>
+      </Link>
+    </SocialLoginUnit>
+  </ContentUnits>
+  <layout:Grid>
+    <layout:Row>
+      <layout:Cell>
+        <layout:Unit unitId="sv1#page1#slu1" layout:unitLayout="StoreTemplates/Default">
+          <layout:Link link="sv1#page1#slu1#ln1"/>
+          <layout:Link link="sv1#page1#slu1#ln4"/>
+          <layout:Link link="sv1#page1#slu1Logout"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+</Page>

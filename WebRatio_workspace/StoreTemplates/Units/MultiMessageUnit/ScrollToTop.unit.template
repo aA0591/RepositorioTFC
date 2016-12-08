@@ -1,0 +1,18 @@
+#?delimiters [%, %], [%=, %]
+<wr:LayoutParameter name="scroll-position" label="Scroll link position" type="enum" values="right|center" default="right">
+The position at the bottom of the page where the Scroll To Top link will be shown.
+</wr:LayoutParameter>
+
+[% setHTMLOutput() 
+   import org.apache.commons.lang.StringUtils
+   def scrollPosition = StringUtils.capitalize(params["scroll-position"])
+%]
+
+<wr:RequireResource ref="ScrollToTop-script" />
+<wr:RequireResource ref="ScrollToTop-style" />
+
+<c:if test="${not(empty <wr:UnitId/>) and (<wr:UnitId/>.dataSize gt 0)}">	
+	
+	<div id="scrollToTopMultiMessageUnit"><a class="scrollToTopMultiMessageUnit[%= scrollPosition %]" href="#"><bean:message key="${<wr:UnitId/>.data[0]}"/></a></div>
+													
+</c:if>				

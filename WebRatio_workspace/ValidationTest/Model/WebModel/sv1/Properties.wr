@@ -1,0 +1,7 @@
+<SiteView xmlns:gr="http://www.webratio.com/2006/WebML/Graph" id="sv1" name="Home" homePage="sv1#page1">
+  <OperationUnits>
+    <CreateUnit gr:x="270" gr:y="160" id="sv1#cru1" name="Save" entity="ent1" deleteAllBefore="true">
+      <OKLink id="sv1#cru1#oln1" name="OKFlow1" to="sv1#page1#enu1" automaticCoupling="true" gr:bendpoints="-82,27,78,27"/>
+    </CreateUnit>
+  </OperationUnits>
+</SiteView>

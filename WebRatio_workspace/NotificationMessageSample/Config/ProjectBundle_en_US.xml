@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle>
+  <Entry key="Error">Ops... This is an error message</Entry>
+  <Entry key="ErrorSub">A few words about the error</Entry>
+  <Entry key="Info">This is a general information message</Entry>
+  <Entry key="InfoSub">With a lot of useful informations</Entry>
+  <Entry key="Success">Congratulations! This is a success message</Entry>
+  <Entry key="SuccessSub">More details on the event</Entry>
+  <Entry key="Warning">This is a warning message</Entry>
+  <Entry key="WarningSub">More details on the warning</Entry>
+</Bundle>

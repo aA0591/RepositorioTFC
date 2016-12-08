@@ -1,0 +1,139 @@
+#?delimiters [%, %], [%=, %]
+
+<wr:LayoutParameter label="Show Attribute Name" name="show-attribute-name" type="boolean" default="true">
+Defines the rendition of the attribute labels.
+Allowed values are: true(default) or false.
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Attribute Name Position" name="attribute-orientation" type="enum" values="top|left" default="left">
+Defines the rendition of the attribute labels.
+Allowed values are:
+- left (default): places the labels on the left
+- top: places the labels on the top
+</wr:LayoutParameter>
+
+
+<wr:RequireResource ref="InfiniteScroll-style" />
+<wr:RequireResource ref="jquery-ui" />
+
+[%
+setHTMLOutput()
+def unitId = unit["id"]
+def nextLink = unit.selectSingleNode("layout:Link[@id = '" + unitId + "Next']")
+
+def showAttrName = "true" == params["show-attribute-name"];
+def attrOrientation = params["attribute-orientation"];
+%]
+
+<c:if test="${not(empty <wr:UnitId/>) and (<wr:UnitId/>.dataSize gt 0)}">
+<wr:Frame>
+    <c:if test="${link ne '<wr:UnitId/>Next' and <wr:UnitId/>.scroller.current ne <wr:UnitId/>.scroller.next}">
+	<script type="text/javascript">
+	var autoScroll = true;
+	var blockIndex = 1;
+	function loadNextBlock(){ 
+   		var urlDiv = jQuery("#<wr:UnitId/>Next");
+   		var nextURL = urlDiv ? urlDiv.text() : null
+   		if(nextURL && nextURL != ""){
+   		    jQuery("#pwu1Loader").toggle(); 
+		    jQuery.get(nextURL, 
+		           function(data){
+		              urlDiv.remove();
+                      jQuery("#<wr:UnitId/>Loader").remove();
+                      if (data && data != "") {
+                         var index1 = data.indexOf('<!--$$BLOCK_START$$-->');
+                         var index2 = data.indexOf('<!--$$BLOCK_END$$-->');
+                         if(index1 > 0 && index2 > 0){
+                             blockIndex++;
+                             jQuery("#<wr:UnitId/>Content").append(data.substring(index1 + 22, index2));
+                             jQuery("#<wr:UnitId/>_" + blockIndex).effect('highlight', {color:'#ffff99'}, 4000);
+                             if(jQuery(document).height() - jQuery(window).height() <= 50){
+						        loadNextBlock();			
+					         }
+                         }			
+                      }
+                      autoScroll = true;					 
+                   }
+			);
+		} else {
+		   autoScroll = true;
+		   jQuery("#<wr:UnitId/>Loader").remove();
+		}
+	};  
+		
+	jQuery(document).ready(function(){
+			
+			jQuery(window).scroll(function(){
+				if((autoScroll == true) && ((jQuery(window).scrollTop() + jQuery(window).height()) + 100) >= jQuery(document).height()){
+				   autoScroll = false;
+				   loadNextBlock();				   
+				}
+			}); 
+			
+		});
+	</script>
+	</c:if>
+     
+	<div class="plain <wr:StyleClass/>">
+		<div class="plain PowerIndexUnit" id="<wr:UnitId/>Content">
+		    <c:if test="${link eq '<wr:UnitId/>Next'}"><!--$$BLOCK_START$$--></c:if>
+			<div id="<wr:UnitId/>_${<wr:UnitId/>.scroller.current}">
+			<c:forEach var="current" varStatus="status" items="${<wr:UnitId/>.data}">
+				<c:set var="index" value="${status.index}"/>
+				<div class="infinite-scroll-row">
+                     <table width="100%">
+			        	<wr:Iterate var="attr" context="unit" select="layout:Attribute">
+						    <wr:Visible position="'index'">
+						    
+						    [%if(showAttrName){%]
+							    [%if("left" == attrOrientation){%]
+							      <tr>
+								    <th class="<wr:StyleClass/> header"><wr:Label/></th>
+								    <td class="<wr:StyleClass/> value"><wr:Value/></td>
+							      </tr>
+							    [%} else if("top" == attrOrientation){%]
+							      <tr><th class="<wr:StyleClass/> header"><wr:Label/></th></tr>
+								  <tr><td class="<wr:StyleClass/> value"><wr:Value/></td></tr>
+							    [%}%]
+						    [%}else{%]
+						        <tr><td class="<wr:StyleClass/> value"><wr:Value/></td></tr>
+						    [%}%]
+						    
+						    </wr:Visible>
+						</wr:Iterate>
+						[%if(unit.selectSingleNode("layout:Link") != null){%]
+						<tr>
+						  <td [%if(showAttrName && "left" == attrOrientation){%]colspan="2"[%}%]>
+						    <table>
+						      <tr>
+						    	<wr:Iterate var="l" context="unit" select="layout:Link[string(@_exp) != 't']">
+									<wr:Visible position="'index'">
+										<td>
+											<c:choose>
+												<c:when test="${<wr:UnitId/>.currentIndex eq index}"><wr:Link class="linkCurrent"/></c:when>
+												<c:otherwise><wr:Link class="link"/></c:otherwise>
+											</c:choose>
+										</td>
+									</wr:Visible>
+								</wr:Iterate>
+							   </tr>
+							 </table>
+						  </td>
+						<tr>
+						[%}%] 
+					 </table>		
+                </div>
+			</c:forEach>
+			<c:if test="${<wr:UnitId/>.scroller.current ne <wr:UnitId/>.scroller.next}">
+			  <div id="<wr:UnitId/>Loader" class="infinite-scroll-loader" style="display:none"></div>
+			  <div id="<wr:UnitId/>Next" style="display:none"><wr:URL context="nextLink" escapeXml="false"/></div>
+			</c:if>
+			<c:if test="${link eq '<wr:UnitId/>Next'}"><!--$$BLOCK_END$$--></c:if>
+		</div>
+		<script type="text/javascript">
+		    if(jQuery(document).height() - jQuery(window).height() <= 50){
+			   loadNextBlock();			
+		    }
+	    </script>
+	</div>
+</wr:Frame>
+</c:if>

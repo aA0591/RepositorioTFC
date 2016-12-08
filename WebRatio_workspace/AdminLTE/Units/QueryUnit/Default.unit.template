@@ -1,0 +1,336 @@
+#?delimiters [%, %], [%=, %]
+<wr:LayoutParameter label="Show Header" name="show-header" type="boolean" default="true">
+Defines the rendition of the header on the top.
+Allowed values are: true (default) or false.
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Use Alternate Rows" name="use-alternate" type="boolean" default="true">
+Defines the usage of alternates colours for each line.
+Allowed values are: true or false(default).
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Compact table" name="compact" type="boolean" default="false">
+Makes tables more compact by cutting cell padding in half.
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Links Position" name="link-position" type="enum" values="left|right|on_row" default="right">
+Defines the rendition of the sub levels links.
+Allowed values are:
+- right (default): places the links on the right
+- left: places the links on the left
+- on_row: places the first link on the attributes
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Scrolling Position" name="scrolling-position" type="enum" values="top|bottom|both" default="bottom">
+Defines where to position the scroll links.
+Allowed values are:
+- top (default): places the links at the top
+- bottom: places the links at the bottom
+- both: places the links at the top and bottom
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Scrolling Alignment" name="scrolling-alignment" type="enum" values="left|center|right" default="center">
+Defines the alignment of the scroll links.
+Allowed values are:
+- left (default)
+- center
+- right
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Buttons Position" name="button-position" type="enum" values="top|bottom|both" default="bottom">
+Defines where to position the buttons to render submit links.
+Allowed values are:
+- top: places the buttons at the top
+- bottom (default): places the buttons at the bottom
+- both: places the buttons at the top and bottom
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Show Jump Links" name="show-jump-links" type="boolean" default="true">
+Defines whether to show the jumps links of the scroller or not.
+Allowed values are: true(default) or false.
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Use Empty Unit Message" name="use-empty-unit-message" type="boolean" default="false">
+Defines the usage of a message for empty units.
+Allowed values are: true(default) or false.
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Empty Unit Message" name="empty-unit-message" type="string" default="emptyUnitMessage">
+Defines the key of the message to use if the unit is empty.
+Default value: emptyUnitMessage
+</wr:LayoutParameter>
+[%
+setHTMLOutput()
+import org.apache.commons.lang.StringUtils
+
+def unitId = unit["id"]
+def outputsOrderIds = unit["outputsOrder"].tokenize(" ")
+def allQueryOutputs = unit.selectNodes("QueryOutput")
+def queryOutputs = []
+queryOutputs += outputsOrderIds.collect{getById(it)}
+queryOutputs += allQueryOutputs.findAll{!outputsOrderIds.contains(it["id"])}
+
+def rowLinks = unit.selectNodes("layout:Link[string(@scroll) != 'true' and LinkParameter[starts-with(@source, 'data[]')]]")
+def unitLink = rowLinks.empty ? null : rowLinks[0]
+def bottomLinks = unit.selectNodes("layout:Link[string(@scroll) != 'true' ]").findAll{!rowLinks.contains(it)}
+
+def isScrollable = unit["blockFactor"] != "" ? "true": "false"
+ 
+def getIconPath(folder, name, extension) {
+   folder = StringUtils.defaultIfEmpty(folder, params["icon-folder"])
+   extension = StringUtils.defaultIfEmpty(extension, params["icon-extension"])
+   return getFilePath(folder, name, extension)
+}
+
+def showHeader = params["show-header"]
+def useAlternate = params["use-alternate"]
+def compact = params["compact"]
+def linkPosition = params["link-position"]
+def buttonPosition = params["button-position"]
+def scrollingPosition = params["scrolling-position"]
+def useEmptyUnitMessage = params["use-empty-unit-message"]
+def emptyUnitMessage = params["empty-unit-message"]
+
+//prints out the QueryOutput value
+def printQueryOutputValue(queryOutput){
+  def type = queryOutput["type"]
+  def subType = queryOutput["subType"]
+  def contentType = queryOutput["contentType"]
+  def typeId = (subType != "") ? subType : type
+  def pattern = typeId + "Pattern"
+  def prop = getFieldName(queryOutput)  
+  
+  
+  if ((type == "string") || (type == "text")) {
+    %]<c:out value="${current.[%=prop%]}"/>[%
+  } else if ((type == "float") || (type == "integer") || (type == "decimal")) { 
+    %]<fmt:formatNumber value="${current.[%=prop%]}" pattern="${[%=pattern%]}"/>[%
+  } else if ((type == "date") || (type == "time") || (type == "timestamp")) { 
+    %]<fmt:formatDate value="${current.[%=prop%]}" pattern="${[%=pattern%]}"/>[%
+  } else if (type == "blob") { 
+    %]<c:if test="${not (empty current.[%=prop%])}">[%
+       if (contentType.startsWith("image")) {
+         %]<img border="0" src="<webratio:BLOB value="${current.[%=prop%]}"/>" alt="<c:out value="${current.[%=prop%].name}"/>"/>[% 
+       } else { 
+         if (contentType.startsWith("application")) {
+            %]<table cellspacing="0" cellpadding="0">
+                <tr>
+                    <td>
+                        <img border="0" alt="<wr:Label context="queryOutput"/>" src="WRResources/[%= StringUtils.substringAfter(contentType, "application/") %]icon.png"/>
+                    </td>
+                    <td>
+                        <a href="<webratio:BLOB value="${current.[%=prop%]}"/>"><c:out value="${current.[%=prop%].name}"/></a>
+                    </td>
+                </tr>
+            </table>[%
+         } else { 
+            %]<a target="_blank" href="<webratio:BLOB value="${current.[%=prop%]}"/>"><c:out value="${current.[%=prop%].name}"/></a>[%
+         } 
+     }  
+     %]</c:if>[%
+  } else if (type == "boolean") { 
+    %]<c:if test="${not(empty current.[%=prop%])}">
+        <c:choose>
+          <c:when test="${current.[%=prop%]}"><bean:message key="[%=typeId%].yes"/></c:when>
+          <c:otherwise><bean:message key="[%=typeId%].no"/></c:otherwise>
+        </c:choose>
+      </c:if>[%
+  } else if (type == "url") {
+     def makeHref = {
+       if ("email".equals(contentType) || "mail".equals(contentType)) {
+          %]<c:set var="encEmail" value="${current.[%=prop%]}"/>mailto:<%= java.net.URLEncoder.encode((String)pageContext.getAttribute("encEmail"), "US-ASCII")%>[%
+       } else {
+          %]<c:out value="${current.[%=prop%]}"/>[%
+       }
+     }
+     %]<c:if test="${not(empty current.[%=prop%])}">
+        <a target="_blank" href="[% makeHref() %]"><c:out value="${current.[%=prop%]}"/></a>
+       </c:if>[%
+  } else { 
+    %]<c:out value="${current.[%=prop%]}"/>[%
+  }
+}
+
+def printPagination() { 
+	def blockFactor = unit["blockFactor"]
+	def scrollingAlignment = "text-" + params["scrolling-alignment"]
+	def showJumpLinks = params["show-jump-links"]
+	def firstLink = unit.selectSingleNode("layout:Link[contains(@link,'First')]")
+	def previousLink = unit.selectSingleNode("layout:Link[contains(@link,'Previous')]")
+	def blockLink = unit.selectSingleNode("layout:Link[contains(@link,'Block')]")
+	def nextLink = unit.selectSingleNode("layout:Link[contains(@link,'Next')]")
+	def lastLink = unit.selectSingleNode("layout:Link[contains(@link,'Last')]")
+	
+	if (blockFactor) {
+%]
+	<c:if test="${<wr:Id context="unit"/>.scroller.of gt [%= blockFactor %]}">
+	   <div class="[%= scrollingAlignment %]">
+	   <ul class="pagination">
+			[% if (firstLink) { %]
+		        <c:choose>
+		            <c:when test="${<wr:Id context="unit"/>.scroller.current ne <wr:Id context="unit"/>.scroller.first}">
+	     	            <li><wr:Link class="scroll" context="firstLink"/></li>
+		            </c:when>
+		            <c:otherwise>
+	     	            <li class="disabled" ><wr:Link class="scroll" context="firstLink"/></li>
+	           		</c:otherwise>
+		        </c:choose>
+		    [% } %]
+		    [% if (previousLink) { %]
+		        <c:choose>
+	                <c:when test="${<wr:Id context="unit"/>.scroller.current ne <wr:Id context="unit"/>.scroller.previous}">
+	     	            <li><wr:Link class="scroll" context="previousLink"/></li>
+	                </c:when>
+	                <c:otherwise>
+	     	            <li class="disabled" ><wr:Link class="scroll" context="previousLink"/></li>
+		           	</c:otherwise>
+	            </c:choose>
+		    [% } %]
+		   [% if (showJumpLinks == "true" && blockLink) {%]
+		    <c:forEach var="current" varStatus="status" items="${<wr:Id context="unit"/>.scroller.blocks}">
+		      <c:set var="index" value="${status.index}"/>
+		      <c:choose>
+		        <c:when test="${current ne <wr:Id context="unit"/>.scroller.current}">
+     	            <li><a class="<wr:StyleClass context="blockLink"/> link" href="<wr:URL context="blockLink"/>"  onclick="<wr:AjaxURL context="blockLink" />">${current}</a></li>
+		        </c:when>
+		        <c:otherwise>
+     	            <li class="active" ><span class="<wr:StyleClass context="blockLink"/> link">${current} <span class="sr-only">(current)</span></span></li>
+		        </c:otherwise>
+		      </c:choose>
+	    	</c:forEach> 
+		    [% } %]
+		    [% if (nextLink) { %]
+		        <c:choose>
+	                <c:when test="${<wr:Id context="unit"/>.scroller.current ne <wr:Id context="unit"/>.scroller.next}">
+	     	            <li><wr:Link class="scroll" context="nextLink"/></li>
+		            </c:when>
+    	            <c:otherwise>
+	     	            <li class="disabled" ><wr:Link class="scroll" context="nextLink"/></li>
+    	            </c:otherwise>
+    	        </c:choose>
+		    [% } %]
+		    [% if (lastLink) { %]
+		    	<c:choose>
+		            <c:when test="${<wr:Id context="unit"/>.scroller.current ne <wr:Id context="unit"/>.scroller.last}">
+	     	            <li><wr:Link class="scroll" context="lastLink"/></li>
+	                </c:when>
+	                <c:otherwise>
+	     	            <li class="disabled" ><wr:Link class="scroll" context="lastLink"/></li>
+	               </c:otherwise>
+	            </c:choose>
+		    [% } %]
+	    </ul>
+	    </div>
+	</c:if>
+[% } 
+}%]
+
+[% if (useEmptyUnitMessage != "true") { %]
+<c:if test="${not(empty <wr:Id context="unit"/>) and (<wr:Id context="unit"/>.dataSize gt 0)}">
+[% } else { %]
+<c:choose>
+<c:when test="${not(empty <wr:Id context="unit"/>) and (<wr:Id context="unit"/>.dataSize gt 0)}">
+[% } %]
+  <wr:Frame>
+        <div class="plain <wr:StyleClass/>">
+            <div class="plain QueryUnit">
+ 				[% if (!bottomLinks.empty) {%]
+					[% if (buttonPosition == "top" || buttonPosition == "both") { %]
+						<div class="btn-toolbar">
+							[%for(l in bottomLinks){%]
+								 <wr:Visible context="l">
+									<wr:Link class="btn" type="button" context="l"/>
+								</wr:Visible>
+							[% } %]
+						</div>
+					[% } %]		
+                [% } %]		           
+				[% if (isScrollable == "true" && (scrollingPosition == "top" || scrollingPosition == "both")) { %]
+					[% printPagination() %]
+				[% } %]
+                <div class="table-responsive">
+					<table class="table table-bordered table-hover [% if (compact == "true") { %] table-condensed[% } %] [% if (useAlternate == "true") { %] table-striped[% } %]">
+					[% if (showHeader == "true") {%]
+						<thead>
+							<tr>
+							[% def index = 0 %]
+						    [%for(l in rowLinks){%]
+								[% if (!rowLinks.empty && (linkPosition == "left" || ((linkPosition == "on_row") && index > 0))) { %]
+											<wr:Visible context="l"><th scope="col" class="<wr:StyleClass context="l"/> smallcol"></th></wr:Visible>
+								[% } %]
+								[% index++ %]
+							[% }  %]							
+							[%for(queryOutput in queryOutputs){%]
+						        <th scope="col" class="<wr:StyleClass/>">
+							        <wr:Label context="queryOutput"/>
+						        </th>
+						    [% } %]
+						    [% index=0 %]
+							[%for(l in rowLinks){%]
+								[% if (!rowLinks.empty && (linkPosition == "right" || ((linkPosition == "on_row") && index > 0))) { %]
+											<wr:Visible context="l"><th scope="col" class="<wr:StyleClass context="l"/> smallcol"></th></wr:Visible>
+								[% } %]
+								[% index++ %]
+							[% }  %]							    
+						    </tr>
+						</thead>
+					[% } %]				
+						<tbody>
+							<c:forEach var="current" varStatus="status" items="${<wr:Id context="unit"/>.data}">
+	                            <c:set var="index" value="${status.index}"/>
+	                            <tr>
+	                              [% index = 0 %]
+                                  [%for(l in rowLinks){%]
+		                                [% if (!rowLinks.empty && (linkPosition == "left" || ((linkPosition == "on_row") && index > 0))) {%]
+	                                    <wr:Visible context="l" position="'index'"><td class="<wr:StyleClass context="l"/> smallcol"><wr:Link class="link" context="l"/></td></wr:Visible>
+	                                   [% } %]
+	                                   [% index++ %]
+	                              [% } %]                    
+                                  [%for(queryOutput in queryOutputs){%]
+	                                 <td valign="top" class="value">
+										[% if ((linkPosition == "on_row") && (!rowLinks.empty)) {%]
+												<wr:Visible context="unitLink" position="'index'">
+													<a href="<wr:URL context="unitLink"/>" class="<wr:StyleClass context="unitLink"/>" onclick="<wr:AjaxURL context="unitLink" />">
+												</wr:Visible>
+												[% printQueryOutputValue(queryOutput) %]
+												<wr:Visible context="unitLink" position="'index'">
+													</a>
+												</wr:Visible>
+										[% } else {%]
+											[% printQueryOutputValue(queryOutput) %]
+										[% } %]	 
+	                                </td>
+                                  [%}%]
+                                  [% index = 0 %] 
+                                  [%for(l in rowLinks){%]
+	                                [% if (!rowLinks.empty && (linkPosition == "right" || ((linkPosition == "on_row") && index > 0))) {%]
+	                                    <wr:Visible context="l" position="'index'"><td class="<wr:StyleClass context="l"/> smallcol"><wr:Link class="link" context="l"/></td></wr:Visible>
+	                                [% } %]
+	                                [% index++ %]
+                                  [% } %]
+	                            </tr>
+	                        </c:forEach>
+						</tbody>
+					</table>	
+				</div>
+				[% if (isScrollable == "true" && (scrollingPosition == "bottom" || scrollingPosition == "both")) { %]
+					[% printPagination() %]
+				[% } %]	
+				[% if (!bottomLinks.empty) {%]
+					[% if (buttonPosition == "bottom" || buttonPosition == "both") { %]
+						<div class="btn-toolbar">
+							[%for(l in bottomLinks){%]
+								 <wr:Visible context="l">
+									<wr:Link class="btn" type="button" context="l"/>
+								</wr:Visible>
+							[% } %]
+						</div>
+					[% } %]		
+                [% } %]							
+			</div>
+		</div>
+    </wr:Frame>
+[% if (useEmptyUnitMessage != "true") { %]
+</c:if>
+[% } else { %]
+</c:when>
+<c:otherwise>
+	<wr:Frame>
+		<div class="alert alert-info empty-message <wr:StyleClass/>">
+			<bean:message key="[%printJSPTagValue(emptyUnitMessage)%]"/>
+		</div>
+	</wr:Frame>
+</c:otherwise>
+</c:choose>
+[% } %]

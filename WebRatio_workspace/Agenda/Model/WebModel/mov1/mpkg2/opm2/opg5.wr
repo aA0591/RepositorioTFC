@@ -1,0 +1,45 @@
+<OperationGroup xmlns:gr="http://www.webratio.com/2006/WebML/Graph" id="mov1#mpkg2#opm2#opg5" name="Compose And Send Message" transaction="false" gr:x="325" gr:y="-230">
+  <OperationUnits>
+    <SelectorUnit id="mov1#mpkg2#opm2#opg5#seu6" name="Select Appointment Information" gr:x="0" gr:y="150" entity="ent1">
+      <Selector id="mov1#mpkg2#opm2#opg5#seu6#su47" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="mov1#mpkg2#opm2#opg5#seu6#su47#kcond6" name="Appointment" predicate="in" implied="false"/>
+      </Selector>
+      <OKLink id="mov1#mpkg2#opm2#opg5#seu6#oln37" name="OKLink37" to="mov1#mpkg2#opm2#opg5#scu5">
+        <LinkParameter id="mov1#mpkg2#opm2#opg5#seu6#oln37#par51" name="all day event_allday" source="ent1#att5Array" target="mov1#mpkg2#opm2#opg5#scu5.allday"/>
+        <LinkParameter id="mov1#mpkg2#opm2#opg5#seu6#oln37#par52" name="location_location" source="ent1#att6Array" target="mov1#mpkg2#opm2#opg5#scu5.location"/>
+        <LinkParameter id="mov1#mpkg2#opm2#opg5#seu6#oln37#par53" name="start date_startdate" source="ent1#att3Array" target="mov1#mpkg2#opm2#opg5#scu5.startdate"/>
+        <LinkParameter id="mov1#mpkg2#opm2#opg5#seu6#oln37#par54" name="reminder message_usertext" source="ent1#att13Array" target="mov1#mpkg2#opm2#opg5#scu5.usertext"/>
+        <LinkParameter id="mov1#mpkg2#opm2#opg5#seu6#oln37#par82" name="subject_category" source="ent1#att2Array" target="mov1#mpkg2#opm2#opg5#scu5.category"/>
+        <LinkParameter id="mov1#mpkg2#opm2#opg5#seu6#oln37#par83" name="end time_fhour" source="ent1#att29aArray" target="mov1#mpkg2#opm2#opg5#scu5.fhour"/>
+        <LinkParameter id="mov1#mpkg2#opm2#opg5#seu6#oln37#par84" name="start time_shour" source="ent1#att28aArray" target="mov1#mpkg2#opm2#opg5#scu5.shour"/>
+        <LinkParameter id="mov1#mpkg2#opm2#opg5#seu6#oln37#par85" name="subject_title" source="ent1#att2Array" target="mov1#mpkg2#opm2#opg5#scu5.title"/>
+      </OKLink>
+    </SelectorUnit>
+    <ScriptUnit id="mov1#mpkg2#opm2#opg5#scu5" name="Compose Message" gr:x="35" gr:y="300" script="WEB-INF/descr/groovy/message text.groovy">
+      <OKLink id="mov1#mpkg2#opm2#opg5#scu5#oln38" name="OKLink38" to="mov1#mpkg2#opm2#opg5#lpu2"/>
+      <Link id="mov1#mpkg2#opm2#opg5#scu5#ln130" name="Link130" to="mov1#mpkg2#opm2#opg5#mlu2" type="transport" validate="true">
+        <LinkParameter id="mov1#mpkg2#opm2#opg5#scu5#ln130#par125" name="body" source="result(body)" target="mov1#mpkg2#opm2#opg5#mlu2.body"/>
+        <LinkParameter id="mov1#mpkg2#opm2#opg5#scu5#ln130#par126" name="subject" source="result(Subject)" target="mov1#mpkg2#opm2#opg5#mlu2.subject"/>
+      </Link>
+    </ScriptUnit>
+    <LoopUnit id="mov1#mpkg2#opm2#opg5#lpu2" name="Send EMail" gr:x="250" gr:y="165">
+      <OKLink id="mov1#mpkg2#opm2#opg5#lpu2#oln39" name="OKLink39" to="mov1#mpkg2#opm2#opg5#mlu2" code="next">
+        <LinkParameter id="mov1#mpkg2#opm2#opg5#lpu2#oln39#par127" name="Next Attendee Mail" source="next" target="mov1#mpkg2#opm2#opg5#mlu2.to"/>
+      </OKLink>
+      <OKLink id="mov1#mpkg2#opm2#opg5#lpu2#oln40" name="OKLink40" to="mov1#mpkg2#opm2#okcu7" code="end"/>
+    </LoopUnit>
+    <MailUnit id="mov1#mpkg2#opm2#opg5#mlu2" name="Send EMail To Attendees" gr:x="215" gr:y="300" format="html" smtpServer="smtp1">
+      <OKLink id="mov1#mpkg2#opm2#opg5#mlu2#oln41" name="OKLink41" to="mov1#mpkg2#opm2#opg5#lpu2" gr:bendpoints="53,-67,53,68"/>
+    </MailUnit>
+    <SelectorUnit id="mov1#mpkg2#opm2#opg5#seu7" name="Select Appointment Users" gr:x="15" gr:y="0" entity="User">
+      <Selector id="mov1#mpkg2#opm2#opg5#seu7#su48" defaultPolicy="fill" booleanOperator="and">
+        <RelationshipRoleCondition id="mov1#mpkg2#opm2#opg5#seu7#su48#rcond7" name="Appointment" predicate="in" implied="false" role="rel20#role8"/>
+      </Selector>
+      <Link id="mov1#mpkg2#opm2#opg5#seu7#ln131" name="Link131" to="mov1#mpkg2#opm2#opg5#lpu2" type="transport">
+        <LinkParameter id="mov1#mpkg2#opm2#opg5#seu7#ln131#par128" name="Attendees Email" source="emailArray" target="mov1#mpkg2#opm2#opg5#lpu2.array"/>
+      </Link>
+      <OKLink id="mov1#mpkg2#opm2#opg5#seu7#oln42" name="OKLink42" to="mov1#mpkg2#opm2#opg5#seu6"/>
+    </SelectorUnit>
+  </OperationUnits>
+  <KOLink id="mov1#mpkg2#opm2#opg5#kln2" name="Error" to="mov1#mpkg2#opm2#kocu1"/>
+</OperationGroup>

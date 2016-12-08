@@ -1,0 +1,87 @@
+#?delimiters [%, %], [%=, %]
+<wr:LayoutParameter label="Show Fields Name" name="show-label" type="enum" values="top|left|false" default="left">
+Defines the rendition of the fields names.
+Allowed values are:
+- left (default): places the fields name on the left
+- top: places the fields name at the top
+- false: the fields name are not shown
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Show Mandatory Fields" name="mandatory-fields" type="boolean" default="false">
+Defines whether to show a '*' for mandatory fields or not.
+Allowed values are: true or false(default).
+</wr:LayoutParameter>
+[%
+import org.apache.commons.lang.StringUtils
+import org.apache.commons.lang.math.NumberUtils
+
+setHTMLOutput()
+def unitId = unit["id"]
+def fields = unit.selectNodes("layout:Field")
+def showLabel = params["show-label"]
+def fieldOrientation = params["field-orientation"]
+def showMandatoryFields = params["mandatory-fields"]
+
+def hasFields = !unit.selectNodes("layout:Field").isEmpty()
+def hasLinks = !unit.selectNodes("layout:Link").isEmpty()
+%]
+<wr:Frame>
+	 <div class="plain <wr:StyleClass/>">
+		<div class="plain EntryUnit">
+		    [%if(unit["entity"] != ""){%]<html:hidden property="<wr:Id context="unit"/>Key" styleId="<wr:Id context="unit"/>Key"></html:hidden>[%}%]
+		    [%	// prints hidden fields, which do not have associated layout:Field elements
+				for (hiddenField in getById(unit["id"])?.selectNodes("Field[@hidden = 'true']")) {
+				  def type = hiddenField["type"]
+				  if (type == "blob") { %]
+					<html:hidden property="[%=hiddenField["id"]%]_preload"/>
+				  [% } else { %]
+					<html:hidden property="[%=hiddenField["id"]%]" styleId="[%=hiddenField["id"]%]"/>
+				  [% }
+				} %]
+			
+			[% if (hasFields) { %]
+				<c:set var="pureError"><html:errors property="<wr:Id context="unit"/>" /></c:set>
+				<c:if test="${not (empty pureError)}">
+					<div class="pure-alert pure-alert-error">
+						<html:errors property="<wr:Id context="unit"/>" />
+					</div>
+				</c:if>
+				<div class="pure-form [%= (showLabel == "left") ? "pure-form-aligned" : "pure-form-stacked" %]">
+					<wr:Iterate var="field" context="unit" select="layout:Field">
+					    <wr:Visible>
+         			    [% 	def fieldType = getById(field["field"])?.name 
+							def type = field["type"]
+							def subType = getById(field["subType"])
+							def typeId = type
+							if(subType != null){
+							  typeId = subType["id"]
+							  type = subType["type"]
+							}
+							def plain = getById(field["field"])?.name == "Field"
+							def fieldProp = field["field"] + ((isLocalizedType(type) && plain) ? "_locale" : "")
+						%]
+					    <c:set var="pureError"><html:errors property="[%=fieldProp%]"/></c:set>
+					    <div class="pure-control-group<c:if test="${not (empty pureError)}"> has-error</c:if>">
+							[% if (showLabel != "false") { %]
+								<label for="[%=fieldProp%]" class="<wr:StyleClass/> header"><wr:Label/>[% if (params["mandatory-fields"] == "true" && isMandatoryField(field)) { %] *[% } %]</label>
+							[% } %]
+							<div class="pure-field">
+								<wr:Value/>
+								<wr:FieldError/>
+							</div>
+						</div>							
+		                </wr:Visible>
+		            </wr:Iterate> 
+			[% } %]
+			  	[% if (hasLinks) { %]
+			  		<div class="button-bar[%= (hasFields) ? " pure-controls" : "" %]">
+					   <wr:Iterate var="link" context="unit" select="layout:Link">
+						 <wr:Visible>
+						  <wr:Link type="button"/>
+						 </wr:Visible>
+						</wr:Iterate>
+					</div>
+				[% } %]
+			[% if (hasFields) { %]</div>[% } %]
+		</div>
+	</div>
+</wr:Frame>

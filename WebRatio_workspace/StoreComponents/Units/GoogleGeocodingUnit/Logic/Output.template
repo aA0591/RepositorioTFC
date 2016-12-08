@@ -1,0 +1,11 @@
+#?delimiters <%,%>,<%=,%>
+<%
+setXMLOutput();
+%>
+
+<OutputParameters>
+	<OutputParameter name="firstAddr" label="Retrieved address"/>
+	<OutputParameter name="lat" label="Latitude"/>
+	<OutputParameter name="long" label="Longitude"/>
+	<OutputParameter name="coords" label="Map Coordinates"/>
+</OutputParameters>

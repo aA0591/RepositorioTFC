@@ -1,0 +1,30 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" id="sv1#page4" name="Hybrid" landmark="true" gr:x="640" gr:y="195">
+  <ContentUnits>
+    <GoogleMapUnit id="sv1#page4#gmu4" name="Google Map" gr:x="0" gr:y="0" mapType="HYBRID" mapCoordinates="41.890514,12.492365" mapZoomLevel="15" mapWidth="640" mapHeight="480" mapsProvider="sdp1w">
+      <Marker id="sv1#page4#gmu4#mrk3" name="Colosseum" coordinates="41.890514,12.492365">
+        <InfoText xml:space="preserve">&lt;div&gt; 
+    &lt;b&gt;Colosseum&lt;/b&gt;&lt;br/&gt;
+    &lt;p&gt;The Colosseum, or the Coliseum, originally the Flavian Amphitheatre (Latin: Amphitheatrum Flavium, Italian Anfiteatro Flavio or Colosseo), is an elliptical amphitheatre in the centre of the city of Rome, Italy, the largest ever built in the Roman Empire. It is considered one of the greatest works of Roman architecture and Roman engineering.&lt;/p&gt;
+&lt;/div&gt;</InfoText>
+      </Marker>
+    </GoogleMapUnit>
+  </ContentUnits>
+  <layout:Grid>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv1#page4#gmu4" layout:unitLayout="StoreTemplates/Default"/>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+</Page>

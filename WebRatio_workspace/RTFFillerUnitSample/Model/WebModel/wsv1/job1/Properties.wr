@@ -1,0 +1,28 @@
+<Job xmlns:gr="http://www.webratio.com/2006/WebML/Graph" gr:x="0" gr:y="40" id="wsv1#job1" name="Load Samples">
+  <OperationUnits>
+    <InitJobUnit id="wsv1#job1#iju1" name="Init Job" gr:x="0" gr:y="5">
+      <OKLink id="wsv1#job1#iju1#oln3" name="OKLink3" to="wsv1#job1#cru1">
+        <LinkParameter id="wsv1#job1#iju1#oln3#par7" name="sample.rtf_name" sourceValue="WebRatio RTF Filler Unit Sample" target="wsv1#job1#cru1.ent2#att5"/>
+        <LinkParameter id="wsv1#job1#iju1#oln3#par11" name="sample.rtf_blob" sourceValue="WebRatio RTF Filler Unit Sample.rtf" target="wsv1#job1#cru1.ent2#att4"/>
+        <LinkParameter id="wsv1#job1#iju1#oln3#par33" name="true_example" sourceValue="true" target="wsv1#job1#cru1.ent2#att7"/>
+      </OKLink>
+    </InitJobUnit>
+    <CreateUnit gr:x="180" gr:y="0" id="wsv1#job1#cru1" name="Load 'WebRatio RTF Filler Unit Sample.rtf'" entity="ent2">
+      <OKLink id="wsv1#job1#cru1#oln2" name="OKLink2" to="wsv1#job1#cru3">
+        <LinkParameter id="wsv1#job1#cru1#oln2#par8" name="WebRatio RTF Filler Unit Sample 2.rtf_blob" sourceValue="WebRatio RTF Filler Unit Sample 2.rtf" target="wsv1#job1#cru3.ent2#att4"/>
+        <LinkParameter id="wsv1#job1#cru1#oln2#par9" name="WebRatio RTF Filler Unit Sample 2_name" sourceValue="WebRatio RTF Filler Unit Sample 2" target="wsv1#job1#cru3.ent2#att5"/>
+        <LinkParameter id="wsv1#job1#cru1#oln2#par34" name="true_example" sourceValue="true" target="wsv1#job1#cru3.ent2#att7"/>
+      </OKLink>
+    </CreateUnit>
+    <CreateUnit id="wsv1#job1#cru3" name="Load 'WebRatio RTF Filler Unit Sample 2.rtf'" gr:x="173" gr:y="130" entity="ent2">
+      <OKLink id="wsv1#job1#cru3#oln4" name="OKLink4" to="wsv1#job1#cru4">
+        <LinkParameter id="wsv1#job1#cru3#oln4#par10" name="WebRatio RTF Filler Unit Sample 3.rtf_blob" sourceValue="WebRatio RTF Filler Unit Sample 3.rtf" target="wsv1#job1#cru4.ent2#att4"/>
+        <LinkParameter id="wsv1#job1#cru3#oln4#par12" name="WebRatio RTF Filler Unit Sample 3_name" sourceValue="WebRatio RTF Filler Unit Sample 3" target="wsv1#job1#cru4.ent2#att5"/>
+        <LinkParameter id="wsv1#job1#cru3#oln4#par35" name="true_example" sourceValue="true" target="wsv1#job1#cru4.ent2#att7"/>
+      </OKLink>
+    </CreateUnit>
+    <CreateUnit id="wsv1#job1#cru4" name="Load 'WebRatio RTF Filler Unit Sample 3.rtf'" gr:x="173" gr:y="250" entity="ent2"/>
+  </OperationUnits>
+  <Trigger id="wsv1#job1#trg1" name="Trigger1" schedulePolicy="startup"/>
+  <Comment xml:space="preserve">Load sample RTF documents</Comment>
+</Job>

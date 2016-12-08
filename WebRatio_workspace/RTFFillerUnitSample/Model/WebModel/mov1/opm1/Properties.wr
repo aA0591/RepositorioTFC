@@ -1,0 +1,30 @@
+<OperationModule xmlns:gr="http://www.webratio.com/2006/WebML/Graph" gr:x="20" gr:y="30" id="mov1#opm1" name="Save Document Module">
+  <OperationUnits>
+    <InputCollectorUnit gr:x="0" gr:y="0" id="mov1#opm1#icu1" name="Input Collector">
+      <InputCollectorParameter id="mov1#opm1#icu1#icp1" name="blob"/>
+      <OKLink id="mov1#opm1#icu1#oln17" to="mov1#opm1#scu1" name="OKLink1">
+        <LinkParameter id="mov1#opm1#icu1#oln17#par29" name="RTF Document Name_name" source="mov1#opm1#icu1#icp2" target="mov1#opm1#scu1.name"/>
+      </OKLink>
+      <InputCollectorParameter id="mov1#opm1#icu1#icp2" name="Used Sample Template Name"/>
+      <Link id="mov1#opm1#icu1#ln7" name="Link7" to="mov1#opm1#cru5" type="transport" validate="true" gr:bendpoints="229,-95,-232,-95">
+        <LinkParameter id="mov1#opm1#icu1#ln7#par4" name="blob_blob" source="mov1#opm1#icu1#icp1" target="mov1#opm1#cru5.ent1#att2"/>
+      </Link>
+    </InputCollectorUnit>
+    <OKCollectorUnit gr:x="680" gr:y="14" id="mov1#opm1#okcu1" name="OK Collector"/>
+    <CreateUnit id="mov1#opm1#cru5" name="Create Document" gr:x="470" gr:y="9" entity="ent1" deleteAllBefore="true">
+      <OKLink id="mov1#opm1#cru5#oln21" to="mov1#opm1#okcu1" name="OKLink3"/>
+      <KOLink id="mov1#opm1#cru5#kln2" name="KOLink2" to="mov1#opm1#kocu1"/>
+      <Comment xml:space="preserve">Save created temporary RTF doument into virtual table</Comment>
+    </CreateUnit>
+    <KOCollectorUnit gr:x="680" gr:y="137" id="mov1#opm1#kocu1" name="KO Collector"/>
+    <ScriptUnit gr:x="230" gr:y="15" id="mov1#opm1#scu1" name="Prepare Output Name">
+      <ScriptUnitText xml:space="preserve">#input name
+import org.apache.commons.lang.StringUtils
+
+return StringUtils.defaultString(StringUtils.substringBeforeLast(name, "."), "Document") + "_Filled.rtf";</ScriptUnitText>
+      <OKLink id="mov1#opm1#scu1#oln10" name="OKLink10" to="mov1#opm1#cru5">
+        <LinkParameter id="mov1#opm1#scu1#oln10#par6" name="Result_blob [file name]" source="result" target="mov1#opm1#cru5.ent1#att2_name"/>
+      </OKLink>
+    </ScriptUnit>
+  </OperationUnits>
+</OperationModule>

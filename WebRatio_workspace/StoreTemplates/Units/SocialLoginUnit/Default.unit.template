@@ -1,0 +1,40 @@
+#?delimiters [%, %], [%=, %]
+[%setHTMLOutput()
+
+def loginLink = unit.selectSingleNode("layout:Link[@name != 'Logout']")
+def logoutLink = unit.selectSingleNode("layout:Link[@name = 'Logout']")
+%]
+
+<wr:Frame>
+	<div class="plain <wr:StyleClass/>">
+		<div class="plain SocialLoginUnit">
+		  <table>
+		  <c:forEach var="current" varStatus="status" items="${<wr:UnitId/>.data}">
+		  	  <c:set var="index" value="${status.index}"/>
+		      <tr>
+		      <c:choose>
+		  	     <c:when test="${current.authorized}">
+		  	       <td><img src="Images/SocialLoginUnit/<c:out value="${current.name}"/>/32.png" title="<c:out value="${current.name}"/>"/></td>
+		  	       <td><p title="id:<c:out value="${current.user.id}"/>"><c:out value="${current.user.userName}"/></p></td>
+		  	       [%if(logoutLink){%]
+		  	          <td style="padding-left:10px"><wr:Link context="logoutLink"/></td>
+		  	       [%}%]
+		  	       <td><img src="${current.user.profileImage}"/></td>
+		  	     </c:when>
+		  	     <c:when test="${not empty(current.errorMessage)}">
+		  	       <td><img src="Images/SocialLoginUnit/<c:out value="${current.name}"/>/32.png" title="<c:out value="${current.name}"/>"/></td>
+		  	       <td colspan="3" style="color:red"><c:out value="${current.errorMessage}"/></td>
+		  	     </c:when>
+		  	     <c:otherwise>
+		  	       [%if(loginLink){%]
+		  	         <td><img src="Images/SocialLoginUnit/<c:out value="${current.name}"/>/32.png" title="<c:out value="${current.name}"/>"/></td>
+		  	         <td colspan="2"><wr:Link context="loginLink"/></td>
+		  	       [%}%]
+		  	     </c:otherwise>
+		  	  </c:choose>
+		  	  </tr>
+		  </c:forEach>
+		  </table>
+		</div>
+	</div>
+</wr:Frame>

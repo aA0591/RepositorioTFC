@@ -1,0 +1,63 @@
+#?delimiters [%, %], [%=, %]
+<wr:LayoutParameter name="show-title" label="Show title" type="boolean" default="true">
+Define if the frame title is shown.
+Default value is true.
+</wr:LayoutParameter>
+<wr:LayoutParameter name="box-type" label="Box type" type="enum" default="default" values="default|primary|success|info|warning|danger">
+Define the type of the box.
+</wr:LayoutParameter>
+<wr:LayoutParameter name="box-solid" label="Box solid" type="boolean" default="false" >
+Define if the box has a solid header.
+</wr:LayoutParameter>
+<wr:LayoutParameter name="box-tile-color" label="Box tile color" type="enum" default="none" values="none|blue|green|light-blue|maroon|navy|purple|red|yellow">
+Define if the box has a tile style.
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Collapsible" name="collapsible" type="boolean" default="false">
+Defines if the frame is collapsible or not.
+Allowed values are: true or false (default).
+</wr:LayoutParameter>
+<wr:LayoutParameter name="frame-class" label="Frame class" type="string">
+Define a custom css class on the frame.
+</wr:LayoutParameter>
+<wr:LayoutParameter name="no-padding" label="No padding" type="boolean" default="false">
+Define if the body of the box shouldn't have padding
+</wr:LayoutParameter>
+[% setHTMLOutput() 
+	def collapsible = params["collapsible"] == "true"
+	def noPadding = params["no-padding"] == "true"
+	def boxStyle = ((params["box-solid"] == "true") ? " box-solid" : "") + " box-" + params["box-type"]
+	if (params["box-tile-color"] != "none") 
+		boxStyle = " box-solid bg-" + params["box-tile-color"]
+	def hash = cell.hashCode()
+	def firstChild = cell.selectSingleNode('layout:Unit|layout:Field|layout:Link|layout:Attribute|layout:Grid|layout:SubPage')
+%]
+<div class="box[%= boxStyle %] [%=params["frame-class"]%]">
+[% if (params["show-title"] == "true") { %]
+	<div class="box-header">
+		<h3 class="box-title">
+			<wr:Label context="element"/>
+		</h3>
+		[% if (collapsible || firstChild) { %]
+		<div class="box-tools pull-right">
+			[% if (firstChild) { %]
+	          [% if (firstChild.getName() == "Unit") { %]
+	            <wr:Iterate var="link" context="firstChild" select="layout:Link">
+	              <wr:Link type="button"/>
+	            </wr:Iterate>
+	          [% } else if (firstChild.getName() == "Link") { %]
+	            <wr:Link type="button" context="firstChild"/>
+	          [% } %]
+	        [% } %]
+			[% if (collapsible) { %]
+            <button class="btn btn-[%= params["box-type"] %] btn-sm" data-widget="collapse" data-toggle="tooltip" title="" data-original-title="[% if (isLocalizedAncestorOrSelf(element)) { %]<bean:message key="Collapse"/>[% } else { %]Collapse[% } %]"><span class="glyphicon glyphicon-minus"></span></button>
+            [% } %]
+        </div>
+		[% } %]
+	</div>
+[% } %]
+	<div class="box-body[%= (noPadding) ? " no-padding" : "" %]">
+		<wr:Iterate var="cellElem" context="cell" select="(layout:Unit|layout:Field|layout:Link|layout:Attribute|layout:Grid|layout:SubPage)[position() > 1]">
+			<wr:Element/>
+		</wr:Iterate>
+	</div>
+</div>

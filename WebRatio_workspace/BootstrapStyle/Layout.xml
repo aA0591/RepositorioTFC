@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Layout pageLayout="Bootstrap" frameLayout="Panel" loginPage="Login" linkLayout="Default" attributeLayout="Default" errorPage="Error" fieldLayout="EntryUnit"> 
+  <UnitConfiguration unitType="MultiEntryUnit" fieldLayout="MultiEntryUnit" unitLayout="Default"/>  
+  <UnitConfiguration unitType="EntryUnit" unitLayout="Default"/>  
+  <UnitConfiguration unitType="IndexUnit" unitLayout="Default"/>  
+  <UnitConfiguration unitType="DataUnit" unitLayout="Default" linkLayout="Default"> 
+    <LayoutParameter name="link-style" value="button" type="link"/> 
+  </UnitConfiguration>  
+  <UnitConfiguration unitType="PowerIndexUnit" unitLayout="Default"/>  
+  <UnitConfiguration unitType="MultiMessageUnit" unitLayout="Default"/>  
+  <UnitConfiguration unitType="EntityEntryUnit" linkLayout="Default"> 
+    <LayoutParameter name="link-style" value="button" type="link"/> 
+  </UnitConfiguration>  
+  <UnitConfiguration unitType="MultiChoiceIndexUnit" unitLayout="Default"/>  
+  <Resources alwaysRequired="app-css app-js"> 
+    <Resource type="css" path="BootstrapStyle/css/app.css" name="app-css" requires="bootstrap-css"/>  
+    <Resource type="javascript" path="BootstrapStyle/js/app.min.js" name="app-js" requires="bootstrap-js jquery"/>  
+    <Resource type="javascript" path="BootstrapStyle/js/html5shiv.min.js" name="html5shiv" ieCondition="lt IE 9"/>  
+    <Resource type="javascript" path="BootstrapStyle/js/respond.min.js" name="respond" ieCondition="lt IE 9"/>  
+    <Resource type="javascript" path="BootstrapStyle/dist/js/bootstrap.min.js" name="bootstrap-js" requires="html5shiv jquery respond"/>  
+    <Resource type="css" path="BootstrapStyle/dist/css/" name="bootstrap-css"> 
+      <RuntimeContent xml:space="preserve">def theme = pageContext.getAttribute("bootstrap-theme")
+if (theme == null || theme == "" || "default".equals(theme))
+	theme = ""
+else
+	theme = "/" + theme
+
+return content + theme + "/bootstrap.min.css"
+</RuntimeContent>     </Resource>      <Resource name="bs-filestyle-js" path="BootstrapStyle/js/bootstrap-filestyle.min.js" type="javascript" requires="bootstrap-js"/>      <Resource type="css" path="BootstrapStyle/css/bpm.css" name="bs-bpm-css" requires="app-css"/>   </Resources>    <UnitConfiguration unitType="MultiDataUnit" unitLayout="Default" linkLayout="Default">     <LayoutParameter name="link-style" value="button" type="link"/>   </UnitConfiguration>    <UnitConfiguration unitType="ProcessUnit" unitLayout="Normal"/>    <UnitConfiguration unitType="HierarchicalIndexUnit" unitLayout="Default"/>    <UnitConfiguration unitType="EventCalendarUnit" unitLayout="Default"/>  <UnitConfiguration unitType="RecursiveHierarchicalIndexUnit" unitLayout="Default"/></Layout>

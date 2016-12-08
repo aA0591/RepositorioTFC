@@ -1,0 +1,22 @@
+<SiteView xmlns:gr="http://www.webratio.com/2006/WebML/Graph" id="sv1" name="Home" homePage="sv1#page1">
+  <OperationUnits>
+    <ParameterCollectorUnit gr:x="-40" gr:y="250" id="sv1#pcu1o" name="Show Messages" linkOrder="sv1#pcu1o#ln2o sv1#pcu1o#ln3o sv1#pcu1o#ln4o">
+      <OKLink id="sv1#pcu1o#oln1o" name="OKFlow1" to="sv1#page1#mssu1o">
+        <LinkParameter id="sv1#pcu1o#oln1o#par5o" name="Info_Shown Messages" target="sv1#page1#mssu1o.shownMessages" source="sv1#pcu1o#pcp1o"/>
+      </OKLink>
+      <CollectorParameter id="sv1#pcu1o#pcp4o" name="Error"/>
+      <CollectorParameter id="sv1#pcu1o#pcp3o" name="Warning"/>
+      <CollectorParameter id="sv1#pcu1o#pcp2o" name="Success"/>
+      <CollectorParameter id="sv1#pcu1o#pcp1o" name="Info"/>
+      <Link id="sv1#pcu1o#ln2o" name="Flow2" to="sv1#page1#mssu2o" type="transport" validate="true">
+        <LinkParameter id="sv1#pcu1o#ln2o#par10o" name="Success_Shown Messages" source="sv1#pcu1o#pcp2o" target="sv1#page1#mssu2o.shownMessages"/>
+      </Link>
+      <Link id="sv1#pcu1o#ln3o" name="Flow3" to="sv1#page1#mssu3o" type="transport" validate="true">
+        <LinkParameter id="sv1#pcu1o#ln3o#par11o" name="Warning_Shown Messages" source="sv1#pcu1o#pcp3o" target="sv1#page1#mssu3o.shownMessages"/>
+      </Link>
+      <Link id="sv1#pcu1o#ln4o" name="Flow4" to="sv1#page1#mssu4o" type="transport" validate="true">
+        <LinkParameter id="sv1#pcu1o#ln4o#par12o" name="Error_Shown Messages" source="sv1#pcu1o#pcp4o" target="sv1#page1#mssu4o.shownMessages"/>
+      </Link>
+    </ParameterCollectorUnit>
+  </OperationUnits>
+</SiteView>

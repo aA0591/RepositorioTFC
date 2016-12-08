@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StoreMapping>
+  <ResourceBinding path="Templates/Units/MultiDataUnit/Masonry.unit.template" store="WebRatio Add-ons" versionId="339" itemId="101"/>
+</StoreMapping>

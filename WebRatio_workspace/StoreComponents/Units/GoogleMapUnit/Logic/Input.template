@@ -1,0 +1,18 @@
+#?delimiters <%,%>,<%=,%>
+<%
+setXMLOutput()
+
+def unitId = unit["id"]
+%>
+
+<InputParameters>
+     <InputParameter name="<%=unitId%>.type" label="Map Type"/>
+     <InputParameter name="<%=unitId%>.zoom" label="Map Zoom"/>
+     <InputParameter name="<%=unitId%>.coords" label="Map Coordinates"/>
+      <InputParameter name="<%=unitId%>.width" label="Map Width"/>
+     <InputParameter name="<%=unitId%>.height" label="Map Height"/>
+     
+     <InputParameter name="<%=unitId%>.markerTitle" label="Marker Title"/>
+     <InputParameter name="<%=unitId%>.markerInfo" label="Marker Info"/>
+     <InputParameter name="<%=unitId%>.markerCoords" label="Marker Coordinates"/>
+</InputParameters>

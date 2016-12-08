@@ -1,0 +1,16 @@
+<OperationGroup xmlns:gr="http://www.webratio.com/2006/WebML/Graph" id="mov1#mpkg2#hym9#opg6" name="Save Comment" transaction="true" gr:x="500" gr:y="50">
+  <OperationUnits>
+    <GetUnit id="mov1#mpkg2#hym9#opg6#gtu5" name="Get Current User" gr:x="0" gr:y="0" contextParameters="UserCtxParam">
+      <Link id="mov1#mpkg2#hym9#opg6#gtu5#ln134" name="Link134" to="mov1#mpkg2#hym9#opg6#cru6" type="transport" automaticCoupling="true" validate="true"/>
+    </GetUnit>
+    <TimeUnit id="mov1#mpkg2#hym9#opg6#tmu6" name="Current Date" gr:x="20" gr:y="250">
+      <OKLink id="mov1#mpkg2#hym9#opg6#tmu6#oln44" name="OKLink44" to="mov1#mpkg2#hym9#opg6#cru6">
+        <LinkParameter id="mov1#mpkg2#hym9#opg6#tmu6#oln44#par132" name="Current Date" source="currentDate" target="mov1#mpkg2#hym9#opg6#cru6.ent6#att25"/>
+      </OKLink>
+    </TimeUnit>
+    <CreateUnit id="mov1#mpkg2#hym9#opg6#cru6" name="Create Comment" gr:x="15" gr:y="125" entity="ent6">
+      <OKLink id="mov1#mpkg2#hym9#opg6#cru6#oln45" name="OKLink45" to="mov1#mpkg2#hym9#okcu8"/>
+    </CreateUnit>
+  </OperationUnits>
+  <KOLink id="mov1#mpkg2#hym9#opg6#kln3" name="KOLink3" to="mov1#mpkg2#hym9#kocu2" automaticCoupling="true"/>
+</OperationGroup>

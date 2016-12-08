@@ -1,0 +1,53 @@
+<Area xmlns:gr="http://www.webratio.com/2006/WebML/Graph" id="sv2#area6" name="Use dynamic both RTF template and place holders" defaultPage="sv2#area6#dlu5" landmark="true" gr:x="320" gr:y="940">
+  <OperationUnits>
+    <RTFFillerUnit id="sv2#area6#rtffu7" name="Template Filler" gr:x="1190" gr:y="318" mode="filler">
+      <OKLink id="sv2#area6#rtffu7#oln30" name="OKLink11" to="sv2#area6#miu7">
+        <LinkParameter id="sv2#area6#rtffu7#oln30#par72" name="RTF Document_blob" source="rtfDocument" target="sv2#area6#miu7.mov1#opm1#icu1#icp1"/>
+      </OKLink>
+    </RTFFillerUnit>
+    <ModuleInstanceUnit id="sv2#area6#miu7" name="Save Document" gr:x="1171" gr:y="624" moduleId="mov1#opm1">
+      <OKLink id="sv2#area6#miu7#oln31" name="OKLink12" to="sv2#area6#page6#dau6" preserveForm="true"/>
+    </ModuleInstanceUnit>
+    <RTFFillerUnit gr:x="966" gr:y="13" id="sv2#area6#rtffu8" name="Template Parser" mode="parser">
+      <OKLink id="sv2#area6#rtffu8#oln33" name="OKLink33" to="sv2#area6#page6#meu2" preserveForm="true">
+        <LinkParameter id="sv2#area6#rtffu8#oln33#par91" name="Place Holder Names_Names" source="placeHolderNames" target="sv2#area6#page6#meu2#fld45_slot"/>
+      </OKLink>
+    </RTFFillerUnit>
+    <SelectorUnit id="sv2#area6#seu2" name="Sample Template" gr:x="685" gr:y="0" entity="ent2" distinctAttributes="ent2#att5 ent2#att4" maxResults="1">
+      <SortAttribute attribute="ent2#att5" order="ascending"/>
+      <OKLink id="sv2#area6#seu2#oln1" name="OKLink1" to="sv2#area6#rtffu8">
+        <LinkParameter id="sv2#area6#seu2#oln1#par1" name="blob_RTF Template" source="ent2#att4Array" target="sv2#area6#rtffu8.rtfTemplate"/>
+      </OKLink>
+      <Selector id="sv2#area6#seu2#su2" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="sv2#area6#seu2#su2#kcond4" name="KeyCondition4" predicate="in" implied="true"/>
+      </Selector>
+      <Link id="sv2#area6#seu2#ln23" name="Link23" to="sv2#area6#page6#seu4" type="transport" validate="true">
+        <LinkParameter id="sv2#area6#seu2#ln23#par81" name="oid_KeyCondition4 [oid]" source="ent2#att3Array" target="sv2#area6#page6#seu4#su12#kcond5.ent2#att3"/>
+      </Link>
+    </SelectorUnit>
+    <ModuleInstanceUnit id="sv2#area6#miu2" name="Upload Sample" gr:x="0" gr:y="292" moduleId="mov1#opm2">
+      <OKLink id="sv2#area6#miu2#oln8" name="OKLink22" to="sv2#area6#pcu2" preserveForm="true">
+        <LinkParameter id="sv2#area6#miu2#oln8#par84" name="OID_oid" source="mov1#opm2#okcu2#ocp1" target="sv2#area6#pcu2#pcp2"/>
+      </OKLink>
+    </ModuleInstanceUnit>
+    <DeleteUnit id="sv2#area6#dlu3" name="Delete Sample" gr:x="221" gr:y="295" entity="ent2">
+      <Selector id="sv2#area6#dlu3#su6" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="sv2#area6#dlu3#su6#kcond3" name="KeyCondition2" predicate="in" implied="false"/>
+      </Selector>
+      <OKLink id="sv2#area6#dlu3#oln9" name="OKLink23" to="sv2#area6#page6" automaticCoupling="true" preserveForm="true"/>
+    </DeleteUnit>
+    <DeleteUnit id="sv2#area6#dlu5" name="Delete All Filled RTF Documents" gr:x="292" gr:y="1" entity="ent1">
+      <Selector id="sv2#area6#dlu5#su9" defaultPolicy="fill" booleanOperator="and">
+        <AttributesCondition id="sv2#area6#dlu5#su9#acond2" name="OID Not Null" predicate="notNull" booleanOperator="or" implied="false" attributes="ent1#att1"/>
+      </Selector>
+      <OKLink id="sv2#area6#dlu5#oln16" name="OKLink16" to="sv2#area6#seu2"/>
+    </DeleteUnit>
+    <ParameterCollectorUnit id="sv2#area6#pcu2" name="Params" gr:x="491" gr:y="151" linkOrder="sv2#area6#pcu2#ln34">
+      <CollectorParameter id="sv2#area6#pcu2#pcp2" name="oid"/>
+      <OKLink id="sv2#area6#pcu2#oln20" name="OKLink20" to="sv2#area6#dlu5"/>
+      <Link id="sv2#area6#pcu2#ln34" name="Link34" to="sv2#area6#seu2" type="transport" validate="true">
+        <LinkParameter id="sv2#area6#pcu2#ln34#par80" name="oid_KeyCondition4 [oid]" source="sv2#area6#pcu2#pcp2" target="sv2#area6#seu2#su2#kcond4.ent2#att3"/>
+      </Link>
+    </ParameterCollectorUnit>
+  </OperationUnits>
+</Area>

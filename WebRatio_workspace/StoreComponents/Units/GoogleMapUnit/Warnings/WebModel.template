@@ -1,0 +1,16 @@
+#?delimiters <%,%>,<%=,%>
+<%
+import org.apache.commons.lang.StringUtils
+
+def mapsProviderId = unit["mapsProvider"]
+//add error when no Maps Provider is set
+if (mapsProviderId == "") {
+	addWarning(unit, true, "Missing Google Maps Provider for the component " + getNameOrId(unit) + ".")
+}else{
+    def mapsProvider = getById(mapsProviderId)
+    if(mapsProvider["apiKey"] == ""){
+       addWarning(mapsProvider, true, "Missing API Key for Google Maps Provider.")
+    }
+}
+%>
+ 

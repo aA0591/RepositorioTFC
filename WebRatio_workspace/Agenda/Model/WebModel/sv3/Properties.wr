@@ -1,0 +1,12 @@
+<SiteView xmlns:gr="http://www.webratio.com/2006/WebML/Graph" id="sv3" name="Public" homePage="sv3#page20">
+  <OperationUnits>
+    <LoginUnit gr:x="225" gr:y="50" id="sv3#lgu2" name="Login">
+      <KOLink id="sv3#lgu2#kln1" name="KOLink1" to="sv3#page20#mssu4">
+        <LinkParameter id="sv3#lgu2#kln1#par7" name="Message" sourceValue="Cannot perform the login with the credentials used." target="sv3#page20#mssu4.shownMessages"/>
+      </KOLink>
+    </LoginUnit>
+  </OperationUnits>
+  <Comment xml:space="preserve">This is the Public Site View of the Calendar project.
+
+It allows the user to login into the application.</Comment>
+</SiteView>

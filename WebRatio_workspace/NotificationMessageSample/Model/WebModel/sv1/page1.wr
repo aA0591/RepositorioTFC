@@ -1,0 +1,127 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" gr:x="125" gr:y="160" id="sv1#page1" name="Notification message sample">
+  <ContentUnits>
+    <EntryUnit gr:x="135" gr:y="0" id="sv1#page1#enu1" name="Test" linkOrder="sv1#page1#enu1#ln1 sv1#page1#enu1#ln2 sv1#page1#enu1#ln3 sv1#page1#enu1#ln4">
+      <Link id="sv1#page1#enu1#ln1" name="Info" to="sv1#pcu1o" type="normal" validate="false">
+        <LinkParameter id="sv1#page1#enu1#ln1#par6o" name="Info_Info" sourceValue="Info" target="sv1#pcu1o#pcp1o"/>
+        <LinkParameter id="sv1#page1#enu1#ln1#par16o" name="_Error" blank="true" target="sv1#pcu1o#pcp4o"/>
+        <LinkParameter id="sv1#page1#enu1#ln1#par17o" name="_Success" blank="true" target="sv1#pcu1o#pcp2o"/>
+        <LinkParameter id="sv1#page1#enu1#ln1#par18o" name="_Warning" blank="true" target="sv1#pcu1o#pcp3o"/>
+      </Link>
+      <Link id="sv1#page1#enu1#ln2" name="Success" to="sv1#pcu1o" type="normal" validate="false" gr:bendpoints="-134,53,161,-32">
+        <LinkParameter id="sv1#page1#enu1#ln2#par7o" name="Success_Success" sourceValue="Success" target="sv1#pcu1o#pcp2o"/>
+        <LinkParameter id="sv1#page1#enu1#ln2#par19o" name="_Error" blank="true" target="sv1#pcu1o#pcp4o"/>
+        <LinkParameter id="sv1#page1#enu1#ln2#par20o" name="_Info" blank="true" target="sv1#pcu1o#pcp1o"/>
+        <LinkParameter id="sv1#page1#enu1#ln2#par21o" name="_Warning" blank="true" target="sv1#pcu1o#pcp3o"/>
+      </Link>
+      <Link id="sv1#page1#enu1#ln3" name="Warning" to="sv1#pcu1o" type="normal" validate="false" gr:bendpoints="-142,25,153,-60">
+        <LinkParameter id="sv1#page1#enu1#ln3#par8o" name="Warning_Warning" sourceValue="Warning" target="sv1#pcu1o#pcp3o"/>
+        <LinkParameter id="sv1#page1#enu1#ln3#par13o" name="_Error" blank="true" target="sv1#pcu1o#pcp4o"/>
+        <LinkParameter id="sv1#page1#enu1#ln3#par14o" name="_Info" blank="true" target="sv1#pcu1o#pcp1o"/>
+        <LinkParameter id="sv1#page1#enu1#ln3#par15o" name="_Success" blank="true" target="sv1#pcu1o#pcp2o"/>
+      </Link>
+      <Link id="sv1#page1#enu1#ln4" name="Error" to="sv1#pcu1o" type="normal" validate="false" gr:bendpoints="-130,68,165,-17">
+        <LinkParameter id="sv1#page1#enu1#ln4#par9o" name="Error_Error" sourceValue="Error" target="sv1#pcu1o#pcp4o"/>
+        <LinkParameter id="sv1#page1#enu1#ln4#par22o" name="_Info" blank="true" target="sv1#pcu1o#pcp1o"/>
+        <LinkParameter id="sv1#page1#enu1#ln4#par23o" name="_Success" blank="true" target="sv1#pcu1o#pcp2o"/>
+        <LinkParameter id="sv1#page1#enu1#ln4#par24o" name="_Warning" blank="true" target="sv1#pcu1o#pcp3o"/>
+      </Link>
+    </EntryUnit>
+    <MultiMessageUnit id="sv1#page1#mssu1o" name="Info" gr:x="0" gr:y="150"/>
+    <MultiMessageUnit id="sv1#page1#mssu2o" name="Success" gr:x="90" gr:y="150"/>
+    <MultiMessageUnit id="sv1#page1#mssu3o" name="Warning" gr:x="180" gr:y="150"/>
+    <MultiMessageUnit id="sv1#page1#mssu4o" name="Error" gr:x="275" gr:y="150"/>
+  </ContentUnits>
+  <layout:Grid>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv1#page1#enu1">
+          <layout:Link link="sv1#page1#enu1#ln1"/>
+          <layout:Link link="sv1#page1#enu1#ln2"/>
+          <layout:Link link="sv1#page1#enu1#ln3"/>
+          <layout:Link link="sv1#page1#enu1#ln4"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv1#page1#mssu1o" layout:unitLayout="StoreTemplates/NotificationMessage"/>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv1#page1#mssu2o" layout:unitLayout="StoreTemplates/NotificationMessage">
+          <layout:LayoutParameter name="message-type" value="Success" type="unit"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv1#page1#mssu3o" layout:unitLayout="StoreTemplates/NotificationMessage">
+          <layout:LayoutParameter name="message-type" value="Warning" type="unit"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv1#page1#mssu4o" layout:unitLayout="StoreTemplates/NotificationMessage">
+          <layout:LayoutParameter name="message-type" value="Error" type="unit"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+</Page>

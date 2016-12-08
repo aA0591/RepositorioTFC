@@ -1,0 +1,25 @@
+#?delimiters [%, %], [%=, %]
+<wr:LayoutParameter name="message-type" label="Message type" type="enum" default="Info" values="Info|Success|Warning|Error">
+  Define the style of the message.
+</wr:LayoutParameter>
+<wr:LayoutParameter name="auto-hiding" label="Auto hiding" type="boolean" default="true">
+  Define the auto hiding of the message.
+</wr:LayoutParameter>
+[% 	setHTMLOutput()
+	def styleId = unit["id"] + "-" + unit.hashCode()
+%]
+<wr:RequireResource ref="NotificationMessage-script" />
+<wr:RequireResource ref="NotificationMessage-style" />
+<c:if test="${not(empty <wr:Id context="unit"/>) and (<wr:Id context="unit"/>.dataSize gt 0)}">	
+	
+		<div id="[%= styleId %]" class="notificationMessageMultiMessageUnit notificationMessageMultiMessageUnit[%= params["message-type"] %]">
+		 <h3><bean:message key="${<wr:Id context="unit"/>.data[0]}"/></h3>
+		 <p><bean:message key="${<wr:Id context="unit"/>.data[0]}Sub"/></p>
+		</div>
+		<script type="text/javascript">
+			jQuery(document).ready(function() {	
+			  jQuery("#[%= styleId %]").notificationMessage({autoHiding : [%= params["auto-hiding"] %]});
+			}); 
+		</script>
+														
+</c:if>				

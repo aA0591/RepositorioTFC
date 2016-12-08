@@ -1,0 +1,15 @@
+<SiteView xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" id="sv1" name="Home" homePage="sv1#page2" layout:style="WebRatio" landmarks="sv1#page2 sv1#page1 sv1#page3">
+  <OperationUnits>
+    <GoogleGeocodingUnit gr:x="250" gr:y="540" id="sv1#ggu1" name="GoogleGeocodingUnit">
+      <OKLink id="sv1#ggu1#oln1" name="OKLink1" to="sv1#cru1">
+        <LinkParameter id="sv1#ggu1#oln1#par5" name="Latitude_latitude" source="lat" target="sv1#cru1.ent1#att2"/>
+        <LinkParameter id="sv1#ggu1#oln1#par6" name="Longitude_longitude" source="long" target="sv1#cru1.ent1#att5"/>
+        <LinkParameter id="sv1#ggu1#oln1#par7" name="Map Coordinates_mapCoordinates" source="coords" target="sv1#cru1.ent1#att3"/>
+        <LinkParameter id="sv1#ggu1#oln1#par17" name="Retrieved address_retrievedAddress" source="firstAddr" target="sv1#cru1.ent1#att4"/>
+      </OKLink>
+    </GoogleGeocodingUnit>
+    <CreateUnit gr:x="430" gr:y="530" id="sv1#cru1" name="Create Address" entity="ent1" deleteAllBefore="true">
+      <OKLink id="sv1#cru1#oln2" name="OKLink2" to="sv1#page3#dau1" automaticCoupling="true"/>
+    </CreateUnit>
+  </OperationUnits>
+</SiteView>

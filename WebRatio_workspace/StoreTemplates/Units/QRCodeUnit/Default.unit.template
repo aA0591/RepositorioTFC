@@ -1,0 +1,12 @@
+#?delimiters [%, %], [%=, %]
+[%setHTMLOutput()%]
+
+<c:if test="${not(empty <wr:Id context="unit"/>) and not(empty <wr:Id context="unit"/>.qrCode)}">
+<wr:Frame>
+	<div class="plain <wr:StyleClass/>">
+		<div class="plain QRCodeUnit">
+		    <img style="margin:10px; width:${<wr:Id context="unit"/>.size}px; height:${<wr:Id context="unit"/>.size}px;" src="<webratio:BLOB value="${<wr:Id context="unit"/>.qrCode}"/>" title="<c:out value="${<wr:Id context="unit"/>.text}"/>"/>
+		</div>
+	</div>
+</wr:Frame>
+</c:if>

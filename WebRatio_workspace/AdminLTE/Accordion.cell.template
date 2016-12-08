@@ -1,0 +1,31 @@
+#?delimiters [%, %], [%=, %]
+<wr:LayoutParameter name="panel-type" label="Panel Type" type="enum" default="default" values="default|primary|success|info|warning|danger">
+Define a custom css class on the panel.
+</wr:LayoutParameter>
+<wr:LayoutParameter name="accordion-style" label="Accordion style" type="enum" default="box" values="panel|box">
+Define the style applied to the accordion frame
+</wr:LayoutParameter>
+[%setHTMLOutput()
+def accordionStyle = params["accordion-style"]
+%]
+<div class="[%= accordionStyle %]-group" id="accordions_[%= getLayoutId(cell) %]">
+<wr:Iterate var="cellElem" context="cell" varIndex="index" select="layout:Unit|layout:Field|layout:Link|layout:Attribute|layout:Grid|layout:SubPage">
+	[% def elem = (cellElem.getQualifiedName() == "layout:Grid" && "cell".equals(cellElem.attributeValue("containerType"))) ? cellElem.selectSingleNode("layout:Row/layout:Cell") : cellElem %]
+	<wr:Visible context="cellElem">
+	<div class="panel[%= (accordionStyle == "box") ? " box" : "" %] [%= accordionStyle %]-[%= params["panel-type"] %]">
+	    <div class="[%= (accordionStyle == "box") ? "box-header" : "panel-heading" %]">
+	      <h4 class="[%= accordionStyle %]-title">
+	        <a data-toggle="collapse" data-parent="#accordions_[%= getLayoutId(cell) %]" href="#collapse_[%= getLayoutId(cellElem) %]">
+	          <wr:Label context="elem"/>
+	        </a>
+	      </h4>
+	    </div>
+	    <div id="collapse_[%= getLayoutId(cellElem) %]" class="[%= accordionStyle %]-collapse collapse[% if (index == 0) { %] in[% } %]">
+	      <div class="[%= accordionStyle %]-body">
+	        <wr:Element/>
+	      </div>
+	    </div>
+	</div>
+	</wr:Visible>
+</wr:Iterate>
+</div>

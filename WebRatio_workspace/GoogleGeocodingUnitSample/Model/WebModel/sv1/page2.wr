@@ -1,0 +1,62 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" id="sv1#page2" name="Retrieve Map Coordinates from Address" gr:x="80" gr:y="30" landmark="true">
+  <ContentUnits>
+    <EntryUnit id="sv1#page2#enu1" name="Address" gr:x="0" gr:y="0" fieldOrder="sv1#page2#enu1#fld2 sv1#page2#enu1#fld5 sv1#page2#enu1#fld6 sv1#page2#enu1#fld7" linkOrder="sv1#page2#enu1#ln2">
+      <Field id="sv1#page2#enu1#fld2" name="Address" type="string" modifiable="true" slotOrder="sv1#page2#enu1#fld2#slot2" preloaded="true">
+        <Slot id="sv1#page2#enu1#fld2#slot2" name="address" label="true" output="true" value="via valleggio 7"/>
+      </Field>
+      <Field id="sv1#page2#enu1#fld7" name="Country" type="string" preloaded="true" modifiable="true">
+        <Slot id="sv1#page2#enu1#fld7#slot5" name="country" label="true" output="true" value="Italy"/>
+      </Field>
+      <Field id="sv1#page2#enu1#fld6" name="State or province" type="string" preloaded="true" modifiable="true">
+        <Slot id="sv1#page2#enu1#fld6#slot4" name="SoP" label="true" output="true" value="Como"/>
+      </Field>
+      <Field id="sv1#page2#enu1#fld5" name="City" type="string" preloaded="true" modifiable="true">
+        <Slot id="sv1#page2#enu1#fld5#slot3" name="city" label="true" output="true" value="Como"/>
+      </Field>
+      <Link id="sv1#page2#enu1#ln2" name="Calculate" to="sv1#page2#ggu2" type="normal" validate="true">
+        <LinkParameter id="sv1#page2#enu1#ln2#par1" name="Address_Address" source="sv1#page2#enu1#fld2" target="sv1#page2#ggu2.addr"/>
+        <LinkParameter id="sv1#page2#enu1#ln2#par2" name="City_City" source="sv1#page2#enu1#fld5" target="sv1#page2#ggu2.city"/>
+        <LinkParameter id="sv1#page2#enu1#ln2#par3" name="Country_Country" source="sv1#page2#enu1#fld7" target="sv1#page2#ggu2.country"/>
+        <LinkParameter id="sv1#page2#enu1#ln2#par4" name="State or privince_State or Province" target="sv1#page2#ggu2.sop" source="sv1#page2#enu1#fld6"/>
+      </Link>
+    </EntryUnit>
+    <MultiMessageUnit id="sv1#page2#mssu3" name="Retrieved Coordinates" gr:x="152" gr:y="31"/>
+    <MultiMessageUnit id="sv1#page2#mssu4" name="Retrieved Address" gr:x="160" gr:y="104"/>
+    <GoogleGeocodingUnit gr:x="0" gr:y="100" id="sv1#page2#ggu2" name="GoogleGeocodingUnit">
+      <Link id="sv1#page2#ggu2#ln3" name="Link3" to="sv1#page2#mssu3" type="transport" validate="true">
+        <LinkParameter id="sv1#page2#ggu2#ln3#par8" name="Map Coordinates_Shown Messages" source="coords" target="sv1#page2#mssu3.shownMessages"/>
+      </Link>
+      <Link id="sv1#page2#ggu2#ln4" name="Link4" to="sv1#page2#mssu4" type="transport" validate="true">
+        <LinkParameter id="sv1#page2#ggu2#ln4#par9" name="Retrieved address_Shown Messages" source="firstAddr" target="sv1#page2#mssu4.shownMessages"/>
+      </Link>
+    </GoogleGeocodingUnit>
+  </ContentUnits>
+  <layout:Grid>
+    <layout:Row>
+      <layout:Cell>
+        <layout:Unit unitId="sv1#page2#enu1">
+          <layout:Field field="sv1#page2#enu1#fld2"/>
+          <layout:Field field="sv1#page2#enu1#fld5"/>
+          <layout:Field field="sv1#page2#enu1#fld6"/>
+          <layout:Field field="sv1#page2#enu1#fld7"/>
+          <layout:Link link="sv1#page2#enu1#ln2"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell>
+        <layout:Unit unitId="sv1#page2#mssu3"/>
+        <layout:Unit unitId="sv1#page2#mssu4"/>
+      </layout:Cell>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+</Page>

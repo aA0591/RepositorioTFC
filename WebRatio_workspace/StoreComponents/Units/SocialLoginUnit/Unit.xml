@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Unit version="1.0.0" type="content|operation" idPrefix="slu" linkSource="true" linkTarget="true" okLinkSource="true" okLinkTarget="true" koLinkSource="true" koLinkTarget="true" defaultIntraPageLinkType="normal" canPlaceLayoutUnit="true"> 
+  <ServiceDataProvidersProperty attributeName="socialNetworks" multiple="true" serviceDataProviderType="SocialNetwork"> 
+    <Description>The list of social networks the unit will perform the login.</Description> 
+  </ServiceDataProvidersProperty>  
+  <IsContextFreeUnit xml:space="preserve">return getIncomingLinksAllTypes(unit).empty</IsContextFreeUnit>  
+  <IsMultiConditionUnit xml:space="preserve">return getIncomingLinksAllTypes(unit).size() &gt;= 1</IsMultiConditionUnit>  
+  <LayoutLinks xml:space="preserve">
+     def linkOrderIds = unit.attributeValue("linkOrder", "").tokenize(" ")
+     def links = unit.selectNodes("Link[@type != 'transport']").collect{it["id"]}
+     def linkIds = []
+     linkIds.addAll(linkOrderIds?.findAll{links?.contains(it)})
+     linkIds.addAll(links?.findAll{!linkOrderIds?.contains(it)})
+     linkIds.add(unit["id"] + "Logout")
+     return linkIds
+  </LayoutLinks>
+  <BooleanProperty attributeName="performLogout">
+     <Description>If checked, the unit performs the logout from the social network invalidating the granted authorizations.</Description>
+     <IsEnabled>return element.parent.name != "ContentUnits"</IsEnabled> 
+  </BooleanProperty>
+  <Description xml:space="preserve">&lt;p&gt;The social login unit lets users to sign in the web application using their social network user accounts.&lt;/p&gt;
+   &lt;p&gt;In order to use the unit in a Web project it is mandatory to add to the Web project one or more Social Network service providers,
+specifying the required API keys and secret keys. For more information about API and secret keys please consult the developer sites of the enabled social networks:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Facebook: http://developers.facebook.com/docs/authentication/&lt;/li&gt;
+&lt;li&gt;Google+: https://code.google.com/apis/console&lt;/li&gt;
+&lt;li&gt;LinkedIn: https://developer.linkedin.com/rest&lt;/li&gt;
+&lt;li&gt;Twitter: https://dev.twitter.com/docs/auth/oauth&lt;/li&gt;
+&lt;/ul&gt;
+   </Description>  
+  <InputDescription xml:space="preserve" name="Social Network Id">The id of the social network to sign in.</InputDescription>  
+  <OutputDescription xml:space="preserve" name="Social Network Id">The authorized social network id.</OutputDescription>  
+  <OutputDescription xml:space="preserve" name="Social Network Name">The authorized social network name.</OutputDescription>  
+  <OutputDescription xml:space="preserve" name="User ID">The social network user id.</OutputDescription>  
+  <OutputDescription xml:space="preserve" name="User Name">The social network user name.</OutputDescription>  
+  <ServiceDataProvider type="SocialNetwork" multipleInstances="true"> 
+    <EnumProperty attributeName="name" label="Social Network"> 
+      <EnumItem value="Facebook"/>  
+      <EnumItem value="Google+"/>  
+      <EnumItem value="LinkedIn" label="LinkedIn"/>  
+      <EnumItem value="Twitter"/>  
+      <Description xml:space="preserve">The referenced social network.</Description>  
+      <EnumItem value="GoogleDocs" label="GoogleDocs"/>  
+      <EnumItem value="GoogleCalendar" label="GoogleCalendar"/>  
+      <EnumItem value="Youtube" label="Youtube"/>  
+      <EnumItem value="Doodle" label="Doodle"/>
+    </EnumProperty>  
+    <StringProperty attributeName="apiKey" label="API Key"> 
+      <Description xml:space="preserve">The public API key for OAUth authorization.</Description> 
+    </StringProperty>  
+    <StringProperty attributeName="secretKey" label="Secret Key"> 
+      <Description xml:space="preserve">The secret API key for OAUth authorization.</Description> 
+    </StringProperty>  
+    <Description xml:space="preserve">The data provider for a social network.</Description>  
+    <StringProperty attributeName="unauthorizedAPIKey"> 
+      <Description xml:space="preserve">The public API key for unauthorized requests.</Description> 
+    </StringProperty> 
+  </ServiceDataProvider> 
+</Unit>

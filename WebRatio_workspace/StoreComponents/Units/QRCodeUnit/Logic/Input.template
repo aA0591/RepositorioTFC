@@ -1,0 +1,10 @@
+#?delimiters <%,%>,<%=,%>
+<%
+setXMLOutput()
+def unitId = unit["id"]
+%>
+<InputParameters>
+	<InputParameter name="<%=unitId%>.size" type="" label="QRCode Image Size"/>
+	<InputParameter name="<%=unitId%>.text" type="" label="QRCode Text"/>
+	<InputParameter name="<%=unitId%>.imageName" type="" label="QRCode Image Name"/>
+</InputParameters>

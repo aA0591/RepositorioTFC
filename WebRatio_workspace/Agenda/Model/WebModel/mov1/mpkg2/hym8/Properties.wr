@@ -1,0 +1,18 @@
+<HybridModule xmlns:gr="http://www.webratio.com/2006/WebML/Graph" id="mov1#mpkg2#hym8" name="Save Appointment" gr:x="0" gr:y="65" gr:icon="ModulesIcons/Save.png">
+  <OperationUnits>
+    <NoOpOperationUnit id="mov1#mpkg2#hym8#opu2" name="Refresh All Day Event" gr:x="340" gr:y="390">
+      <OKLink id="mov1#mpkg2#hym8#opu2#oln25" name="OKLink25" to="mov1#mpkg2#hym8#page8" preserveForm="true"/>
+    </NoOpOperationUnit>
+    <InputCollectorUnit id="mov1#mpkg2#hym8#icu9" name="Input" gr:x="20" gr:y="275">
+      <InputCollectorParameter id="mov1#mpkg2#hym8#icu9#icp8" name="Selected Date"/>
+      <InputCollectorParameter id="mov1#mpkg2#hym8#icu9#icp9" name="Calendar Key"/>
+      <OKLink id="mov1#mpkg2#hym8#icu9#oln26" name="OKLink26" to="mov1#mpkg2#hym8#page8#enu7" ajaxOpenWindow="false" ajaxWindowUseTitle="true" ajaxWindowTitle="asdasd" ajaxWindowAutoResizing="true" ajaxWindowClosable="true">
+        <LinkParameter id="mov1#mpkg2#hym8#icu9#oln26#par88" name="Calendar Key" source="mov1#mpkg2#hym8#icu9#icp9" target="mov1#mpkg2#hym8#page8#enu7#fld22_slot"/>
+        <LinkParameter id="mov1#mpkg2#hym8#icu9#oln26#par91" name="Selected Date" source="mov1#mpkg2#hym8#icu9#icp8" target="mov1#mpkg2#hym8#page8#enu7#fld17_slot"/>
+      </OKLink>
+    </InputCollectorUnit>
+    <OKCollectorUnit id="mov1#mpkg2#hym8#okcu5" name="Success" gr:x="1950" gr:y="560"/>
+    <OKCollectorUnit id="mov1#mpkg2#hym8#okcu6" name="Cancel" gr:x="1950" gr:y="685"/>
+  </OperationUnits>
+  <Comment xml:space="preserve">Hybrid Module that contains the operations needed to save an Appointment.</Comment>
+</HybridModule>

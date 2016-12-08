@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ValidationComponents
+Bundle-SymbolicName: ValidationComponents;singleton:=true
+Bundle-Version: 1.0.0
+Bundle-Vendor: 
+Require-Bundle: com.webratio.commons.libs,
+ com.webratio.rtx,
+ com.webratio.ide.units,
+ com.webratio.struts13
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7

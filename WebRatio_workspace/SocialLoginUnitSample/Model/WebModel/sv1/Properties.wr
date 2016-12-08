@@ -1,0 +1,14 @@
+<SiteView xmlns:gr="http://www.webratio.com/2006/WebML/Graph" id="sv1" name="Home" homePage="sv1#page1">
+  <OperationUnits>
+    <SocialLoginUnit gr:x="486" gr:y="265" id="sv1#slu2" name="Social Login" socialNetworks="sdp1 sdp2 sdp3 sdp5">
+      <KOLink id="sv1#slu2#kln1" name="KOLink1" to="sv1#page3" automaticCoupling="true"/>
+      <OKLink id="sv1#slu2#oln4" name="OKLink4" to="sv1#page1" automaticCoupling="true" gr:bendpoints="-80,-107,125,-97"/>
+      <Property id="sv1#slu2#prop1" name="protectURL" value="false"/>
+    </SocialLoginUnit>
+    <SocialLoginUnit id="sv1#slu4" name="Social Logout" gr:x="260" gr:y="430" socialNetworks="sdp1 sdp2 sdp3 sdp5" performLogout="true">
+      <KOLink id="sv1#slu4#kln3" name="KOLink1" to="sv1#page3" automaticCoupling="true"/>
+      <OKLink id="sv1#slu4#oln2" name="OKLink4" to="sv1#page1" automaticCoupling="true" gr:bendpoints="-84,-75,-104,100"/>
+      <Property id="sv1#slu4#prop2" name="protectURL" value="false"/>
+    </SocialLoginUnit>
+  </OperationUnits>
+</SiteView>

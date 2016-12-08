@@ -1,0 +1,4 @@
+#Resource Dependency Graph
+#Thu Dec 08 19:58:03 CET 2016
+layoutConf=/StoreTemplates/Units/QRCodeUnit/Default.unit.template|/StoreTemplates/Units/MultiMessageUnit/NotificationMessage.unit.template|/StoreTemplates/Units/MultiMessageUnit/ScrollToTop.unit.template|/StoreTemplates/Units/PowerIndexUnit/InfiniteScroll.unit.template|/StoreTemplates/Units/GoogleMapUnit/Default.unit.template|/StoreTemplates/Units/SocialLoginUnit/Default.unit.template|/StoreTemplates/Units/MultiDataUnit/Masonry.unit.template|/StoreTemplates/Rating.attr.template
+id.layoutConf=/StoreTemplates/Layout.xml

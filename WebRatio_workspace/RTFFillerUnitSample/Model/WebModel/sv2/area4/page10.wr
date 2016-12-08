@@ -1,0 +1,70 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" gr:x="0" gr:y="144" id="sv2#area4#page10" name="Test Page">
+  <ContentUnits>
+    <EntryUnit gr:x="260" gr:y="0" id="sv2#area4#page10#enu3" name="Available Place Holders" linkOrder="sv2#area4#page10#enu3#ln4" fieldOrder="sv2#area4#page10#enu3#fld23 sv2#area4#page10#enu3#fld24 sv2#area4#page10#enu3#fld20 sv2#area4#page10#enu3#fld21 sv2#area4#page10#enu3#fld19 sv2#area4#page10#enu3#fld22">
+      <Link id="sv2#area4#page10#enu3#ln4" name="Fill" to="sv2#area4#rtffu5" type="normal" validate="true">
+        <LinkParameter id="sv2#area4#page10#enu3#ln4#par26" name="price_price" source="sv2#area4#page10#enu3#fld21" target="sv2#area4#rtffu5.price"/>
+        <LinkParameter id="sv2#area4#page10#enu3#ln4#par37" name="product_product" source="sv2#area4#page10#enu3#fld20" target="sv2#area4#rtffu5.product"/>
+        <LinkParameter id="sv2#area4#page10#enu3#ln4#par44" name="total_total" source="sv2#area4#page10#enu3#fld19" target="sv2#area4#rtffu5.total"/>
+        <LinkParameter id="sv2#area4#page10#enu3#ln4#par13" name="slogan_slogan" source="sv2#area4#page10#enu3#fld22" target="sv2#area4#rtffu5.slogan"/>
+        <LinkParameter id="sv2#area4#page10#enu3#ln4#par14" name="WebRatioDescription_WebRatioDescription" source="sv2#area4#page10#enu3#fld23" target="sv2#area4#rtffu5.WebRatioDescription"/>
+        <LinkParameter id="sv2#area4#page10#enu3#ln4#par15" name="features_features" source="sv2#area4#page10#enu3#fld24" target="sv2#area4#rtffu5.features"/>
+      </Link>
+      <Field id="sv2#area4#page10#enu3#fld19" name="total" type="text" modifiable="true" preloaded="true" contentType="text/html">
+        <Slot id="sv2#area4#page10#enu3#fld19#slot13" name="value" label="true" output="true" value="&#8364; 12345,00 ($ 16023,81)"/>
+      </Field>
+      <Field id="sv2#area4#page10#enu3#fld20" name="product" type="text" modifiable="true" preloaded="true" contentType="text/html">
+        <Slot id="sv2#area4#page10#enu3#fld20#slot15" name="value" label="true" output="true" value="&lt;i&gt;WebRatio Enterprise Edition&lt;/i&gt;"/>
+      </Field>
+      <Field id="sv2#area4#page10#enu3#fld21" name="price" type="text" modifiable="true" preloaded="true" contentType="text/html">
+        <Slot id="sv2#area4#page10#enu3#fld21#slot16" name="value" label="true" output="true" value="&#8364; 12345,00 ($ 16023,81)"/>
+      </Field>
+      <Field id="sv2#area4#page10#enu3#fld22" name="slogan" type="text" modifiable="true" preloaded="true" contentType="text/html">
+        <Slot id="sv2#area4#page10#enu3#fld22#slot17" name="value" label="true" output="true" value="WebRatio &#8211; Think it, Get it!"/>
+      </Field>
+      <Field id="sv2#area4#page10#enu3#fld23" name="WebRatioDescription" type="text" modifiable="true" preloaded="true" contentType="text/html">
+        <Slot id="sv2#area4#page10#enu3#fld23#slot18" name="value" label="true" output="true" value="&lt;p&gt;WebRatio is a trusted MDD environment for building pure Java business Web applications, with no proprietary run-time. Models are based on BPMN, the standard notation for defining Business Processes, and WebML, a visual and intuitive DSL specifically designed for designing Web applications. &lt;/p&gt;"/>
+      </Field>
+      <Field id="sv2#area4#page10#enu3#fld24" name="features" type="text" modifiable="true" preloaded="true" contentType="text/html">
+        <Slot id="sv2#area4#page10#enu3#fld24#slot19" name="value" label="true" output="true" value="&lt;table border=&quot;1&quot;&gt;&lt;tr&gt;&lt;th&gt;Eclipse-based development environment&lt;/th&gt;&lt;td&gt;WebRatio is integrated in the Eclipse IDE (see www.eclipse.org for more information). It is available either as a standalone installation or as a plug-in embeddable in an already configured Eclipse environment.WebRatio shares the same workspace as all the tools and extensions already available in Eclipse for developing JEE applications. Thanks to Eclipse integration, the user interface of the development environment is completely customizable.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;BPMN modelling&lt;/th&gt;&lt;td&gt;WebRatio offers a powerful, yet intuitive and easy to use, process diagram editor, based on the BPMN standard.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;WebML modelling&lt;/th&gt;&lt;td&gt;WebRatio offers an application model diagram editor, based on the WebML modelling language, which allows you to capture all the functional requirements of the application.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Deployment on any Java application server&lt;/th&gt;&lt;td&gt;Web applications built by WebRatio comply with the Java/JSP 2.0 standard and can be deployed on any application server.&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;"/>
+      </Field>
+    </EntryUnit>
+    <DataUnit id="sv2#area4#page10#dau4" name="New RTF Document" gr:x="260" gr:y="160" entity="ent1" displayAttributes="ent1#att2"/>
+    <DataUnit id="sv2#area4#page10#dau3" entity="ent2" displayAttributes="ent2#att4" gr:x="0" gr:y="2" name="Sample Template">
+      <Selector id="sv2#area4#page10#dau3#su4" defaultPolicy="fill" booleanOperator="and">
+        <AttributesCondition id="sv2#area4#page10#dau3#su4#acond5" attributes="ent2#att5" predicate="eq" booleanOperator="or" value="WebRatio RTF Filler Unit Sample" implied="false" name="AttCondition3"/>
+      </Selector>
+      <Link id="sv2#area4#page10#dau3#ln1" name="Link11" to="sv2#area4#miu4" type="transport" validate="true">
+        <LinkParameter id="sv2#area4#page10#dau3#ln1#par5" name="name_Used Sample Template Name" source="data.ent2#att5" target="sv2#area4#miu4.mov1#opm1#icu1#icp2"/>
+      </Link>
+    </DataUnit>
+  </ContentUnits>
+  <layout:Grid>
+    <layout:Row>
+      <layout:Cell>
+        <layout:Unit unitId="sv2#area4#page10#dau3">
+          <layout:Attribute attribute="ent2#att4"/>
+          <layout:LayoutParameter name="show-attribute-name" value="false" type="unit"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell>
+        <layout:Unit unitId="sv2#area4#page10#enu3">
+          <layout:Link link="sv2#area4#page10#enu3#ln4"/>
+          <layout:LayoutParameter name="fck-toolbar" value="Full" type="field"/>
+          <layout:LayoutParameter name="width" value="82" type="field"/>
+          <layout:LayoutParameter name="height" value="3" type="field"/>
+          <layout:Field field="sv2#area4#page10#enu3#fld23"/>
+          <layout:Field field="sv2#area4#page10#enu3#fld24"/>
+          <layout:Field field="sv2#area4#page10#enu3#fld20"/>
+          <layout:Field field="sv2#area4#page10#enu3#fld21"/>
+          <layout:Field field="sv2#area4#page10#enu3#fld19"/>
+          <layout:Field field="sv2#area4#page10#enu3#fld22"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell>
+        <layout:Unit unitId="sv2#area4#page10#dau4">
+          <layout:Attribute label=" " attribute="ent1#att2"/>
+        </layout:Unit>
+      </layout:Cell>
+    </layout:Row>
+  </layout:Grid>
+</Page>

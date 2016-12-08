@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StoreMapping>
+  <ResourceBinding path="Units/SocialLoginUnit" store="WebRatio Add-ons" versionId="415" itemId="11"/>
+</StoreMapping>

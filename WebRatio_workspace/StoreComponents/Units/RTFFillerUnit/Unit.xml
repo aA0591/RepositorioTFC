@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Unit type="operation" version="1.0.0" idPrefix="rtffu" namePrefix="RTF Filler Unit" label="RTF Filler Unit" linkSource="true" linkTarget="true" okLinkSource="true" okLinkTarget="true" koLinkSource="true" koLinkTarget="true" multipleKOLinkCardinality="false" author="WebRatio s.r.l."> 
+  <EnumProperty label="" attributeName="mode" defaultValue="filler" figureDisplayOrder=""> 
+    <Description xml:space="preserve">Specifies the working mode</Description>  
+    <EnumItem value="filler" label="Filler"/>  
+    <EnumItem value="parser" label="Parser"/> 
+  </EnumProperty>  
+  <FileProperty attributeName="rtfTemplate" label="RTF Template" figureDisplayOrder=""> 
+    <Description xml:space="preserve">Define the RTF template to use at modeling time. At runtime the template to use can be overriding by input link.
+The placeholder must be referenced using the following syntax $$name$$</Description> 
+  </FileProperty>  
+  <SubUnit elementName="PlaceHolder" idPrefix="ph" namePrefix="PlaceHolder" figureDisplayOrder="1"> 
+    <TextProperty elementName="Value"> 
+      <Description xml:space="preserve">The default value used if the placeholder is not provided by an input link.</Description> 
+    </TextProperty>  
+    <Description xml:space="preserve">Define the placeholder references at modeling time.  The placeholders to fill can be enriched at runtime.</Description> 
+  </SubUnit>  
+  <Description xml:space="preserve">The RTF Filler Unit allows to fill a RTF template with custom values replacing a set of placeholders.
+ 
+The placeholders are replaced dynamically by given text fragments written using a subset of XHTML code.
+A placeholder is defined inside the RTF template using the following syntax $$placeholder-name$$.
+The RTF template and the list of available placeholders can be also passed to the unit at runtime.
+This unit can also work in a &lt;i&gt;parser mode&lt;/i&gt; in which a RTX file is parsed and a list of the available placeholders is returned.
+The subset of the available XHTML tags that can be used to fill the RTF tempalte is reported below:
+&lt;ul&gt;
+
+                &lt;li&gt;Paragraph &amp;lt;p&amp;gt; &lt;/li&gt;
+
+                &lt;li&gt;Ordered list &amp;lt;ol&amp;gt; &lt;/li&gt;
+                &lt;li&gt;Unordered list &amp;lt;ul&amp;gt; &lt;/li&gt;
+                &lt;li&gt;List item &amp;lt;li&amp;gt; &lt;/li&gt;
+
+                &lt;li&gt;Table &amp;lt;table&amp;gt; &lt;/li&gt;
+                &lt;li&gt;Row &amp;lt;tr&amp;gt; &lt;/li&gt;
+                &lt;li&gt;Default cell &amp;lt;td&amp;gt; &lt;/li&gt;
+                &lt;li&gt;Header cell &amp;lt;th&amp;gt; &lt;/li&gt;
+
+                &lt;li&gt;Bold &amp;lt;b&amp;gt; &lt;/li&gt;
+                &lt;li&gt;Strong &amp;lt;strong&amp;gt; &lt;/li&gt;
+                &lt;li&gt;Italic &amp;lt;i&amp;gt; &lt;/li&gt;
+                &lt;li&gt;Emphasize &amp;lt;em&amp;gt; &lt;/li&gt;
+                &lt;li&gt;Underline &amp;lt;u&amp;gt; &lt;/li&gt;
+                &lt;li&gt;Strike  &amp;lt;strike&amp;gt; &lt;/li&gt;
+                &lt;li&gt;Subscript &amp;lt;sub&amp;gt; &lt;/li&gt;
+                &lt;li&gt;Superscript &amp;lt;sup&amp;gt; &lt;/li&gt;
+&lt;/ul&gt;
+
+ 
+
+All the attributes defined on the tags are ignored except the  &lt;i&gt;width&lt;/i&gt; and &lt;i&gt;border&lt;/i&gt; attributes defined on the &lt;i&gt;table&lt;/i&gt; tag.
+
+The usage of compounded tags is not well supported.
+
+</Description></Unit>

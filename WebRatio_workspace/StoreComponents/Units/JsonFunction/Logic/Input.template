@@ -1,0 +1,19 @@
+#?delimiters <%,%>,<%=,%>
+<%
+setXMLOutput()
+def unitId = unit.valueOf("@id")
+%>
+
+<InputParameters>   	
+   	<% if (unit["mode"] == "codeJson") { %>
+		<% for (stringElem in unit.selectNodes("Key[string(@value) = '']")) { %>
+			<InputParameter name="<%=stringElem["id"]%>" type="" label="<%=stringElem["name"]%>" mandatory="true"/>
+   		<% } %>   		
+   	<% } else if (unit["mode"] == "decodeJson") { %>
+   		<InputParameter name="<%=unitId%>.jsonString" type="" label="Json String" />
+   		<InputParameter name="<%=unitId%>.keyParameter" type="" label="Key Parameter" />   			
+  	<% } else if (unit["mode"] == "replaceTextWithJson") { %>
+  		<InputParameter name="<%=unitId%>.jsonString" type="" label="Json String" />
+   		<InputParameter name="<%=unitId%>.textValue" type="" label="Text" />
+  	<% } %>
+</InputParameters>

@@ -1,0 +1,8 @@
+#?delimiters <%,%>,<%=,%>
+<%setXMLOutput()%>
+<Descriptor service="com.webratio.units.store.qrcodeunit.QRCodeUnitService">
+  <Size><%=unit["size"]%></Size>
+  
+  <BackgroundColor><%=unit["backgroundColor"]%></BackgroundColor>
+  <ForegroundColor><%=unit["foregroundColor"]%></ForegroundColor>
+</Descriptor>

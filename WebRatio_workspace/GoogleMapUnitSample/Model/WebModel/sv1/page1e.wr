@@ -1,0 +1,32 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" gr:x="480" gr:y="60" id="sv1#page1e" name="Is Adjustable" landmark="true">
+  <ContentUnits>
+    <GoogleMapUnit gr:x="0" gr:y="0" id="sv1#page1e#gmu1e" name="Google Map" mapType="ROADMAP" isAdjustable="true" mapZoomLevel="15" mapWidth="640" mapHeight="480" mapCoordinates="45.697038,9.034654" linkOrder="sv1#page1e#gmu1e#ln1e" mapsProvider="sdp1w">
+      <Link id="sv1#page1e#gmu1e#ln1e" name="Export coordinates" to="sv1#page1e#mssu1e" type="normal" validate="true" ajaxEnabled="true">
+        <LinkParameter id="sv1#page1e#gmu1e#ln1e#par1w" name="Marker Coordinates_Shown Messages" source="mapCoordinates" target="sv1#page1e#mssu1e.shownMessages"/>
+      </Link>
+    </GoogleMapUnit>
+    <MultiMessageUnit gr:x="155" gr:y="0" id="sv1#page1e#mssu1e" name="Current Position"/>
+  </ContentUnits>
+  <layout:Grid>
+    <layout:Row>
+      <layout:Cell colspan="10">
+        <layout:Unit unitId="sv1#page1e#gmu1e" layout:unitLayout="StoreTemplates/Default">
+          <layout:Link link="sv1#page1e#gmu1e#ln1e"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell colspan="2">
+        <layout:Unit unitId="sv1#page1e#mssu1e"/>
+      </layout:Cell>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+</Page>

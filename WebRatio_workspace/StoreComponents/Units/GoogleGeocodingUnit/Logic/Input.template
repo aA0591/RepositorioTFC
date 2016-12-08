@@ -1,0 +1,14 @@
+#?delimiters <%,%>,<%=,%>
+<%
+setXMLOutput()
+def unitId = unit.valueOf("@id")
+%>
+
+<InputParameters>
+	<InputParameter name="<%=unitId%>.addr" label="Address"/>
+	<InputParameter name="<%=unitId%>.city" label="City"/>
+	<InputParameter name="<%=unitId%>.sop" label="State or Province"/>
+	<InputParameter name="<%=unitId%>.country" label="Country"/>
+	<InputParameter name="<%=unitId%>.fulladdr" label="Full Address"/>
+	<InputParameter name="<%=unitId%>.coords" label="Map Coordinates"/>
+</InputParameters>

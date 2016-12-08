@@ -1,0 +1,81 @@
+#?delimiters [%, %], [%=, %]
+<wr:LayoutParameter label="Attribute Name Position" name="attribute-orientation" type="enum" values="top|left" default="left">
+Defines the rendition of the attribute labels.
+Allowed values are:
+- left (default): places the labels on the left
+- top: places the labels on the top
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Show Attribute Name" name="show-attribute-name" type="boolean" default="true">
+Defines the rendition of the attribute labels.
+Allowed values are: true(default) or false.
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Use Empty Unit Message" name="use-empty-unit-message" type="boolean" default="false">
+Defines the usage of a message for empty units.
+Allowed values are: true(default) or false.
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Empty Unit Message" name="empty-unit-message" type="string" default="emptyUnitMessage">
+Defines the key of the message to use if the unit is empty.
+Default value: emptyUnitMessage
+</wr:LayoutParameter>
+[%
+setHTMLOutput()
+def attributeOrientation = params["attribute-orientation"]
+def showAttributeName = params["show-attribute-name"]
+def useEmptyUnitMessage = params["use-empty-unit-message"]
+def emptyUnitMessage = params["empty-unit-message"]
+def hasAttributes = !unit.selectNodes("layout:Attribute").isEmpty()
+def hasLinks = !unit.selectNodes("layout:Link").isEmpty()
+%]
+[% if (useEmptyUnitMessage != "true") { %]
+<c:if test="${not(empty <wr:Id context="unit"/>) and (<wr:Id context="unit"/>.dataSize gt 0)}">
+[% } else { %]
+<c:choose>
+<c:when test="${not(empty <wr:Id context="unit"/>) and (<wr:Id context="unit"/>.dataSize gt 0)}">
+[% } %]
+	<wr:Frame>
+		<div class="plain <wr:StyleClass/>">
+			<div class="plain MultiDataUnit">
+			   [% if (hasAttributes) { %]
+		            <c:forEach var="current" varStatus="status" items="${<wr:Id context="unit"/>.data}">
+		              <c:set var="index" value="${status.index}"/>
+		              	<dl[% if (attributeOrientation == "left") { %] class="detail-header-left"[% } %]>
+				            <wr:Iterate var="attr" context="unit" select="layout:Attribute">
+								<wr:Visible>
+								[%  if (showAttributeName == "true") { %]		        		
+				        		  	<dt class="<wr:StyleClass/> header"><wr:Label/></dt>
+				        		[% } %]  
+				        		  	<dd class="<wr:StyleClass/> value [%= attr["type"]%]"><wr:Value/></dd>
+							    </wr:Visible>
+							</wr:Iterate>
+						</dl> 
+		            </c:forEach>
+			    [% } %]
+				[% if (hasLinks) { %]
+			    	<div class="button-bar">
+			        	<wr:Iterate var="link" context="unit" select="layout:Link">
+			               <wr:Visible>
+			                 <wr:Link class="link"/>
+			               </wr:Visible>
+			            </wr:Iterate>
+			        </div>
+			    [% } %]
+	   	   </div>
+	   </div>
+	</wr:Frame>
+[% if (useEmptyUnitMessage != "true") { %]
+</c:if>
+[% } else { %]
+</c:when>
+<c:otherwise>
+	<wr:Frame>
+		<div class="plain <wr:StyleClass/>">
+			<div class="plain MultiDataUnit">
+				<div class="pure-alert">
+					<bean:message key="[%printJSPTagValue(emptyUnitMessage)%]"/>
+				</div>
+			</div>
+		</div>
+	</wr:Frame>
+</c:otherwise>
+</c:choose>
+[% } %]

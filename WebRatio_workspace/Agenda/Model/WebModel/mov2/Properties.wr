@@ -1,0 +1,6 @@
+<ModuleView id="mov2" name="User Modules">
+  <OperationUnits/>
+  <Comment xml:space="preserve">This is the Module View related to the handing of Users and the operations they can do.
+
+The Modules are grouped by context, there is one section for Modules related to the administrators and another one for the other users.
+</Comment></ModuleView>

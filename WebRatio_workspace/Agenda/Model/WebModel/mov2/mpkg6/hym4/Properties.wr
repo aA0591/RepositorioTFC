@@ -1,0 +1,27 @@
+<HybridModule xmlns:gr="http://www.webratio.com/2006/WebML/Graph" id="mov2#mpkg6#hym4" name="Registration" gr:x="0" gr:y="0" gr:icon="ModulesIcons/NewUser.png">
+  <OperationUnits>
+    <CreateUnit id="mov2#mpkg6#hym4#cru9" name="Create User" gr:x="340" gr:y="80" entity="User">
+      <OKLink id="mov2#mpkg6#hym4#cru9#oln28" name="OKLink28" to="mov2#mpkg6#hym4#tmu4"/>
+      <Link id="mov2#mpkg6#hym4#cru9#ln57" name="Link57" to="mov2#mpkg6#hym4#lgu3" type="transport" validate="true" gr:bendpoints="23,-59,-517,-59;492,-58,-48,-58">
+        <LinkParameter id="mov2#mpkg6#hym4#cru9#ln57#par65" name="User Name" source="userNameArray" target="mov2#mpkg6#hym4#lgu3.username"/>
+        <LinkParameter id="mov2#mpkg6#hym4#cru9#ln57#par66" name="Password" source="passwordArray" target="mov2#mpkg6#hym4#lgu3.password"/>
+      </Link>
+      <Link id="mov2#mpkg6#hym4#cru9#ln59" name="Link6" to="mov2#mpkg6#hym4#cru10" type="transport" automaticCoupling="true" validate="true" gr:bendpoints="162,57,-203,57"/>
+    </CreateUnit>
+    <CreateUnit id="mov2#mpkg6#hym4#cru10" name="Create Calendar" gr:x="685" gr:y="80" entity="ent3">
+      <OKLink id="mov2#mpkg6#hym4#cru10#oln29" name="OKLink29" to="mov2#mpkg6#hym4#lgu3"/>
+    </CreateUnit>
+    <TimeUnit id="mov2#mpkg6#hym4#tmu4" name="Current Time" gr:x="515" gr:y="90">
+      <OKLink id="mov2#mpkg6#hym4#tmu4#oln30" name="OKLink30" to="mov2#mpkg6#hym4#cru10">
+        <LinkParameter id="mov2#mpkg6#hym4#tmu4#oln30#par67" name="Current Date" source="currentDate" target="mov2#mpkg6#hym4#cru10.ent3#att10"/>
+        <LinkParameter id="mov2#mpkg6#hym4#tmu4#oln30#par70" name="Calendar Description" target="mov2#mpkg6#hym4#cru10.ent3#att11" sourceValue="Shared Calendar"/>
+        <LinkParameter id="mov2#mpkg6#hym4#tmu4#oln30#par71" name="Calendar Name" target="mov2#mpkg6#hym4#cru10.ent3#att9" sourceValue="Home Calendar"/>
+      </OKLink>
+    </TimeUnit>
+    <LoginUnit id="mov2#mpkg6#hym4#lgu3" name="Login" gr:x="900" gr:y="90"/>
+    <InputCollectorUnit id="mov2#mpkg6#hym4#icu5" name="Input" gr:x="-85" gr:y="70">
+      <OKLink id="mov2#mpkg6#hym4#icu5#oln32" name="OKLink32" to="mov2#mpkg6#hym4#page17" automaticCoupling="true"/>
+    </InputCollectorUnit>
+  </OperationUnits>
+  <Comment xml:space="preserve">Hybrid Module that contains the logic necessary to register a new User on the database.</Comment>
+</HybridModule>

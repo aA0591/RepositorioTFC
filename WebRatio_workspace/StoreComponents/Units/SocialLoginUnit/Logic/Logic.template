@@ -1,0 +1,6 @@
+#?delimiters [%,%],[%=,%]
+[%setXMLOutput()%]
+<Descriptor service="com.webratio.units.store.socialloginunit.SocialLoginUnitService">
+  <SocialNetworks>[%=unit["socialNetworks"].split(" ").join("|")%]</SocialNetworks>
+  <PerformLogout>[%=unit["performLogout"]%]</PerformLogout>
+</Descriptor>

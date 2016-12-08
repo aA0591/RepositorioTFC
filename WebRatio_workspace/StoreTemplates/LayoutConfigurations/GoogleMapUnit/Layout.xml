@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Layout> 
+  <Resources> 
+    <Resource name="google-maps" url="http://maps.googleapis.com/maps/api/js" type="javascript">
+      <RuntimeContent xml:space="preserve">def googleMapsProvider = rtx.getModelService().getServiceDataProviderInfosByType("Google Maps")[0]
+def apiKey = googleMapsProvider["apiKey"]
+return content + "?key=" + apiKey</RuntimeContent>
+    </Resource>
+  </Resources> 
+</Layout>

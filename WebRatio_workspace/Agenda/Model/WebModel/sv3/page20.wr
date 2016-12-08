@@ -1,0 +1,76 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" gr:x="20" gr:y="15" id="sv3#page20" name="Login">
+  <ContentUnits>
+    <EntryUnit id="sv3#page20#enu15" name="Login" gr:x="0" gr:y="0" linkOrder="sv3#page20#enu15#ln27">
+      <Field id="sv3#page20#enu15#fld51" name="username" type="string" modifiable="true">
+        <VRules>
+          <MandatoryValidationRule id="sv3#page20#enu15#fld51#mnd18" name="Mandatory Field"/>
+        </VRules>
+      </Field>
+      <Field id="sv3#page20#enu15#fld52" name="password" type="password" modifiable="true">
+        <VRules>
+          <MandatoryValidationRule id="sv3#page20#enu15#fld52#mnd20" name="Mandatory Field"/>
+        </VRules>
+      </Field>
+      <Link id="sv3#page20#enu15#ln27" name="Login" to="sv3#lgu2" type="normal" validate="true" ajaxOpenWaitingDialog="true" ajaxEnabled="true" ajaxWaitingDialogMessage="logging">
+        <LinkParameter id="sv3#page20#enu15#ln27#par20" name="Username" source="sv3#page20#enu15#fld51" target="sv3#lgu2.username"/>
+        <LinkParameter id="sv3#page20#enu15#ln27#par21" name="Password" source="sv3#page20#enu15#fld52" target="sv3#lgu2.password"/>
+      </Link>
+    </EntryUnit>
+    <MultiMessageUnit gr:x="0" gr:y="75" id="sv3#page20#mssu4" name="Error"/>
+  </ContentUnits>
+  <layout:Grid>
+    <layout:Row>
+      <layout:Cell colspan="4">
+        <layout:Unit unitId="sv3#page20#enu15">
+          <layout:Field field="sv3#page20#enu15#fld51"/>
+          <layout:Field field="sv3#page20#enu15#fld52"/>
+          <layout:LayoutParameter name="mandatory-fields" value="true" type="unit"/>
+          <layout:LayoutParameter name="error-position" value="bottom" type="unit"/>
+          <layout:Link link="sv3#page20#enu15#ln27"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell colspan="4">
+        <layout:Unit unitId="sv3#page20#mssu4"/>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell colspan="4"/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="12"/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="12"/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+  <Comment xml:space="preserve">Home Page of the Site View it asks the User for the login credentials.</Comment>
+</Page>

@@ -1,0 +1,146 @@
+#?delimiters [%, %], [%=, %]
+[%setHTMLOutput()
+import org.apache.commons.lang.StringUtils
+
+def unitId = unit["id"]
+%]
+
+<wr:RequireResource ref="google-maps"/>
+
+<wr:Frame>
+<div id="map_canvas" style="width:${[%=unitId%].mapWidth}px; height:${[%=unitId%].mapHeight}px"></div>
+
+[%if(unit["isAdjustable"] == 'true'){%]
+<div id="link-canvas" align="left" style="margin-top:10px">
+	[%if(!unit.selectNodes("layout:Link").isEmpty()){%]
+		<wr:Iterate var="link" context="unit" select="layout:Link">
+			<wr:Visible>
+				<wr:Link class="button"/>
+	        </wr:Visible>
+		</wr:Iterate>	
+	[%}%]
+	
+	<script>
+	var currentCoord = null;
+	function changeCoords(coords) {	  
+		 var newcoords = coords;
+		 for (i=0; i < document.links.length; i++) {
+    		if (currentCoord == null) {
+    			currentCoord = '${[%=unitId%].mapCoordinates}';    			
+    		}
+    		currentCoord = decodeURIComponent(currentCoord);
+			currentCoord = escape(currentCoord);
+			if(document.links[i].href.match(currentCoord)) {
+			    newcoords = decodeURIComponent(newcoords);
+			    newcoords = escape(newcoords);
+			    newcoords = newcoords.replace('%28', '');
+			    newcoords = newcoords.replace('%29', '');
+			    newcoords = newcoords.replace('%20', '');
+			    var re = new RegExp(currentCoord,"g");
+			    document.links[i].href = document.links[i].href.replace(re, newcoords);						
+			} 
+		 }
+		 currentCoord = newcoords;
+	}	
+	</script>
+</div>
+[%}%]
+
+<script type="text/javascript">
+	var mapOptions = {
+      zoom: ${[%=unitId%].mapZoomLevel},
+      center: new google.maps.LatLng(${[%=unitId%].mapCoordinates}),
+      mapTypeId: google.maps.MapTypeId.${[%=unitId%].mapType}
+    };
+    var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+
+	[%if(unit["isAdjustable"] == 'true'){%]
+		var marker;    	
+    	function addCurrentPosMarker (location) {    	
+	    	if (marker) {
+	    		marker.setMap(null);
+	    		marker = null;
+	    	}
+	    		
+	    	marker = new google.maps.Marker({
+	    								  position: location,
+										  map: map,
+										  title: '<bean:message key="GoogleMapUnit.user.marker.title"/>',
+										  draggable: false,					
+										  icon:'Images/GoogleMapUnit/user_marker.png',					    
+										  animation: google.maps.Animation.DROP										    
+										  });
+										    
+			changeCoords(location);										    
+    	}    	    	
+    	
+    	google.maps.event.addListener(map, 'click', function(event) {    		
+    		addCurrentPosMarker(event.latLng);
+  		});  		
+		
+  		setTimeout(function() {addCurrentPosMarker(new google.maps.LatLng(${[%=unitId%].mapCoordinates}));}, 200);
+    [%}else{%]
+		function addMarker(contentTitle, contentString, location, openWindow) {
+			var markers = []; 
+			var marker = new google.maps.Marker({
+											  position: location,
+										      map: map,
+										      title: '<bean:message key="GoogleMapUnit.user.marker.title"/>',
+										      draggable: false,
+										      animation: google.maps.Animation.DROP
+										    });
+
+	        if(contentString){
+		       var infowindow = new google.maps.InfoWindow({content: contentString});
+	           google.maps.event.addListener(marker, 'click', function() {infowindow.open(map,marker);});
+	           if(openWindow){
+	              infowindow.open(map,marker);
+	           }
+	        }
+	        
+	        markers.push(marker);
+	    }
+	    
+		<c:if test="${not(empty <wr:Id context="unit"/>.markers)}">
+			function addMarkers(){
+		  		<c:forEach var="marker" varStatus="status" items="${<wr:Id context="unit"/>.markers}">
+	        		setTimeout(function() {addMarker('${marker.title}', '${marker.info}',  new google.maps.LatLng(${marker.coordinates}), ${marker.infoWindowVisible})}, 300);
+				</c:forEach>
+			}
+			setTimeout(function() {addMarkers();}, 200);
+		</c:if>		
+	    
+	    [%if(unit["useSensor"] == 'true'){%]		  
+		  function createUserMarker(position) {
+		       var userLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+		       map.setCenter(userLocation);
+		       var marker = new google.maps.Marker({
+										      position: userLocation,
+										      map: map,
+										      title: '<bean:message key="GoogleMapUnit.user.marker.title"/>',
+										      draggable: false,
+										      icon:'Images/GoogleMapUnit/user_marker.png',
+										      animation: google.maps.Animation.DROP
+										    });	
+		  }
+		  
+	      function handleNoGeolocation() {
+	        if (navigator.geolocation || google.gears) {
+	           alert("Geolocation service failed.");
+	        } else {
+	           alert("Your browser doesn't support geolocation.");
+	        }
+	      }	     
+		
+		  if(navigator.geolocation) { 
+		    navigator.geolocation.getCurrentPosition(createUserMarker, handleNoGeolocation); 
+		  } else if (google.gears) {
+		    google.gears.factory.create('beta.geolocation').getCurrentPosition(createUserMarker, handleNoGeolocation);
+		  } else {
+		    handleNoGeolocation()
+		  }	  
+		[%}%]
+	[%}%]
+</script>	
+</wr:Frame>
+

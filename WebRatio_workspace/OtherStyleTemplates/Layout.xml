@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Layout>
+  <Resources alwaysRequired="OtherStyleTemplates-components-style">
+	  <Resource name="OtherStyleTemplates-components-style" type="css" path="OtherStyleTemplates/css/components.css"/>
+  </Resources>
+</Layout>

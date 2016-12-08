@@ -1,0 +1,70 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" gr:x="-165" gr:y="-295" id="sv1#page3" name="User" protected="false" layout:pageLayout="WRDefault/Empty" ignoreMasterPage="true">
+  <ContentUnits>
+    <EntryUnit gr:x="105" gr:y="0" id="sv1#page3#enu1" name="User Information" entity="User" linkOrder="sv1#page3#enu1#ln2 sv1#page3#enu1#ln42" fieldOrder="sv1#page3#enu1#fld49 sv1#page3#enu1#fld48 sv1#page3#enu1#fld46 sv1#page3#enu1#fld47 sv1#page3#enu1#sfld12">
+      <Field id="sv1#page3#enu1#fld46" name="username" type="string" modifiable="true" attribute="userName">
+        <VRules>
+          <MandatoryValidationRule id="sv1#page3#enu1#fld46#mnd27" name="Mandatory Field"/>
+        </VRules>
+      </Field>
+      <Field id="sv1#page3#enu1#fld47" name="password" type="password" modifiable="true" attribute="password">
+        <VRules>
+          <MandatoryValidationRule id="sv1#page3#enu1#fld47#mnd26" name="Mandatory Field"/>
+        </VRules>
+      </Field>
+      <Field id="sv1#page3#enu1#fld48" name="email" type="string" modifiable="true" attribute="email">
+        <VRules>
+          <MandatoryValidationRule id="sv1#page3#enu1#fld48#mnd1" name="Mandatory Field"/>
+          <EMailValidationRule id="sv1#page3#enu1#fld48#email2" name="EMail Validation"/>
+        </VRules>
+      </Field>
+      <Field id="sv1#page3#enu1#fld49" name="full name" type="string" modifiable="true" attribute="User#att23">
+        <VRules>
+          <MandatoryValidationRule id="sv1#page3#enu1#fld49#mnd2" name="Mandatory Field"/>
+        </VRules>
+      </Field>
+      <SelectionField id="sv1#page3#enu1#sfld12" name="group" type="string" role="User2DefaultGroup">
+        <VRules>
+          <MandatoryValidationRule id="sv1#page3#enu1#sfld12#mnd25" name="Mandatory Field"/>
+        </VRules>
+      </SelectionField>
+      <Link id="sv1#page3#enu1#ln2" name="Save" to="sv1#miu1" type="normal" validate="true" gr:bendpoints="355,208,0,-167">
+        <LinkParameter id="sv1#page3#enu1#ln2#par5" name="User Key" source="key.userOID" target="sv1#miu1.mov2#mpkg5#opm1#icu3#icp5"/>
+        <LinkParameter id="sv1#page3#enu1#ln2#par6" name="User Object" source="entityBean" target="sv1#miu1.mov2#mpkg5#opm1#icu3#icp4"/>
+      </Link>
+      <Link id="sv1#page3#enu1#ln42" name="Cancel" to="sv1#page1" automaticCoupling="true" type="normal" validate="false"/>
+    </EntryUnit>
+    <SelectorUnit gr:x="0" gr:y="0" id="sv1#page3#seu25" name="Groups" entity="Group">
+      <Link id="sv1#page3#seu25#ln21" name="Link21" to="sv1#page3#enu1" type="transport" validate="true">
+        <LinkParameter id="sv1#page3#seu25#ln21#par14" name="Group Name" source="groupNameArray" target="sv1#page3#enu1#sfld12_label"/>
+        <LinkParameter id="sv1#page3#seu25#ln21#par15" name="Group Key" source="groupOIDArray" target="sv1#page3#enu1#sfld12_output"/>
+      </Link>
+    </SelectorUnit>
+  </ContentUnits>
+  <layout:Grid>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv1#page3#enu1">
+          <layout:Field field="sv1#page3#enu1#fld49"/>
+          <layout:Field field="sv1#page3#enu1#fld48"/>
+          <layout:Field field="sv1#page3#enu1#fld46"/>
+          <layout:Field field="sv1#page3#enu1#fld47"/>
+          <layout:Field field="sv1#page3#enu1#sfld12"/>
+          <layout:Link link="sv1#page3#enu1#ln2"/>
+          <layout:Link link="sv1#page3#enu1#ln42"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+  <Comment xml:space="preserve">Popup Page that allows the administrator to create or modify a User.</Comment>
+</Page>

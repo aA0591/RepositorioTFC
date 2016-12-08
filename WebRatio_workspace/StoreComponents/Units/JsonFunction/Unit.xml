@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Unit type="operation" version="1.0.0" idPrefix="jfu" namePrefix="Json Function Component" label="Json Function Component" linkSource="true" linkTarget="true" okLinkSource="true" okLinkTarget="true" koLinkSource="true" koLinkTarget="true" author="Auconsis Cia. Ltda"> 
+  <EnumProperty attributeName="mode" defaultValue="codeJson" figureDisplayOrder="1"> 
+    <EnumItem value="codeJson"/>  
+    <EnumItem value="decodeJson"/>  
+    <EnumItem value="replaceTextWithJson"/>  
+    <Description xml:space="preserve">&lt;b&gt;Code Json:&lt;/b&gt; Receive parameters and transforms into a Json string. &lt;br/&gt;
+&lt;b&gt;Decode Json:&lt;/b&gt; Receive Json string and returns all the keys and values&#8203;&#8203;. Also look for a key in Json string.&lt;br/&gt;
+&lt;b&gt;Replace Text With Json:&lt;/b&gt; Receive Json string and text. Values &#8203;&#8203;in the text is replaced with the Json string keys, the keys in the text should be %key%
+
+</Description>  </EnumProperty>    <SubUnit elementName="Key" ignoreI18N="true" idPrefix="ky" namePrefix="Key" label="Key" maxCard="many">     <StringProperty attributeName="value">      <Description xml:space="preserve">Is the key or identifier element in Json string</Description>
+    </StringProperty>  
+    <Description xml:space="preserve">Dynamic container identifier string Json</Description>
+  </SubUnit>  
+  <Description xml:space="preserve">Component parameters json encoding, decoding and replacement Json string in a text</Description>
+</Unit>

@@ -1,0 +1,18 @@
+<OperationGroup xmlns:gr="http://www.webratio.com/2006/WebML/Graph" id="mov2#mpkg5#opm3#opg2" name="Group Operations" transaction="true" gr:x="295" gr:y="170">
+  <OperationUnits>
+    <CreateUnit id="mov2#mpkg5#opm3#opg2#cru5" name="Create Group" gr:x="140" gr:y="0" entity="Group">
+      <OKLink id="mov2#mpkg5#opm3#opg2#cru5#oln20" name="OKLink27" to="mov2#mpkg5#opm3#okcu4"/>
+    </CreateUnit>
+    <ModifyUnit id="mov2#mpkg5#opm3#opg2#mfu4" name="Modify Group" gr:x="155" gr:y="100" entity="Group">
+      <Selector id="mov2#mpkg5#opm3#opg2#mfu4#su17" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="mov2#mpkg5#opm3#opg2#mfu4#su17#kcond36" name="Group" predicate="in" implied="false"/>
+      </Selector>
+      <OKLink id="mov2#mpkg5#opm3#opg2#mfu4#oln24" name="OKLink28" to="mov2#mpkg5#opm3#okcu4"/>
+    </ModifyUnit>
+    <IsNotNullUnit id="mov2#mpkg5#opm3#opg2#inn4" name="Group Exists?" gr:x="0" gr:y="55">
+      <OKLink id="mov2#mpkg5#opm3#opg2#inn4#oln27" name="OKLink24" to="mov2#mpkg5#opm3#opg2#mfu4"/>
+      <KOLink id="mov2#mpkg5#opm3#opg2#inn4#kln14" name="KOLink13" to="mov2#mpkg5#opm3#opg2#cru5"/>
+    </IsNotNullUnit>
+  </OperationUnits>
+  <KOLink id="mov2#mpkg5#opm3#opg2#kln15" name="KOLink15" to="mov2#mpkg5#opm3#kocu4" automaticCoupling="true"/>
+</OperationGroup>

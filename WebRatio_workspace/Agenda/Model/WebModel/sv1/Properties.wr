@@ -1,0 +1,44 @@
+<SiteView xmlns:gr="http://www.webratio.com/2006/WebML/Graph" id="sv1" name="Administration" homePage="sv1#page1" protected="true">
+  <OperationUnits>
+    <LogoutUnit gr:x="685" gr:y="-215" id="sv1#lou2" name="Logout" siteView="sv3"/>
+    <ModuleInstanceUnit gr:x="345" gr:y="120" id="sv1#miu1" name="Save User" moduleId="mov2#mpkg5#opm1">
+      <OKLink id="sv1#miu1#oln11" name="OkLink11" to="sv1#page1#mssu2">
+        <LinkParameter id="sv1#miu1#oln11#par26" name="Message" sourceValue="Operation Success." target="sv1#page1#mssu2.shownMessages"/>
+        <UnitComputation unitId="sv1#page1#pwu1" mode="execute"/>
+      </OKLink>
+      <KOLink id="sv1#miu1#kln12" name="KOLink12" to="sv1#page1#mssu2" gr:bendpoints="-90,42,110,42">
+        <LinkParameter id="sv1#miu1#kln12#par41" name="Message" sourceValue="Operation Error" target="sv1#page1#mssu2.shownMessages"/>
+      </KOLink>
+    </ModuleInstanceUnit>
+    <DeleteUnit gr:x="285" gr:y="10" id="sv1#dlu1" name="Delete User" entity="User">
+      <Selector id="sv1#dlu1#su2" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="sv1#dlu1#su2#kcond2" name="User Key" predicate="in" implied="false"/>
+      </Selector>
+      <OKLink id="sv1#dlu1#oln10" name="OKLink10" to="sv1#page1#mssu2">
+        <LinkParameter id="sv1#dlu1#oln10#par24" name="Message" sourceValue="User Deleted Successfully" target="sv1#page1#mssu2.shownMessages"/>
+      </OKLink>
+    </DeleteUnit>
+    <ModuleInstanceUnit gr:x="-410" gr:y="145" id="sv1#miu9" name="Save Group" moduleId="mov2#mpkg5#opm3">
+      <OKLink id="sv1#miu9#oln33" name="OKLink33" to="sv1#page1#mssu2" gr:bendpoints="18,183,-467,198;443,183,-42,198">
+        <LinkParameter id="sv1#miu9#oln33#par57" name="Message" sourceValue="Operation Success" target="sv1#page1#mssu2.shownMessages"/>
+        <UnitComputation unitId="sv1#page1#pwu3" mode="execute"/>
+        <UnitComputation unitId="sv1#page1#mciu2" mode="execute"/>
+      </OKLink>
+      <KOLink id="sv1#miu9#kln16" name="KOLink16" to="sv1#page1#mssu2" gr:bendpoints="-1,192,-486,207;484,192,-1,207">
+        <LinkParameter id="sv1#miu9#kln16#par58" name="Message" sourceValue="Operation Error" target="sv1#page1#mssu2.shownMessages"/>
+      </KOLink>
+    </ModuleInstanceUnit>
+    <ModuleInstanceUnit gr:x="-170" gr:y="275" id="sv1#miu11" name="Delete Group" moduleId="mov2#mpkg5#hym3">
+      <OKLink id="sv1#miu11#oln100" name="OKLink100" to="sv1#page1#mssu2" gr:bendpoints="181,-1,-99,154" codeRef="mov2#mpkg5#hym3#okcu1">
+        <UnitComputation unitId="sv1#page1#pwu3" mode="execute"/>
+        <UnitComputation unitId="sv1#page1#mciu2" mode="execute"/>
+        <UnitComputation unitId="sv1#page1#pwu1" mode="execute"/>
+        <LinkParameter id="sv1#miu11#oln100#par104" name="Message" sourceValue="Group Deleted Successfully" target="sv1#page1#mssu2.shownMessages"/>
+      </OKLink>
+      <OKLink id="sv1#miu11#oln101" name="OKLink101" to="sv1#page1" automaticCoupling="true" gr:bendpoints="148,-63,-2,197" codeRef="mov2#mpkg5#hym3#okcu2"/>
+    </ModuleInstanceUnit>
+  </OperationUnits>
+  <Comment xml:space="preserve">This is the Site View reserved to the administrator of the Calendar system.
+
+Through some popup pages the admin can handle Users and Groups: the available functions are create, edit and delete.</Comment>
+</SiteView>

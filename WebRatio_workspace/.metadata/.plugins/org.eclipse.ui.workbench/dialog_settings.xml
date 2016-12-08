@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="WorkbenchPreferenceDialogSettings">
+		<item value="23" key="DIALOG_Y_ORIGIN"/>
+		<item value="115" key="DIALOG_X_ORIGIN"/>
+	</section>
+	<section name="InstallationDialogSettings">
+		<item value="814" key="DIALOG_WIDTH"/>
+		<item value="-171" key="DIALOG_Y_ORIGIN"/>
+		<item value="773" key="DIALOG_HEIGHT"/>
+		<item value="-142" key="DIALOG_X_ORIGIN"/>
+		<item value="1|.Helvetica Neue DeskInterface|13.0|0|COCOA|1|.HelveticaNeueDeskInterface-Regular" key="DIALOG_FONT_NAME"/>
+	</section>
+	<section name="EditorSelectionDialog">
+	</section>
+</section>

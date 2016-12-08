@@ -1,0 +1,45 @@
+#scrollToTopMultiMessageUnit a.scrollToTopMultiMessageUnitRight {
+	display: block;
+	display: none;
+	z-index: 999; 
+	opacity: .6;
+	position: fixed;
+ 	top: 100%;
+	margin-top: -50px;
+	right: 2%;
+	margin-left: -100px;
+ 	-moz-border-radius: 20px;
+	-webkit-border-radius: 20px;
+	border-radius: 20px;
+	width: 200px;
+	height: 20px;
+	padding: 5px;
+	background-color: #222;
+	font-size: 16px;
+	text-align: center;
+	color: #fff;
+	text-decoration: none;
+}
+
+#scrollToTopMultiMessageUnit a.scrollToTopMultiMessageUnitCenter {
+	display: block;
+	display: none;
+	z-index: 999; 
+	opacity: .6;
+	position: fixed;
+	top: 100%;
+	margin-top: -50px;
+	left: 50%;
+	margin-left: -100px;
+	-moz-border-radius: 20px;
+	-webkit-border-radius: 20px;
+	border-radius: 20px;
+	width: 200px;
+	height: 20px;
+	padding: 5px;
+	background-color: #222;
+	font-size: 16px;
+	text-align: center;
+	color: #fff;
+	text-decoration: none;
+}

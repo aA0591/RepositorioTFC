@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Layout> 
+  <Resources> 
+    <Resource name="google-maps" url="http://maps.googleapis.com/maps/api/js" type="javascript"> 
+      <RuntimeContent xml:space="preserve">def googleMapsProvider = rtx.getModelService().getServiceDataProviderInfosByType("Google Maps")[0]
+def apiKey = googleMapsProvider["apiKey"]
+return content + "?key=" + apiKey</RuntimeContent> 
+    </Resource>  
+    <Resource type="javascript" path="Scripts/MasonryMultipleDetails/masonry.pkgd.min.js" name="masonry-js" version="3.1.5"/>  
+    <Resource type="javascript" path="Scripts/MasonryMultipleDetails/imagesloaded.pkgd.min.js" name="imagesloaded-js" version="3.1.4"/>  
+    <Resource name="NotificationMessage-script" path="Scripts/NotificationMessageMultiMessageUnit/NotificationMessage.js" type="javascript" requires="jquery"/>  
+    <Resource name="NotificationMessage-style" path="CSS/NotificationMessageMultiMessageUnit/NotificationMessage.css" type="css"/>  
+    <Resource name="Rating-style" path="CSS/RatingAttr/RatingAttributeTemplate.css" type="css"/>  
+    <Resource name="ScrollToTop-script" path="Scripts/ScrollToTopMultiMessageUnit/ScrollToTop.js" type="javascript" requires="jquery"/>  
+    <Resource name="ScrollToTop-style" path="CSS/ScrollToTopMultiMessageUnit/ScrollToTop.css" type="css"/>  
+    <Resource name="InfiniteScroll-style" path="CSS/InfiniteScrollPowerIndexUnit/InfiniteScrollPowerIndexUnit.css" type="css"/>
+    <Resource name="jquery-ui" path="Scripts/InfiniteScrollPowerIndexUnit/jquery.ui.min.js" type="javascript" version="1.8.15" requires="jquery"/>
+  </Resources> 
+</Layout>

@@ -1,0 +1,16 @@
+<HybridModule xmlns:gr="http://www.webratio.com/2006/WebML/Graph" id="mov1#mpkg3#hym11" name="Export Excel" gr:x="0" gr:y="0" gr:icon="ModulesIcons/ExcelDocument.png">
+  <OperationUnits>
+    <InputCollectorUnit id="mov1#mpkg3#hym11#icu13" name="Input" gr:x="85" gr:y="175">
+      <InputCollectorParameter id="mov1#mpkg3#hym11#icu13#icp15" name="Calendar Key"/>
+      <InputCollectorParameter id="mov1#mpkg3#hym11#icu13#icp16" name="Current Time"/>
+      <OKLink id="mov1#mpkg3#hym11#icu13#oln64" name="OKLink64" to="mov1#mpkg3#hym11#page12#mdu7">
+        <LinkParameter id="mov1#mpkg3#hym11#icu13#oln64#par178" name="Current Time" source="mov1#mpkg3#hym11#icu13#icp16" target="mov1#mpkg3#hym11#page12#mdu7#su69#acond11"/>
+        <LinkParameter id="mov1#mpkg3#hym11#icu13#oln64#par179" name="Calendar Key" source="mov1#mpkg3#hym11#icu13#icp15" target="mov1#mpkg3#hym11#page12#mdu7#su69#rcond12.ent3#att4"/>
+      </OKLink>
+      <Link id="mov1#mpkg3#hym11#icu13#ln158" name="Link158" to="mov1#mpkg3#hym11#page12#dau4" type="transport" validate="true">
+        <LinkParameter id="mov1#mpkg3#hym11#icu13#ln158#par180" name="Calendar Key" source="mov1#mpkg3#hym11#icu13#icp15" target="mov1#mpkg3#hym11#page12#dau4#su70#kcond26.ent3#att4"/>
+      </Link>
+    </InputCollectorUnit>
+  </OperationUnits>
+  <Comment xml:space="preserve">Hybrid Module used to export a Calendar into an excel file.</Comment>
+</HybridModule>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Unit type="content|operation" version="1.0.0" idPrefix="ggu" okLinkSource="true" okLinkTarget="true" koLinkTarget="false" linkTarget="true" linkSource="true" koLinkSource="true" defaultIntraPageLinkType="transport" defaultTowardsOperationLinkType="transport" canPlaceLayoutUnit="false"> 
+
+  <StringProperty attributeName="address" label="Address"> 
+    <Description xml:space="preserve">The address to search for coordinates. </Description> 
+  </StringProperty>  
+
+  <StringProperty attributeName="mapCoordinates" label="Map Coordinates"> 
+    <Description xml:space="preserve">The coordinates to return in output (the other input parameters are ignored and no operation is done). </Description> 
+  </StringProperty>  
+
+  <StringProperty attributeName="city" label="City"> 
+    <Description xml:space="preserve">The city to search for coordinates. </Description> 
+  </StringProperty>  
+
+  <StringProperty attributeName="stateOrProvince" label="State or Province"> 
+    <Description xml:space="preserve">The state or province to search for coordinates. </Description> 
+  </StringProperty>  
+
+  <StringProperty attributeName="country" label="Country"> 
+    <Description xml:space="preserve">The country to search for coordinates. </Description> 
+  </StringProperty>  
+
+  <StringProperty attributeName="fullAddress" label="Full Address"> 
+    <Description xml:space="preserve">The complete address (address+city+state or province+country) to translate (the other input parameters are ignored except for the coordinates). </Description> 
+  </StringProperty>  
+
+  <Description xml:space="preserve">This Google Geocoding Unit is able to transform an address into coordinates (geocode) using Google Maps Api features. </Description>  
+
+  <InputDescription xml:space="preserve" name="Address">The address to search for coordinates. </InputDescription>
+  <InputDescription xml:space="preserve" name="City">The city to search for coordinates. </InputDescription>
+  <InputDescription xml:space="preserve" name="State or Province">The state or province to search for coordinates. </InputDescription>
+  <InputDescription xml:space="preserve" name="Country">The country to search for coordinates. </InputDescription>
+  <InputDescription xml:space="preserve" name="Full Address">The complete address (&lt;address&gt;, &lt;city&gt;, &lt;state or province&gt;, &lt;country&gt;) to search for coordinates (the other input parameters are ignored except for the coordinates). </InputDescription>
+  <InputDescription xml:space="preserve" name="Map Coordinates">Map Coordinates to pass in output (other input params are ignored)</InputDescription>
+  
+  <OutputDescription xml:space="preserve" name="Retrieved Address">The full address registered in Google Maps and pointed by the returned coordinates. </OutputDescription>
+  <OutputDescription xml:space="preserve" name="Maps Coordinates">The calculated coordinates. </OutputDescription>
+  <OutputDescription xml:space="preserve" name="Latitude">The calculated latitude. </OutputDescription>
+  <OutputDescription xml:space="preserve" name="Longitude">The calculated longitude. </OutputDescription>
+</Unit>

@@ -1,0 +1,40 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" id="mov1#mpkg2#hym10#page10" name="Appointment Information" layout:pageLayout="WRDefault/Empty" gr:x="200" gr:y="280">
+  <ContentUnits>
+    <DataUnit id="mov1#mpkg2#hym10#page10#dau3" name="Details" linkOrder="mov1#mpkg2#hym10#page10#dau3#ln140" gr:x="0" gr:y="0" entity="ent1" displayAttributes="ent1#att1 ent1#att2 ent1#att3 ent1#att5 ent1#att6 ent1#att12 ent1#att15 ent1#att16 ent1#att28a ent1#att29a">
+      <Selector id="mov1#mpkg2#hym10#page10#dau3#su50" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="mov1#mpkg2#hym10#page10#dau3#su50#kcond9" name="Appointment" predicate="in" implied="false"/>
+      </Selector>
+      <Link id="mov1#mpkg2#hym10#page10#dau3#ln140" name="Close" to="mov1#mpkg2#hym10#okcu10" type="normal" validate="true"/>
+    </DataUnit>
+  </ContentUnits>
+  <layout:Grid>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="mov1#mpkg2#hym10#page10#dau3">
+          <layout:Attribute attribute="ent1#att1"/>
+          <layout:Attribute attribute="ent1#att2"/>
+          <layout:Attribute attribute="ent1#att3"/>
+          <layout:Attribute attribute="ent1#att5"/>
+          <layout:Attribute attribute="ent1#att6"/>
+          <layout:Attribute attribute="ent1#att12"/>
+          <layout:Attribute attribute="ent1#att15"/>
+          <layout:Attribute attribute="ent1#att16"/>
+          <layout:Attribute attribute="ent1#att28a"/>
+          <layout:Attribute attribute="ent1#att29a"/>
+          <layout:Link link="mov1#mpkg2#hym10#page10#dau3#ln140"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+</Page>

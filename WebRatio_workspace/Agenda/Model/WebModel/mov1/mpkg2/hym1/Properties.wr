@@ -1,0 +1,16 @@
+<HybridModule xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" gr:x="240" gr:y="65" id="mov1#mpkg2#hym1" name="Selected Date Appointments" layout:singleLayout="false" layout:pageLayout="WRDefault/Empty" layout:layoutManager="grid" gr:icon="ModulesIcons/AppointmentDate.png">
+  <OperationUnits>
+    <InputCollectorUnit gr:x="40" gr:y="170" id="mov1#mpkg2#hym1#icu1" name="Input">
+      <InputCollectorParameter id="mov1#mpkg2#hym1#icu1#icp1" name="Calendar Key"/>
+      <InputCollectorParameter id="mov1#mpkg2#hym1#icu1#icp2" name="Selected Date"/>
+      <OKLink id="mov1#mpkg2#hym1#icu1#oln4" name="OKLink4" to="mov1#mpkg2#hym1#page2#mdu2" ajaxOpenWindow="false" ajaxWindowUseTitle="false" ajaxWindowTitle="iokokiok" ajaxWindowWidth="989" ajaxWindowHeight="400" ajaxWindowAutoResizing="true">
+        <LinkParameter id="mov1#mpkg2#hym1#icu1#oln4#par31" name="Calendar Key" source="mov1#mpkg2#hym1#icu1#icp1" target="mov1#mpkg2#hym1#page2#mdu2#su6#rcond5.ent3#att4"/>
+        <LinkParameter id="mov1#mpkg2#hym1#icu1#oln4#par32" name="Selected Date" source="mov1#mpkg2#hym1#icu1#icp2" target="mov1#mpkg2#hym1#page2#mdu2#su6#acond2"/>
+      </OKLink>
+      <Link id="mov1#mpkg2#hym1#icu1#ln23" name="Link23" to="mov1#mpkg2#hym1#page2#dau5" type="transport" validate="true">
+        <LinkParameter id="mov1#mpkg2#hym1#icu1#ln23#par29" name="Calendar Key" source="mov1#mpkg2#hym1#icu1#icp1" target="mov1#mpkg2#hym1#page2#dau5#su7#kcond3.ent3#att4"/>
+      </Link>
+    </InputCollectorUnit>
+  </OperationUnits>
+  <Comment xml:space="preserve">Hybrid Module that contains the logic to see the Appointments of a selected date.</Comment>
+</HybridModule>

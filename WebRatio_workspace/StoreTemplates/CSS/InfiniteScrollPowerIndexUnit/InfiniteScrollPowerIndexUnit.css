@@ -1,0 +1,23 @@
+.infinite-scroll-row{
+   border-radius: 1px;
+   -moz-border-radius: 1px;
+   -webkit-border-radius: 1px;
+   background: #F6F6FF;
+   color: #888;
+   padding: 5px;
+   margin: 8px;
+   box-shadow: 1px 1px 3px #999;
+   -moz-box-shadow: 1px 1px 3px #999;
+   -webkit-box-shadow: 1px 1px 3px #999; 
+}
+
+div.infinite-scroll-row td, div.infinite-scroll-row th{
+   text-align: left;
+}
+
+.infinite-scroll-loader{
+    text-align: center;
+    margin: 0;
+	height:32px;
+	background:#ffffff url('../../Images/InfiniteScrollPowerIndexUnit/loader.gif') no-repeat center center;
+}

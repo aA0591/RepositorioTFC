@@ -1,0 +1,250 @@
+#?delimiters [%, %], [%=, %]
+<wr:LayoutParameter name="application-name" label="Application Name" type="string" default="WebRatio">
+Define the name of the application shown on top left of the page.
+</wr:LayoutParameter>
+<wr:LayoutParameter name="fixed-layout" label="Fixed layout" type="boolean" values="fixed-top|static-top" default="true">
+Define the header and the menu should remain fixed.
+Default value is true.
+</wr:LayoutParameter>
+<wr:LayoutParameter name="skin" label="Skin" type="enum" values="blue|black" default="blue">
+Define the style colors.
+Default value is blue.
+</wr:LayoutParameter>
+<wr:LayoutParameter name="show-left-column" label="Show left column" type="boolean" default="false">
+Defines if the left column is shown.
+Default value is false.
+</wr:LayoutParameter>
+<wr:LayoutParameter name="show-right-column" label="Show right column" type="boolean" default="false">
+Defines if the right column is shown.
+Default value is false.
+</wr:LayoutParameter>
+<wr:LayoutParameter name="show-breadcrumb" label="Show breadcrumb" type="boolean" default="true">
+Defines if breadcrumb is shown.
+Default value is true.
+</wr:LayoutParameter>
+<wr:LayoutParameter name="show-page-title" label="Show page title" type="boolean" default="true">
+Defines if breadcrumb is shown.
+Default value is true.
+</wr:LayoutParameter>
+[%import org.apache.commons.lang.StringEscapeUtils
+
+setHTMLOutput()
+
+def homePage = getHomePage(page.selectSingleNode("ancestor::SiteView"))
+
+def fixedLayout = params["fixed-layout"] == "true"
+def skin = params["skin"]
+def showLeftColumn = params["show-left-column"] == "true" || page.selectSingleNode("layout:CustomLocation[@name='Left']") != null
+def showRightColumn = params["show-right-column"] == "true" || page.selectSingleNode("layout:CustomLocation[@name='Right']") != null
+def showBreadcrumb = params["show-breadcrumb"] == "true"
+def showPageTitle = params["show-page-title"] == "true"
+
+%]
+<wr:Page type="HTML5"/>
+<wr:Resources types="jspdeclaration"/>
+<%@ page contentType="text/html; charset=UTF-8"%> 
+<webratio:Page page="<wr:Id context="page"/>"/>
+<html lang="${LanguageISOCtxParam}">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+		[%if(enableURLFragments()){%]<wr:BaseURI/>[%}%]
+		<title><wr:Label context="page"/></title>
+		<wr:Resources types="css"/>
+		<wr:Resources types="javascript"/>
+	</head>
+<body class="skin-[%= skin %][%= (fixedLayout) ? " fixed" : "" %]">
+	<a href="#main-content" class="sr-only">Skip to main content</a>
+	<wr:PageForm>
+		<header class="top-header">
+			<a class="logo" href="[% if (homePage) {%]<wr:Id context="homePage"/>.do[% } else {%]index.jsp[% } %]">
+				<span class="sr-only">[%= StringEscapeUtils.escapeHtml(params["application-name"]) %]</span>
+			</a>
+			
+            <nav class="navbar navbar-static-top" role="navigation">
+                <!-- Sidebar toggle button-->
+                <a href="#" class="navbar-btn sidebar-toggle" data-toggle="offcanvas" role="button">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+                <wr:CustomLocation name="User"/>
+            </nav>
+        </header>
+		
+		<div class="wrapper row-offcanvas row-offcanvas-left">
+            <aside class="left-side sidebar-offcanvas">
+                <section class="sidebar">
+                    
+                    <ul class="sidebar-menu" role="menu">
+                        <wr:LandmarkMenu level="1" var="lm">
+						<wr:Visible>
+							[% if (getLandmarkChildren(lm).size() > 0) { %]
+								<wr:Current>
+									<li class="active treeview">
+								</wr:Current>
+								<wr:NonCurrent>
+									<li class="treeview">
+								</wr:NonCurrent>
+										<a href="<wr:URL context="lm"/>">
+											<span><wr:Label context="lm"/></span>
+											<span class="pull-right caret"></span>
+										</a>
+										<ul class="treeview-menu" role="menu">
+											<wr:Current>
+												<wr:LandmarkMenu level="2" var="lm2">
+												<wr:Visible>
+													<wr:Current>
+													[% if (getLandmarkChildren(lm2).size() > 0) { %]													
+														<li class="active treeview">
+													        <a href="<wr:URL context="lm2"/>">
+																<span><wr:Label context="lm2"/></span>
+																<span class="pull-right caret"></span>
+															</a>
+													        <ul class="treeview-menu" role="menu">
+													        	<wr:LandmarkMenu level="3" var="lm3">
+													        	<wr:Visible>
+													        		<li<wr:Current> class="active"</wr:Current>><wr:Link/></li>
+													        	</wr:Visible>
+													        	</wr:LandmarkMenu>
+													        </ul>
+													      </li>
+													[% } else { %]
+														<li class="active">
+															<a href="<wr:URL context="lm2"/>">
+																<span><wr:Label context="lm2"/></span>
+															</a>
+														</li>
+													[% } %]
+													</wr:Current>
+													<wr:NonCurrent>
+													[% if (getLandmarkChildren(lm2).size() > 0) { %]													
+														<li class="treeview">
+													        <a href="<wr:URL context="lm2"/>">
+																<span><wr:Label context="lm2"/></span>
+																<span class="pull-right caret"></span>
+															</a>
+													        <ul class="treeview-menu" role="menu">
+													        	<wr:LandmarkMenu level="3" var="lm3">
+													        	<wr:Visible>
+													        		<li><wr:Link/></li>
+													        	</wr:Visible>
+													        	</wr:LandmarkMenu>
+													        </ul>
+													      </li>
+													[% } else { %]
+														<li>
+															<a href="<wr:URL context="lm2"/>">
+																<span><wr:Label context="lm2"/></span>
+															</a>
+														</li>
+													[% } %]
+													</wr:NonCurrent>
+												</wr:Visible>
+												</wr:LandmarkMenu>
+											</wr:Current>
+											<wr:NonCurrent>
+												<wr:LandmarkMenu level="2" var="lm2">
+												<wr:Visible>
+													<wr:NonCurrent>
+													  	[% if (getLandmarkChildren(lm2).size() > 0) { %]													
+															<li class="treeview">
+														        <a href="<wr:URL context="lm2"/>">
+																	<span><wr:Label context="lm2"/></span>
+																	<span class="pull-right caret"></span>
+																</a>
+														        <ul class="treeview-menu" role="menu">
+														        	<wr:LandmarkMenu level="3" var="lm3">
+														        		<wr:Visible>
+															        		<li><wr:Link/></li>
+															        	</wr:Visible>
+														        	</wr:LandmarkMenu>
+														        </ul>
+														      </li>
+														[% } else { %]
+															<li>
+																<a href="<wr:URL context="lm2"/>">
+																	<span><wr:Label context="lm2"/></span>
+																</a>
+															</li>
+														[% } %]	
+													</wr:NonCurrent>
+												</wr:Visible>																			
+												</wr:LandmarkMenu>
+											</wr:NonCurrent>
+										</ul>
+									</li>
+							[% } else { %]
+								<wr:Current>
+									<li class="active"><a href="<wr:URL/>"><wr:Label/></a></li>
+								</wr:Current>
+								<wr:NonCurrent>
+									<li><a href="<wr:URL/>"><wr:Label/></a></li>
+								</wr:NonCurrent>
+							[% } %]
+						</wr:Visible>
+						</wr:LandmarkMenu>
+                    </ul>
+                </section>
+            </aside>
+            <aside class="right-side">
+                [% if (showPageTitle || showBreadcrumb) { %]
+                <section class="content-header clearfix">
+                	[% if (showPageTitle) { %]
+						<h1><wr:Label context="page"/></h1>
+					[% } %]
+                    [% if (showBreadcrumb) { %]
+                    <ol class="breadcrumb">
+                    	<li>
+                    		<a href="[% if (homePage) {%]<wr:Id context="homePage"/>.do[% } else {%]index.jsp[% } %]">
+                    		<span class="glyphicon glyphicon-home"></span> Home</a>
+                    	</li>
+                        <wr:NavigationBar>
+						 <li><wr:Link/></li>
+						</wr:NavigationBar>
+						<li class="active"><wr:Label context="page"/></li>
+                    </ol>
+                    [% } %]
+                </section>
+				[% } %]
+                
+                <section class="content">
+					<div class="row">
+						[% if (showLeftColumn) { %]
+						<aside class="col-md-3 left-column" role="region">
+							<wr:CustomLocation name="Left"/>
+						</aside>
+						[% } %]
+						[% if (showLeftColumn && showRightColumn) { %]
+						<div class="col-md-6">
+						[% } else if (showLeftColumn ^ showRightColumn) { %]
+						<div class="col-md-9">
+						[% } else { %]
+						<div class="col-md-12">
+						[% } %]
+							[% if (page.selectSingleNode("layout:CustomLocation[@name='Page Links']") != null) { %]
+					  		<div class="text-right page-links">
+					  			<wr:CustomLocation name="Page Links"/>
+							</div>
+							[% } %]
+							<wr:CustomLocation name="Top"/>
+							<div id="main-content" role="main">
+							<wr:Grid/>
+							</div>
+						</div>
+						[% if (showRightColumn) { %]
+						<aside class="col-md-3 right-column" role="region">
+							<wr:CustomLocation name="Right"/>
+						</aside>
+						[% } %]
+					</div>
+                </section>
+                <footer class="footer-bottom text-center" role="contentinfo">
+					<p class="footer-info">Generated by <a href="http://www.webratio.com" target="_blank" title="High Productivity Web and Mobile App Dev Platform">WebRatio<sup>&reg;</sup></a></p>
+				</footer>
+            </aside>
+        </div>
+	</wr:PageForm>
+</body>
+</html>

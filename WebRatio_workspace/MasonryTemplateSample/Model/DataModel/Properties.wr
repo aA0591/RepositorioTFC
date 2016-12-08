@@ -1,0 +1,64 @@
+<DataModel xmlns:db="http://www.webratio.com/2006/WebML/Database" xmlns:gr="http://www.webratio.com/2006/WebML/Graph">
+  <Entity id="User" name="User" duration="persistent" gr:x="20" gr:y="158" gr:hideAttributes="false" attributeOrder="userOID userName password email" db:database="db2" db:table="USER">
+    <Attribute name="oid" id="userOID" type="integer" key="true" db:column="OID"/>
+    <Attribute name="userName" id="userName" type="string" db:column="USERNAME"/>
+    <Attribute name="password" id="password" type="password" db:column="PASSWORD"/>
+    <Attribute name="email" id="email" type="string" db:column="EMAIL"/>
+  </Entity>
+  <Entity id="Group" name="Group" duration="persistent" gr:x="250" gr:y="178" gr:hideAttributes="false" attributeOrder="groupOID groupName" db:database="db2" db:table="GROUP">
+    <Attribute name="oid" id="groupOID" type="integer" key="true" db:column="OID"/>
+    <Attribute name="groupName" id="groupName" type="string" db:column="GROUPNAME"/>
+  </Entity>
+  <Entity id="Module" name="Module" duration="persistent" gr:x="472" gr:y="167" gr:hideAttributes="false" attributeOrder="moduleOID moduleID moduleName" db:database="db2" db:table="MODULE">
+    <Attribute name="oid" id="moduleOID" type="integer" key="true" db:column="OID"/>
+    <Attribute name="moduleID" id="moduleID" type="string" db:column="MODULEID"/>
+    <Attribute name="moduleName" id="moduleName" type="string" db:column="MODULENAME"/>
+  </Entity>
+  <Relationship id="User2Group_Group2User" name="User_Group" sourceEntity="User" targetEntity="Group" db:database="db2" db:table="USER_GROUP">
+    <RelationshipRole1 id="User2Group" name="groups" maxCard="N">
+      <db:JoinColumn attribute="userOID" name="USER_OID"/>
+    </RelationshipRole1>
+    <RelationshipRole2 id="Group2User" name="users" maxCard="N">
+      <db:JoinColumn attribute="groupOID" name="GROUP_OID"/>
+    </RelationshipRole2>
+  </Relationship>
+  <Relationship id="User2DefaultGroup_DefaultGroup2User" name="User_DefaultGroup" sourceEntity="User" targetEntity="Group" gr:bendpoints="113,42,-112,44" db:database="db2" db:table="USER">
+    <RelationshipRole1 id="User2DefaultGroup" name="defaultGroup" maxCard="1">
+      <db:JoinColumn attribute="userOID" name="OID"/>
+    </RelationshipRole1>
+    <RelationshipRole2 id="DefaultGroup2User" name="defaultUsers" maxCard="N">
+      <db:JoinColumn attribute="groupOID" name="GROUP_OID"/>
+    </RelationshipRole2>
+  </Relationship>
+  <Relationship id="Group2DefaultModule_DefaultModule2Group" name="Group_DefaultModule" sourceEntity="Group" targetEntity="Module" db:database="db2" db:table="GROUP">
+    <RelationshipRole1 id="Group2DefaultModule" name="defaultModule" maxCard="1">
+      <db:JoinColumn attribute="groupOID" name="OID"/>
+    </RelationshipRole1>
+    <RelationshipRole2 id="DefaultModule2Group" name="defaultGroups" maxCard="N">
+      <db:JoinColumn attribute="moduleOID" name="MODULE_OID"/>
+    </RelationshipRole2>
+  </Relationship>
+  <Relationship id="Group2Module_Module2Group" name="Group_Module" sourceEntity="Group" targetEntity="Module" gr:bendpoints="110,41,-115,41" db:database="db2" db:table="GROUP_MODULE">
+    <RelationshipRole1 id="Group2Module" name="modules" maxCard="N">
+      <db:JoinColumn attribute="groupOID" name="GROUP_OID"/>
+    </RelationshipRole1>
+    <RelationshipRole2 id="Module2Group" name="groups" maxCard="N">
+      <db:JoinColumn attribute="moduleOID" name="MODULE_OID"/>
+    </RelationshipRole2>
+  </Relationship>
+  <db:Database id="db2" name="GraphDB" type="Apache Derby" url="jdbc:derby://localhost:50123/GraphDB;create=true" username="manager" cryptedPassword="true" password="bWFuYWdlcg==" schema="APP"/>
+  <Entity id="ent2" name="Product" duration="persistent" attributeOrder="ent2#att4 ent2#att7 ent2#att6 ent2#att9" gr:hideAttributes="false" gr:x="245" gr:y="335" db:database="db2" db:table="PRODUCT">
+    <Attribute id="ent2#att4" name="oid" key="true" type="integer" db:column="OID"/>
+    <Attribute id="ent2#att6" name="description" type="text" db:column="DESCRIPTION" db:clob="true"/>
+    <Attribute id="ent2#att7" name="name" type="string" db:column="NAME"/>
+    <Attribute id="ent2#att9" name="thumbnail" type="blob" contentType="image" db:column="THUMBNAIL"/>
+  </Entity>
+  <Relationship id="rel2" name="Product_Product" sourceEntity="ent2" targetEntity="ent2" gr:bendpoints="121,41,121,41;121,-41,121,-41" db:database="db2" db:table="PRODUCT_PRODUCT">
+    <RelationshipRole1 id="rel2#role3" name="ProductToProduct1" maxCard="N">
+      <db:JoinColumn attribute="ent2#att4" name="PRODUCT_OID"/>
+    </RelationshipRole1>
+    <RelationshipRole2 id="rel2#role4" name="ProductToProduct2" maxCard="N">
+      <db:JoinColumn attribute="ent2#att4" name="PRODUCT_OID_2"/>
+    </RelationshipRole2>
+  </Relationship>
+</DataModel>

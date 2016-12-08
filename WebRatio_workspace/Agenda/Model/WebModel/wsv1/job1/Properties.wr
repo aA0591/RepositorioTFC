@@ -1,0 +1,15 @@
+<Job xmlns:gr="http://www.webratio.com/2006/WebML/Graph" gr:x="25" gr:y="15" id="wsv1#job1" name="Set Attendees Reminders">
+  <OperationUnits>
+    <InitJobUnit id="wsv1#job1#iju1" name="Start Reminder Setting" gr:x="0" gr:y="0">
+      <JobInputParameter id="wsv1#job1#iju1#iji1" name="Reminder Message"/>
+      <JobInputParameter id="wsv1#job1#iju1#iji2" name="Appointment Key"/>
+      <OKLink id="wsv1#job1#iju1#oln35" name="OKLink35" to="wsv1#job1#miu8">
+        <LinkParameter id="wsv1#job1#iju1#oln35#par89" name="Appointment Key" source="wsv1#job1#iju1#iji2" target="wsv1#job1#miu8.mov1#mpkg2#opm2#icu10#icp10"/>
+        <LinkParameter id="wsv1#job1#iju1#oln35#par90" name="Operation" sourceValue="reminder" target="wsv1#job1#miu8.mov1#mpkg2#opm2#icu10#icp11"/>
+      </OKLink>
+    </InitJobUnit>
+    <ModuleInstanceUnit gr:x="220" gr:y="10" id="wsv1#job1#miu8" name="Send EMail" moduleId="mov1#mpkg2#opm2"/>
+  </OperationUnits>
+  <Comment xml:space="preserve">This Job is used to send reminder emails to all the attendee of a certain Appointment. It doesn't have a Trigger, so it is scheduled directly from the flow of the Model. It has two input parameters, the identifier of the Appointment and the Message to be sent.
+When the Init Job Unit is computed, the Send EMail module starts to send emails to all the Attendees of the given Appointment, with the given input reminder message.</Comment>
+</Job>

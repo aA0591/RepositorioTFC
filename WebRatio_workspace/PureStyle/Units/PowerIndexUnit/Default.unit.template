@@ -1,0 +1,328 @@
+#?delimiters [%, %], [%=, %]
+<wr:LayoutParameter label="Show Header" name="show-header" type="boolean" default="true">
+Defines the rendition of the header on the top.
+Allowed values are: true (default) or false.
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Use Alternate Rows" name="use-alternate" type="boolean" default="false">
+Defines the usage of alternates colours for each line.
+Allowed values are: true or false(default).
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Links Position" name="link-position" type="enum" values="left|right|on_row" default="right">
+Defines the rendition of the sub levels links.
+Allowed values are:
+- right (default): places the links on the right
+- left: places the links on the left
+- on_row: places the first link on the attributes
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Scrolling Position" name="scrolling-position" type="enum" values="top|bottom|both" default="top">
+Defines where to position the scroll links.
+Allowed values are:
+- top (default): places the links at the top
+- bottom: places the links at the bottom
+- both: places the links at the top and bottom
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Buttons Position" name="button-position" type="enum" values="top|bottom|both" default="bottom">
+Defines where to position the buttons to render submit links.
+Allowed values are:
+- top: places the buttons at the top
+- bottom (default): places the buttons at the bottom
+- both: places the buttons at the top and bottom
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Select All" name="select-all" type="boolean" values="true|false" default="false">
+Defines the rendition of a link that allows
+to select or deselect all the checkboxes of
+the unit.
+Allowed values are: true or false(default).
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Use Empty Unit Message" name="use-empty-unit-message" type="boolean" default="false">
+Defines the usage of a message for empty units.
+Allowed values are: true(default) or false.
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Empty Unit Message" name="empty-unit-message" type="string" default="emptyUnitMessage">
+Defines the key of the message to use if the unit is empty.
+Default value: emptyUnitMessage
+</wr:LayoutParameter>
+
+[%
+import org.apache.commons.lang.StringUtils
+import org.apache.commons.lang.math.NumberUtils
+
+setHTMLOutput()
+
+def unitId = unit["id"]
+def blockFactor = unit["blockFactor"]
+def isSortable = unit["sortable"]
+def isScrollable = blockFactor != "" ? "true": "false"
+
+def unitLink = unit.selectNodes("layout:Link[string(@_exp) != 't']").find{!isButton(it)}
+def link = unitLink?.valueOf("@link")
+def myIndex = unit.hashCode()
+
+def showHeader = params["show-header"]
+def useAlternate = params["use-alternate"]
+def linkPosition = params["link-position"]
+def buttonPosition = params["button-position"]
+def scrollingPosition = params["scrolling-position"]
+def selectAll = params["select-all"]
+def useEmptyUnitMessage = params["use-empty-unit-message"]
+def emptyUnitMessage = params["empty-unit-message"]
+
+
+def checkable = "true" == unit["checkable"] && "true" != unit["distinct"]
+
+//returns true if the given link must be rendered as a form button
+def isButton(link){
+  def navLink = getById(link["link"])
+  if(navLink == null){
+    return false
+  }
+  def linkParams = navLink.selectNodes("LinkParameter").collect{it["source"]}
+  if(linkParams.isEmpty()){
+    linkParams = getAutomaticLinkParameters(navLink).collect{it["source"]}
+  }
+  for(param in linkParams){
+    if(param?.endsWith("Checked")){
+      return true;
+    }
+  }
+  return false
+}
+
+def buttonsCount = unit.selectNodes("layout:Link").findAll{ isButton(it) }.size();
+%]
+[% 
+def printPagination() { 
+	def blockFactor = unit["blockFactor"]
+	
+	def firstLink = unit.selectSingleNode("layout:Link[contains(@link,'First')]")
+	def previousLink = unit.selectSingleNode("layout:Link[contains(@link,'Previous')]")
+	def blockLink = unit.selectSingleNode("layout:Link[contains(@link,'Block')]")
+	def nextLink = unit.selectSingleNode("layout:Link[contains(@link,'Next')]")
+	def lastLink = unit.selectSingleNode("layout:Link[contains(@link,'Last')]")
+%]
+	<c:if test="${<wr:Id context="unit"/>.scroller.of gt [%= blockFactor %]}">
+		<ul class="pure-paginator">
+				[% if (firstLink) { %]
+					<li>
+				        <c:choose>
+				            <c:when test="${<wr:Id context="unit"/>.scroller.current ne <wr:Id context="unit"/>.scroller.first}">
+			     	            <wr:Link class="pure-button prev" context="firstLink"/>
+				            </c:when>
+				            <c:otherwise>
+			           			<span class="pure-button pure-button-disabled prev"><bean:message key="PowerIndex.First"/></span>
+			           		</c:otherwise>
+				        </c:choose>
+				    </li>
+			    [% } %]
+			    [% if (previousLink) { %]
+				    <li>
+				        <c:choose>
+			                <c:when test="${<wr:Id context="unit"/>.scroller.current ne <wr:Id context="unit"/>.scroller.previous}">
+				    	        <wr:Link class="pure-button" context="previousLink"/>
+			                </c:when>
+			                <c:otherwise>
+			           			<span class="pure-button pure-button-disabled"><bean:message key="PowerIndex.Previous"/></span>
+				           	</c:otherwise>
+			            </c:choose>
+				    </li>
+			    [% } %]
+			    [% if (blockLink) { %]
+				    <c:forEach var="current" varStatus="status" items="${<wr:Id context="unit"/>.scroller.blocks}">
+					      <c:set var="index" value="${status.index}"/>
+					      <li>
+					      <c:choose>
+					        <c:when test="${current ne <wr:Id context="unit"/>.scroller.current}">
+					          <a class="<wr:StyleClass context="blockLink"/> pure-button" href="<wr:URL context="blockLink"/>" onclick="<wr:AjaxURL context="blockLink" />">${current}</a>
+					        </c:when>
+					        <c:otherwise>
+					          <span class="<wr:StyleClass context="blockLink"/> pure-button pure-button-active">${current}</span>
+					        </c:otherwise>
+					      </c:choose>
+					      </li>
+			    	</c:forEach>
+		    	[% } %]
+			    [% if (nextLink) { %]
+				    <li>
+				        <c:choose>
+			                <c:when test="${<wr:Id context="unit"/>.scroller.current ne <wr:Id context="unit"/>.scroller.next}">
+	    			    	    <wr:Link class="pure-button" context="nextLink"/>
+	    		            </c:when>
+		    	            <c:otherwise>
+			           			<span class="pure-button pure-button-disabled"><bean:message key="PowerIndex.Next"/></span>
+		    	            </c:otherwise>
+		    	        </c:choose>
+				    </li>
+			    [% } %]
+			    [% if (lastLink) { %]
+				    <li>
+				    	<c:choose>
+	    		            <c:when test="${<wr:Id context="unit"/>.scroller.current ne <wr:Id context="unit"/>.scroller.last}">
+		    		    	    <wr:Link class="pure-button next" context="lastLink"/>
+			                </c:when>
+			                <c:otherwise>
+			           			<span class="pure-button pure-button-disabled next"><bean:message key="PowerIndex.Last"/></span>
+			               </c:otherwise>
+			            </c:choose>
+				    </li>
+			    [% } %]
+		   </ul>
+	</c:if>
+[% } %]
+[% if (useEmptyUnitMessage != "true") { %]
+<c:if test="${not(empty <wr:Id context="unit"/>) and (<wr:Id context="unit"/>.dataSize gt 0)}">
+[% } else { %]
+<c:choose>
+<c:when test="${not(empty <wr:Id context="unit"/>) and (<wr:Id context="unit"/>.dataSize gt 0)}">
+[% } %]
+	<wr:Frame>
+		<div class="plain <wr:StyleClass/>">
+			<div class="plain PowerIndexUnit">
+				[% if (checkable) { %]
+					<c:set var="pureError"><html:errors property="<wr:Id context="unit"/>Checked" /></c:set>
+					<c:if test="${not (empty pureError)}">
+						<div class="pure-alert pure-alert-error">
+							<html:errors property="<wr:Id context="unit"/>Checked" />
+						</div>
+					</c:if>
+					[% if (buttonPosition == "top" || buttonPosition == "both") { %]
+						<div class="button-bar">
+							<wr:Iterate var="l" context="unit" select="layout:Link">
+								[% if (isButton(l)) { %]
+									<wr:Visible>
+										<wr:Link type="button"/>
+									</wr:Visible>	
+								[% } %]
+							</wr:Iterate>
+						</div>
+					[% } %]
+				[% } %]
+				[% if (isScrollable == "true" && (scrollingPosition == "top" || scrollingPosition == "both")) { %]
+					[% printPagination() %]
+				[% } %]
+				<table class="pure-table <wr:StyleClass/>[% if (useAlternate != "true") { %] pure-table-bordered[% } %]">
+					[% if (showHeader == "true") {%]
+					<thead>
+						<tr>
+						[% if (checkable) {%]
+							 [% if (selectAll == "true") {%]
+								<th class="<wr:StyleClass/> header small-cell">
+									<script>multiChoiceMap["<wr:Id context="unit"/>_[%= myIndex%]"] = "all";</script>
+									<input type="checkbox" onclick="return checkall('<wr:Id context="unit"/>', '[%= myIndex%]', 'Checked')" />
+								</th>
+							[% } else {%]
+								<th class="<wr:StyleClass/> header small-cell"></th>
+							[% } %]
+						[%}%]
+						[% if (linkPosition == "left") { %]
+							<wr:Iterate var="l" context="unit" select="layout:Link[string(@_exp) != 't']">
+								[% if (!isButton(l)) { %]
+									<wr:Visible><th class="<wr:StyleClass/> header small-cell"></th></wr:Visible>
+								[% } %]
+							</wr:Iterate>
+						[% }  %]
+						<wr:Iterate var="att" context="unit" select="layout:Attribute">
+							<wr:Visible>
+						        <th class="<wr:StyleClass/> header">
+						        [% if (isSortable == "true") { %]
+						         [% def sortLink = unit.selectSingleNode("layout:Link[@link='" + unit["id"] + att["attribute"] + "']")
+							         if(sortLink != null) { %]
+							            <wr:Link context="sortLink" class="sort" type="sort"/>
+							         [% } else { %]
+							            <wr:Label/>
+							         [% } %]
+							     [% } else { %]
+							     	<wr:Label/>
+							     [% } %]
+						        </th>
+	                        </wr:Visible>
+					    </wr:Iterate>
+						<wr:Iterate var="l" context="unit" select="layout:Link[string(@_exp) != 't']">
+							[% if (!isButton(l) && (linkPosition == "right" || (linkPosition == "on_row" && index > 0))) { %]
+								<wr:Visible><th class="<wr:StyleClass/> header small-cell"></th></wr:Visible>
+							[% } %]
+						</wr:Iterate>	
+						</tr>
+					</thead>
+					[% } %]
+				<!-- instances -->
+				<c:forEach var="current" varStatus="status" items="${<wr:Id context="unit"/>.data}">
+					<c:set var="index" value="${status.index}"/>	
+						<tr class="row<c:if test="${<wr:Id context="unit"/>.currentIndex eq index}"> current</c:if>[% if (useAlternate == "true") { %]<c:if test="${index mod 2 eq 0}"> pure-table-odd</c:if>[% } %]">	
+						[% if (checkable) {%]
+						   <td class="<wr:StyleClass/> value small-cell">				
+							  <html:multibox styleId="<wr:Id context="unit"/>_[%= myIndex%]_${index}" property="<wr:Id context="unit"/>Checked" styleClass="checkBox"><c:out value="${<wr:Id context="unit"/>.key[index]}"/></html:multibox>
+							</td>
+						[%}%]
+						
+							[% if (linkPosition == "left") { %]
+								<wr:Iterate var="l" context="unit" select="layout:Link[string(@_exp) != 't']">
+									[% if (!isButton(l)) { %]
+									<wr:Visible>
+										<td class="<wr:StyleClass context="unitLink"/> link small-cell"><wr:Link class="link"/></td>
+									</wr:Visible>
+							    	[% } %]
+								</wr:Iterate>
+							[% } %]
+							<wr:Iterate var="attr" context="unit" select="layout:Attribute">
+								<wr:Visible>
+								<td class="<wr:StyleClass/> value [%= attr["type"]%]">
+								[% if ((linkPosition == "on_row") && (unitLink != null)) {%]
+									<wr:Visible position="'index'">
+										<wr:Visible context="unitLink" position="'index'">
+											<a href="<wr:URL context="unitLink"/>" class="<wr:StyleClass context="unitLink"/> link"[% if (isAjaxLink(unitLink)) { %] onclick="<wr:AjaxURL context="unitLink" />"[% } %][%if (unitLink?.attributeValue("newWindow") == "true") { %] target="_blank" [% } %]>
+										</wr:Visible>
+										<wr:Value/>
+										<wr:Visible context="unitLink" position="'index'">
+											</a>
+										</wr:Visible>
+									</wr:Visible>
+								[% } else {%]
+									<wr:Value />
+								[% } %]
+								</td>
+								</wr:Visible>
+							</wr:Iterate>
+						   <wr:Iterate var="l" context="unit" select="layout:Link[string(@_exp) != 't']">
+							[% if (!isButton(l) && (linkPosition == "right" || (linkPosition == "on_row" && index > 0))) { %]
+					      		<wr:Visible>
+					      			<td class="<wr:StyleClass context="unitLink"/> link small-cell"><wr:Link class="link"/></td>
+								</wr:Visible>
+							[% } %]
+						   </wr:Iterate>
+						</tr>
+					</c:forEach>
+				</table>
+				[% if (isScrollable == "true" && (scrollingPosition == "bottom" || scrollingPosition == "both")) { %]
+					[% printPagination() %]
+				[% } %]
+				[% if (checkable && (buttonPosition == "bottom" || buttonPosition == "both")) { %]
+					<div class="button-bar">
+						<wr:Iterate var="l" context="unit" select="layout:Link">
+							[% if (isButton(l)) { %]
+								<wr:Visible>
+									<wr:Link type="button"/>
+								</wr:Visible>	
+							[% } %]
+						</wr:Iterate>
+					</div>
+				[% } %]
+			</div>
+		</div>
+	</wr:Frame>
+[% if (useEmptyUnitMessage != "true") { %]
+</c:if>
+[% } else { %]
+</c:when>
+<c:otherwise>
+	<wr:Frame>
+		<div class="plain <wr:StyleClass/>">
+			<div class="plain PowerIndexUnit">
+				<div class="pure-alert">
+					<bean:message key="[%printJSPTagValue(emptyUnitMessage)%]"/>
+				</div>
+			</div>
+		</div>
+	</wr:Frame>
+</c:otherwise>
+</c:choose>
+[% } %]

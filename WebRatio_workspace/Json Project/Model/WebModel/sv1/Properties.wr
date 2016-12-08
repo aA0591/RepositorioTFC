@@ -1,0 +1,40 @@
+<SiteView xmlns:gr="http://www.webratio.com/2006/WebML/Graph" id="sv1" name="Home" homePage="sv1#page1" landmarks="sv1#page1 sv1#page2 sv1#page3">
+  <OperationUnits>
+    <JsonFunction gr:x="240" gr:y="140" id="sv1#jfu1" name="Json Function Code" mode="codeJson">
+      <Key id="sv1#jfu1#ky1" name="name"/>
+      <Key id="sv1#jfu1#ky2" name="lastName"/>
+      <Key id="sv1#jfu1#ky3" name="celular"/>
+      <Key id="sv1#jfu1#ky4" name="address"/>
+      <OKLink id="sv1#jfu1#oln1" name="OKFlow1" to="sv1#page1#mssu1" preserveForm="true">
+        <LinkParameter id="sv1#jfu1#oln1#par5" name="Result Json_Shown Messages" source="resultJson" target="sv1#page1#mssu1.shownMessages"/>
+      </OKLink>
+      <KOLink id="sv1#jfu1#kln1" name="KOFlow1" to="sv1#page1#mssu2">
+        <LinkParameter id="sv1#jfu1#kln1#par6" name="Error Message_Shown Messages" source="errorMessage" target="sv1#page1#mssu2.shownMessages"/>
+      </KOLink>
+    </JsonFunction>
+    <JsonFunction id="sv1#jfu2" name="Json Function DeCode" gr:x="580" gr:y="130" mode="decodeJson">
+      <Key id="sv1#jfu2#ky5" name="name"/>
+      <Key id="sv1#jfu2#ky6" name="lastName"/>
+      <Key id="sv1#jfu2#ky7" name="celular"/>
+      <Key id="sv1#jfu2#ky8" name="address"/>
+      <OKLink id="sv1#jfu2#oln2" name="OKFlow1" to="sv1#page2#mssu3" preserveForm="true">
+        <LinkParameter id="sv1#jfu2#oln2#par11" name="Result Json_Shown Messages" source="resultDecodeJsonValues" target="sv1#page2#mssu3.shownMessages"/>
+      </OKLink>
+      <KOLink id="sv1#jfu2#kln2" name="KOFlow1" to="sv1#page2#mssu4">
+        <LinkParameter id="sv1#jfu2#kln2#par12" name="Error Message_Shown Messages" source="errorMessage" target="sv1#page2#mssu4.shownMessages"/>
+      </KOLink>
+    </JsonFunction>
+    <JsonFunction id="sv1#jfu3" name="Replace Text With Json" gr:x="330" gr:y="450" mode="replaceTextWithJson">
+      <Key id="sv1#jfu3#ky9" name="name"/>
+      <Key id="sv1#jfu3#ky10" name="lastName"/>
+      <Key id="sv1#jfu3#ky11" name="celular"/>
+      <Key id="sv1#jfu3#ky12" name="address"/>
+      <OKLink id="sv1#jfu3#oln3" name="OKFlow1" to="sv1#page3#mssu5" preserveForm="true">
+        <LinkParameter id="sv1#jfu3#oln3#par19" name="Result Json_Shown Messages" source="resultText" target="sv1#page3#mssu5.shownMessages"/>
+      </OKLink>
+      <KOLink id="sv1#jfu3#kln3" name="KOFlow1" to="sv1#page3#mssu6">
+        <LinkParameter id="sv1#jfu3#kln3#par20" name="Error Message_Shown Messages" source="errorMessage" target="sv1#page3#mssu6.shownMessages"/>
+      </KOLink>
+    </JsonFunction>
+  </OperationUnits>
+</SiteView>

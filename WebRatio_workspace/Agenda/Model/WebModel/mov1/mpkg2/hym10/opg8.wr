@@ -1,0 +1,33 @@
+<OperationGroup xmlns:gr="http://www.webratio.com/2006/WebML/Graph" id="mov1#mpkg2#hym10#opg8" name="Select Operation" transaction="true" gr:x="-555" gr:y="-40">
+  <OperationUnits>
+    <SelectorUnit id="mov1#mpkg2#hym10#opg8#seu16" name="Select Appointment Owner" gr:x="0" gr:y="125" entity="ent1">
+      <Selector id="mov1#mpkg2#hym10#opg8#seu16#su67" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="mov1#mpkg2#hym10#opg8#seu16#su67#kcond24" name="Appointment" predicate="in" implied="false"/>
+        <RelationshipRoleCondition id="mov1#mpkg2#hym10#opg8#seu16#su67#rcond10" name="Appointment Owner" predicate="in" implied="false" role="rel3#role2"/>
+      </Selector>
+      <OKLink id="mov1#mpkg2#hym10#opg8#seu16#oln59" name="OKLink59" to="mov1#mpkg2#hym10#opg8#inn1">
+        <LinkParameter id="mov1#mpkg2#hym10#opg8#seu16#oln59#par176" name="Appointment Key" source="ent1#att1Array" target="mov1#mpkg2#hym10#opg8#inn1.isnotnull"/>
+      </OKLink>
+    </SelectorUnit>
+    <SwitchUnit id="mov1#mpkg2#hym10#opg8#switch3" name="Is The Appointment Private?" gr:x="755" gr:y="150">
+      <OKLink id="mov1#mpkg2#hym10#opg8#switch3#oln60" name="OKLink60" to="mov1#mpkg2#hym10#page10" code="true" automaticCoupling="true"/>
+      <OKLink id="mov1#mpkg2#hym10#opg8#switch3#oln61" name="OKLink61" to="mov1#mpkg2#hym10#page11" automaticCoupling="true" gr:bendpoints="-3,-134,257,260"/>
+      <Case value="true"/>
+    </SwitchUnit>
+    <IsNotNullUnit id="mov1#mpkg2#hym10#opg8#inn1" name="Is Current User The Owner?" gr:x="250" gr:y="150">
+      <OKLink id="mov1#mpkg2#hym10#opg8#inn1#oln62" name="OKLink62" to="mov1#mpkg2#hym10#page11" automaticCoupling="true" gr:bendpoints="0,-140,-246,254"/>
+      <KOLink id="mov1#mpkg2#hym10#opg8#inn1#kln7" name="KOLink7" to="mov1#mpkg2#hym10#opg8#seu19"/>
+    </IsNotNullUnit>
+    <SelectorUnit id="mov1#mpkg2#hym10#opg8#seu19" name="Select Private Information" gr:x="505" gr:y="135" entity="ent1">
+      <Selector id="mov1#mpkg2#hym10#opg8#seu19#su68" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="mov1#mpkg2#hym10#opg8#seu19#su68#kcond25" name="Appointment" predicate="in" implied="false"/>
+      </Selector>
+      <OKLink id="mov1#mpkg2#hym10#opg8#seu19#oln63" name="OKLink63" to="mov1#mpkg2#hym10#opg8#switch3">
+        <LinkParameter id="mov1#mpkg2#hym10#opg8#seu19#oln63#par177" name="Information" source="ent1#att16Array" target="mov1#mpkg2#hym10#opg8#switch3.switch"/>
+      </OKLink>
+    </SelectorUnit>
+    <GetUnit id="mov1#mpkg2#hym10#opg8#gtu8" name="Get Current User" gr:x="30" gr:y="0" contextParameters="UserCtxParam">
+      <Link id="mov1#mpkg2#hym10#opg8#gtu8#ln157" name="Link157" to="mov1#mpkg2#hym10#opg8#seu16" type="transport" automaticCoupling="true" validate="true"/>
+    </GetUnit>
+  </OperationUnits>
+</OperationGroup>

@@ -1,0 +1,7 @@
+#?delimiters <%,%>,<%=,%>
+<%setXMLOutput()%>
+<InputParameters>
+   <% if(unit.parent.name == "OperationUnits"){ %>
+     <InputParameter name="<%=unit["id"]%>.socialNetwork" type="" label="Social Network Id"/>
+   <% } %>
+</InputParameters>   

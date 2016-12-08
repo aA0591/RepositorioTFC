@@ -1,0 +1,3 @@
+<ModulePackage xmlns:gr="http://www.webratio.com/2006/WebML/Graph" id="mov2#mpkg6" name="User Operations" gr:x="385" gr:y="10">
+  <Comment xml:space="preserve">Package that collects all the Modules to handle all the information related to a User.</Comment>
+</ModulePackage>

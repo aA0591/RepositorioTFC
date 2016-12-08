@@ -1,0 +1,26 @@
+<OperationGroup xmlns:gr="http://www.webratio.com/2006/WebML/Graph" gr:x="1210" gr:y="415" id="mov1#mpkg2#hym8#opg10" name="Set Email Operations" transaction="true">
+  <OperationUnits>
+    <ScheduleJobUnit id="mov1#mpkg2#hym8#opg10#scju2" name="Set Reminders" gr:x="205" gr:y="105" schedulePolicy="specificDate" job="wsv1#job1">
+      <OKLink id="mov1#mpkg2#hym8#opg10#scju2#oln81" name="OKLink81" to="mov1#mpkg2#hym8#okcu5"/>
+    </ScheduleJobUnit>
+    <SwitchUnit id="mov1#mpkg2#hym8#opg10#switch4" name="Remind Attendees?" gr:x="0" gr:y="5">
+      <OKLink id="mov1#mpkg2#hym8#opg10#switch4#oln82" name="OKLink82" to="mov1#mpkg2#hym8#opg10#scu6" code="true"/>
+      <OKLink id="mov1#mpkg2#hym8#opg10#switch4#oln83" name="OKLink83" to="mov1#mpkg2#hym8#okcu5" gr:bendpoints="80,55,-390,-60;338,55,-132,-60"/>
+      <Case value="true"/>
+    </SwitchUnit>
+    <ScriptUnit id="mov1#mpkg2#hym8#opg10#scu6" name="Set Reminder Date" gr:x="5" gr:y="120" script="WEB-INF/descr/groovy/reminderdate.groovy">
+      <OKLink id="mov1#mpkg2#hym8#opg10#scu6#oln84" name="OKLink84" to="mov1#mpkg2#hym8#opg10#scju2">
+        <LinkParameter id="mov1#mpkg2#hym8#opg10#scu6#oln84#par3" name="Year" target="mov1#mpkg2#hym8#opg10#scju2.year" source="result(Year)"/>
+        <LinkParameter id="mov1#mpkg2#hym8#opg10#scu6#oln84#par73" name="Hours (0-23)" sourceValue="0" target="mov1#mpkg2#hym8#opg10#scju2.hours"/>
+        <LinkParameter id="mov1#mpkg2#hym8#opg10#scu6#oln84#par74" name="Minutes (0-59)" sourceValue="0" target="mov1#mpkg2#hym8#opg10#scju2.minutes"/>
+        <LinkParameter id="mov1#mpkg2#hym8#opg10#scu6#oln84#par75" name="Seconds (0-59)" sourceValue="0" target="mov1#mpkg2#hym8#opg10#scju2.seconds"/>
+        <LinkParameter id="mov1#mpkg2#hym8#opg10#scu6#oln84#par76" name="Day_Day (1-31)" source="result(Day)" target="mov1#mpkg2#hym8#opg10#scju2.day"/>
+        <LinkParameter id="mov1#mpkg2#hym8#opg10#scu6#oln84#par81" name="Month_Month (1-12)" source="result(Month)" target="mov1#mpkg2#hym8#opg10#scju2.month"/>
+      </OKLink>
+    </ScriptUnit>
+    <ModuleInstanceUnit id="mov1#mpkg2#hym8#opg10#miu15" name="Send EMail" gr:x="230" gr:y="0" moduleId="mov1#mpkg2#opm2">
+      <OKLink id="mov1#mpkg2#hym8#opg10#miu15#oln85" name="OKLink85" to="mov1#mpkg2#hym8#opg10#switch4"/>
+      <KOLink id="mov1#mpkg2#hym8#opg10#miu15#kln9" name="KOLink9" to="mov1#mpkg2#hym8#opg10#switch4" gr:bendpoints="-90,30,120,30"/>
+    </ModuleInstanceUnit>
+  </OperationUnits>
+</OperationGroup>

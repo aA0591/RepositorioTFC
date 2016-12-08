@@ -1,0 +1,59 @@
+<SiteView xmlns:gr="http://www.webratio.com/2006/WebML/Graph" id="sv2" name="Calendar" homePage="sv2#page5" protected="true">
+  <OperationUnits>
+    <LogoutUnit gr:x="-205" gr:y="790" id="sv2#lou1" name="Logout" siteView="sv3"/>
+    <SelectorUnit gr:x="195" gr:y="-90" id="sv2#seu18" name="Select Calendar Information" entity="ent3">
+      <Selector id="sv2#seu18#su14" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="sv2#seu18#su14#kcond7" name="Calendar Key" predicate="in" implied="false"/>
+      </Selector>
+      <OKLink id="sv2#seu18#oln9" name="OKLink9" to="sv2#page5#mdu4" automaticCoupling="true" gr:bendpoints="80,154,80,-322;80,396,80,-80"/>
+      <Link id="sv2#seu18#ln60" name="Link60" to="sv2#page5#seu14" type="transport" validate="true" automaticCoupling="true"/>
+      <Link id="sv2#seu18#ln88" name="Link88" to="sv2#page5#seu24" automaticCoupling="true" type="transport" validate="true"/>
+    </SelectorUnit>
+    <ModuleInstanceUnit gr:x="-545" gr:y="250" id="sv2#miu4" name="Save Appointment" moduleId="mov1#mpkg2#hym8">
+      <OKLink id="sv2#miu4#oln76" name="OKLink76" to="sv2#page5#mssu1" codeRef="mov1#mpkg2#hym8#okcu6"/>
+      <OKLink id="sv2#miu4#oln72" name="OKLink72" to="sv2#page5" codeRef="mov1#mpkg2#hym8#okcu5" gr:bendpoints="117,-17,-473,-67"/>
+    </ModuleInstanceUnit>
+    <ModuleInstanceUnit gr:x="-525" gr:y="395" id="sv2#miu5" name="Edit Appointment" moduleId="mov1#mpkg2#hym10">
+      <OKLink id="sv2#miu5#oln67" name="OKLink67" to="sv2#page5#mssu1" codeRef="mov1#mpkg2#hym10#okcu9">
+        <LinkParameter id="sv2#miu5#oln67#par149" name="Message" sourceValue="the appointment was updated successfully." target="sv2#page5#mssu1.shownMessages"/>
+      </OKLink>
+      <OKLink id="sv2#miu5#oln68" name="OKLink68" to="sv2#page5#mssu1" gr:bendpoints="123,45,-172,45" codeRef="mov1#mpkg2#hym10#okcu10"/>
+      <OKLink id="sv2#miu5#oln73" name="OKLink73" to="sv2#page5" gr:bendpoints="62,89,-488,189" codeRef="mov1#mpkg2#hym10#okcu11"/>
+    </ModuleInstanceUnit>
+    <SelectorUnit id="sv2#seu20" name="Select All Categories" gr:x="-510" gr:y="90" entity="ent2">
+      <Link id="sv2#seu20#ln103" name="Link103" to="sv2#page5#mciu1" type="transport" automaticCoupling="true" validate="true" gr:bendpoints="102,38,-103,38"/>
+      <Selector id="sv2#seu20#su38" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="sv2#seu20#su38#kcond42" name="Category Key" predicate="in" implied="true"/>
+      </Selector>
+      <OKLink id="sv2#seu20#oln78" name="OKLink78" to="sv2#pcu2">
+        <LinkParameter id="sv2#seu20#oln78#par171" name="Category Key" source="ent2#att7Array" target="sv2#pcu2#pcp3"/>
+      </OKLink>
+    </SelectorUnit>
+    <ParameterCollectorUnit gr:x="-535" gr:y="-35" id="sv2#pcu2" name="Collect Calendar Information">
+      <CollectorParameter id="sv2#pcu2#pcp2" name="Calendar Key"/>
+      <CollectorParameter id="sv2#pcu2#pcp3" name="Category Key"/>
+      <OKLink id="sv2#pcu2#oln79" name="OKLink79" to="sv2#page5#seu14">
+        <LinkParameter id="sv2#pcu2#oln79#par172" name="Category Key" source="sv2#pcu2#pcp2" target="sv2#page5#seu14#su37#rcond11.ent3#att4"/>
+        <LinkParameter id="sv2#pcu2#oln79#par173" name="Calendar Key" source="sv2#pcu2#pcp3" target="sv2#page5#seu14#su37#rcond15.ent2#att7"/>
+      </OKLink>
+      <Link id="sv2#pcu2#ln106" name="Link106" to="sv2#page5#seu24" type="transport" validate="true" gr:bendpoints="258,-3,-102,-123">
+        <LinkParameter id="sv2#pcu2#ln106#par174" name="Calendar Key" source="sv2#pcu2#pcp2" target="sv2#page5#seu24#su18#kcond10.ent3#att4"/>
+      </Link>
+    </ParameterCollectorUnit>
+    <TimeUnit gr:x="595" gr:y="400" id="sv2#tmu7" name="Today Date">
+      <OKLink id="sv2#tmu7#oln8" name="OKLink8" to="sv2#miu6">
+        <LinkParameter id="sv2#tmu7#oln8#par36" name="Current Date" source="currentDate" target="sv2#miu6.mov1#mpkg3#hym11#icu13#icp16"/>
+      </OKLink>
+    </TimeUnit>
+    <ModuleInstanceUnit gr:x="585" gr:y="520" id="sv2#miu6" name="Export Excel" moduleId="mov1#mpkg3#hym11"/>
+    <ModuleInstanceUnit gr:x="620" gr:y="245" id="sv2#miu10" name="Save Calendar" moduleId="mov1#mpkg3#hym12">
+      <OKLink id="sv2#miu10#oln14" name="OKLink14" to="sv2#page5" automaticCoupling="true" gr:bendpoints="2,50,572,0"/>
+    </ModuleInstanceUnit>
+    <ModuleInstanceUnit gr:x="-175" gr:y="-85" id="sv2#miu3" name="Selected Date Appointment" moduleId="mov1#mpkg2#hym1"/>
+  </OperationUnits>
+  <Comment xml:space="preserve">The Site View for all the Users that login into the application.
+
+It gives the Users the possibility to see all his Calendars, handle the Appointments (create, modify) based on the User's rights, export the Calendars and filter the events.
+
+It shows in a Master Page the info of the User.</Comment>
+</SiteView>
