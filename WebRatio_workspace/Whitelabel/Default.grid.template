@@ -1,0 +1,54 @@
+#?delimiters [%, %], [%=, %]
+[%
+import org.apache.commons.lang.StringUtils
+import org.apache.commons.lang.math.NumberUtils
+
+def hiddenCells = new HashSet()
+def rowIndex = 0
+def gridRows = grid.selectNodes("layout:Row")
+for (row in gridRows) {
+    def cellIndex = 0
+    def rowCells = row.selectNodes("layout:Cell")
+    for (cell in rowCells) {
+        def colspan = NumberUtils.toInt(cell["colspan"], 1)
+        def rowspan = NumberUtils.toInt(cell["rowspan"], 1)
+        if ((colspan > 1) || (rowspan > 1)) {
+            for (i in rowIndex..(rowIndex + rowspan - 1)) {
+                for (j in cellIndex..(cellIndex + colspan - 1)) {
+                    if ((i != rowIndex) || (j != cellIndex)) {
+                        hiddenCells.add(grid.selectSingleNode("layout:Row[" + (i + 1) + "]/layout:Cell[" + (j + 1) + "]"))
+                    }
+                }
+            }
+        }
+        cellIndex++
+    }
+    rowIndex++
+}
+%]
+<div class="container_12">
+[% for (row in gridRows) { 
+	List rowCells = row.selectNodes("layout:Cell").findAll{!hiddenCells.contains(it)}
+	if (rowCells.size() > 0) {
+		def cellSize = (12 / rowCells.size()).intValue()
+	%]
+	[% for (cell in rowCells) { 
+	     def cssStyle = cell["cssStyle"]
+	     cssStyle += StringUtils.isNotBlank(cell["height"]) ? "; height:"+cell["height"] : ""
+	     cssStyle += StringUtils.isNotBlank(cell["width"]) ? "; width:"+cell["width"] : ""
+	     cssStyle += StringUtils.isNotBlank(cell["align"]) ? "; text-align:"+cell["align"] : ""
+	     cssStyle += StringUtils.isNotBlank(cell["valign"]) ? "; vertical-align:"+cell["valign"] : ""
+	     
+	     def gridClass = "grid_" + cellSize
+	     if( rowCells.indexOf(cell) == 0 )
+	     	gridClass += " alpha"
+		 if( rowCells.indexOf(cell) == (rowCells.size()-1) ) 
+		 	gridClass += " omega"
+	     
+	%]
+		<div[% if (StringUtils.isNotBlank(cssStyle)) { %] style="[%=cssStyle%]"[% } %] class="[%= gridClass %] widgets"><wr:Cell context="cell"/></div>
+	[% } %]
+	<div class="clear"></div>
+  [% } 
+  } %]
+</div>

@@ -1,0 +1,214 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" gr:x="165" gr:y="0" id="sv3#area5#page43" name="Book">
+  <ContentUnits>
+    <PowerIndexUnit id="sv3#area5#page43#pwu15" name="Book List" gr:x="0" gr:y="450" sortable="true" checkable="false" useCountQuery="false" entity="ent1" displayAttributes="ent1#att36 ent1#att8 ent1#att10 ent1#att38 ent1#att17" blockFactor="10" blockWindow="2" linkOrder="sv3#area5#page43#pwu15#ln53">
+      <DefaultSortAttribute attribute="ent1#att8" order="ascending"/>
+      <DefaultSortAttribute attribute="ent1#att10" order="ascending"/>
+      <DefaultSortAttribute attribute="ent1#att36" order="ascending"/>
+      <DefaultSortAttribute attribute="ent1#att38" order="ascending"/>
+      <DefaultSortAttribute attribute="ent1#att17" order="ascending"/>
+      <Selector id="sv3#area5#page43#pwu15#su77" defaultPolicy="fill" booleanOperator="and">
+        <AttributesCondition id="sv3#area5#page43#pwu15#su77#acond32" name="Title" predicate="contains" booleanOperator="or" implied="true" attributes="ent1#att10" ignoreCase="true"/>
+        <AttributesCondition id="sv3#area5#page43#pwu15#su77#acond33" name="ISBN" predicate="contains" booleanOperator="or" implied="true" attributes="ent1#att8" ignoreCase="true"/>
+        <AttributesCondition id="sv3#area5#page43#pwu15#su77#acond34" name="Author" predicate="contains" booleanOperator="or" implied="true" attributes="ent1#att17" ignoreCase="true"/>
+      </Selector>
+      <SortAttribute attribute="ent1#att10" order="ascending"/>
+      <SortAttribute attribute="ent1#att17" order="ascending"/>
+      <SortAttribute attribute="ent1#att8" order="ascending"/>
+      <SortAttribute attribute="ent1#att38" order="ascending"/>
+      <Link id="sv3#area5#page43#pwu15#ln53" name="Edit" to="sv3#area5#miu21" type="normal" validate="true">
+        <LinkParameter id="sv3#area5#page43#pwu15#ln53#par72" name="Book Key" source="data[].ent1#att60" target="sv3#area5#miu21.mov1#mpkg8#opm4#icu5#icp15"/>
+        <LinkParameter id="sv3#area5#page43#pwu15#ln53#par74" name="Category" source="data[].rel2#rel8_ent6#att62" target="sv3#area5#miu21.mov1#mpkg8#opm4#icu5#icp16"/>
+      </Link>
+    </PowerIndexUnit>
+    <EntryUnit id="sv3#area5#page43#enu26" name="Search Book" linkOrder="sv3#area5#page43#enu26#ln196 sv3#area5#page43#enu26#ln197" gr:x="60" gr:y="320" fieldOrder="sv3#area5#page43#enu26#fld107 sv3#area5#page43#enu26#fld106 sv3#area5#page43#enu26#fld108" entity="ent1">
+      <Field id="sv3#area5#page43#enu26#fld106" name="isbn" type="string" modifiable="true" attribute="ent1#att8">
+        <VRules/>
+      </Field>
+      <Field id="sv3#area5#page43#enu26#fld107" name="title" type="string" modifiable="true" attribute="ent1#att10"/>
+      <Link id="sv3#area5#page43#enu26#ln196" name="Search" to="sv3#area5#page43#pwu15" type="normal" validate="true">
+        <LinkParameter id="sv3#area5#page43#enu26#ln196#par403" name="ISBN" source="sv3#area5#page43#enu26#fld106" target="sv3#area5#page43#pwu15#su77#acond33"/>
+        <LinkParameter id="sv3#area5#page43#enu26#ln196#par404" name="Title" source="sv3#area5#page43#enu26#fld107" target="sv3#area5#page43#pwu15#su77#acond32"/>
+        <LinkParameter id="sv3#area5#page43#enu26#ln196#par405" name="Author" source="sv3#area5#page43#enu26#fld108" target="sv3#area5#page43#pwu15#su77#acond34"/>
+      </Link>
+      <Link id="sv3#area5#page43#enu26#ln197" name="Show All" to="sv3#area5#page43#pwu15" type="normal" validate="true" gr:bendpoints="-54,83,-48,-112">
+        <LinkParameter id="sv3#area5#page43#enu26#ln197#par407" name="ISBN" target="sv3#area5#page43#pwu15#su77#acond33" sourceValue="%"/>
+        <LinkParameter id="sv3#area5#page43#enu26#ln197#par408" name="Title" target="sv3#area5#page43#pwu15#su77#acond32" sourceValue="%"/>
+      </Link>
+      <Field id="sv3#area5#page43#enu26#fld108" name="author" type="string" modifiable="true"/>
+    </EntryUnit>
+    <NoOpContentUnit gr:x="60" gr:y="0" id="sv3#area5#page43#gctu4" linkOrder="sv3#area5#page43#gctu4#ln70" name="Operations">
+      <Link id="sv3#area5#page43#gctu4#ln70" name="New Book" to="sv3#area5#page43#enu3" type="normal" validate="true">
+        <LinkParameter id="sv3#area5#page43#gctu4#ln70#par144" name="Book Key" sourceValue="$$NULL$$" target="sv3#area5#page43#enu3.ent1#att60"/>
+        <LinkParameter id="sv3#area5#page43#gctu4#ln70#par145" name="Category Key" sourceValue="$$NULL$$" target="sv3#area5#page43#enu3#fld24_slot"/>
+        <LinkParameter id="sv3#area5#page43#gctu4#ln70#par32" name="Price" sourceValue="$$NULL$$" target="sv3#area5#page43#enu3#fld16_slot"/>
+        <LinkParameter id="sv3#area5#page43#gctu4#ln70#par43" name="Saving" sourceValue="$$NULL$$" target="sv3#area5#page43#enu3#fld17_slot"/>
+      </Link>
+    </NoOpContentUnit>
+    <MultiMessageUnit gr:x="60" gr:y="225" id="sv3#area5#page43#mssu45" name="Notifications"/>
+    <EntryUnit gr:x="25" gr:y="110" id="sv3#area5#page43#enu3" name="Book Information" entity="ent1" linkOrder="sv3#area5#page43#enu3#ln23 sv3#area5#page43#enu3#ln65 sv3#area5#page43#enu3#ln57 sv3#area5#page43#enu3#ln59 sv3#area5#page43#enu3#ln25" fieldOrder="sv3#area5#page43#enu3#fld4 sv3#area5#page43#enu3#fld6 sv3#area5#page43#enu3#fld5 sv3#area5#page43#enu3#fld18 sv3#area5#page43#enu3#fld12 sv3#area5#page43#enu3#fld13 sv3#area5#page43#enu3#fld7 sv3#area5#page43#enu3#fld19 sv3#area5#page43#enu3#fld17 sv3#area5#page43#enu3#fld16 sv3#area5#page43#enu3#fld20 sv3#area5#page43#enu3#fld21 sv3#area5#page43#enu3#fld22 sv3#area5#page43#enu3#fld23 sv3#area5#page43#enu3#fld25 sv3#area5#page43#enu3#fld24">
+      <Field id="sv3#area5#page43#enu3#fld4" name="isbn" type="string" modifiable="true" attribute="ent1#att8" preloaded="true">
+        <VRules>
+          <MandatoryValidationRule id="sv3#area5#page43#enu3#fld4#mnd24" name="Mandatory Field"/>
+          <ValueLengthValidationRule id="sv3#area5#page43#enu3#fld4#vl2" name="Validate Length" predicate="eq" value="10"/>
+        </VRules>
+      </Field>
+      <Field id="sv3#area5#page43#enu3#fld5" name="description" type="text" modifiable="true" attribute="ent1#att9" preloaded="true">
+        <VRules>
+          <MandatoryValidationRule id="sv3#area5#page43#enu3#fld5#mnd23" name="Mandatory Field"/>
+        </VRules>
+      </Field>
+      <Field id="sv3#area5#page43#enu3#fld6" name="title" type="string" modifiable="true" attribute="ent1#att10" preloaded="true">
+        <VRules>
+          <MandatoryValidationRule id="sv3#area5#page43#enu3#fld6#mnd25" name="Mandatory Field"/>
+        </VRules>
+      </Field>
+      <Field id="sv3#area5#page43#enu3#fld7" name="list price" type="float" modifiable="true" attribute="ent1#att11" preloaded="true" ajaxEventEnabled="true" ajaxEventIndicator="true" ajaxEventLink="sv3#area5#page43#enu3#ln25">
+        <VRules>
+          <MandatoryValidationRule id="sv3#area5#page43#enu3#fld7#mnd28" name="Mandatory Field"/>
+        </VRules>
+      </Field>
+      <Field id="sv3#area5#page43#enu3#fld12" name="cover (thumbnail)" type="blob" modifiable="true" contentType="image" attribute="ent1#att12" preloaded="true"/>
+      <Field id="sv3#area5#page43#enu3#fld13" name="highlighted" type="boolean" modifiable="true" attribute="ent1#att23" preloaded="true"/>
+      <Field id="sv3#area5#page43#enu3#fld16" name="price" type="float" modifiable="false" subType="sbt1" preloaded="true"/>
+      <Field id="sv3#area5#page43#enu3#fld17" name="saving" type="float" modifiable="false" subType="sbt1" preloaded="true"/>
+      <Field id="sv3#area5#page43#enu3#fld18" name="cover" type="blob" modifiable="true" contentType="image" attribute="ent1#att36" preloaded="true">
+        <VRules>
+          <MandatoryValidationRule id="sv3#area5#page43#enu3#fld18#mnd22" name="Mandatory Field"/>
+        </VRules>
+      </Field>
+      <Field id="sv3#area5#page43#enu3#fld19" name="discount" type="float" modifiable="true" attribute="ent1#att40" preloaded="true" ajaxEventEnabled="true" ajaxEventIndicator="true" ajaxEventLink="sv3#area5#page43#enu3#ln25"/>
+      <Field id="sv3#area5#page43#enu3#fld20" name="language" type="string" modifiable="true" attribute="ent1#att37" preloaded="true">
+        <VRules>
+          <MandatoryValidationRule id="sv3#area5#page43#enu3#fld20#mnd29" name="Mandatory Field"/>
+        </VRules>
+      </Field>
+      <Field id="sv3#area5#page43#enu3#fld21" name="pages" type="string" modifiable="true" attribute="ent1#att39" preloaded="true">
+        <VRules>
+          <MandatoryValidationRule id="sv3#area5#page43#enu3#fld21#mnd27" name="Mandatory Field"/>
+        </VRules>
+      </Field>
+      <Field id="sv3#area5#page43#enu3#fld22" name="published" type="string" modifiable="true" attribute="ent1#att38" preloaded="true">
+        <VRules>
+          <MandatoryValidationRule id="sv3#area5#page43#enu3#fld22#mnd26" name="Mandatory Field"/>
+        </VRules>
+      </Field>
+      <Field id="sv3#area5#page43#enu3#fld23" name="authors list" type="string" modifiable="true" attribute="ent1#att17" preloaded="true" ajaxEventEnabled="false" ajaxEventIndicator="true" ajaxAutocompleteEnabled="true" ajaxAutocompleteLink="sv3#area5#page43#enu3#ln65" ajaxAutocompleteIndicator="true" ajaxAutocompleteTokens="," ajaxAutocompleteMinChars="2">
+        <VRules>
+          <MandatoryValidationRule id="sv3#area5#page43#enu3#fld23#mnd6" name="Mandatory Field"/>
+        </VRules>
+      </Field>
+      <Field id="sv3#area5#page43#enu3#fld24" name="category" type="string" modifiable="false" preloaded="true"/>
+      <Field id="sv3#area5#page43#enu3#fld25" name="rating" type="integer" modifiable="false" attribute="ent1#att14" preloaded="true"/>
+      <Field id="sv3#area5#page43#enu3#fld30" name="idcategory" type="string" modifiable="false" preloaded="true" hidden="true"/>
+      <Link id="sv3#area5#page43#enu3#ln65" name="Autocomplete" to="sv3#area5#page3#inu1" type="normal" validate="false">
+        <LinkParameter id="sv3#area5#page43#enu3#ln65#par153" name="Author" source="sv3#area5#page43#enu3#fld23" target="sv3#area5#page3#inu1#su4#acond10"/>
+      </Link>
+      <Link id="sv3#area5#page43#enu3#ln23" name="Edit Category" to="sv3#area5#miu4" type="normal" validate="false" newWindow="false" ajaxEnabled="true" ajaxOpenWindow="true" ajaxWindowUseTitle="true" ajaxWindowTitle="Select Category" ajaxWindowAutoResizing="true" ajaxWindowClosable="true" ajaxWindowDraggable="true" ajaxWindowModal="true">
+        <LinkParameter id="sv3#area5#page43#enu3#ln23#par49" name="Category Key" source="key.ent1#att60" target="sv3#area5#miu4.mov1#mpkg8#hym42#icu51#icp133"/>
+      </Link>
+      <Link id="sv3#area5#page43#enu3#ln57" name="Cancel" to="sv3#area5#opu3" type="normal" validate="false"/>
+      <Link id="sv3#area5#page43#enu3#ln59" name="Save" to="sv3#area5#miu19" type="normal" validate="true">
+        <LinkParameter id="sv3#area5#page43#enu3#ln59#par103" name="Authors" source="sv3#area5#page43#enu3#fld23" target="sv3#area5#miu19.mov1#mpkg9#opm2#icu3#icp4"/>
+        <LinkParameter id="sv3#area5#page43#enu3#ln59#par104" name="Book Object" source="entityBean" target="sv3#area5#miu19.mov1#mpkg9#opm2#icu3#icp6"/>
+        <LinkParameter id="sv3#area5#page43#enu3#ln59#par105" name="Category Key" source="sv3#area5#page43#enu3#fld30" target="sv3#area5#miu19.mov1#mpkg9#opm2#icu3#icp7"/>
+        <LinkParameter id="sv3#area5#page43#enu3#ln59#par106" name="Book Key" source="key.ent1#att60" target="sv3#area5#miu19.mov1#mpkg9#opm2#icu3#icp8"/>
+      </Link>
+      <Link id="sv3#area5#page43#enu3#ln25" name="Compute Price" to="sv3#area5#miu22" type="normal" validate="false" ajaxEnabled="true">
+        <LinkParameter id="sv3#area5#page43#enu3#ln25#par61" name="Discount" source="sv3#area5#page43#enu3#fld19" target="sv3#area5#miu22.mov1#mpkg9#opm5#icu6#icp18"/>
+        <LinkParameter id="sv3#area5#page43#enu3#ln25#par64" name="Listing Price" source="sv3#area5#page43#enu3#fld7" target="sv3#area5#miu22.mov1#mpkg9#opm5#icu6#icp17"/>
+        <LinkParameter id="sv3#area5#page43#enu3#ln25#par168" name="list price_Listing Price" source="sv3#area5#page43#enu3#fld7" target="sv3#area5#miu22.mov1#mpkg9#opm5#icu6#icp19"/>
+      </Link>
+    </EntryUnit>
+  </ContentUnits>
+  <layout:Grid>
+    <layout:Row>
+      <layout:Cell colspan="6">
+        <layout:Grid containerType="cell">
+          <layout:Row>
+            <layout:Cell>
+              <layout:Unit unitId="sv3#area5#page43#enu26">
+                <layout:Field field="sv3#area5#page43#enu26#fld107"/>
+                <layout:Field field="sv3#area5#page43#enu26#fld106"/>
+                <layout:Field field="sv3#area5#page43#enu26#fld108"/>
+                <layout:Link link="sv3#area5#page43#enu26#ln196"/>
+                <layout:Link link="sv3#area5#page43#enu26#ln197"/>
+              </layout:Unit>
+              <layout:Unit unitId="sv3#area5#page43#pwu15">
+                <layout:Attribute attribute="ent1#att36"/>
+                <layout:Attribute attribute="ent1#att8"/>
+                <layout:Attribute attribute="ent1#att10"/>
+                <layout:Attribute attribute="ent1#att38"/>
+                <layout:Attribute attribute="ent1#att17"/>
+                <layout:LayoutParameter name="use-empty-unit-message" value="true" type="unit"/>
+                <layout:LayoutParameter name="empty-unit-message" value="nobooks" type="unit"/>
+                <layout:Link link="sv3#area5#page43#pwu15#ln53"/>
+                <layout:Link link="sv3#area5#page43#pwu15ent1#att10"/>
+                <layout:Link link="sv3#area5#page43#pwu15ent1#att17"/>
+                <layout:Link link="sv3#area5#page43#pwu15ent1#att8"/>
+                <layout:Link link="sv3#area5#page43#pwu15ent1#att38"/>
+                <layout:Link link="sv3#area5#page43#pwu15First"/>
+                <layout:Link link="sv3#area5#page43#pwu15Previous"/>
+                <layout:Link link="sv3#area5#page43#pwu15Block"/>
+                <layout:Link link="sv3#area5#page43#pwu15Next"/>
+                <layout:Link link="sv3#area5#page43#pwu15Last"/>
+              </layout:Unit>
+            </layout:Cell>
+          </layout:Row>
+        </layout:Grid>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell colspan="6">
+        <layout:Grid containerType="cell">
+          <layout:Row>
+            <layout:Cell>
+              <layout:Unit unitId="sv3#area5#page43#mssu45"/>
+              <layout:Unit unitId="sv3#area5#page43#gctu4">
+                <layout:Link link="sv3#area5#page43#gctu4#ln70"/>
+              </layout:Unit>
+              <layout:Unit unitId="sv3#area5#page43#enu3">
+                <layout:LayoutParameter name="mandatory-fields" value="true" type="unit"/>
+                <layout:Link link="sv3#area5#page43#enu3#ln23" layout:linkVisibilityConditionNegated="true"/>
+                <layout:Link link="sv3#area5#page43#enu3#ln65"/>
+                <layout:Link link="sv3#area5#page43#enu3#ln57"/>
+                <layout:Link link="sv3#area5#page43#enu3#ln59"/>
+                <layout:Link link="sv3#area5#page43#enu3#ln25"/>
+                <layout:Field field="sv3#area5#page43#enu3#fld4"/>
+                <layout:Field field="sv3#area5#page43#enu3#fld6"/>
+                <layout:Field field="sv3#area5#page43#enu3#fld5"/>
+                <layout:Field field="sv3#area5#page43#enu3#fld18"/>
+                <layout:Field field="sv3#area5#page43#enu3#fld12"/>
+                <layout:Field field="sv3#area5#page43#enu3#fld13"/>
+                <layout:Field field="sv3#area5#page43#enu3#fld7"/>
+                <layout:Field field="sv3#area5#page43#enu3#fld19"/>
+                <layout:Field field="sv3#area5#page43#enu3#fld17"/>
+                <layout:Field field="sv3#area5#page43#enu3#fld16"/>
+                <layout:Field field="sv3#area5#page43#enu3#fld20"/>
+                <layout:Field field="sv3#area5#page43#enu3#fld21"/>
+                <layout:Field field="sv3#area5#page43#enu3#fld22"/>
+                <layout:Field field="sv3#area5#page43#enu3#fld23"/>
+                <layout:Field field="sv3#area5#page43#enu3#fld25" layout:fieldVisibilityConditionNegated="true"/>
+                <layout:Field field="sv3#area5#page43#enu3#fld24" layout:fieldVisibilityConditionNegated="true"/>
+              </layout:Unit>
+            </layout:Cell>
+          </layout:Row>
+        </layout:Grid>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+  <Comment xml:space="preserve">This is the default Page of the Area. 
+
+The administrator can search Books to edit one or simply create a new Book from scratch. 
+To link a Book to Authors there is the autocomplete feature enabled. 
+
+The Page shows a form to insert all the information related to a Book.
+
+</Comment></Page>

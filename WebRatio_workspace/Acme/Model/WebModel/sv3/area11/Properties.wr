@@ -1,0 +1,26 @@
+<Area xmlns:gr="http://www.webratio.com/2006/WebML/Graph" gr:x="525" gr:y="-90" id="sv3#area11" name="Stores" landmark="true" defaultPage="sv3#area11#page25">
+  <OperationUnits>
+    <DeleteUnit gr:x="5" gr:y="305" id="sv3#area11#dlu8" name="Delete Store" entity="ent5">
+      <Selector id="sv3#area11#dlu8#su62" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="sv3#area11#dlu8#su62#kcond48" name="Store" predicate="in" implied="false"/>
+      </Selector>
+      <OKLink id="sv3#area11#dlu8#oln68" name="OKLink68" to="sv3#area11#page25#mssu7" gr:bendpoints="28,-87,-77,68">
+        <LinkParameter id="sv3#area11#dlu8#oln68#par30" name="Message" sourceValue="Store succesfully deleted" target="sv3#area11#page25#mssu7.shownMessages"/>
+      </OKLink>
+      <KOLink id="sv3#area11#dlu8#kln11" name="KOLink11" to="sv3#area11#page25#mssu7">
+        <LinkParameter id="sv3#area11#dlu8#kln11#par34" name="Message" sourceValue="The store has not been deleted. Contact the System Administrator for further information." target="sv3#area11#page25#mssu7.shownMessages"/>
+      </KOLink>
+    </DeleteUnit>
+    <ModuleInstanceUnit gr:x="200" gr:y="320" id="sv3#area11#miu11" name="Save Store Information" moduleId="mov1#mpkg1#opm9">
+      <KOLink id="sv3#area11#miu11#kln16" to="sv3#area11#page25#mssu7" name="KOLink12">
+        <LinkParameter id="sv3#area11#miu11#kln16#par162" name="Message" target="sv3#area11#page25#mssu7.shownMessages" source="mov1#mpkg1#opm9#kocu5#ocp13"/>
+      </KOLink>
+      <OKLink id="sv3#area11#miu11#oln70" to="sv3#area11#page25#mssu7" name="OKLink49" gr:bendpoints="-115,0,0,135">
+        <LinkParameter id="sv3#area11#miu11#oln70#par164" source="mov1#mpkg1#opm9#okcu10#ocp12" name="Message" target="sv3#area11#page25#mssu7.shownMessages"/>
+      </OKLink>
+    </ModuleInstanceUnit>
+    <NoOpOperationUnit id="sv3#area11#opu3" name="Cancel" gr:x="270" gr:y="0">
+      <OKLink id="sv3#area11#opu3#oln9" name="OKLink9" to="sv3#area11#page25" automaticCoupling="true" gr:bendpoints="-96,0,-1,-145"/>
+    </NoOpOperationUnit>
+  </OperationUnits>
+</Area>

@@ -1,0 +1,26 @@
+<Area xmlns:gr="http://www.webratio.com/2006/WebML/Graph" gr:x="-50" gr:y="-90" id="sv3#area7" name="Categories" landmark="true" defaultPage="sv3#area7#page10">
+  <OperationUnits>
+    <DeleteUnit gr:x="15" gr:y="310" id="sv3#area7#dlu3" name="Delete" entity="pkg1#ent1">
+      <Selector id="sv3#area7#dlu3#su43" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="sv3#area7#dlu3#su43#kcond33" name="Category" predicate="in" implied="false"/>
+      </Selector>
+      <OKLink id="sv3#area7#dlu3#oln40" name="OKLink40" to="sv3#area7#page10#mssu8">
+        <LinkParameter id="sv3#area7#dlu3#oln40#par26" name="Message" sourceValue="Category successfully deleted" target="sv3#area7#page10#mssu8.shownMessages"/>
+      </OKLink>
+      <KOLink id="sv3#area7#dlu3#kln9" name="KOLink9" to="sv3#area7#page10#mssu8" gr:bendpoints="42,-89,-83,21">
+        <LinkParameter id="sv3#area7#dlu3#kln9#par27" name="Message" sourceValue="Category non deleted. Contact the System Administrator for further information" target="sv3#area7#page10#mssu8.shownMessages"/>
+      </KOLink>
+    </DeleteUnit>
+    <ModuleInstanceUnit gr:x="360" gr:y="125" id="sv3#area7#miu8" name="Save Category" moduleId="mov1#mpkg1#opm10">
+      <KOLink id="sv3#area7#miu8#kln10" to="sv3#area7#page10#mssu8" name="KOLink10" gr:bendpoints="-1,84,174,-1">
+        <LinkParameter id="sv3#area7#miu8#kln10#par264" name="Message" source="mov1#mpkg1#opm10#kocu6#ocp15" target="sv3#area7#page10#mssu8.shownMessages"/>
+      </KOLink>
+      <OKLink id="sv3#area7#miu8#oln61" to="sv3#area7#page10#mssu8" name="OKLink1">
+        <LinkParameter id="sv3#area7#miu8#oln61#par263" name="Message" source="mov1#mpkg1#opm10#okcu11#ocp14" target="sv3#area7#page10#mssu8.shownMessages"/>
+      </OKLink>
+    </ModuleInstanceUnit>
+    <NoOpOperationUnit gr:x="195" gr:y="0" id="sv3#area7#opu1" name="Cancel">
+      <OKLink id="sv3#area7#opu1#oln5" name="OKLink5" to="sv3#area7#page10" automaticCoupling="true" gr:bendpoints="100,0,165,-160"/>
+    </NoOpOperationUnit>
+  </OperationUnits>
+</Area>

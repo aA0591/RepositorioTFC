@@ -1,0 +1,13 @@
+<SiteView xmlns:gr="http://www.webratio.com/2006/WebML/Graph" id="sv3" name="Administration" landmarks="sv3#area1 sv3#area3 sv3#area2 sv3#area5" homePage="sv3#area1#page5" protected="true">
+  <OperationUnits>
+    <LogoutUnit id="sv3#lou2" name="Logout" gr:x="515" gr:y="-930" siteView="sv1" landmark="false"/>
+  </OperationUnits>
+  <Comment xml:space="preserve">This is the Site View reserved to the administrators.
+
+There are four Areas inside this Site View. 
+The Book Management area allows the administrator to create or edit a book, while the Book Search area is specific to search books and gives the possibility to quickly modify some piece of information of a book.
+The Category Management area allows the user to handle the categories, creating new ones, editing and deleting existing ones.
+Finally the Order Management area lets the user search orders and export them in PDF format.
+
+Inside the Site View there is also the definition of a Master Page to see the details of the currently logged in user.</Comment>
+</SiteView>

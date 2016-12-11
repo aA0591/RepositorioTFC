@@ -1,0 +1,126 @@
+#?delimiters [%, %], [%=, %]
+<wr:LayoutParameter label="Show Header" name="show-header" type="boolean" default="true">
+Defines the rendition of the header on the top.
+Allowed values are: true (default) or false.
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Show Attributes Name" name="show-attribute-name" type="boolean" default="false">
+Defines the rendition of the attributes names.
+Allowed values are: true or false(default).
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Use Empty Unit Message" name="use-empty-unit-message" type="boolean" default="false">
+Defines the usage of a message for empty units.
+Allowed values are: true(default) or false.
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Empty Unit Message" name="empty-unit-message" type="string" default="emptyUnitMessage">
+Defines the key of the message to use if the unit is empty.
+Default value: emptyUnitMessage
+</wr:LayoutParameter>
+[%
+import org.apache.commons.lang.math.NumberUtils
+import org.apache.commons.lang.StringUtils
+
+setHTMLOutput()
+def unitId = unit["id"]
+
+
+def showHeader = params["show-header"]
+def showAttributeName = params["show-attribute-name"]
+def useEmptyUnitMessage = params["use-empty-unit-message"]
+def emptyUnitMessage = params["empty-unit-message"]
+
+def atts = unit.selectNodes("layout:Attribute")
+def links = unit.selectNodes("layout:Link")
+
+def getInfoLevel( attr ) {
+	def infoLevel = attr.selectSingleNode("Property[@name='informationLevel']/@value")?.getStringValue();
+	
+	def level = ""
+	switch( infoLevel ) {
+	 case "high":
+	 	level = "data-information-level=high" 
+	 	break;
+	 case "medium":
+	 	level = "data-information-level=medium" 
+	 	break;
+	 case "low":
+	 	level = "data-information-level=low" 
+	 	break;
+	}
+	
+  	return level;
+}
+
+%]
+
+[% if (useEmptyUnitMessage != "true") { %]
+<c:if test="${not(empty <wr:Id context="unit" />) and (<wr:Id context="unit" />.dataSize gt 0)}">
+[% } else { %]
+<c:choose>
+<c:when test="${not(empty <wr:Id context="unit" />) and (<wr:Id context="unit" />.dataSize gt 0)}">
+[% } %]
+	<wr:Frame>
+		<div class="plain <wr:StyleClass/>">
+			<div class="plain MultiDataUnit">
+				<table>
+					[% if (showHeader == "true"){ %]
+						<thead>
+							<tr>
+								<wr:Iterate var="att" context="unit" select="layout:Attribute">
+				                	<wr:Visible>
+				                	[% if (showAttributeName == "true") {%]
+				                		<th class="<wr:StyleClass/>" [%= getInfoLevel(att) %] >&nbsp;</th>
+				                	  [% } %]
+					                  <th class="<wr:StyleClass/>" [%= getInfoLevel(att) %] ><wr:Label/></th>
+				                	</wr:Visible>
+				                </wr:Iterate>
+							</tr>
+						</thead>
+					[% } %]
+					<tbody>
+						<c:forEach var="current" varStatus="status" items="${<wr:Id context="unit" />.data}">
+				        <c:set var="index" value="${status.index}"/>
+				        	<tr>
+					        	<wr:Iterate var="attr" context="unit" select="layout:Attribute">
+									<wr:Visible position="'index'">
+									[% if (showAttributeName == "true") {%]
+										<td [%= getInfoLevel(attr) %] class="<wr:StyleClass/> header">
+									    	<wr:Label/>
+									   </td>
+									[% } %]
+									<td [%= getInfoLevel(attr) %] class="<wr:StyleClass/> value [%=attr["type"]%]">				
+										<wr:Value />
+								   </td>
+								   </wr:Visible>
+								</wr:Iterate>
+				        	</tr>
+				        </c:forEach>
+					</tbody>
+				</table>
+				[% if (links.size()){ %]
+					<section class="buttons r">
+						<wr:Iterate var="link" context="unit" select="layout:Link">
+							<wr:Visible>
+								<wr:Link type="link" class="btn"/>
+							</wr:Visible>
+						</wr:Iterate>
+					</section>
+				[% } %]
+			<div class="clear">&nbsp;</div>	
+			 </div>
+		 </div>
+	</wr:Frame>
+[% if (useEmptyUnitMessage != "true") { %]
+</c:if>
+[% } else { %]
+</c:when>
+<c:otherwise>
+	<wr:Frame>
+		<div class="plain <wr:StyleClass/>">
+			<div class="alert info" data-sticky="true">
+				<bean:message key="[%printJSPTagValue(emptyUnitMessage)%]"/>
+			</div>
+		</div>
+	</wr:Frame>
+</c:otherwise>
+</c:choose>
+[% } %]

@@ -1,0 +1,27 @@
+<OperationGroup xmlns:gr="http://www.webratio.com/2006/WebML/Graph" gr:x="135" gr:y="110" id="mov2#mpkg13#opm13#opg5" name="Save Cart Item Quantity" transaction="true">
+  <OperationUnits>
+    <ScriptUnit id="mov2#mpkg13#opm13#opg5#scu6" name="Plus/Minus" gr:x="0" gr:y="140" script="WEB-INF/descr/groovy/addORremovefromcart.groovy">
+      <ScriptUnitText xml:space="preserve">#input int value, String operation
+
+import com.webratio.rtx.core.BeanHelper
+
+
+def newvalue
+operationf = BeanHelper.asString(operation)
+
+if(operationf.equals("add")){
+	newvalue = value + 1
+}
+else{
+	newvalue = value - 1
+}
+
+
+if(newvalue &gt; 0){
+	return newvalue
+}
+else{
+	return null
+}
+
+</ScriptUnitText>      <OKLink id="mov2#mpkg13#opm13#opg5#scu6#oln72" name="OKLink72" to="mov2#mpkg13#opm13#opg5#inn7">        <LinkParameter id="mov2#mpkg13#opm13#opg5#scu6#oln72#par215" name="Result" source="result" target="mov2#mpkg13#opm13#opg5#inn7.isnotnull"/>      </OKLink>    </ScriptUnit>    <DeleteUnit id="mov2#mpkg13#opm13#opg5#dlu3" name="Delete Cart Item" gr:x="120" gr:y="0" entity="pkg1#ent5">      <Selector id="mov2#mpkg13#opm13#opg5#dlu3#su32" defaultPolicy="fill" booleanOperator="and">        <KeyCondition id="mov2#mpkg13#opm13#opg5#dlu3#su32#kcond12" name="Cart Item" predicate="in" implied="false"/>      </Selector>      <OKLink id="mov2#mpkg13#opm13#opg5#dlu3#oln87" name="OKLink87" to="mov2#mpkg13#opm13#okcu17" automaticCoupling="true"/>    </DeleteUnit>    <ModifyUnit id="mov2#mpkg13#opm13#opg5#mfu6" name="Modify Cart Item" gr:x="315" gr:y="125" entity="pkg1#ent5">      <Selector id="mov2#mpkg13#opm13#opg5#mfu6#su33" defaultPolicy="fill" booleanOperator="and">        <KeyCondition id="mov2#mpkg13#opm13#opg5#mfu6#su33#kcond13" name="Cart Item" predicate="in" implied="false"/>      </Selector>      <OKLink id="mov2#mpkg13#opm13#opg5#mfu6#oln88" name="OKLink80" to="mov2#mpkg13#opm13#okcu17"/>    </ModifyUnit>    <IsNotNullUnit id="mov2#mpkg13#opm13#opg5#inn7" name="Cart Is Empty?" gr:x="125" gr:y="140">      <OKLink id="mov2#mpkg13#opm13#opg5#inn7#oln75" name="OKLink75" to="mov2#mpkg13#opm13#opg5#mfu6">        <LinkParameter id="mov2#mpkg13#opm13#opg5#inn7#oln75#par91" name="Quantity" source="inputValue" target="mov2#mpkg13#opm13#opg5#mfu6.pkg1#ent5#att56"/>      </OKLink>      <KOLink id="mov2#mpkg13#opm13#opg5#inn7#kln9" name="KOLink9" to="mov2#mpkg13#opm13#opg5#dlu3"/>    </IsNotNullUnit>  </OperationUnits>  <KOLink id="mov2#mpkg13#opm13#opg5#kln10" name="Error" to="mov2#mpkg13#opm13#kocu3" automaticCoupling="true"/></OperationGroup>

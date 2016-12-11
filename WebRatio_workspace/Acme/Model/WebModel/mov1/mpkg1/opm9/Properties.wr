@@ -1,0 +1,23 @@
+<OperationModule xmlns:gr="http://www.webratio.com/2006/WebML/Graph" id="mov1#mpkg1#opm9" name="Save Store" gr:x="180" gr:y="70" gr:icon="ModulesIcons/Save.png">
+  <OperationUnits>
+    <InputCollectorUnit id="mov1#mpkg1#opm9#icu12" name="Input" gr:x="-5" gr:y="110">
+      <InputCollectorParameter id="mov1#mpkg1#opm9#icu12#icp49" name="Store Object"/>
+      <InputCollectorParameter id="mov1#mpkg1#opm9#icu12#icp51" name="Store Key"/>
+      <OKLink id="mov1#mpkg1#opm9#icu12#oln99" name="Save" to="mov1#mpkg1#opm9#opg9#inn12">
+        <LinkParameter id="mov1#mpkg1#opm9#icu12#oln99#par247" name="Store Key" source="mov1#mpkg1#opm9#icu12#icp51" target="mov1#mpkg1#opm9#opg9#inn12.isnotnull"/>
+      </OKLink>
+      <Link id="mov1#mpkg1#opm9#icu12#ln95" name="Link51" to="mov1#mpkg1#opm9#opg9#cru16" type="transport" validate="true">
+        <LinkParameter id="mov1#mpkg1#opm9#icu12#ln95#par248" name="Store Object" source="mov1#mpkg1#opm9#icu12#icp49" target="mov1#mpkg1#opm9#opg9#cru16.entityBeans"/>
+      </Link>
+      <Link id="mov1#mpkg1#opm9#icu12#ln96" name="Link50" to="mov1#mpkg1#opm9#opg9#mfu11" type="transport" validate="true">
+        <LinkParameter id="mov1#mpkg1#opm9#icu12#ln96#par250" name="Store Object" source="mov1#mpkg1#opm9#icu12#icp49" target="mov1#mpkg1#opm9#opg9#mfu11.entityBeans"/>
+      </Link>
+    </InputCollectorUnit>
+    <OKCollectorUnit id="mov1#mpkg1#opm9#okcu10" name="Success" gr:x="760" gr:y="110">
+      <OutputCollectorParameter id="mov1#mpkg1#opm9#okcu10#ocp12" name="Message"/>
+    </OKCollectorUnit>
+    <KOCollectorUnit id="mov1#mpkg1#opm9#kocu5" name="Error" gr:x="760" gr:y="-25">
+      <OutputCollectorParameter id="mov1#mpkg1#opm9#kocu5#ocp13" name="Message"/>
+    </KOCollectorUnit>
+  </OperationUnits>
+</OperationModule>

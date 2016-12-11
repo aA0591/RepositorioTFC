@@ -1,0 +1,37 @@
+<Area xmlns:gr="http://www.webratio.com/2006/WebML/Graph" gr:x="-95" gr:y="-445" id="sv3#area5" name="Book Management" landmark="true" defaultPage="sv3#area5#page43">
+  <OperationUnits>
+    <ModuleInstanceUnit id="sv3#area5#miu4" name="Edit Parent" gr:x="0" gr:y="30" moduleId="mov1#mpkg8#hym42">
+      <OKLink id="sv3#area5#miu4#oln3" name="OKLink3" to="sv3#area5#page43#enu3" preserveForm="true" gr:bendpoints="-134,-20,150,-100">
+        <LinkParameter id="sv3#area5#miu4#oln3#par33" name="Category Key" source="mov1#mpkg8#hym42#okcu48#ocp49" target="sv3#area5#page43#enu3#fld24_slot"/>
+        <LinkParameter id="sv3#area5#miu4#oln3#par35" name="Category Key" source="mov1#mpkg8#hym42#okcu48#ocp3" target="sv3#area5#page43#enu3#fld30_slot"/>
+      </OKLink>
+    </ModuleInstanceUnit>
+    <NoOpOperationUnit id="sv3#area5#opu3" name="Cancel" gr:x="20" gr:y="155">
+      <OKLink id="sv3#area5#opu3#oln40" name="OKLink40" to="sv3#area5#page43#enu3" gr:bendpoints="157,42,-163,42">
+        <LinkParameter id="sv3#area5#opu3#oln40#par146" name="Category Key" sourceValue="$$NULL$$" target="sv3#area5#page43#enu3#fld24_slot"/>
+        <LinkParameter id="sv3#area5#opu3#oln40#par147" name="Book Key" sourceValue="$$NULL$$" target="sv3#area5#page43#enu3.ent1#att60"/>
+      </OKLink>
+    </NoOpOperationUnit>
+    <ModuleInstanceUnit id="sv3#area5#miu19" name="Save Book" gr:x="460" gr:y="350" moduleId="mov1#mpkg9#opm2">
+      <OKLink id="sv3#area5#miu19#oln43" name="OKLink43" to="sv3#area5#page43#mssu45">
+        <LinkParameter id="sv3#area5#miu19#oln43#par140" name="Message" sourceValue="Operation Performed Successfully." target="sv3#area5#page43#mssu45.shownMessages"/>
+      </OKLink>
+      <KOLink id="sv3#area5#miu19#kln19" name="KOLink19" to="sv3#area5#page43#mssu45" gr:bendpoints="-129,-1,106,94">
+        <LinkParameter id="sv3#area5#miu19#kln19#par141" name="Message" sourceValue="There was an error in the Operation." target="sv3#area5#page43#mssu45.shownMessages"/>
+      </KOLink>
+    </ModuleInstanceUnit>
+    <ModuleInstanceUnit gr:x="15" gr:y="345" id="sv3#area5#miu21" name="Get Parent" moduleId="mov1#mpkg8#opm4">
+      <OKLink id="sv3#area5#miu21#oln22" to="sv3#area5#page43#enu3" name="OKLink21">
+        <LinkParameter id="sv3#area5#miu21#oln22#par100" source="mov1#mpkg8#opm4#okcu1#ocp5" name="Category Name" target="sv3#area5#page43#enu3#fld24_slot"/>
+        <LinkParameter id="sv3#area5#miu21#oln22#par101" source="mov1#mpkg8#opm4#okcu1#ocp1" name="Category Key" target="sv3#area5#page43#enu3#fld30_slot"/>
+        <LinkParameter id="sv3#area5#miu21#oln22#par118" name="Book Key_Key Condition [oid]" source="mov1#mpkg8#opm4#okcu1#ocp4" target="sv3#area5#page43#enu3.ent1#att60"/>
+      </OKLink>
+    </ModuleInstanceUnit>
+    <ModuleInstanceUnit gr:x="450" gr:y="75" id="sv3#area5#miu22" name="Compute Saving" moduleId="mov1#mpkg9#opm5">
+      <OKLink id="sv3#area5#miu22#oln33" to="sv3#area5#page43#enu3" preserveForm="true" name="OKLink17" gr:bendpoints="-156,-1,74,-76">
+        <LinkParameter id="sv3#area5#miu22#oln33#par158" source="mov1#mpkg9#opm5#okcu6#ocp9" name="Saving" target="sv3#area5#page43#enu3#fld17_slot"/>
+      </OKLink>
+    </ModuleInstanceUnit>
+  </OperationUnits>
+  <Comment xml:space="preserve">Area that handles Books, and implements the CRU pattern for this entity.</Comment>
+</Area>

@@ -1,0 +1,18 @@
+#?delimiters [%, %], [%=, %]
+[%
+import org.apache.commons.lang.StringUtils
+
+setHTMLOutput()
+def unitId = unit["id"]
+%]
+<wr:Frame>
+  <div class="plain <wr:StyleClass/>">
+    <div class="plain NoOpContentUnit">
+       <wr:Iterate var="link" context="unit" select="layout:Link">
+         <wr:Visible>
+           <wr:Link class="link"/>
+         </wr:Visible>
+       </wr:Iterate>
+    </div>
+  </div>
+</wr:Frame>

@@ -1,0 +1,96 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" id="mov1#mpkg2#hym6#page7" name="Product" layout:pageLayout="WRDefault/Empty" gr:x="85" gr:y="-85">
+  <ContentUnits>
+    <DataUnit id="mov1#mpkg2#hym6#page7#dau12" name="Details" linkOrder="mov1#mpkg2#hym6#page7#dau12#ln14" ajaxTooltipEnabled="false" ajaxEnableExpandedLinks="false" gr:x="35" gr:y="120" entity="pkg1#ent8" displayAttributes="pkg1#ent8#att48 pkg1#ent8#att39 pkg1#ent8#att40 pkg1#ent8#att41 pkg1#ent8#att42 pkg1#ent8#att44 pkg1#ent8#att50 pkg1#ent8#att43">
+      <Selector id="mov1#mpkg2#hym6#page7#dau12#su12" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="mov1#mpkg2#hym6#page7#dau12#su12#kcond12" name="Product" predicate="in" implied="false"/>
+      </Selector>
+      <Link id="mov1#mpkg2#hym6#page7#dau12#ln14" name="Photo Gallery" to="mov1#mpkg2#hym6#okcu4" type="normal" validate="true" newWindow="false" ajaxEnabled="false">
+        <LinkParameter id="mov1#mpkg2#hym6#page7#dau12#ln14#par6" name="Product Key" source="data.pkg1#ent8#att38" target="mov1#mpkg2#hym6#okcu4#ocp4"/>
+      </Link>
+      <Link id="mov1#mpkg2#hym6#page7#dau12#ln17" to="mov1#mpkg2#hym6#page7#dau13" type="transport" automaticCoupling="true" validate="true" name="Link17"/>
+      <Link id="mov1#mpkg2#hym6#page7#dau12#ln18" name="Link18" to="mov1#mpkg2#hym6#page7#pwu8" type="transport" automaticCoupling="true" validate="true"/>
+    </DataUnit>
+    <DataUnit id="mov1#mpkg2#hym6#page7#dau13" name="Tech Record" gr:x="0" gr:y="245" entity="pkg1#ent9" displayAttributes="pkg1#ent9#att46 pkg1#ent9#att47">
+      <Selector id="mov1#mpkg2#hym6#page7#dau13#su14" defaultPolicy="fill" booleanOperator="and">
+        <RelationshipRoleCondition id="mov1#mpkg2#hym6#page7#dau13#su14#rcond5" name="Product " predicate="in" implied="false" role="rel10#rel4"/>
+      </Selector>
+    </DataUnit>
+    <PowerIndexUnit id="mov1#mpkg2#hym6#page7#pwu8" name="Related Combinations" gr:x="0" gr:y="0" sortable="true" checkable="false" useCountQuery="false" entity="ent4" displayAttributes="ent4#att3 ent4#att5 ent4#att6 ent4#att51" linkOrder="mov1#mpkg2#hym6#page7#pwu8#ln9">
+      <SortAttribute attribute="ent4#att3" order="ascending"/>
+      <SortAttribute attribute="ent4#att5" order="ascending"/>
+      <SortAttribute attribute="ent4#att6" order="ascending"/>
+      <SortAttribute attribute="ent4#att51" order="ascending"/>
+      <DefaultSortAttribute attribute="ent4#att3" order="ascending"/>
+      <DefaultSortAttribute attribute="ent4#att5" order="ascending"/>
+      <DefaultSortAttribute attribute="ent4#att6" order="ascending"/>
+      <DefaultSortAttribute attribute="ent4#att51" order="ascending"/>
+      <Selector id="mov1#mpkg2#hym6#page7#pwu8#su15" defaultPolicy="fill" booleanOperator="and">
+        <RelationshipRoleCondition id="mov1#mpkg2#hym6#page7#pwu8#su15#rcond10" name="Product" role="rel9#rel1" predicate="in" implied="false"/>
+      </Selector>
+      <Link id="mov1#mpkg2#hym6#page7#pwu8#ln9" name="Details" to="mov1#mpkg2#hym6#okcu2" automaticCoupling="false" type="normal" validate="true" ajaxEnabled="false">
+        <LinkParameter id="mov1#mpkg2#hym6#page7#pwu8#ln9#par12" name="Combination Key" source="data[].ent4#att27" target="mov1#mpkg2#hym6#okcu2#ocp2"/>
+      </Link>
+    </PowerIndexUnit>
+  </ContentUnits>
+  <layout:Grid>
+    <layout:Row>
+      <layout:Cell colspan="6">
+        <layout:Unit unitId="mov1#mpkg2#hym6#page7#dau12">
+          <layout:Attribute attribute="pkg1#ent8#att48"/>
+          <layout:Attribute attribute="pkg1#ent8#att39"/>
+          <layout:Attribute attribute="pkg1#ent8#att40"/>
+          <layout:Attribute attribute="pkg1#ent8#att41"/>
+          <layout:Attribute attribute="pkg1#ent8#att42" layout:attributeVisibilityCondition="cexpr4"/>
+          <layout:Attribute attribute="pkg1#ent8#att44"/>
+          <layout:Attribute attribute="pkg1#ent8#att50"/>
+          <layout:Attribute attribute="pkg1#ent8#att43"/>
+          <layout:Link link="mov1#mpkg2#hym6#page7#dau12#ln14">
+            <layout:LayoutParameter name="link-style" value="button" type="link"/>
+          </layout:Link>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell colspan="6">
+        <layout:Unit unitId="mov1#mpkg2#hym6#page7#dau13">
+          <layout:Attribute attribute="pkg1#ent9#att46"/>
+          <layout:Attribute attribute="pkg1#ent9#att47"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="mov1#mpkg2#hym6#page7#pwu8">
+          <layout:Attribute attribute="ent4#att3"/>
+          <layout:Attribute attribute="ent4#att5"/>
+          <layout:Attribute attribute="ent4#att6" layout:attributeVisibilityCondition="cexpr4"/>
+          <layout:Attribute attribute="ent4#att51"/>
+          <layout:Link link="mov1#mpkg2#hym6#page7#pwu8#ln9"/>
+          <layout:Link link="mov1#mpkg2#hym6#page7#pwu8ent4#att3"/>
+          <layout:Link link="mov1#mpkg2#hym6#page7#pwu8ent4#att5"/>
+          <layout:Link link="mov1#mpkg2#hym6#page7#pwu8ent4#att6"/>
+          <layout:Link link="mov1#mpkg2#hym6#page7#pwu8ent4#att51"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+</Page>

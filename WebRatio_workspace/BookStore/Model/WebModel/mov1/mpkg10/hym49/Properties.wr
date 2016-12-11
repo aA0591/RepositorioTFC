@@ -1,0 +1,22 @@
+<HybridModule xmlns:gr="http://www.webratio.com/2006/WebML/Graph" id="mov1#mpkg10#hym49" name="Order Details" gr:x="0" gr:y="0" gr:icon="ModulesIcons/Details.png">
+  <OperationUnits>
+    <InputCollectorUnit id="mov1#mpkg10#hym49#icu60" name="Input" gr:x="-110" gr:y="95">
+      <InputCollectorParameter id="mov1#mpkg10#hym49#icu60#icp179" name="Cart Key"/>
+      <Link id="mov1#mpkg10#hym49#icu60#ln247" name="Link247" to="mov1#mpkg10#hym49#page65#dau4" type="transport" validate="true">
+        <LinkParameter id="mov1#mpkg10#hym49#icu60#ln247#par588" name="Cart Key" source="mov1#mpkg10#hym49#icu60#icp179" target="mov1#mpkg10#hym49#page65#dau4#su121#kcond46.ent12#att45"/>
+      </Link>
+      <Link id="mov1#mpkg10#hym49#icu60#ln248" name="Link248" to="mov1#mpkg10#hym49#page65#mdu5" type="transport" validate="true">
+        <LinkParameter id="mov1#mpkg10#hym49#icu60#ln248#par589" name="Cart Key" source="mov1#mpkg10#hym49#icu60#icp179" target="mov1#mpkg10#hym49#page65#mdu5#su120#rcond25.ent12#att45"/>
+      </Link>
+      <OKLink id="mov1#mpkg10#hym49#icu60#oln229" name="OKLink229" to="mov1#mpkg10#hym49#page65" automaticCoupling="true" ajaxOpenWindow="false"/>
+    </InputCollectorUnit>
+    <ModifyUnit id="mov1#mpkg10#hym49#mfu18" name="Modify Order" gr:x="420" gr:y="50" entity="ent12">
+      <Selector id="mov1#mpkg10#hym49#mfu18#su119" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="mov1#mpkg10#hym49#mfu18#su119#kcond45" name="Order" predicate="in" implied="false"/>
+      </Selector>
+      <OKLink id="mov1#mpkg10#hym49#mfu18#oln230" name="OKLink230" to="mov1#mpkg10#hym49#okcu57"/>
+    </ModifyUnit>
+    <OKCollectorUnit id="mov1#mpkg10#hym49#okcu57" name="Success" gr:x="570" gr:y="55"/>
+  </OperationUnits>
+  <Comment xml:space="preserve">Hybrid Module that contains the logic to see the details of a certain Order and eventually dispatch it.</Comment>
+</HybridModule>

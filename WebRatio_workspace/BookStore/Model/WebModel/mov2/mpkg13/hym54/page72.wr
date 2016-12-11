@@ -1,0 +1,65 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" id="mov2#mpkg13#hym54#page72" name="Cart" layout:style="Reports" gr:x="125" gr:y="0">
+  <ContentUnits>
+    <MultiDataUnit id="mov2#mpkg13#hym54#page72#mdu7" name="Cart Items" gr:x="0" gr:y="210" entity="ent1" displayAttributes="ent1#att10 ent1#att37 ent1#att39 ent1#att38 ent1#att26 ent1#att36">
+      <Selector id="mov2#mpkg13#hym54#page72#mdu7#su132" defaultPolicy="fill" booleanOperator="and">
+        <RelationshipRoleCondition id="mov2#mpkg13#hym54#page72#mdu7#su132#rcond30" name="Order" predicate="in" implied="false" role="rel12#role6.rel17#role7"/>
+      </Selector>
+      <SortAttribute attribute="ent1#att10" order="ascending"/>
+      <SortAttribute attribute="ent1#att37" order="ascending"/>
+      <SortAttribute attribute="ent1#att39" order="ascending"/>
+      <SortAttribute attribute="ent1#att38" order="ascending"/>
+      <SortAttribute attribute="ent1#att26" order="ascending"/>
+    </MultiDataUnit>
+    <MultiDataUnit id="mov2#mpkg13#hym54#page72#mdu8" name="My Cart" gr:x="55" gr:y="0" entity="ent12" displayAttributes="ent12#att47 ent12#att72 ent12#att6 ent12#att7">
+      <Selector id="mov2#mpkg13#hym54#page72#mdu8#su133" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="mov2#mpkg13#hym54#page72#mdu8#su133#kcond53" name="Order" predicate="in" implied="false"/>
+      </Selector>
+      <SortAttribute attribute="ent12#att47" order="ascending"/>
+      <SortAttribute attribute="ent12#att72" order="ascending"/>
+      <SortAttribute attribute="ent12#att6" order="ascending"/>
+      <SortAttribute attribute="ent12#att7" order="ascending"/>
+    </MultiDataUnit>
+    <MultiDataUnit gr:x="30" gr:y="100" id="mov2#mpkg13#hym54#page72#mdu1" name="Quantity" entity="ent2" displayAttributes="ent2#att31">
+      <Selector id="mov2#mpkg13#hym54#page72#mdu1#su10" defaultPolicy="fill" booleanOperator="and">
+        <RelationshipRoleCondition id="mov2#mpkg13#hym54#page72#mdu1#su10#rcond7" name="Order" predicate="in" implied="false" role="rel12#role6"/>
+      </Selector>
+      <SortAttribute attribute="ent2#att21" order="ascending"/>
+    </MultiDataUnit>
+  </ContentUnits>
+  <layout:Grid>
+    <layout:Row>
+      <layout:Cell colspan="4">
+        <layout:Unit unitId="mov2#mpkg13#hym54#page72#mdu8">
+          <layout:Attribute attribute="ent12#att47"/>
+          <layout:Attribute attribute="ent12#att72"/>
+          <layout:Attribute attribute="ent12#att6"/>
+          <layout:Attribute attribute="ent12#att7"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell colspan="4">
+        <layout:Unit unitId="mov2#mpkg13#hym54#page72#mdu7">
+          <layout:Attribute attribute="ent1#att10"/>
+          <layout:Attribute attribute="ent1#att37"/>
+          <layout:Attribute attribute="ent1#att39"/>
+          <layout:Attribute attribute="ent1#att38"/>
+          <layout:Attribute attribute="ent1#att26"/>
+          <layout:Attribute attribute="ent1#att36"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell colspan="4">
+        <layout:Unit unitId="mov2#mpkg13#hym54#page72#mdu1">
+          <layout:Attribute attribute="ent2#att31"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+</Page>

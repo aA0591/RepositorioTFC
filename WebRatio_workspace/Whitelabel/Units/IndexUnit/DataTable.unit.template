@@ -1,0 +1,227 @@
+#?delimiters [%, %], [%=, %]
+<wr:LayoutParameter label="Use Alternate Rows" name="use-alternate" type="boolean" default="true">
+Defines the usage of alternates colours for each line.
+Allowed values are: true or false(default).
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Show Filter" name="show-filter" type="boolean" default="true">
+Defines the rendition of the search box on the top.
+Allowed values are: true (default) or false.
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Show Info" name="show-info" type="boolean" default="true">
+Defines the rendition of the table info on the bottom.
+Allowed values are: true (default) or false.
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Sortable" name="sortable" type="boolean" default="true">
+Defines the rendition of sortable link in the header.
+Allowed values are: true (default) or false.
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Paginate" name="paginate" type="boolean" default="true">
+Defines the rendition of the header on the top.
+Allowed values are: true (default) or false.
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Pagination type" name="pagination-type" type="enum" values="full numbers|two button" default="full numbers">
+Defines the rendition of pagination.
+Allowed values are: full number(default) or two button.
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Show Page Length Menu" name="show-length-menu" type="boolean" default="true">
+Defines the rendition of Page Length menu.
+Allowed values are: true (default) or false.
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Links Position" name="link-position" type="enum" values="left|right|on_row" default="right">
+Defines the rendition of the sub levels links.
+Allowed values are:
+- right (default): places the links on the right
+- left: places the links on the left
+- on_row: places the first link on the attributes
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Use Empty Unit Message" name="use-empty-unit-message" type="boolean" default="false">
+Defines the usage of a message for empty units.
+Allowed values are: true(default) or false.
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Empty Unit Message" name="empty-unit-message" type="string" default="emptyUnitMessage">
+Defines the key of the message to use if the unit is empty.
+Default value: emptyUnitMessage
+</wr:LayoutParameter>
+[%
+/* Check if is BPM Start New Process Unit */
+if (unit["entity"] == "ActivityType") {
+	/* Use BPM_NewProcess Template */
+	def templateFile = getUnitLayoutFileByPath(getStyle(unit) + "/BPM_NewProcess", "IndexUnit")
+	printRaw(executeTemplate(templateFile, ["templateType" : "unit"]))
+	return
+}
+
+import org.apache.commons.lang.StringUtils
+import org.apache.commons.lang.math.NumberUtils
+
+setXMLOutput()
+def unitId = unit["id"]
+
+def useAlternate = params["use-alternate"]
+def showFilter = params["show-filter"]
+def showInfo = params["show-info"]
+def sortable = params["sortable"]
+def paginate = params["paginate"]
+def paginationType = params["pagination-type"]
+def pageLengthMenu = params["show-length-menu"]
+def linkPosition = params["link-position"]
+
+
+
+def options = (useAlternate == "false") ? "data-as-strip-classes=[]" : "";
+options += " data-b-filter=" + showFilter
+options += " data-b-info=" + showInfo
+options += " data-b-sort=" + sortable
+options += " data-b-length-change=" + pageLengthMenu
+if (paginate == "true") {
+	options += " data-s-pagination-type="+StringUtils.replace(paginationType, " ", "_")+"";
+} else {
+	options += " data-b-paginate=false"
+}
+
+def aaSorting = []
+def unitAttributes = unit.selectNodes("layout:Attribute/@attribute").collect{it["value"]}
+unit.selectNodes("SortAttribute").each{it ->
+	def attrValue = it["attribute"]
+	def index = unitAttributes.indexOf(attrValue)
+	if (index >= 0) {
+		def sortOrder = ("ascending".equals(it["order"])) ? "asc" : "desc"
+		aaSorting.add("[" + index + ", \"" + sortOrder + "\"]")
+	}
+}
+if (!aaSorting.isEmpty())
+	options += " data-aa-sorting='[" + aaSorting.join(",") + "]'"
+
+def useEmptyUnitMessage = params["use-empty-unit-message"]
+def emptyUnitMessage = params["empty-unit-message"]
+def links = unit.selectNodes("layout:Link[string(@_exp) != 't']")
+def unitLink = unit.selectSingleNode("layout:Link")
+def unitLinkIsAjax = unitLink != null ? (unitLink["ajaxEnabled"] == "true" && isAjaxPage(page)) : false
+def link = unitLink?.valueOf("@link")
+
+
+def getInfoLevel( attr ) {
+	def infoLevel = attr.selectSingleNode("Property[@name='informationLevel']/@value")?.getStringValue();
+	
+	def level = ""
+	switch( infoLevel ) {
+	 case "high":
+	 	level = "data-information-level=high" 
+	 	break;
+	 case "medium":
+	 	level = "data-information-level=medium" 
+	 	break;
+	 case "low":
+	 	level = "data-information-level=low" 
+	 	break;
+	}
+	
+  	return level;
+}
+
+%]
+
+
+<wr:RequireResource ref="wl-datatable"/>
+
+[% if (useEmptyUnitMessage != "true") { %]
+<c:if test="${not(empty <wr:Id context="unit" />) and (<wr:Id context="unit" />.dataSize gt 0)}">
+[% } else { %]
+<c:choose>
+<c:when test="${not(empty <wr:Id context="unit" />) and (<wr:Id context="unit" />.dataSize gt 0)}">
+[% } %]
+	<wr:Frame>
+		<div class="plain <wr:StyleClass/>">
+			<div class="plain DataTableIndexUnit">
+				<table id="[%= getLayoutId(unit) + "_sortable" %]" class="datatable enhanced" [% printRaw(options) %]>
+				
+				<thead>
+					<tr>
+					[% if (linkPosition == "left") { %]
+					<wr:Iterate var="l" context="unit" select="layout:Link[string(@_exp) != 't']">
+					<wr:Visible>
+				   		<th class="link-h"></th>
+					</wr:Visible>
+					</wr:Iterate>
+					[% }  %]
+					<wr:Iterate var="attr" context="unit" select="layout:Attribute">
+					<wr:Visible>
+						<th class="<wr:StyleClass/>"  [%= getInfoLevel(attr) %]><wr:Label/></th>
+					</wr:Visible>
+					</wr:Iterate>
+					<wr:Iterate var="l" context="unit" select="layout:Link[string(@_exp) != 't']">
+					[% if (linkPosition == "right" || (linkPosition == "on_row" && index > 0)) { %]
+					<wr:Visible>
+				   		<th class="link-h"></th>
+					</wr:Visible>
+					[% } %]
+					</wr:Iterate>
+					</tr>
+				</thead>
+				
+				<tbody>
+				<c:forEach var="current" varStatus="status" items="${<wr:Id context="unit" />.data}">
+					<c:set var="index" value="${status.index}"/>	
+						<tr>	
+						  [% if (linkPosition == "left") { %]
+								<wr:Iterate var="l" context="unit" select="layout:Link[string(@_exp) != 't']">
+								<wr:Visible>
+								<td class="link <wr:StyleClass/>">
+						   			<wr:Link class="link"/>
+								</td>
+								</wr:Visible>
+							    </wr:Iterate>
+							[% } %]
+							
+							<wr:Iterate var="attr" context="unit" select="layout:Attribute">
+							<wr:Visible>
+						 	  <td class="<wr:StyleClass/>" [%= getInfoLevel(attr) %]>
+								[% if ((linkPosition == "on_row") && (!links.empty)) {%]
+									<wr:Visible position="'index'">
+										<wr:Visible context="unitLink" position="'index'">
+											<a href="<wr:URL context="unitLink"/>" class="<wr:StyleClass context="unitLink"/> link" onclick="<wr:AjaxURL context="unitLink" />">
+										</wr:Visible>
+										<wr:Value/>
+										<wr:Visible context="unitLink" position="'index'">
+											</a>
+										</wr:Visible>
+									</wr:Visible>
+								[% } else {%]
+									<wr:Value/>
+								[% } %]
+							  </td>
+							</wr:Visible>
+							</wr:Iterate>
+							
+							<wr:Iterate var="l" context="unit" select="layout:Link[string(@_exp) != 't']">
+								[% if ((linkPosition == "on_row" && index > 0) || linkPosition == "right") {%]
+								<wr:Visible>
+									<td class="link <wr:StyleClass/>">
+										<wr:Link class="link"/>	
+								   	</td>
+							   	</wr:Visible>
+								[% } %]
+							</wr:Iterate>
+						</tr>
+					</c:forEach>
+					</tbody>
+				</table>
+				<div class="clear">&nbsp;</div>
+			</div>
+		</div>
+	 </wr:Frame>
+[% if (useEmptyUnitMessage != "true") { %]
+</c:if>
+[% } else { %]
+</c:when>
+<c:otherwise>
+	<wr:Frame>
+		<div class="plain <wr:StyleClass/>">
+			<div class="alert info" data-sticky="true">
+				   <bean:message key="[%printJSPTagValue(emptyUnitMessage)%]"/>
+			</div>
+		</div>
+	</wr:Frame>
+</c:otherwise>
+</c:choose>
+[% } %]

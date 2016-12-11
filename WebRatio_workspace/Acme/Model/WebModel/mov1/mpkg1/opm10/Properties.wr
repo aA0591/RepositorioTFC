@@ -1,0 +1,23 @@
+<OperationModule xmlns:gr="http://www.webratio.com/2006/WebML/Graph" id="mov1#mpkg1#opm10" name="Save Category" gr:x="160" gr:y="0" gr:icon="ModulesIcons/Save.png">
+  <OperationUnits>
+    <InputCollectorUnit id="mov1#mpkg1#opm10#icu13" name="Input" gr:x="-155" gr:y="110">
+      <InputCollectorParameter id="mov1#mpkg1#opm10#icu13#icp53" name="Category Key"/>
+      <InputCollectorParameter id="mov1#mpkg1#opm10#icu13#icp55" name="Category Object"/>
+      <OKLink id="mov1#mpkg1#opm10#icu13#oln104" name="Save" to="mov1#mpkg1#opm10#opg10#inn13">
+        <LinkParameter id="mov1#mpkg1#opm10#icu13#oln104#par253" name="Category Key" source="mov1#mpkg1#opm10#icu13#icp53" target="mov1#mpkg1#opm10#opg10#inn13.isnotnull"/>
+      </OKLink>
+      <Link id="mov1#mpkg1#opm10#icu13#ln98" name="Link59" to="mov1#mpkg1#opm10#opg10#cru17" type="transport" validate="true">
+        <LinkParameter id="mov1#mpkg1#opm10#icu13#ln98#par255" name="Category Object" source="mov1#mpkg1#opm10#icu13#icp55" target="mov1#mpkg1#opm10#opg10#cru17.entityBeans"/>
+      </Link>
+      <Link id="mov1#mpkg1#opm10#icu13#ln99" name="Link53" to="mov1#mpkg1#opm10#opg10#mfu12" type="transport" validate="true">
+        <LinkParameter id="mov1#mpkg1#opm10#icu13#ln99#par256" name="Category Object" source="mov1#mpkg1#opm10#icu13#icp55" target="mov1#mpkg1#opm10#opg10#mfu12.entityBeans"/>
+      </Link>
+    </InputCollectorUnit>
+    <OKCollectorUnit id="mov1#mpkg1#opm10#okcu11" name="Success" gr:x="675" gr:y="115">
+      <OutputCollectorParameter id="mov1#mpkg1#opm10#okcu11#ocp14" name="Message"/>
+    </OKCollectorUnit>
+    <KOCollectorUnit id="mov1#mpkg1#opm10#kocu6" name="Error" gr:x="675" gr:y="15">
+      <OutputCollectorParameter id="mov1#mpkg1#opm10#kocu6#ocp15" name="Message"/>
+    </KOCollectorUnit>
+  </OperationUnits>
+</OperationModule>

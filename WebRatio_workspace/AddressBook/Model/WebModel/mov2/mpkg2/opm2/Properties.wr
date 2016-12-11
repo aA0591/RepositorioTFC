@@ -1,0 +1,44 @@
+<OperationModule xmlns:gr="http://www.webratio.com/2006/WebML/Graph" gr:x="0" gr:y="0" id="mov2#mpkg2#opm2" name="Save Organization Unit">
+  <OperationUnits>
+    <InputCollectorUnit id="mov2#mpkg2#opm2#icu1" name="Input Collector" gr:x="10" gr:y="105">
+      <OKLink id="mov2#mpkg2#opm2#icu1#oln2" name="OKLink2" to="mov2#mpkg2#opm2#inn1">
+        <LinkParameter id="mov2#mpkg2#opm2#icu1#oln2#par9" name="area oid_Input" source="mov2#mpkg2#opm2#icu1#icp2z" target="mov2#mpkg2#opm2#inn1.isnotnull"/>
+      </OKLink>
+      <Link id="mov2#mpkg2#opm2#icu1#ln8" name="Link8" to="mov2#mpkg2#opm2#cru1" type="transport" validate="true">
+        <LinkParameter id="mov2#mpkg2#opm2#icu1#ln8#par26z" name="organizationUnitObj_Organization Unit Bean" source="mov2#mpkg2#opm2#icu1#icp1z" target="mov2#mpkg2#opm2#cru1.entityBeans"/>
+        <LinkParameter id="mov2#mpkg2#opm2#icu1#ln8#par48z" name="manager_Employee.oid(AreaToManager)" source="mov2#mpkg2#opm2#icu1#icp3z" target="mov2#mpkg2#opm2#cru1.rel8#role16.userOID"/>
+      </Link>
+      <Link id="mov2#mpkg2#opm2#icu1#ln9" name="Link9" to="mov2#mpkg2#opm2#mfu1" type="transport" validate="true">
+        <LinkParameter id="mov2#mpkg2#opm2#icu1#ln9#par12" name="area oid_KeyCondition1 [oid]" source="mov2#mpkg2#opm2#icu1#icp2z" target="mov2#mpkg2#opm2#mfu1#su1#kcond1.ent6#att32"/>
+        <LinkParameter id="mov2#mpkg2#opm2#icu1#ln9#par27z" name="organizationUnitObj_Organization Unit Bean" source="mov2#mpkg2#opm2#icu1#icp1z" target="mov2#mpkg2#opm2#mfu1.entityBeans"/>
+        <LinkParameter id="mov2#mpkg2#opm2#icu1#ln9#par49z" name="manager_Employee.oid(AreaToManager)" source="mov2#mpkg2#opm2#icu1#icp3z" target="mov2#mpkg2#opm2#mfu1.rel8#role16.userOID"/>
+      </Link>
+      <InputCollectorParameter id="mov2#mpkg2#opm2#icu1#icp1z" name="organizationUnitObj"/>
+      <InputCollectorParameter id="mov2#mpkg2#opm2#icu1#icp2z" name="organizationUnitID"/>
+      <InputCollectorParameter id="mov2#mpkg2#opm2#icu1#icp3z" name="managerID"/>
+    </InputCollectorUnit>
+    <IsNotNullUnit gr:x="240" gr:y="125" id="mov2#mpkg2#opm2#inn1" name="Area Id not null">
+      <OKLink id="mov2#mpkg2#opm2#inn1#oln3" name="OKLink3" to="mov2#mpkg2#opm2#mfu1"/>
+      <KOLink id="mov2#mpkg2#opm2#inn1#kln2" name="KOLink2" to="mov2#mpkg2#opm2#cru1"/>
+    </IsNotNullUnit>
+    <CreateUnit gr:x="175" gr:y="255" id="mov2#mpkg2#opm2#cru1" name="CreateArea" entity="ent6">
+      <KOLink id="mov2#mpkg2#opm2#cru1#kln10" name="KOLink10" to="mov2#mpkg2#opm2#kocu2"/>
+      <OKLink id="mov2#mpkg2#opm2#cru1#oln17" name="OKLink17" to="mov2#mpkg2#opm2#okcu3">
+        <LinkParameter id="mov2#mpkg2#opm2#cru1#oln17#par28z" name="oid_organizationUnitID" source="ent6#att32Array" target="mov2#mpkg2#opm2#okcu3#ocp2z"/>
+      </OKLink>
+    </CreateUnit>
+    <ModifyUnit gr:x="365" gr:y="250" id="mov2#mpkg2#opm2#mfu1" name="Modify Area" entity="ent6">
+      <Selector id="mov2#mpkg2#opm2#mfu1#su1" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="mov2#mpkg2#opm2#mfu1#su1#kcond1" name="KeyCondition1" predicate="in" implied="false"/>
+      </Selector>
+      <KOLink id="mov2#mpkg2#opm2#mfu1#kln9" name="KOLink9" to="mov2#mpkg2#opm2#kocu2"/>
+      <OKLink id="mov2#mpkg2#opm2#mfu1#oln18" name="OKLink18" to="mov2#mpkg2#opm2#okcu3">
+        <LinkParameter id="mov2#mpkg2#opm2#mfu1#oln18#par29z" name="oid_organizationUnitID" source="ent6#att32Array" target="mov2#mpkg2#opm2#okcu3#ocp2z"/>
+      </OKLink>
+    </ModifyUnit>
+    <KOCollectorUnit gr:x="410" gr:y="130" id="mov2#mpkg2#opm2#kocu2" name="KO"/>
+    <OKCollectorUnit gr:x="260" gr:y="395" id="mov2#mpkg2#opm2#okcu3" name="OK">
+      <OutputCollectorParameter id="mov2#mpkg2#opm2#okcu3#ocp2z" name="organizationUnitID"/>
+    </OKCollectorUnit>
+  </OperationUnits>
+</OperationModule>

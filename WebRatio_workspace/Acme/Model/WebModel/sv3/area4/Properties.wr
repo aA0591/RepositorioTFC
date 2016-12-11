@@ -1,0 +1,28 @@
+<Area xmlns:gr="http://www.webratio.com/2006/WebML/Graph" id="sv3#area4" name="Products" landmark="true" gr:x="-50" gr:y="800" protected="false" defaultPage="sv3#area4#page3">
+  <OperationUnits>
+    <DeleteUnit gr:x="0" gr:y="120" id="sv3#area4#dlu5" name="Delete Product" entity="pkg1#ent8">
+      <Selector id="sv3#area4#dlu5#su57" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="sv3#area4#dlu5#su57#kcond45" name="Product" predicate="in" implied="false"/>
+      </Selector>
+      <OKLink id="sv3#area4#dlu5#oln56" name="OKLink56" to="sv3#area4#page3#mssu1" gr:bendpoints="-1,-100,-176,0">
+        <LinkParameter id="sv3#area4#dlu5#oln56#par23" name="Message" sourceValue="Delete: Operation complited" target="sv3#area4#page3#mssu1.shownMessages"/>
+      </OKLink>
+      <CascadeDeleteRole id="sv3#area4#dlu5#cdr2" name="Delete Photogallery" role="rel11#rel6"/>
+      <CascadeDeleteRole id="sv3#area4#dlu5#cdr3" name="Delete Tech Record" role="rel10#rel4"/>
+      <KOLink id="sv3#area4#dlu5#kln3" name="KOLink3" to="sv3#area4#page3#mssu1">
+        <LinkParameter id="sv3#area4#dlu5#kln3#par24" name="Message" sourceValue="Error: operation incomplite" target="sv3#area4#page3#mssu1.shownMessages"/>
+      </KOLink>
+    </DeleteUnit>
+    <ModuleInstanceUnit gr:x="615" gr:y="350" id="sv3#area4#miu4" name="Save Product Information" moduleId="mov1#mpkg1#opm8">
+      <OKLink id="sv3#area4#miu4#oln23" to="sv3#area4#page3#mssu1" name="OKLink78" gr:bendpoints="-1,-316,479,-1">
+        <LinkParameter id="sv3#area4#miu4#oln23#par69" source="mov1#mpkg1#opm8#okcu9#ocp11" name="Message" target="sv3#area4#page3#mssu1.shownMessages"/>
+      </OKLink>
+      <KOLink id="sv3#area4#miu4#kln34" name="KOLink34" to="sv3#area4#page3#mssu1" gr:bendpoints="-104,-261,376,54">
+        <LinkParameter id="sv3#area4#miu4#kln34#par281" name="Message" source="mov1#mpkg1#opm8#kocu7#ocp17" target="sv3#area4#page3#mssu1.shownMessages"/>
+      </KOLink>
+    </ModuleInstanceUnit>
+    <NoOpOperationUnit gr:x="635" gr:y="460" id="sv3#area4#opu4" name="Cancel">
+      <OKLink id="sv3#area4#opu4#oln11" name="OKLink11" to="sv3#area4#page3" automaticCoupling="true" gr:bendpoints="-73,-1,252,214"/>
+    </NoOpOperationUnit>
+  </OperationUnits>
+</Area>

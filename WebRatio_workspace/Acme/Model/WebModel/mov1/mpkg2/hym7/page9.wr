@@ -1,0 +1,36 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" id="mov1#mpkg2#hym7#page9" name="Photo Gallery" layout:pageLayout="WRDefault/Empty" gr:x="160" gr:y="20">
+  <ContentUnits>
+    <PowerIndexUnit id="mov1#mpkg2#hym7#page9#pwu11" name="Photogallery" gr:x="0" gr:y="0" sortable="false" checkable="false" useCountQuery="false" entity="pkg1#ent7" blockFactor="1" displayAttributes="pkg1#ent7#att37 pkg1#ent7#att36">
+      <Selector id="mov1#mpkg2#hym7#page9#pwu11#su16" defaultPolicy="fill" booleanOperator="and">
+        <RelationshipRoleCondition id="mov1#mpkg2#hym7#page9#pwu11#su16#rcond11" name="Product" role="rel11#rel6" predicate="in" implied="false"/>
+      </Selector>
+      <SortAttribute attribute="pkg1#ent7#att35" order="ascending"/>
+    </PowerIndexUnit>
+  </ContentUnits>
+  <layout:Grid>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="mov1#mpkg2#hym7#page9#pwu11">
+          <layout:Link link="mov1#mpkg2#hym7#page9#pwu11First"/>
+          <layout:Link link="mov1#mpkg2#hym7#page9#pwu11Previous"/>
+          <layout:Link link="mov1#mpkg2#hym7#page9#pwu11Block"/>
+          <layout:Link link="mov1#mpkg2#hym7#page9#pwu11Next"/>
+          <layout:Link link="mov1#mpkg2#hym7#page9#pwu11Last"/>
+          <layout:Attribute attribute="pkg1#ent7#att37"/>
+          <layout:Attribute attribute="pkg1#ent7#att36"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+</Page>

@@ -1,0 +1,68 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" gr:x="0" gr:y="0" id="sv1#area5#page27" name="Organization Units" ajaxEnabled="false">
+  <ContentUnits>
+    <HierarchicalIndexUnit id="sv1#area5#page27#hinu1z" sortable="false" gr:x="0" gr:y="0" name="Departments" linkOrder="sv1#area5#page27#hinu1z#ln10z sv1#area5#page27#hinu1z#ln26z" entity="ent6" displayAttributes="ent6#att33 ent6#att35">
+      <Link id="sv1#area5#page27#hinu1z#ln10z" name="Edit" to="sv1#area5#page1#seu3" type="normal" automaticCoupling="true" validate="true" ajaxEnabled="false" ajaxOpenWindow="true" ajaxWindowUseTitle="false" ajaxWindowResizable="true" ajaxWindowAutoResizing="true" ajaxWindowClosable="true" ajaxWindowDraggable="false" ajaxWindowModal="true"/>
+      <SortAttribute attribute="ent6#att33" order="ascending"/>
+      <SortAttribute attribute="ent6#att35" order="ascending"/>
+      <HierarchicalIndexLevel id="sv1#area5#page27#hinu1z#hiulvl1z" name="Department Units" entity="ent6" displayAttributes="ent6#att33 ent6#att35" role="rel1z#role1z">
+        <SortAttribute attribute="ent6#att33" order="ascending"/>
+        <SortAttribute attribute="ent6#att35" order="ascending"/>
+      </HierarchicalIndexLevel>
+      <Selector id="sv1#area5#page27#hinu1z#su5z" defaultPolicy="fill" booleanOperator="and">
+        <AttributesCondition id="sv1#area5#page27#hinu1z#su5z#acond3z" name="type" predicate="eq" booleanOperator="or" implied="false" attributes="ent6#att8z" value="Department"/>
+      </Selector>
+      <Link id="sv1#area5#page27#hinu1z#ln26z" name="Edit" to="sv1#area5#page1#seu3" type="normal" validate="true" gr:bendpoints="152,9,-148,19" ajaxOpenWindow="true" ajaxWindowResizable="true" ajaxWindowAutoResizing="true" ajaxWindowClosable="true" ajaxWindowMaximizable="false" ajaxWindowMinimizable="false" ajaxWindowModal="true">
+        <LinkParameter id="sv1#area5#page27#hinu1z#ln26z#par47z" name="oid(Department Units)_KeyCondition2 [oid]" source="data[].sv1#area5#page27#hinu1z#hiulvl1zdata[].ent6#att32" target="sv1#area5#page1#seu3#su2#kcond2.ent6#att32"/>
+      </Link>
+    </HierarchicalIndexUnit>
+    <EntryUnit gr:x="30" gr:y="150" id="sv1#area5#page27#enu1z" name="Actions" linkOrder="sv1#area5#page27#enu1z#ln14z">
+      <Link id="sv1#area5#page27#enu1z#ln14z" name="Add Organization Unit" to="sv1#area5#page1" type="normal" validate="true" ajaxEnabled="false" ajaxOpenWindow="true" ajaxWindowUseTitle="true" ajaxWindowResizable="true" ajaxWindowAutoResizing="true" ajaxWindowClosable="true" ajaxWindowMinimizable="false" automaticCoupling="true"/>
+    </EntryUnit>
+  </ContentUnits>
+  <layout:Grid containerType="grid">
+    <layout:Row>
+      <layout:Cell rowspan="2" colspan="12">
+        <layout:Grid containerType="cell">
+          <layout:Row>
+            <layout:Cell layout:cellLayout="ClearStyle/ListAndOrDetailsAndOrActions">
+              <layout:Unit unitId="sv1#area5#page27#hinu1z" layout:frameLayout="None">
+                <layout:Attribute attribute="ent6#att33"/>
+                <layout:Attribute attribute="ent6#att35"/>
+                <layout:Link link="sv1#area5#page27#hinu1z#ln10z"/>
+                <layout:Link link="sv1#area5#page27#hinu1z#ln26z"/>
+              </layout:Unit>
+              <layout:Unit unitId="sv1#area5#page27#enu1z">
+                <layout:Link link="sv1#area5#page27#enu1z#ln14z"/>
+              </layout:Unit>
+            </layout:Cell>
+          </layout:Row>
+        </layout:Grid>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+</Page>

@@ -1,0 +1,38 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" gr:x="450" gr:y="180" id="sv3#area5#page3" name="Autocomplete authors" layout:pageLayout="WRDefault/Autocomplete" ajaxEnabled="false">
+  <ContentUnits>
+    <IndexUnit id="sv3#area5#page3#inu1" entity="ent4" gr:x="0" gr:y="0" name="Authors" displayAttributes="ent4#att24">
+      <Selector id="sv3#area5#page3#inu1#su4" defaultPolicy="fill" booleanOperator="and">
+        <AttributesCondition id="sv3#area5#page3#inu1#su4#acond10" attributes="ent4#att24" predicate="beginsWith" booleanOperator="or" implied="false" name="Name" ignoreCase="true"/>
+      </Selector>
+      <SortAttribute attribute="ent4#att24" order="ascending"/>
+    </IndexUnit>
+  </ContentUnits>
+  <layout:Grid>
+    <layout:Row>
+      <layout:Cell colspan="12"/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+  <layout:CustomLocation name="source">
+    <layout:Grid containerType="cell">
+      <layout:Row>
+        <layout:Cell>
+          <layout:Unit unitId="sv3#area5#page3#inu1" layout:unitLayout="WRDefault/Autocomplete" layout:frameLayout="None">
+            <layout:Attribute attribute="ent4#att24"/>
+          </layout:Unit>
+        </layout:Cell>
+      </layout:Row>
+    </layout:Grid>
+  </layout:CustomLocation>
+  <Comment xml:space="preserve">This Page implements the autocomplete feature, and shows the list of Authors which names begins with the letters typed by the User.</Comment>
+</Page>

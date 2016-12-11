@@ -1,0 +1,9 @@
+<Area xmlns:gr="http://www.webratio.com/2006/WebML/Graph" gr:x="305" gr:y="265" id="sv1#area3" name="Address Book" landmark="true" defaultPage="sv1#area3#page18">
+  <OperationUnits>
+    <ModuleInstanceUnit gr:x="0" gr:y="250" id="sv1#area3#miu3" name="Employee editing" moduleId="mov2#mpkg3#hym3" protected="true">
+      <OKLink id="sv1#area3#miu3#oln22" to="sv1#area3#page18#pwu1z" validate="true" name="Save">
+        <LinkParameter id="sv1#area3#miu3#oln22#par15z" name="employeeID_current oid" source="mov2#mpkg3#hym3#okcu4#ocp1z" target="sv1#area3#page18#pwu1z.current.userOID"/>
+      </OKLink>
+    </ModuleInstanceUnit>
+  </OperationUnits>
+</Area>

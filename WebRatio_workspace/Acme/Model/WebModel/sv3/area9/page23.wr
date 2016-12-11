@@ -1,0 +1,259 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" id="sv3#area9#page23" name="Combination Management" gr:x="155" gr:y="0">
+  <ContentUnits>
+    <PowerIndexUnit id="sv3#area9#page23#pwu16" name="Combination List" linkOrder="sv3#area9#page23#pwu16#ln124 sv3#area9#page23#pwu16#ln105" customDescriptor="false" gr:x="0" gr:y="5" sortable="true" checkable="false" useCountQuery="false" entity="ent4" distinct="false" blockFactor="10" blockWindow="4" displayAttributes="ent4#att3 ent4#att5 ent4#att6 ent4#att20 ent4#att21 ent4#att22 ent4#att51">
+      <VRules>
+        <CheckedUnitItemsValidationRule id="sv3#area9#page23#pwu16#ckd2" name="Validate Combination Number" predicate="min" itemCount="1"/>
+      </VRules>
+      <Link id="sv3#area9#page23#pwu16#ln105" name="Delete" to="sv3#area9#dlu6" type="normal" validate="true">
+        <LinkParameter id="sv3#area9#page23#pwu16#ln105#par1" name="Combination Key" source="data[].ent4#att27" target="sv3#area9#dlu6#su58#kcond46.ent4#att27"/>
+      </Link>
+      <SortAttribute attribute="ent4#att3" order="ascending"/>
+      <SortAttribute attribute="ent4#att5" order="ascending"/>
+      <SortAttribute attribute="ent4#att6" order="ascending"/>
+      <DefaultSortAttribute attribute="ent4#att3" order="ascending"/>
+      <DefaultSortAttribute attribute="ent4#att5" order="ascending"/>
+      <DefaultSortAttribute attribute="ent4#att6" order="ascending"/>
+      <Link id="sv3#area9#page23#pwu16#ln124" name="Edit" to="sv3#area9#page23#seu2" automaticCoupling="true" type="normal" validate="true" ajaxEnabled="false"/>
+    </PowerIndexUnit>
+    <EntryUnit id="sv3#area9#page23#enu9" name="Combination Information" gr:x="320" gr:y="140" entity="ent4" fieldOrder="sv3#area9#page23#enu9#fld27 sv3#area9#page23#enu9#fld29 sv3#area9#page23#enu9#fld30 sv3#area9#page23#enu9#fld28 sv3#area9#page23#enu9#fld39 sv3#area9#page23#enu9#fld32 sv3#area9#page23#enu9#msfld5 sv3#area9#page23#enu9#fld40 sv3#area9#page23#enu9#fld41" linkOrder="sv3#area9#page23#enu9#ln7 sv3#area9#page23#enu9#ln22">
+      <Field id="sv3#area9#page23#enu9#fld27" name="code" type="integer" modifiable="true" attribute="ent4#att3">
+        <VRules>
+          <MandatoryValidationRule id="sv3#area9#page23#enu9#fld27#mnd22" name="Mandatory Field"/>
+        </VRules>
+      </Field>
+      <Field id="sv3#area9#page23#enu9#fld28" name="description" type="text" modifiable="true" attribute="ent4#att4"/>
+      <Field id="sv3#area9#page23#enu9#fld29" name="name" type="string" modifiable="true" attribute="ent4#att5">
+        <VRules>
+          <MandatoryValidationRule id="sv3#area9#page23#enu9#fld29#mnd23" name="Mandatory Field"/>
+        </VRules>
+      </Field>
+      <Field id="sv3#area9#page23#enu9#fld30" name="price" type="float" modifiable="true" attribute="ent4#att6">
+        <VRules>
+          <MandatoryValidationRule id="sv3#area9#page23#enu9#fld30#mnd24" name="Mandatory Field"/>
+        </VRules>
+      </Field>
+      <Field id="sv3#area9#page23#enu9#fld32" name="highlighted" type="boolean" modifiable="true" attribute="ent4#att22"/>
+      <MultiSelectionField id="sv3#area9#page23#enu9#msfld5" name="included products" type="string" role="rel9#rel2">
+        <VRules>
+          <CheckedFieldItemsValidationRule id="sv3#area9#page23#enu9#msfld5#ckd5" name="Validate Products Number" predicate="min" itemCount="2"/>
+        </VRules>
+      </MultiSelectionField>
+      <Field id="sv3#area9#page23#enu9#fld39" name="photo" type="blob" modifiable="true" contentType="image" attribute="ent4#att7"/>
+      <Field id="sv3#area9#page23#enu9#fld40" name="start date" type="date" modifiable="true" attribute="ent4#att20"/>
+      <Field id="sv3#area9#page23#enu9#fld41" name="end date" type="date" modifiable="true" attribute="ent4#att21"/>
+      <Link id="sv3#area9#page23#enu9#ln7" name="Save" to="sv3#area9#miu12" type="normal" validate="true">
+        <LinkParameter id="sv3#area9#page23#enu9#ln7#par282" name="Combination Key" source="key.ent4#att27" target="sv3#area9#miu12.mov1#mpkg1#opm7#icu9#icp32"/>
+        <LinkParameter id="sv3#area9#page23#enu9#ln7#par283" name="Combination Object" source="entityBean" target="sv3#area9#miu12.mov1#mpkg1#opm7#icu9#icp35"/>
+      </Link>
+      <Link id="sv3#area9#page23#enu9#ln22" name="Cancel" to="sv3#area9#opu2" type="normal" validate="false"/>
+    </EntryUnit>
+    <MultiMessageUnit id="sv3#area9#page23#mssu3" name="Notifications" gr:x="15" gr:y="160" ajaxTooltipEnabled="false" ajaxEnableExpandedLinks="false"/>
+    <SelectorUnit gr:x="170" gr:y="140" id="sv3#area9#page23#seu21" name="Load All Products" entity="pkg1#ent8" distinctAttributes="pkg1#ent8#att39 pkg1#ent8#att40 pkg1#ent8#att41 pkg1#ent8#att42 pkg1#ent8#att43 pkg1#ent8#att44 pkg1#ent8#att48">
+      <Link id="sv3#area9#page23#seu21#ln122" name="Link122" to="sv3#area9#page23#enu9" type="transport" validate="true">
+        <LinkParameter id="sv3#area9#page23#seu21#ln122#par184" name="Product Name" source="pkg1#ent8#att41Array" target="sv3#area9#page23#enu9#msfld5_label"/>
+        <LinkParameter id="sv3#area9#page23#seu21#ln122#par185" name="Product Key" source="pkg1#ent8#att38Array" target="sv3#area9#page23#enu9#msfld5_output"/>
+      </Link>
+      <Selector id="sv3#area9#page23#seu21#su63" defaultPolicy="fill" booleanOperator="and"/>
+      <SortAttribute attribute="pkg1#ent8#att39" order="ascending"/>
+      <SortAttribute attribute="pkg1#ent8#att41" order="ascending"/>
+      <SortAttribute attribute="pkg1#ent8#att42" order="ascending"/>
+      <SortAttribute attribute="pkg1#ent8#att48" order="ascending"/>
+    </SelectorUnit>
+    <SelectorUnit gr:x="330" gr:y="0" id="sv3#area9#page23#seu22" name="Load Included Products" entity="pkg1#ent8">
+      <Link id="sv3#area9#page23#seu22#ln123" name="Link123" to="sv3#area9#page23#enu9" type="transport" validate="true">
+        <LinkParameter id="sv3#area9#page23#seu22#ln123#par183" name="Product Key" source="pkg1#ent8#att38Array" target="sv3#area9#page23#enu9#msfld5_presel"/>
+      </Link>
+      <Selector id="sv3#area9#page23#seu22#su64" defaultPolicy="fill" booleanOperator="and">
+        <RelationshipRoleCondition id="sv3#area9#page23#seu22#su64#rcond18" name="Combination" predicate="in" implied="false" role="rel9#rel2"/>
+      </Selector>
+    </SelectorUnit>
+    <SelectorUnit gr:x="185" gr:y="0" id="sv3#area9#page23#seu2" name="Combination" entity="ent4">
+      <Selector id="sv3#area9#page23#seu2#su1" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="sv3#area9#page23#seu2#su1#kcond1" name="Combination" predicate="in" implied="false"/>
+      </Selector>
+      <Link id="sv3#area9#page23#seu2#ln10" name="Link10" to="sv3#area9#page23#seu22" automaticCoupling="true" type="transport" validate="true"/>
+      <Link id="sv3#area9#page23#seu2#ln11" name="Link11" to="sv3#area9#page23#enu9" automaticCoupling="true" type="transport" validate="true"/>
+    </SelectorUnit>
+  </ContentUnits>
+  <layout:Grid>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv3#area9#page23#mssu3"/>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="8">
+        <layout:Unit unitId="sv3#area9#page23#pwu16">
+          <layout:Attribute attribute="ent4#att3"/>
+          <layout:Attribute attribute="ent4#att5"/>
+          <layout:Attribute attribute="ent4#att6"/>
+          <layout:Attribute attribute="ent4#att20"/>
+          <layout:Attribute attribute="ent4#att21"/>
+          <layout:Attribute attribute="ent4#att22"/>
+          <layout:Attribute attribute="ent4#att51"/>
+          <layout:Link link="sv3#area9#page23#pwu16#ln124"/>
+          <layout:Link link="sv3#area9#page23#pwu16#ln105">
+            <layout:LayoutParameter name="confirmation" value="true" type="link"/>
+          </layout:Link>
+          <layout:Link link="sv3#area9#page23#pwu16ent4#att3"/>
+          <layout:Link link="sv3#area9#page23#pwu16ent4#att5"/>
+          <layout:Link link="sv3#area9#page23#pwu16ent4#att6"/>
+          <layout:Link link="sv3#area9#page23#pwu16First"/>
+          <layout:Link link="sv3#area9#page23#pwu16Previous"/>
+          <layout:Link link="sv3#area9#page23#pwu16Block"/>
+          <layout:Link link="sv3#area9#page23#pwu16Next"/>
+          <layout:Link link="sv3#area9#page23#pwu16Last"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell colspan="4" layout:cellLayout="Print Frame" label="Combination Info">
+        <layout:Grid containerType="grid" label="Combination Info">
+          <layout:Row>
+            <layout:Cell colspan="6">
+              <layout:Field unitId="sv3#area9#page23#enu9" mode="full" field="sv3#area9#page23#enu9#fld27"/>
+            </layout:Cell>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell colspan="6">
+              <layout:Field unitId="sv3#area9#page23#enu9" mode="full" field="sv3#area9#page23#enu9#fld40"/>
+            </layout:Cell>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell colspan="2"/>
+            <layout:Cell/>
+          </layout:Row>
+          <layout:Row>
+            <layout:Cell colspan="6">
+              <layout:Field unitId="sv3#area9#page23#enu9" mode="full" field="sv3#area9#page23#enu9#fld29"/>
+            </layout:Cell>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell colspan="6">
+              <layout:Field unitId="sv3#area9#page23#enu9" mode="full" field="sv3#area9#page23#enu9#fld41"/>
+            </layout:Cell>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell colspan="2"/>
+            <layout:Cell/>
+          </layout:Row>
+          <layout:Row>
+            <layout:Cell colspan="6">
+              <layout:Field unitId="sv3#area9#page23#enu9" mode="full" field="sv3#area9#page23#enu9#fld30"/>
+            </layout:Cell>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell colspan="6">
+              <layout:Field unitId="sv3#area9#page23#enu9" mode="full" field="sv3#area9#page23#enu9#fld32"/>
+            </layout:Cell>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell colspan="2"/>
+            <layout:Cell/>
+          </layout:Row>
+          <layout:Row>
+            <layout:Cell colspan="12">
+              <layout:Field unitId="sv3#area9#page23#enu9" mode="full" field="sv3#area9#page23#enu9#fld39"/>
+            </layout:Cell>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+          </layout:Row>
+          <layout:Row>
+            <layout:Cell colspan="12">
+              <layout:Field unitId="sv3#area9#page23#enu9" mode="full" field="sv3#area9#page23#enu9#fld28"/>
+            </layout:Cell>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+          </layout:Row>
+          <layout:Row>
+            <layout:Cell colspan="12">
+              <layout:Field unitId="sv3#area9#page23#enu9" mode="full" field="sv3#area9#page23#enu9#msfld5">
+                <layout:LayoutParameter name="label-position" value="top" type="field"/>
+              </layout:Field>
+            </layout:Cell>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+          </layout:Row>
+          <layout:Row>
+            <layout:Cell colspan="12">
+              <layout:Unit unitId="sv3#area9#page23#enu9" layout:frameLayout="None" manualFields="true">
+                <layout:Link link="sv3#area9#page23#enu9#ln7"/>
+                <layout:Link link="sv3#area9#page23#enu9#ln22"/>
+              </layout:Unit>
+            </layout:Cell>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+          </layout:Row>
+        </layout:Grid>
+        <layout:LayoutParameter name="label-position" value="top" type="field"/>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+</Page>

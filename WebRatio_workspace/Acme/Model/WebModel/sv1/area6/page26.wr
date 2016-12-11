@@ -1,0 +1,99 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" gr:x="0" gr:y="0" id="sv1#area6#page26" name="Choose Quantity" layout:pageLayout="WRDefault/Empty" ignoreMasterPage="true">
+  <ContentUnits>
+    <EntryUnit id="sv1#area6#page26#enu18" name="Quantity" linkOrder="sv1#area6#page26#enu18#ln93" gr:x="30" gr:y="0">
+      <Field id="sv1#area6#page26#enu18#fld57" name="quantity" type="integer" modifiable="true" ajaxAutocompleteEnabled="false"/>
+      <Link id="sv1#area6#page26#enu18#ln93" name="Add" to="sv1#miu1" type="normal" validate="true" ajaxEnabled="false">
+        <LinkParameter id="sv1#area6#page26#enu18#ln93#par19" name="Quantity" source="sv1#area6#page26#enu18#fld57" target="sv1#miu1.mov1#opm4#icu11#icp14"/>
+      </Link>
+    </EntryUnit>
+    <DataUnit gr:x="15" gr:y="80" id="sv1#area6#page26#dau3" name="Selected Product" entity="pkg1#ent8" displayAttributes="pkg1#ent8#att48 pkg1#ent8#att39 pkg1#ent8#att41 pkg1#ent8#att40 pkg1#ent8#att42 pkg1#ent8#att43 pkg1#ent8#att50">
+      <Selector id="sv1#area6#page26#dau3#su38" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="sv1#area6#page26#dau3#su38#kcond16" name="Product" predicate="in" implied="false"/>
+      </Selector>
+      <Link id="sv1#area6#page26#dau3#ln4" name="Link4" to="sv1#miu1" type="transport" validate="true">
+        <LinkParameter id="sv1#area6#page26#dau3#ln4#par21" name="Price" source="data.pkg1#ent8#att42" target="sv1#miu1.mov1#opm4#icu11#icp13"/>
+        <LinkParameter id="sv1#area6#page26#dau3#ln4#par22" name="Product Name" source="data.pkg1#ent8#att41" target="sv1#miu1.mov1#opm4#icu11#icp15"/>
+      </Link>
+    </DataUnit>
+    <DataUnit gr:x="0" gr:y="210" id="sv1#area6#page26#dau6" name="Selected Combination" entity="ent4" displayAttributes="ent4#att3 ent4#att4 ent4#att5 ent4#att6 ent4#att7 ent4#att20 ent4#att21 ent4#att22 ent4#att51">
+      <Selector id="sv1#area6#page26#dau6#su10" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="sv1#area6#page26#dau6#su10#kcond20" name="Combination" predicate="in" implied="false"/>
+      </Selector>
+      <Link id="sv1#area6#page26#dau6#ln3" name="Link3" to="sv1#miu1" type="transport" validate="true">
+        <LinkParameter id="sv1#area6#page26#dau6#ln3#par17" name="Price" source="data.ent4#att6" target="sv1#miu1.mov1#opm4#icu11#icp13"/>
+        <LinkParameter id="sv1#area6#page26#dau6#ln3#par18" name="Product Name" source="data.ent4#att5" target="sv1#miu1.mov1#opm4#icu11#icp15"/>
+      </Link>
+    </DataUnit>
+  </ContentUnits>
+  <layout:Grid>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv1#area6#page26#dau3">
+          <layout:Attribute attribute="pkg1#ent8#att48"/>
+          <layout:Attribute attribute="pkg1#ent8#att39"/>
+          <layout:Attribute attribute="pkg1#ent8#att41"/>
+          <layout:Attribute attribute="pkg1#ent8#att40"/>
+          <layout:Attribute attribute="pkg1#ent8#att42"/>
+          <layout:Attribute attribute="pkg1#ent8#att43"/>
+          <layout:Attribute attribute="pkg1#ent8#att50"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv1#area6#page26#dau6">
+          <layout:Attribute attribute="ent4#att3"/>
+          <layout:Attribute attribute="ent4#att4"/>
+          <layout:Attribute attribute="ent4#att5"/>
+          <layout:Attribute attribute="ent4#att6"/>
+          <layout:Attribute attribute="ent4#att7"/>
+          <layout:Attribute attribute="ent4#att20"/>
+          <layout:Attribute attribute="ent4#att21"/>
+          <layout:Attribute attribute="ent4#att22"/>
+          <layout:Attribute attribute="ent4#att51"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv1#area6#page26#enu18">
+          <layout:Field field="sv1#area6#page26#enu18#fld57"/>
+          <layout:Link link="sv1#area6#page26#enu18#ln93"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+</Page>

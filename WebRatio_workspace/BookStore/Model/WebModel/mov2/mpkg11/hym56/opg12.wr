@@ -1,0 +1,22 @@
+<OperationGroup xmlns:gr="http://www.webratio.com/2006/WebML/Graph" gr:x="105" gr:y="165" id="mov2#mpkg11#hym56#opg12" name="Save Comment" transaction="true">
+  <OperationUnits>
+    <TimeUnit id="mov2#mpkg11#hym56#opg12#tmu5" name="Today Time" gr:x="260" gr:y="15">
+      <OKLink id="mov2#mpkg11#hym56#opg12#tmu5#oln108" name="OKLink108" to="mov2#mpkg11#hym56#opg12#cru8">
+        <LinkParameter id="mov2#mpkg11#hym56#opg12#tmu5#oln108#par258" name="Current Timestamp" source="currentTimestamp" target="mov2#mpkg11#hym56#opg12#cru8.ent10#att50"/>
+      </OKLink>
+    </TimeUnit>
+    <ParameterCollectorUnit id="mov2#mpkg11#hym56#opg12#pcu2" name="Collect Comment Information" gr:x="0" gr:y="0">
+      <CollectorParameter id="mov2#mpkg11#hym56#opg12#pcu2#pcp5" name="Comment Object"/>
+      <OKLink id="mov2#mpkg11#hym56#opg12#pcu2#oln109" name="OKLink109" to="mov2#mpkg11#hym56#opg12#tmu5"/>
+      <Link id="mov2#mpkg11#hym56#opg12#pcu2#ln123" name="Link123" to="mov2#mpkg11#hym56#opg12#cru8" type="transport" validate="true" gr:bendpoints="105,41,-215,41;226,41,-94,41">
+        <LinkParameter id="mov2#mpkg11#hym56#opg12#pcu2#ln123#par260" name="Book Key" source="mov2#mpkg11#hym56#opg12#pcu2#pcp6" target="mov2#mpkg11#hym56#opg12#cru8.rel5#rel22.ent1#att60"/>
+        <LinkParameter id="mov2#mpkg11#hym56#opg12#pcu2#ln123#par79" name="Comment Object" source="mov2#mpkg11#hym56#opg12#pcu2#pcp5" target="mov2#mpkg11#hym56#opg12#cru8.entityBeans"/>
+      </Link>
+      <CollectorParameter id="mov2#mpkg11#hym56#opg12#pcu2#pcp6" name="Book Key"/>
+    </ParameterCollectorUnit>
+    <CreateUnit id="mov2#mpkg11#hym56#opg12#cru8" name="Create Comment" gr:x="405" gr:y="10" entity="ent10" bulk="true" skipBlankRecords="true">
+      <OKLink id="mov2#mpkg11#hym56#opg12#cru8#oln110" name="OKLink110" to="mov2#mpkg11#hym56#okcu65"/>
+    </CreateUnit>
+  </OperationUnits>
+  <KOLink id="mov2#mpkg11#hym56#opg12#kln21" name="KOLink21" to="mov2#mpkg11#hym56#kocu6" automaticCoupling="true"/>
+</OperationGroup>

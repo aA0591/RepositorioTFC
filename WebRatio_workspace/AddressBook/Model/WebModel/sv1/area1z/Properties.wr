@@ -1,0 +1,12 @@
+<Area xmlns:gr="http://www.webratio.com/2006/WebML/Graph" gr:x="305" gr:y="105" id="sv1#area1z" name="My Details" landmark="true" defaultPage="sv1#area1z#miu2z">
+  <OperationUnits>
+    <ModuleInstanceUnit id="sv1#area1z#miu2z" name="My Details" landmark="false" gr:x="150" gr:y="5" moduleId="mov2#mpkg3#hym3">
+      <OKLink id="sv1#area1z#miu2z#oln8z" name="OKLink29" to="sv1#area3#page18" automaticCoupling="true"/>
+    </ModuleInstanceUnit>
+    <GetUnit id="sv1#area1z#gtu3z" name="Get User" gr:x="0" gr:y="0" contextParameters="UserCtxParam">
+      <Link id="sv1#area1z#gtu3z#ln29z" name="Link140" to="sv1#area1z#miu2z" type="transport" validate="true">
+        <LinkParameter id="sv1#area1z#gtu3z#ln29z#par54z" name="UserCtxParam.oid_KeyCondition11 [oid]" source="sv1#area1z#gtu3z.UserCtxParam" target="sv1#area1z#miu2z.mov2#mpkg3#hym3#icu4#icp28"/>
+      </Link>
+    </GetUnit>
+  </OperationUnits>
+</Area>

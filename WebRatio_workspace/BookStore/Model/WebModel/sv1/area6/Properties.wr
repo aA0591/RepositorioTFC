@@ -1,0 +1,44 @@
+<Area xmlns:gr="http://www.webratio.com/2006/WebML/Graph" gr:x="-875" gr:y="-450" id="sv1#area6" name="Main Content" landmark="true" defaultPage="sv1#area6#page14">
+  <OperationUnits>
+    <ModuleInstanceUnit gr:x="520" gr:y="90" id="sv1#area6#miu15" name="Edit Editorial Reviews" moduleId="mov2#mpkg11#hym52">
+      <OKLink id="sv1#area6#miu15#oln116" name="OKLink116" to="sv1#area6#page21" automaticCoupling="true"/>
+    </ModuleInstanceUnit>
+    <ModuleInstanceUnit id="sv1#area6#miu8" name="Author Details" gr:x="750" gr:y="105" moduleId="mov2#mpkg11#hym50">
+      <OKLink id="sv1#area6#miu8#oln24" name="OKLink24" to="sv1#area6#page21#dau3" gr:bendpoints="-124,101,201,-54">
+        <LinkParameter id="sv1#area6#miu8#oln24#par12" name="Book Key" source="mov2#mpkg11#hym50#okcu58#ocp57" target="sv1#area6#page21#dau3#su18#kcond4.ent1#att60"/>
+      </OKLink>
+    </ModuleInstanceUnit>
+    <ModuleInstanceUnit id="sv1#area6#miu10" name="Save Comment" gr:x="1030" gr:y="440" moduleId="mov2#mpkg11#hym56">
+      <OKLink id="sv1#area6#miu10#oln10" name="OKLink10" to="sv1#area6#page21#mssu1">
+        <LinkParameter id="sv1#area6#miu10#oln10#par272" name="Message" sourceValue="Comment Created Successfully" target="sv1#area6#page21#mssu1.shownMessages"/>
+      </OKLink>
+      <KOLink id="sv1#area6#miu10#kln22" name="KOLink22" to="sv1#area6#page21#mssu1" gr:bendpoints="-77,80,83,80">
+        <LinkParameter id="sv1#area6#miu10#kln22#par143" name="Message" sourceValue="There was a problem saving the commentary." target="sv1#area6#page21#mssu1.shownMessages"/>
+      </KOLink>
+    </ModuleInstanceUnit>
+    <ModuleInstanceUnit id="sv1#area6#miu11" name="Export Cart As PDF" gr:x="270" gr:y="645" moduleId="mov2#mpkg13#hym54"/>
+    <ModuleInstanceUnit id="sv1#area6#miu13" name="User's Cart" gr:x="295" gr:y="510" moduleId="mov2#mpkg13#hym1">
+      <OKLink id="sv1#area6#miu13#oln11" name="OKLink11" to="sv1#area6#page14" codeRef="mov2#mpkg13#hym1#okcu3" gr:bendpoints="-268,70,-3,330"/>
+      <OKLink id="sv1#area6#miu13#oln4" name="OKLink4" to="sv1#area6#miu11" codeRef="mov2#mpkg13#hym1#okcu2">
+        <LinkParameter id="sv1#area6#miu13#oln4#par129" name="Order Key" source="mov2#mpkg13#hym1#okcu2#ocp2" target="sv1#area6#miu11.mov2#mpkg13#hym54#icu67#icp3"/>
+      </OKLink>
+    </ModuleInstanceUnit>
+    <ModuleInstanceUnit id="sv1#area6#miu17" name="Save Cart" gr:x="200" gr:y="400" moduleId="mov2#mpkg13#opm14">
+      <OKLink id="sv1#area6#miu17#oln29" name="OKLink29" to="sv1#area6#page21#dau3" gr:bendpoints="0,-87,-355,43">
+        <LinkParameter id="sv1#area6#miu17#oln29#par31" name="Book Key" source="mov2#mpkg13#opm14#okcu62#ocp7" target="sv1#area6#page21#dau3#su18#kcond4.ent1#att60"/>
+      </OKLink>
+    </ModuleInstanceUnit>
+    <ModuleInstanceUnit id="sv1#area6#miu18" name="Compute Rating" gr:x="1035" gr:y="280" moduleId="mov2#mpkg11#opm1">
+      <OKLink id="sv1#area6#miu18#oln31" name="OKLink31" to="sv1#area6#page21#dau3" gr:bendpoints="-248,84,247,84">
+        <LinkParameter id="sv1#area6#miu18#oln31#par62" name="Book Key" source="mov2#mpkg11#opm1#okcu4#ocp8" target="sv1#area6#page21#dau3#su18#kcond4.ent1#att60"/>
+      </OKLink>
+      <Link id="sv1#area6#miu18#ln127" name="Link127" to="sv1#area6#page21#mssu1" type="transport" validate="true">
+        <LinkParameter id="sv1#area6#miu18#ln127#par273" name="Message" sourceValue="Rating Saved Successfully, Thank you." target="sv1#area6#page21#mssu1.shownMessages"/>
+      </Link>
+    </ModuleInstanceUnit>
+  </OperationUnits>
+  <Comment xml:space="preserve">This Area contains the pages to show the generic information of Books and all the other related details (Categories etc). 
+
+A logged in user can also see his Cart and manage it. 
+
+</Comment></Area>

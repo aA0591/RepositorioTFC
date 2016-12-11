@@ -1,0 +1,22 @@
+<OperationGroup xmlns:gr="http://www.webratio.com/2006/WebML/Graph" gr:x="560" gr:y="20" id="mov2#mpkg12#hym53#opg13" name="Register" transaction="true">
+  <OperationUnits>
+    <CreateUnit id="mov2#mpkg12#hym53#opg13#cru9" name="Create User" gr:x="325" gr:y="0" entity="User">
+      <OKLink id="mov2#mpkg12#hym53#opg13#cru9#oln111" name="OKLink111" to="mov2#mpkg12#hym53#opg13#lgu2">
+        <LinkParameter id="mov2#mpkg12#hym53#opg13#cru9#oln111#par263" name="Username" source="userNameArray" target="mov2#mpkg12#hym53#opg13#lgu2.username"/>
+        <LinkParameter id="mov2#mpkg12#hym53#opg13#cru9#oln111#par264" name="Password" source="passwordArray" target="mov2#mpkg12#hym53#opg13#lgu2.password"/>
+      </OKLink>
+    </CreateUnit>
+    <IsNotNullUnit id="mov2#mpkg12#hym53#opg13#inn12" name="Over 18 Years?" gr:x="165" gr:y="10">
+      <OKLink id="mov2#mpkg12#hym53#opg13#inn12#oln114" name="OKLink114" to="mov2#mpkg12#hym53#opg13#cru9"/>
+      <KOLink id="mov2#mpkg12#hym53#opg13#inn12#kln18" name="KOLink18" to="mov2#mpkg12#hym53#page70#mssu5" preserveForm="true" ajaxOpenWindow="false" ajaxWindowUseTitle="true" ajaxWindowTitle="Error" ajaxWindowAutoResizing="true" ajaxWindowDraggable="true" gr:bendpoints="0,89,410,-1">
+        <LinkParameter id="mov2#mpkg12#hym53#opg13#inn12#kln18#par271" name="Message" sourceValue="User Must have at least 18 years" target="mov2#mpkg12#hym53#page70#mssu5.shownMessages"/>
+      </KOLink>
+    </IsNotNullUnit>
+    <LoginUnit id="mov2#mpkg12#hym53#opg13#lgu2" name="Login" gr:x="450" gr:y="10"/>
+    <ScriptUnit id="mov2#mpkg12#hym53#opg13#scu10" name="Calculate Age" gr:x="0" gr:y="10" script="WEB-INF/descr/groovy/Over18user.groovy">
+      <OKLink id="mov2#mpkg12#hym53#opg13#scu10#oln115" name="OKLink115" to="mov2#mpkg12#hym53#opg13#inn12">
+        <LinkParameter id="mov2#mpkg12#hym53#opg13#scu10#oln115#par266" name="Result" source="result" target="mov2#mpkg12#hym53#opg13#inn12.isnotnull"/>
+      </OKLink>
+    </ScriptUnit>
+  </OperationUnits>
+</OperationGroup>

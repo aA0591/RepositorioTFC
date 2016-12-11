@@ -1,0 +1,13 @@
+<OperationGroup xmlns:gr="http://www.webratio.com/2006/WebML/Graph" gr:x="130" gr:y="170" id="mov1#mpkg9#hym44#opg3" name="Save Review" transaction="true">
+  <OperationUnits>
+    <TimeUnit id="mov1#mpkg9#hym44#opg3#tmu6" name="Today Time" gr:x="0" gr:y="5">
+      <OKLink id="mov1#mpkg9#hym44#opg3#tmu6#oln84" name="OKLink84" to="mov1#mpkg9#hym44#opg3#cru16">
+        <LinkParameter id="mov1#mpkg9#hym44#opg3#tmu6#oln84#par165" name="Current Timestamp" source="currentTimestamp" target="mov1#mpkg9#hym44#opg3#cru16.ent9#att49"/>
+      </OKLink>
+    </TimeUnit>
+    <CreateUnit id="mov1#mpkg9#hym44#opg3#cru16" name="Create Editorial Review" gr:x="195" gr:y="0" entity="ent9">
+      <OKLink id="mov1#mpkg9#hym44#opg3#cru16#oln85" name="OKLink85" to="mov1#mpkg9#hym44#okcu11"/>
+    </CreateUnit>
+  </OperationUnits>
+  <KOLink id="mov1#mpkg9#hym44#opg3#kln25" name="KOLink25" to="mov1#mpkg9#hym44#kocu8" automaticCoupling="true"/>
+</OperationGroup>

@@ -1,0 +1,24 @@
+<OperationModule xmlns:gr="http://www.webratio.com/2006/WebML/Graph" gr:x="0" gr:y="110" id="mov1#mpkg8#opm3" name="Save Category" gr:icon="ModulesIcons/Save.png">
+  <OperationUnits>
+    <InputCollectorUnit id="mov1#mpkg8#opm3#icu4" gr:x="-70" gr:y="115" name="Input">
+      <InputCollectorParameter id="mov1#mpkg8#opm3#icu4#icp10" name="Category Key"/>
+      <InputCollectorParameter id="mov1#mpkg8#opm3#icu4#icp11" name="Category Object"/>
+      <InputCollectorParameter id="mov1#mpkg8#opm3#icu4#icp12" name="Parent Category Key"/>
+      <Link id="mov1#mpkg8#opm3#icu4#ln9" name="Link9" to="mov1#mpkg8#opm3#opg2#mfu4" type="transport" validate="true">
+        <LinkParameter id="mov1#mpkg8#opm3#icu4#ln9#par6" name="Category Object" source="mov1#mpkg8#opm3#icu4#icp11" target="mov1#mpkg8#opm3#opg2#mfu4.entityBeans"/>
+        <LinkParameter id="mov1#mpkg8#opm3#icu4#ln9#par8" name="Category Key" source="mov1#mpkg8#opm3#icu4#icp10" target="mov1#mpkg8#opm3#opg2#mfu4#su2#kcond7.ent6#att62"/>
+        <LinkParameter id="mov1#mpkg8#opm3#icu4#ln9#par10" name="Parent Category Key" source="mov1#mpkg8#opm3#icu4#icp12" target="mov1#mpkg8#opm3#opg2#mfu4.rel16#rel10.ent6#att62"/>
+      </Link>
+      <Link id="mov1#mpkg8#opm3#icu4#ln30" name="Link30" to="mov1#mpkg8#opm3#opg2#cru4" type="transport" validate="true">
+        <LinkParameter id="mov1#mpkg8#opm3#icu4#ln30#par11" name="Category Object" source="mov1#mpkg8#opm3#icu4#icp11" target="mov1#mpkg8#opm3#opg2#cru4.entityBeans"/>
+        <LinkParameter id="mov1#mpkg8#opm3#icu4#ln30#par14" name="Category Key" source="mov1#mpkg8#opm3#icu4#icp12" target="mov1#mpkg8#opm3#opg2#cru4.rel16#rel10.ent6#att62"/>
+      </Link>
+      <OKLink id="mov1#mpkg8#opm3#icu4#oln27" name="OKLink27" to="mov1#mpkg8#opm3#opg2#inn4">
+        <LinkParameter id="mov1#mpkg8#opm3#icu4#oln27#par37" name="Category Key" source="mov1#mpkg8#opm3#icu4#icp10" target="mov1#mpkg8#opm3#opg2#inn4.isnotnull"/>
+      </OKLink>
+    </InputCollectorUnit>
+    <OKCollectorUnit gr:x="555" gr:y="140" id="mov1#mpkg8#opm3#okcu5" name="Success"/>
+    <KOCollectorUnit gr:x="555" gr:y="15" id="mov1#mpkg8#opm3#kocu1" name="Error"/>
+  </OperationUnits>
+  <Comment xml:space="preserve">Operation Module that contains the operations needed to edit or create a Category.</Comment>
+</OperationModule>

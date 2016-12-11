@@ -1,0 +1,15 @@
+<HybridModule xmlns:gr="http://www.webratio.com/2006/WebML/Graph" id="mov1#mpkg8#hym42" name="Edit Parent" gr:x="0" gr:y="0" gr:icon="ModulesIcons/Edit.png">
+  <OperationUnits>
+    <InputCollectorUnit id="mov1#mpkg8#hym42#icu51" name="Input" gr:x="-40" gr:y="55">
+      <InputCollectorParameter id="mov1#mpkg8#hym42#icu51#icp133" name="Category Key"/>
+      <OKLink id="mov1#mpkg8#hym42#icu51#oln198" name="OKLink198" to="mov1#mpkg8#hym42#page58#hinu2" ajaxOpenWindow="false" ajaxWindowUseTitle="true" ajaxWindowTitle="Modify Parent" ajaxWindowAutoResizing="true" ajaxWindowDraggable="true">
+        <LinkParameter id="mov1#mpkg8#hym42#icu51#oln198#par95" name="Category Key" source="mov1#mpkg8#hym42#icu51#icp133" target="mov1#mpkg8#hym42#page58#hinu2#su17#kcond19.ent6#att62"/>
+      </OKLink>
+    </InputCollectorUnit>
+    <OKCollectorUnit id="mov1#mpkg8#hym42#okcu48" name="Output" gr:x="470" gr:y="55">
+      <OutputCollectorParameter id="mov1#mpkg8#hym42#okcu48#ocp49" name="Parent Category Name"/>
+      <OutputCollectorParameter id="mov1#mpkg8#hym42#okcu48#ocp3" name="Parent Category Key"/>
+    </OKCollectorUnit>
+  </OperationUnits>
+  <Comment xml:space="preserve">Hybrid Module used to find the keys of the parent Categories related to a certain Category.</Comment>
+</HybridModule>

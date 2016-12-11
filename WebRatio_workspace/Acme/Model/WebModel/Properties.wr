@@ -1,0 +1,26 @@
+<WebModel xmlns:layout="http://www.webratio.com/2006/WebML/Layout" defaultLocale="en_US" control="Ny4yLjE0LjIwMTYxMjEwQ291bnRyeUlTT0N0eFBhcmFtR3JvdXBDdHhQYXJhbUxhbmd1YWdlSVNPQ3R4UGFyYW1Vc2VyQ3R4UGFyYW0=" layout:style="PureStyle" homeSiteView="sv1" layout:inheritParameters="true" baseVersion="7.2.14.20161210" edtLvl="WebRatio Community Platform # 20161210" edtLvlCtrl="V2ViUmF0aW8gQ29tbXVuaXR5IFBsYXRmb3JtICMgMjAxNjEyMTBDb3VudHJ5SVNPQ3R4UGFyYW1Hcm91cEN0eFBhcmFtTGFuZ3VhZ2VJU09DdHhQYXJhbVVzZXJDdHhQYXJhbQ==">
+  <Locale id="en_US" language="en" country="US">
+    <PatternConfiguration type="boolean" pattern="yes|no"/>
+    <PatternConfiguration type="date" pattern="MM/dd/yyyy"/>
+    <PatternConfiguration type="decimal" maxDecimal="3" minDecimal="0" minInteger="1" useThousandSeparator="false"/>
+    <PatternConfiguration type="float" maxDecimal="3" minDecimal="0" minInteger="1" useThousandSeparator="false"/>
+    <PatternConfiguration type="integer" minInteger="1" useThousandSeparator="false"/>
+    <PatternConfiguration type="time" pattern="h:mm:ss a"/>
+    <PatternConfiguration type="timestamp" pattern="MM/dd/yyyy h:mm:ss a"/>
+    <PatternConfiguration type="sbt1" maxDecimal="3" minDecimal="0" minInteger="1" useThousandSeparator="true" pattern="&#8364; #,##0.###" useNumberPattern="true"/>
+  </Locale>
+  <ContextParameter id="UserCtxParam" name="UserCtxParam" entity="User" type="entity"/>
+  <ContextParameter id="GroupCtxParam" name="GroupCtxParam" entity="Group" type="entity"/>
+  <ContextParameter id="LanguageISOCtxParam" name="LanguageISOCtxParam" type="string"/>
+  <ContextParameter id="CountryISOCtxParam" name="CountryISOCtxParam" type="string"/>
+  <ConditionExpression id="cexpr4" name="is user">
+    <TextValue xml:space="preserve">import com.webratio.rtx.core.BeanHelper
+return BeanHelper.asString(UserCtxParam) != "0"</TextValue>
+  </ConditionExpression>
+  <ConditionExpression id="cexpr5" name="is customer">
+    <TextValue xml:space="preserve">import com.webratio.rtx.core.BeanHelper
+return BeanHelper.asString(GroupCtxParam) == "2"</TextValue>
+  </ConditionExpression>
+  <layout:LayoutParameter name="error-position" value="bottom" type="field"/>
+  <layout:LayoutParameter name="mandatory-fields" value="true" type="field"/>
+</WebModel>

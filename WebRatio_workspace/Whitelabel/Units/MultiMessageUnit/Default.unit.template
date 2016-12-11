@@ -1,0 +1,96 @@
+#?delimiters [%, %], [%=, %]
+<wr:LayoutParameter label="Message Type" name="message-type" values="info|success|warning|note" type="enum" default="info">
+Defines the type of the message.
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Message Localized" name="message-localized" type="boolean" default="false">
+Defines whether to use the content of the message as key of a bean message.
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Content Type" name="contentType" values="text/plain|text/html" type="enum">
+Defines the type of content of the message to escape it, if necessary.
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Link position" name="link-position" values="top|bottom|right" type="enum" default="bottom">
+Defines rendition of the links
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Use Empty Unit Message" name="use-empty-unit-message" type="boolean" default="false">
+Defines the usage of a message for empty units.
+Allowed values are: true or false(default).
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Empty Unit Message" name="empty-unit-message" type="string" default="emptyUnitMessage">
+Defines the key of the message to use if the unit is empty.
+Default value: emptyUnitMessage
+</wr:LayoutParameter>
+[%
+import org.apache.commons.lang.math.NumberUtils
+import org.apache.commons.lang.StringUtils
+
+setHTMLOutput()
+def unitId = unit["id"]
+
+def localized = new Boolean(params["message-localized"])
+def contentType = params["contentType"]
+def useEmptyUnitMessage = params["use-empty-unit-message"]
+def emptyUnitMessage = params["empty-unit-message"]
+def links = unit.selectNodes("layout:Link")
+def haveLinks = links.size()>0
+def linkPosition = params["link-position"]
+
+%]
+[% if (useEmptyUnitMessage != "true") { %]
+<c:if test="${not(empty <wr:Id context="unit" />) and (<wr:Id context="unit" />.dataSize gt 0)}">
+[% } else { %]
+<c:choose>
+<c:when test="${not(empty <wr:Id context="unit" />) and (<wr:Id context="unit" />.dataSize gt 0)}">
+[% } %]
+	<wr:Frame>
+		<c:forEach var="current" varStatus="status" items="${<wr:Id context="unit" />.data}">
+			<c:set var="index" value="${status.index}"/>
+			<div class="alert [%= params["message-type"] %]" data-sticky="true">
+				[% if( haveLinks && linkPosition == "top" ) { %]
+					<div>
+					<wr:Iterate var="link" context="unit" select="layout:Link">
+						<wr:Visible>
+							<wr:Link class="link"/>
+						</wr:Visible>
+					</wr:Iterate>
+					</div>
+				[% } %]
+				[% if (contentType == "text/plain") { %]
+					<pre class="<wr:StyleClass/> value"><c:out value="${current}"/></pre>
+				[% } else if (contentType == "text/html") { %]
+					<c:out value="${current}" escapeXml='false'/>
+				[% } else if (localized) { %]
+					<bean:message key="${current}"/>
+				[% } else { %]
+					<c:out value="${current}"/>
+				[% } %]
+				[% if( haveLinks && linkPosition != "top" ) { %]
+					[% if( linkPosition == "bottom") { %]
+						<div>
+					[% } %]
+					<wr:Iterate var="link" context="unit" select="layout:Link">
+						<wr:Visible>
+							<wr:Link class="link"/>
+						</wr:Visible>
+					</wr:Iterate>
+					[% if( linkPosition == "bottom") { %]
+						</div>
+					[% } %]
+				[% } %]
+			</div>
+		</c:forEach>
+	</wr:Frame>
+[% if (useEmptyUnitMessage != "true") { %]
+</c:if>
+[% } else { %]
+</c:when>
+<c:otherwise>
+	<wr:Frame>
+		<div class="plain <wr:StyleClass/>">
+			<div class="plain MultiMessageUnit">
+				<div><bean:message key="[%printJSPTagValue(emptyUnitMessage)%]"/></div>
+			</div>
+		</div>
+	</wr:Frame>
+</c:otherwise>
+</c:choose>
+[% } %]

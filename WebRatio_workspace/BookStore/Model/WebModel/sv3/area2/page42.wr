@@ -1,0 +1,86 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" gr:x="0" gr:y="0" id="sv3#area2#page42" name="Order Management">
+  <ContentUnits>
+    <EntryUnit gr:x="0" gr:y="15" id="sv3#area2#page42#enu22" name="Search Order" linkOrder="sv3#area2#page42#enu22#ln181 sv3#area2#page42#enu22#ln182" entity="ent12">
+      <Field id="sv3#area2#page42#enu22#fld77" name="Order Date" type="timestamp" modifiable="true" attribute="ent12#att72"/>
+      <Field id="sv3#area2#page42#enu22#fld78" name="Total" type="integer" modifiable="true" attribute="ent12#att45"/>
+      <Link id="sv3#area2#page42#enu22#ln181" name="Show All" to="sv3#area2#page42#pwu13" type="normal" validate="true" gr:bendpoints="70,-25,-95,-25"/>
+      <Link id="sv3#area2#page42#enu22#ln182" name="Search" to="sv3#area2#page42#pwu13" type="normal" validate="true" gr:bendpoints="84,30,-111,30">
+        <LinkParameter id="sv3#area2#page42#enu22#ln182#par355" name="Order Date" source="sv3#area2#page42#enu22#fld77" target="sv3#area2#page42#pwu13#su75#acond27"/>
+        <LinkParameter id="sv3#area2#page42#enu22#ln182#par356" name="Order Total Amount" source="sv3#area2#page42#enu22#fld78" target="sv3#area2#page42#pwu13#su75#acond28"/>
+      </Link>
+    </EntryUnit>
+    <PowerIndexUnit gr:x="180" gr:y="0" id="sv3#area2#page42#pwu13" name="Orders List" sortable="true" checkable="false" useCountQuery="false" entity="ent12" displayAttributes="ent12#att72 ent12#att7 ent12#att47 ent12#att6" linkOrder="sv3#area2#page42#pwu13#ln28 sv3#area2#page42#pwu13#ln50">
+      <SortAttribute attribute="ent12#att72" order="ascending"/>
+      <SortAttribute attribute="ent12#att7" order="ascending"/>
+      <SortAttribute attribute="ent12#att47" order="ascending"/>
+      <SortAttribute attribute="ent12#att6" order="ascending"/>
+      <DefaultSortAttribute attribute="ent12#att72" order="ascending"/>
+      <DefaultSortAttribute attribute="ent12#att7" order="ascending"/>
+      <DefaultSortAttribute attribute="ent12#att47" order="ascending"/>
+      <DefaultSortAttribute attribute="ent12#att6" order="ascending"/>
+      <Selector id="sv3#area2#page42#pwu13#su75" defaultPolicy="fill" booleanOperator="or">
+        <AttributesCondition id="sv3#area2#page42#pwu13#su75#acond27" name="Date" predicate="eq" booleanOperator="or" implied="true" ignoreCase="false" attributes="ent12#att72"/>
+        <AttributesCondition id="sv3#area2#page42#pwu13#su75#acond28" name="Total Amount" predicate="eq" booleanOperator="or" implied="true" attributes="ent12#att47" ignoreCase="false"/>
+      </Selector>
+      <Link id="sv3#area2#page42#pwu13#ln28" name="See Details" to="sv3#area2#miu7" type="normal" validate="true" ajaxEnabled="true" ajaxOpenWindow="true" ajaxWindowUseTitle="true" ajaxWindowTitle="Order Details" ajaxWindowWidth="800" ajaxWindowHeight="600" ajaxWindowAutoResizing="false" ajaxWindowClosable="true" ajaxWindowDraggable="true">
+        <LinkParameter id="sv3#area2#page42#pwu13#ln28#par36" name="Order Key" source="data[].ent12#att45" target="sv3#area2#miu7.mov1#mpkg10#hym49#icu60#icp179"/>
+      </Link>
+      <Link id="sv3#area2#page42#pwu13#ln50" name="Export to PDF" to="sv3#area2#miu6" type="normal" validate="true">
+        <LinkParameter id="sv3#area2#page42#pwu13#ln50#par63" name="Order Key" source="data[].ent12#att45" target="sv3#area2#miu6.mov2#mpkg13#hym54#icu67#icp3"/>
+      </Link>
+    </PowerIndexUnit>
+  </ContentUnits>
+  <layout:Grid>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv3#area2#page42#enu22">
+          <layout:Field field="sv3#area2#page42#enu22#fld77"/>
+          <layout:Field field="sv3#area2#page42#enu22#fld78"/>
+          <layout:Link link="sv3#area2#page42#enu22#ln181"/>
+          <layout:Link link="sv3#area2#page42#enu22#ln182"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv3#area2#page42#pwu13">
+          <layout:Attribute attribute="ent12#att72"/>
+          <layout:Attribute attribute="ent12#att7"/>
+          <layout:Attribute attribute="ent12#att47"/>
+          <layout:Attribute attribute="ent12#att6"/>
+          <layout:Link link="sv3#area2#page42#pwu13#ln28"/>
+          <layout:Link link="sv3#area2#page42#pwu13#ln50"/>
+          <layout:Link link="sv3#area2#page42#pwu13ent12#att72"/>
+          <layout:Link link="sv3#area2#page42#pwu13ent12#att7"/>
+          <layout:Link link="sv3#area2#page42#pwu13ent12#att47"/>
+          <layout:Link link="sv3#area2#page42#pwu13ent12#att6"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+  <Comment xml:space="preserve">This is the default Page of the Area. 
+
+Its a Page that allows the User to search his own Orders, see the details and export them into PDF files.</Comment>
+</Page>

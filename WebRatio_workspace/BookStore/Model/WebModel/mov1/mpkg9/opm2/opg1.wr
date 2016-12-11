@@ -1,0 +1,62 @@
+<OperationGroup xmlns:gr="http://www.webratio.com/2006/WebML/Graph" gr:x="170" gr:y="-455" id="mov1#mpkg9#opm2#opg1" name="Save Book" transaction="true">
+  <OperationUnits>
+    <ModifyUnit id="mov1#mpkg9#opm2#opg1#mfu3" name="Modify Book" gr:x="135" gr:y="0" entity="ent1">
+      <Selector id="mov1#mpkg9#opm2#opg1#mfu3#su49" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="mov1#mpkg9#opm2#opg1#mfu3#su49#kcond24" name="Book" predicate="in" implied="false"/>
+      </Selector>
+      <OKLink id="mov1#mpkg9#opm2#opg1#mfu3#oln62" name="OKLink62" to="mov1#mpkg9#opm2#opg1#scu5"/>
+      <Link id="mov1#mpkg9#opm2#opg1#mfu3#ln69" name="Link69" to="mov1#mpkg9#opm2#opg1#cnu4" type="transport" automaticCoupling="true" validate="true" gr:bendpoints="283,-1,-2,-211"/>
+    </ModifyUnit>
+    <IsNotNullUnit id="mov1#mpkg9#opm2#opg1#inn5" name="Book Exists?" gr:x="0" gr:y="100">
+      <OKLink id="mov1#mpkg9#opm2#opg1#inn5#oln63" name="OKLink63" to="mov1#mpkg9#opm2#opg1#mfu3">
+        <LinkParameter id="mov1#mpkg9#opm2#opg1#inn5#oln63#par92" name="Book Key" source="inputValue" target="mov1#mpkg9#opm2#opg1#mfu3#su49#kcond24.ent1#att60"/>
+      </OKLink>
+      <KOLink id="mov1#mpkg9#opm2#opg1#inn5#kln8" name="KOLink8" to="mov1#mpkg9#opm2#opg1#cru13"/>
+    </IsNotNullUnit>
+    <LoopUnit id="mov1#mpkg9#opm2#opg1#lpu4" name="Iterate Over Authors" gr:x="515" gr:y="100">
+      <OKLink id="mov1#mpkg9#opm2#opg1#lpu4#oln64" name="OKLink64" to="mov1#mpkg9#opm2#opg1#seu11" code="next">
+        <LinkParameter id="mov1#mpkg9#opm2#opg1#lpu4#oln64#par117" name="Author Name" source="next" target="mov1#mpkg9#opm2#opg1#seu11#su50#acond22"/>
+      </OKLink>
+      <Link id="mov1#mpkg9#opm2#opg1#lpu4#ln71" name="Link71" to="mov1#mpkg9#opm2#opg1#cru15" type="transport" validate="true" gr:bendpoints="2,210,112,-40">
+        <LinkParameter id="mov1#mpkg9#opm2#opg1#lpu4#ln71#par120" name="Author Name" source="next" target="mov1#mpkg9#opm2#opg1#cru15.ent4#att24"/>
+      </Link>
+      <OKLink id="mov1#mpkg9#opm2#opg1#lpu4#oln65" name="OKLink65" to="mov1#mpkg9#opm2#okcu10" code="end"/>
+    </LoopUnit>
+    <SelectorUnit id="mov1#mpkg9#opm2#opg1#seu11" name="Select Author" gr:x="665" gr:y="205" entity="ent4">
+      <Selector id="mov1#mpkg9#opm2#opg1#seu11#su50" defaultPolicy="fill" booleanOperator="and">
+        <AttributesCondition id="mov1#mpkg9#opm2#opg1#seu11#su50#acond22" name="Name" predicate="eq" booleanOperator="or" implied="false" attributes="ent4#att24"/>
+      </Selector>
+      <OKLink id="mov1#mpkg9#opm2#opg1#seu11#oln66" name="OKLink66" to="mov1#mpkg9#opm2#opg1#inn6">
+        <LinkParameter id="mov1#mpkg9#opm2#opg1#seu11#oln66#par123" name="Author Name" source="ent4#att61Array" target="mov1#mpkg9#opm2#opg1#inn6.isnotnull"/>
+      </OKLink>
+    </SelectorUnit>
+    <ConnectUnit id="mov1#mpkg9#opm2#opg1#cnu4" name="Connect Book And Author" gr:x="385" gr:y="205" relationship="rel15#rel31">
+      <SourceSelector id="mov1#mpkg9#opm2#opg1#cnu4#su51" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="mov1#mpkg9#opm2#opg1#cnu4#su51#kcond25" predicate="in" implied="false" name="Book"/>
+      </SourceSelector>
+      <TargetSelector id="mov1#mpkg9#opm2#opg1#cnu4#su52" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="mov1#mpkg9#opm2#opg1#cnu4#su52#kcond26" name="Author" predicate="in" implied="false"/>
+      </TargetSelector>
+      <OKLink id="mov1#mpkg9#opm2#opg1#cnu4#oln67" name="OKLink67" to="mov1#mpkg9#opm2#opg1#lpu4"/>
+    </ConnectUnit>
+    <IsNotNullUnit id="mov1#mpkg9#opm2#opg1#inn6" name="Author Exists?" gr:x="660" gr:y="350">
+      <KOLink id="mov1#mpkg9#opm2#opg1#inn6#kln12" name="KOLink12" to="mov1#mpkg9#opm2#opg1#cru15"/>
+      <OKLink id="mov1#mpkg9#opm2#opg1#inn6#oln68" name="OKLink68" to="mov1#mpkg9#opm2#opg1#cnu4">
+        <LinkParameter id="mov1#mpkg9#opm2#opg1#inn6#oln68#par124" name="Author Key" source="inputValue" target="mov1#mpkg9#opm2#opg1#cnu4#su52#kcond26.ent4#att61"/>
+      </OKLink>
+    </IsNotNullUnit>
+    <CreateUnit id="mov1#mpkg9#opm2#opg1#cru13" name="Create Book" gr:x="135" gr:y="175" entity="ent1">
+      <OKLink id="mov1#mpkg9#opm2#opg1#cru13#oln69" name="OKLink69" to="mov1#mpkg9#opm2#opg1#scu5"/>
+      <Link id="mov1#mpkg9#opm2#opg1#cru13#ln75" name="Link75" to="mov1#mpkg9#opm2#opg1#cnu4" type="transport" automaticCoupling="true" validate="true"/>
+    </CreateUnit>
+    <ScriptUnit id="mov1#mpkg9#opm2#opg1#scu5" name="Manage Authors String" gr:x="260" gr:y="100" script="WEB-INF/descr/groovy/manageauthors.groovy">
+      <OKLink id="mov1#mpkg9#opm2#opg1#scu5#oln70" name="OKLink70" to="mov1#mpkg9#opm2#opg1#lpu4">
+        <LinkParameter id="mov1#mpkg9#opm2#opg1#scu5#oln70#par125" name="Authors" source="result(newauthorsList)" target="mov1#mpkg9#opm2#opg1#lpu4.array"/>
+      </OKLink>
+    </ScriptUnit>
+    <CreateUnit id="mov1#mpkg9#opm2#opg1#cru15" name="Create Author" gr:x="415" gr:y="340" entity="ent4">
+      <OKLink id="mov1#mpkg9#opm2#opg1#cru15#oln71" name="OKLink71" to="mov1#mpkg9#opm2#opg1#cnu4" automaticCoupling="true"/>
+    </CreateUnit>
+  </OperationUnits>
+  <KOLink id="mov1#mpkg9#opm2#opg1#kln13" name="KOLink13" to="mov1#mpkg9#opm2#kocu2" automaticCoupling="true"/>
+</OperationGroup>

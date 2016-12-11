@@ -1,0 +1,137 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" id="sv1#page13" name="Registration" landmark="false" gr:x="250" gr:y="-85" layout:pageLayout="WRDefault/Empty" ignoreMasterPage="true">
+  <ContentUnits>
+    <EntryUnit id="sv1#page13#enu1" name="Registration" gr:x="0" gr:y="0" entity="User" fieldOrder="sv1#page13#enu1#fld52 sv1#page13#enu1#fld53 sv1#page13#enu1#fld56 sv1#page13#enu1#sfld3 sv1#page13#enu1#fld48 sv1#page13#enu1#fld38 sv1#page13#enu1#fld47 sv1#page13#enu1#fld58 sv1#page13#enu1#fld62 sv1#page13#enu1#fld63 sv1#page13#enu1#fld64 sv1#page13#enu1#fld65 sv1#page13#enu1#fld61" linkOrder="sv1#page13#enu1#ln35">
+      <Field id="sv1#page13#enu1#fld38" name="Username" type="string" modifiable="true" attribute="userName">
+        <VRules>
+          <MandatoryValidationRule id="sv1#page13#enu1#fld38#mnd9" name="Mandatory Field"/>
+          <CollectionValidationRule id="sv1#page13#enu1#fld38#clc3" name="Validate Unique Field" predicate="notIn" ignoreCase="true" entity="User" attribute="userName"/>
+        </VRules>
+      </Field>
+      <Field id="sv1#page13#enu1#fld47" name="Password" type="password" modifiable="true" attribute="password">
+        <VRules>
+          <MandatoryValidationRule id="sv1#page13#enu1#fld47#mnd27" name="Mandatory Field"/>
+        </VRules>
+      </Field>
+      <Field id="sv1#page13#enu1#fld48" name="Email" type="string" modifiable="true" attribute="email">
+        <VRules>
+          <MandatoryValidationRule id="sv1#page13#enu1#fld48#mnd30" name="Mandatory Field"/>
+          <CollectionValidationRule id="sv1#page13#enu1#fld48#clc6" name="Validate Unique Field" predicate="notIn" entity="User" attribute="email"/>
+          <EMailValidationRule id="sv1#page13#enu1#fld48#email2" name="Validate EMail Field"/>
+        </VRules>
+      </Field>
+      <Field id="sv1#page13#enu1#fld52" name="First Name" type="string" modifiable="true" attribute="User#att30">
+        <VRules>
+          <MandatoryValidationRule id="sv1#page13#enu1#fld52#mnd34" name="Mandatory Field"/>
+        </VRules>
+      </Field>
+      <Field id="sv1#page13#enu1#fld53" name="Last Name" type="string" modifiable="true" attribute="User#att31">
+        <VRules>
+          <MandatoryValidationRule id="sv1#page13#enu1#fld53#mnd35" name="Mandatory Field"/>
+        </VRules>
+      </Field>
+      <Field id="sv1#page13#enu1#fld56" name="Birth Date" type="date" modifiable="true" attribute="User#att33" preloaded="false" validationOrder="sv1#page13#enu1#fld56#mnd1o">
+        <VRules>
+          <MandatoryValidationRule id="sv1#page13#enu1#fld56#mnd1o" name="Mandatory Field"/>
+        </VRules>
+      </Field>
+      <Field id="sv1#page13#enu1#fld58" name="Confirm Password" type="password" modifiable="true" attribute="password">
+        <VRules>
+          <MandatoryValidationRule id="sv1#page13#enu1#fld58#mnd36" name="Mandatory Field"/>
+          <CompareValidationRule id="sv1#page13#enu1#fld58#cmp4" name="Validate Compare" predicate="eq" valueField="sv1#page13#enu1#fld47"/>
+        </VRules>
+      </Field>
+      <SelectionField id="sv1#page13#enu1#sfld3" name="Gender" attribute="User#att32" type="string" splitOutput="true">
+        <VRules>
+          <MandatoryValidationRule id="sv1#page13#enu1#sfld3#mnd38" name="Mandatory Field"/>
+        </VRules>
+        <Slot id="sv1#page13#enu1#sfld3#slot2" name="Options" label="true" output="true" value="Male|Female"/>
+      </SelectionField>
+      <VRules/>
+      <Field id="sv1#page13#enu1#fld61" name="The mail address and the company phone number provided by the user during the registration could be used, only after specific acceptance, by WebRatio s.r.l. to promote its services, also for sending a periodic newsletter and other material. The user at anytime can ask to be removed from this service by writing an email to: privacy@webratio.com. This action will not prevent any consequence to other services" type="boolean" modifiable="true">
+        <VRules>
+          <MandatoryValidationRule id="sv1#page13#enu1#fld61#mnd37" name="Mandatory Field"/>
+        </VRules>
+      </Field>
+      <Field id="sv1#page13#enu1#fld62" name="Address Line 1" type="string" modifiable="true"/>
+      <Field id="sv1#page13#enu1#fld63" name="Address Line 2" type="string" modifiable="true"/>
+      <Field id="sv1#page13#enu1#fld64" name="Address Line 3" type="string" modifiable="true"/>
+      <Field id="sv1#page13#enu1#fld65" name="Address Line 4" type="string" modifiable="true"/>
+      <Link id="sv1#page13#enu1#ln35" name="Save" to="sv1#opg5#cru2" type="normal" validate="true">
+        <LinkParameter id="sv1#page13#enu1#ln35#par8" name="Group Key" sourceValue="2" target="sv1#opg5#cru2.User2DefaultGroup.groupOID"/>
+        <LinkParameter id="sv1#page13#enu1#ln35#par14" name="User Object" source="entityBean" target="sv1#opg5#cru2.entityBeans"/>
+      </Link>
+    </EntryUnit>
+  </ContentUnits>
+  <layout:Grid>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv1#page13#enu1" manualFields="true" manualFieldOrder="sv1#page13#enu1#fld52 sv1#page13#enu1#fld53 sv1#page13#enu1#fld56 sv1#page13#enu1#sfld3 sv1#page13#enu1#fld48 sv1#page13#enu1#fld38 sv1#page13#enu1#fld47 sv1#page13#enu1#fld58 sv1#page13#enu1#fld62 sv1#page13#enu1#fld63 sv1#page13#enu1#fld64 sv1#page13#enu1#fld65" manualLinks="true" layout:frameLayout="None">
+          <layout:Field field="sv1#page13#enu1#fld52"/>
+          <layout:Field field="sv1#page13#enu1#fld53"/>
+          <layout:Field field="sv1#page13#enu1#fld56"/>
+          <layout:Field field="sv1#page13#enu1#sfld3">
+            <layout:LayoutParameter name="selection-field-rendering" value="radio" type="field"/>
+          </layout:Field>
+          <layout:Field field="sv1#page13#enu1#fld48"/>
+          <layout:Field field="sv1#page13#enu1#fld38"/>
+          <layout:Field field="sv1#page13#enu1#fld47"/>
+          <layout:Field field="sv1#page13#enu1#fld58"/>
+          <layout:Field field="sv1#page13#enu1#fld62"/>
+          <layout:Field field="sv1#page13#enu1#fld63"/>
+          <layout:Field field="sv1#page13#enu1#fld64"/>
+          <layout:Field field="sv1#page13#enu1#fld65"/>
+          <layout:LayoutParameter name="error-position" value="right" type="unit"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell>
+        <layout:Field unitId="sv1#page13#enu1" mode="value" field="sv1#page13#enu1#fld61">
+          <layout:LayoutParameter name="boolean-field-rendering" value="checkbox" type="field"/>
+        </layout:Field>
+      </layout:Cell>
+      <layout:Cell colspan="11">
+        <layout:Field unitId="sv1#page13#enu1" mode="label" field="sv1#page13#enu1#fld61"/>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="10"/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell colspan="2">
+        <layout:Unit unitId="sv1#page13#enu1" layout:frameLayout="None" manualFields="true">
+          <layout:Link link="sv1#page13#enu1#ln35"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+</Page>

@@ -1,0 +1,118 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" gr:x="305" gr:y="10" id="sv1#area5#page1" name="Departement editing" ignoreMasterPage="false" ajaxEnabled="true" layout:pageLayout="WRDefault/Empty">
+  <ContentUnits>
+    <EntryUnit gr:x="90" gr:y="130" id="sv1#area5#page1#enu1" name="Organization Unit" entity="ent6" fieldOrder="sv1#area5#page1#enu1#sfld1z sv1#area5#page1#enu1#fld1 sv1#area5#page1#enu1#fld6 sv1#area5#page1#enu1#fld4z sv1#area5#page1#enu1#sfld2" linkOrder="sv1#area5#page1#enu1#ln13 sv1#area5#page1#enu1#ln13z sv1#area5#page1#enu1#ln15z sv1#area5#page1#enu1#ln28 sv1#area5#page1#enu1#ln16z sv1#area5#page1#enu1#ln12z">
+      <Field id="sv1#area5#page1#enu1#fld1" name="Name" type="string" modifiable="true" attribute="ent6#att33" preloaded="true">
+        <VRules>
+          <MandatoryValidationRule id="sv1#area5#page1#enu1#fld1#mnd8z" name="mandatory"/>
+        </VRules>
+      </Field>
+      <Field id="sv1#area5#page1#enu1#fld6" name="Description" type="text" modifiable="true" attribute="ent6#att39" preloaded="true"/>
+      <SelectionField id="sv1#area5#page1#enu1#sfld2" name="Department" type="string" role="rel1z#role2z">
+        <VRules>
+          <MandatoryValidationRule id="sv1#area5#page1#enu1#sfld2#mnd10z" name="mandatory"/>
+        </VRules>
+      </SelectionField>
+      <Link id="sv1#area5#page1#enu1#ln13" name="Save" to="sv1#area5#miu1" type="normal" validate="true" ajaxEnabled="false" ajaxCloseWindow="true">
+        <LinkParameter id="sv1#area5#page1#enu1#ln13#par30z" name="Key [oid]_organizationUnitID" source="key.ent6#att32" target="sv1#area5#miu1.mov2#mpkg2#opm2#icu1#icp2z"/>
+        <LinkParameter id="sv1#area5#page1#enu1#ln13#par31z" name="Organization Unit Object_organizationUnitObj" source="entityBean" target="sv1#area5#miu1.mov2#mpkg2#opm2#icu1#icp1z"/>
+        <LinkParameter id="sv1#area5#page1#enu1#ln13#par50z" name="manager oid_managerID" source="sv1#area5#page1#enu1#fld5z" target="sv1#area5#miu1.mov2#mpkg2#opm2#icu1#icp3z"/>
+      </Link>
+      <Link id="sv1#area5#page1#enu1#ln28" name="Choose" to="sv1#area5#page4" automaticCoupling="true" type="normal" validate="false" ajaxEnabled="true" ajaxOpenWindow="true" ajaxWindowUseTitle="false" ajaxWindowAutoResizing="false" ajaxWindowClosable="true" ajaxWindowDraggable="true" ajaxWindowWidth="500" ajaxWindowHeight="500" ajaxWindowResizable="true" ajaxWindowModal="true">
+        <Property id="sv1#area5#page1#enu1#ln28#prop3z" name="fieldLink" value="Manager"/>
+      </Link>
+      <SelectionField id="sv1#area5#page1#enu1#sfld1z" name="Type" type="string" attribute="ent6#att8z" ajaxEventEnabled="true" ajaxEventLink="sv1#area5#page1#enu1#ln12z" ajaxEventIndicator="true">
+        <Slot id="sv1#area5#page1#enu1#sfld1z#slot1z" name="values" label="true" output="true" value="Department|Department Unit"/>
+      </SelectionField>
+      <Link id="sv1#area5#page1#enu1#ln12z" name="onchange type" to="sv1#area5#opu1z" type="normal" validate="true"/>
+      <Field id="sv1#area5#page1#enu1#fld4z" type="string" modifiable="false" name="Manager" preloaded="true">
+        <VRules>
+          <MandatoryValidationRule id="sv1#area5#page1#enu1#fld4z#mnd9z" name="mandatory"/>
+        </VRules>
+      </Field>
+      <Field id="sv1#area5#page1#enu1#fld5z" name="Manager oid" type="string" modifiable="false" preloaded="true" hidden="true"/>
+      <Link id="sv1#area5#page1#enu1#ln13z" name="Cancel" to="sv1#area5#page27" automaticCoupling="true" type="normal" validate="false"/>
+      <Link id="sv1#area5#page1#enu1#ln15z" name="Delete" to="sv1#area5#dlu1z" automaticCoupling="true" type="normal" validate="true"/>
+      <Link id="sv1#area5#page1#enu1#ln16z" name="Clear" to="sv1#area5#opu2z" type="normal" validate="false" ajaxEnabled="true">
+        <Property id="sv1#area5#page1#enu1#ln16z#prop4z" name="fieldLink" value="Manager"/>
+      </Link>
+    </EntryUnit>
+    <SelectorUnit gr:x="0" gr:y="0" id="sv1#area5#page1#seu3" name="Organization Unit" entity="ent6">
+      <Selector id="sv1#area5#page1#seu3#su2" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="sv1#area5#page1#seu3#su2#kcond2" name="KeyCondition2" predicate="in" implied="false"/>
+      </Selector>
+      <Link id="sv1#area5#page1#seu3#ln11" name="Link11" to="sv1#area5#page1#enu1" type="transport" validate="true">
+        <LinkParameter id="sv1#area5#page1#seu3#ln11#par20" name="description_description" source="ent6#att39Array" target="sv1#area5#page1#enu1#fld6_slot"/>
+        <LinkParameter id="sv1#area5#page1#seu3#ln11#par21" name="oid_Key Condition [oid]" source="ent6#att32Array" target="sv1#area5#page1#enu1.ent6#att32"/>
+        <LinkParameter id="sv1#area5#page1#seu3#ln11#par22" name="name_name" source="ent6#att33Array" target="sv1#area5#page1#enu1#fld1_slot"/>
+        <LinkParameter id="sv1#area5#page1#seu3#ln11#par23" name="SottoareaToArea.oid_SottoareaToArea - Preselection" source="rel1z#role2z_ent6#att32Array" target="sv1#area5#page1#enu1#sfld2_presel"/>
+        <LinkParameter id="sv1#area5#page1#seu3#ln11#par33z" name="manager_manager" source="ent6#att35Array" target="sv1#area5#page1#enu1#fld4z_slot"/>
+        <LinkParameter id="sv1#area5#page1#seu3#ln11#par34z" name="AreaToManager.oid_manager oid" source="rel8#role16_userOIDArray" target="sv1#area5#page1#enu1#fld5z_slot"/>
+        <LinkParameter id="sv1#area5#page1#seu3#ln11#par35z" name="type_type - Preselection" source="ent6#att8zArray" target="sv1#area5#page1#enu1#sfld1z_presel"/>
+      </Link>
+      <Link id="sv1#area5#page1#seu3#ln27z" name="Link27" to="sv1#area5#page1#seu2z" type="transport" validate="true">
+        <LinkParameter id="sv1#area5#page1#seu3#ln27z#par51z" name="AreaToManager.oid_KeyCondition7 [oid]" source="rel8#role16_userOIDArray" target="sv1#area5#page1#seu2z#su12z#kcond7z.userOID"/>
+      </Link>
+    </SelectorUnit>
+    <SelectorUnit gr:x="255" gr:y="5" id="sv1#area5#page1#seu4" name="Departments" entity="ent6">
+      <Link id="sv1#area5#page1#seu4#ln12" name="Link12" to="sv1#area5#page1#enu1" type="transport" validate="true">
+        <LinkParameter id="sv1#area5#page1#seu4#ln12#par24" name="oid_Key Condition [oid]" source="ent6#att32Array" target="sv1#area5#page1#enu1.ent6#att32"/>
+        <LinkParameter id="sv1#area5#page1#seu4#ln12#par25" name="name_SottoareaToArea [label]" source="ent6#att33Array" target="sv1#area5#page1#enu1#sfld2_label"/>
+        <LinkParameter id="sv1#area5#page1#seu4#ln12#par26" name="oid_SottoareaToArea [output]" source="ent6#att32Array" target="sv1#area5#page1#enu1#sfld2_output"/>
+      </Link>
+      <Selector id="sv1#area5#page1#seu4#su6z" defaultPolicy="fill" booleanOperator="and">
+        <AttributesCondition id="sv1#area5#page1#seu4#su6z#acond4z" name="type" predicate="eq" booleanOperator="or" implied="false" attributes="ent6#att8z" value="Department"/>
+      </Selector>
+    </SelectorUnit>
+    <SelectorUnit gr:x="145" gr:y="0" id="sv1#area5#page1#seu2z" name="Manager" entity="ent1">
+      <Selector id="sv1#area5#page1#seu2z#su12z" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="sv1#area5#page1#seu2z#su12z#kcond7z" name="KeyCondition7" predicate="in" implied="false"/>
+      </Selector>
+      <Link id="sv1#area5#page1#seu2z#ln28z" name="Link28" to="sv1#area5#page1#enu1" type="transport" validate="true">
+        <LinkParameter id="sv1#area5#page1#seu2z#ln28z#par52z" name="full name_manager" source="ent1#att1zArray" target="sv1#area5#page1#enu1#fld4z_slot"/>
+        <LinkParameter id="sv1#area5#page1#seu2z#ln28z#par53z" name="oid_manager oid" source="userOIDArray" target="sv1#area5#page1#enu1#fld5z_slot"/>
+      </Link>
+    </SelectorUnit>
+  </ContentUnits>
+  <layout:Grid containerType="grid">
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv1#area5#page1#enu1">
+          <layout:Field field="sv1#area5#page1#enu1#sfld1z"/>
+          <layout:Field field="sv1#area5#page1#enu1#fld1"/>
+          <layout:Field field="sv1#area5#page1#enu1#fld6"/>
+          <layout:Field field="sv1#area5#page1#enu1#fld4z"/>
+          <layout:Field field="sv1#area5#page1#enu1#sfld2" layout:fieldVisibilityCondition="sv1#area5#page1#cexpr1z" layout:fieldVisibilityConditionNegated="true"/>
+          <layout:Link link="sv1#area5#page1#enu1#ln13"/>
+          <layout:Link link="sv1#area5#page1#enu1#ln13z"/>
+          <layout:Link link="sv1#area5#page1#enu1#ln15z" layout:linkVisibilityCondition="sv1#area5#page1#cexpr2z">
+            <layout:LayoutParameter name="confirmation" value="true" type="link"/>
+          </layout:Link>
+          <layout:Link link="sv1#area5#page1#enu1#ln28"/>
+          <layout:Link link="sv1#area5#page1#enu1#ln16z"/>
+          <layout:Link link="sv1#area5#page1#enu1#ln12z"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+  <Variable id="sv1#area5#page1#var1z" name="type" type="string" unitId="sv1#area5#page1#enu1" parameter="sv1#area5#page1#enu1#sfld1z"/>
+  <ConditionExpression id="sv1#area5#page1#cexpr1z" name="isDepartment">
+    <TextValue xml:space="preserve">type == "Department"</TextValue>
+  </ConditionExpression>
+  <ConditionExpression id="sv1#area5#page1#cexpr2z" name="isOrganizationUnitSelected">
+    <TextValue xml:space="preserve">import com.webratio.rtx.core.BeanHelper
+
+!BeanHelper.isNullOrEmptyString(selectedOrganizationUnit)</TextValue>
+  </ConditionExpression>
+  <Variable id="sv1#area5#page1#var2z" name="selectedOrganizationUnit" type="integer" unitId="sv1#area5#page1#enu1" parameter="key.ent6#att32"/>
+</Page>

@@ -1,0 +1,28 @@
+<OperationModule xmlns:gr="http://www.webratio.com/2006/WebML/Graph" gr:x="0" gr:y="110" id="mov1#mpkg9#opm2" name="Save Book" gr:icon="ModulesIcons/Save.png">
+  <OperationUnits>
+    <InputCollectorUnit id="mov1#mpkg9#opm2#icu3" name="Input" gr:x="-105" gr:y="-345">
+      <InputCollectorParameter id="mov1#mpkg9#opm2#icu3#icp4" name="Authors"/>
+      <InputCollectorParameter id="mov1#mpkg9#opm2#icu3#icp6" name="Book Object"/>
+      <InputCollectorParameter id="mov1#mpkg9#opm2#icu3#icp7" name="Category Key"/>
+      <InputCollectorParameter id="mov1#mpkg9#opm2#icu3#icp8" name="Book Key"/>
+      <Link id="mov1#mpkg9#opm2#icu3#ln81" name="Link81" to="mov1#mpkg9#opm2#opg1#cru13" type="transport" validate="true">
+        <LinkParameter id="mov1#mpkg9#opm2#icu3#ln81#par132" name="Book Object" source="mov1#mpkg9#opm2#icu3#icp6" target="mov1#mpkg9#opm2#opg1#cru13.entityBeans"/>
+        <LinkParameter id="mov1#mpkg9#opm2#icu3#ln81#par133" name="Category Key" source="mov1#mpkg9#opm2#icu3#icp7" target="mov1#mpkg9#opm2#opg1#cru13.rel2#rel8.ent6#att62"/>
+      </Link>
+      <OKLink id="mov1#mpkg9#opm2#icu3#oln73" name="OKLink73" to="mov1#mpkg9#opm2#opg1#inn5">
+        <LinkParameter id="mov1#mpkg9#opm2#icu3#oln73#par134" name="Book Key" source="mov1#mpkg9#opm2#icu3#icp8" target="mov1#mpkg9#opm2#opg1#inn5.isnotnull"/>
+      </OKLink>
+      <Link id="mov1#mpkg9#opm2#icu3#ln82" name="Link82" to="mov1#mpkg9#opm2#opg1#scu5" type="transport" validate="true" gr:bendpoints="155,-135,-450,-135;510,-135,-95,-135">
+        <LinkParameter id="mov1#mpkg9#opm2#icu3#ln82#par135" name="Authors" source="mov1#mpkg9#opm2#icu3#icp4" target="mov1#mpkg9#opm2#opg1#scu5.inputauthors"/>
+      </Link>
+      <Link id="mov1#mpkg9#opm2#icu3#ln83" name="Link83" to="mov1#mpkg9#opm2#opg1#mfu3" type="transport" validate="true">
+        <LinkParameter id="mov1#mpkg9#opm2#icu3#ln83#par136" name="Book Object" source="mov1#mpkg9#opm2#icu3#icp6" target="mov1#mpkg9#opm2#opg1#mfu3.entityBeans"/>
+        <LinkParameter id="mov1#mpkg9#opm2#icu3#ln83#par137" name="Category Key" source="mov1#mpkg9#opm2#icu3#icp7" target="mov1#mpkg9#opm2#opg1#mfu3.rel2#rel8.ent6#att62"/>
+        <LinkParameter id="mov1#mpkg9#opm2#icu3#ln83#par139" name="Authors" target="mov1#mpkg9#opm2#opg1#mfu3.rel15#rel31.ent4#att61" sourceValue="$$NULL$$"/>
+      </Link>
+    </InputCollectorUnit>
+    <OKCollectorUnit gr:x="1075" gr:y="-330" id="mov1#mpkg9#opm2#okcu10" name="Success"/>
+    <KOCollectorUnit gr:x="1075" gr:y="-260" id="mov1#mpkg9#opm2#kocu2" name="Error"/>
+  </OperationUnits>
+  <Comment xml:space="preserve">Operation Module that contains the operations needed to edit or create a Book.</Comment>
+</OperationModule>

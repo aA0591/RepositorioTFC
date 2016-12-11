@@ -1,0 +1,16 @@
+<HybridModule xmlns:gr="http://www.webratio.com/2006/WebML/Graph" id="mov1#mpkg2#hym6" name="Product Details" gr:x="0" gr:y="70" gr:icon="ModulesIcons/Details.png">
+  <OperationUnits>
+    <InputCollectorUnit id="mov1#mpkg2#hym6#icu7" name="Input" gr:x="-180" gr:y="80">
+      <InputCollectorParameter id="mov1#mpkg2#hym6#icu7#icp5" name="Product Key"/>
+      <OKLink id="mov1#mpkg2#hym6#icu7#oln4" name="Details" to="mov1#mpkg2#hym6#page7#dau12" ajaxOpenWindow="false" ajaxWindowUseTitle="true" ajaxWindowResizable="true" ajaxWindowAutoResizing="true" ajaxWindowClosable="true" ajaxWindowDraggable="false" ajaxWindowModal="true">
+        <LinkParameter id="mov1#mpkg2#hym6#icu7#oln4#par29" name="Product Key" source="mov1#mpkg2#hym6#icu7#icp5" target="mov1#mpkg2#hym6#page7#dau12#su12#kcond12.pkg1#ent8#att38"/>
+      </OKLink>
+    </InputCollectorUnit>
+    <OKCollectorUnit id="mov1#mpkg2#hym6#okcu4" name="Photo Gallery" gr:x="310" gr:y="80">
+      <OutputCollectorParameter id="mov1#mpkg2#hym6#okcu4#ocp4" name="Product Key"/>
+    </OKCollectorUnit>
+    <OKCollectorUnit gr:x="310" gr:y="-40" id="mov1#mpkg2#hym6#okcu2" name="Combination Details">
+      <OutputCollectorParameter id="mov1#mpkg2#hym6#okcu2#ocp2" name="Combination Key"/>
+    </OKCollectorUnit>
+  </OperationUnits>
+</HybridModule>

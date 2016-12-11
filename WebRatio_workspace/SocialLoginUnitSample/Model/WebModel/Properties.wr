@@ -1,4 +1,4 @@
-<WebModel xmlns:layout="http://www.webratio.com/2006/WebML/Layout" defaultLocale="lcl1" layout:style="WebRatio" control="Q291bnRyeUlTT0N0eFBhcmFtR3JvdXBDdHhQYXJhbUxhbmd1YWdlSVNPQ3R4UGFyYW1Vc2VyQ3R4UGFyYW0=" homeSiteView="sv1">
+<WebModel xmlns:layout="http://www.webratio.com/2006/WebML/Layout" defaultLocale="lcl1" layout:style="WebRatio" control="Ny4yLjE0LjIwMTYxMjEwQ291bnRyeUlTT0N0eFBhcmFtR3JvdXBDdHhQYXJhbUxhbmd1YWdlSVNPQ3R4UGFyYW1Vc2VyQ3R4UGFyYW0=" homeSiteView="sv1" layout:layoutManager="standard" baseVersion="7.2.14.20161210" edtLvl="WebRatio Community Platform # 20161210" edtLvlCtrl="V2ViUmF0aW8gQ29tbXVuaXR5IFBsYXRmb3JtICMgMjAxNjEyMTBDb3VudHJ5SVNPQ3R4UGFyYW1Hcm91cEN0eFBhcmFtTGFuZ3VhZ2VJU09DdHhQYXJhbVVzZXJDdHhQYXJhbQ==">
   <Locale id="lcl1" country="US" language="en">
     <PatternConfiguration type="boolean" pattern="yes|no"/>
     <PatternConfiguration type="decimal" useNumberPattern="false" maxDecimal="3" minDecimal="0" minInteger="1" useThousandSeparator="true"/>

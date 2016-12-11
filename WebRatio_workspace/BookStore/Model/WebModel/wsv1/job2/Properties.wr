@@ -1,0 +1,26 @@
+<Job xmlns:gr="http://www.webratio.com/2006/WebML/Graph" id="wsv1#job2" name="Init Database" gr:x="35" gr:y="15">
+  <OperationUnits>
+    <InitJobUnit id="wsv1#job2#iju1" name="Init Job" gr:x="10" gr:y="10">
+      <OKLink id="wsv1#job2#iju1#oln17" name="OKFlow14" to="wsv1#job2#seu3" automaticCoupling="true"/>
+    </InitJobUnit>
+    <SelectorUnit id="wsv1#job2#seu3" name="Select Users" gr:x="125" gr:y="0" entity="User">
+      <OKLink id="wsv1#job2#seu3#oln19" name="OKFlow15" to="wsv1#job2#switch1">
+        <LinkParameter id="wsv1#job2#seu3#oln19#par1i" name="Data Size_Switch" source="dataSize" target="wsv1#job2#switch1.switch"/>
+      </OKLink>
+      <KOLink id="wsv1#job2#seu3#kln2" name="KOFlow2" to="wsv1#job2#scu2">
+        <LinkParameter id="wsv1#job2#seu3#kln2#par45" name="PrepareDB.sql_fileName" target="wsv1#job2#scu2.fileName" sourceValue="structure.sql"/>
+      </KOLink>
+    </SelectorUnit>
+    <SwitchUnit id="wsv1#job2#switch1" name="Has Data" gr:x="135" gr:y="120">
+      <OKLink id="wsv1#job2#switch1#oln20" name="OKFlow16" to="wsv1#job2#scu3" code="0" automaticCoupling="true"/>
+      <Case value="0"/>
+    </SwitchUnit>
+    <ScriptUnit id="wsv1#job2#scu2" name="Create Tables" gr:x="0" gr:y="120" script="WEB-INF/descr/groovy/launchSQL.groovy">
+      <OKLink id="wsv1#job2#scu2#oln21" name="OKFlow17" to="wsv1#job2#scu3">
+        <LinkParameter id="wsv1#job2#scu2#oln21#par46" name="data.sql_fileName" target="wsv1#job2#scu3.fileName" sourceValue="data.sql"/>
+      </OKLink>
+    </ScriptUnit>
+    <ScriptUnit id="wsv1#job2#scu3" name="Insert Data" gr:x="130" gr:y="235" script="WEB-INF/descr/groovy/launchSQL.groovy"/>
+  </OperationUnits>
+  <Trigger id="wsv1#job2#trg1" name="Trigger" schedulePolicy="startup"/>
+</Job>

@@ -1,0 +1,79 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" gr:x="0" gr:y="0" id="sv1#area1#page16" name="Catalog">
+  <ContentUnits>
+    <PowerIndexUnit gr:x="115" gr:y="115" id="sv1#area1#page16#pwu12" name="Catalog" sortable="true" checkable="false" useCountQuery="false" entity="pkg1#ent8" displayAttributes="pkg1#ent8#att39 pkg1#ent8#att41 pkg1#ent8#att42" ajaxEnableExpandedLinks="false" linkOrder="sv1#area1#page16#pwu12#ln88">
+      <Selector id="sv1#area1#page16#pwu12#su2" defaultPolicy="fill" booleanOperator="and">
+        <RelationshipRoleCondition id="sv1#area1#page16#pwu12#su2#rcond2" name="Category" predicate="in" implied="true" role="rel12#rel7"/>
+      </Selector>
+      <Link id="sv1#area1#page16#pwu12#ln88" name="Details" to="sv1#area1#miu2" type="normal" validate="true" ajaxEnabled="false" ajaxOpenWindow="true" ajaxWindowUseTitle="true" ajaxWindowResizable="true" ajaxWindowAutoResizing="true" ajaxWindowClosable="true" ajaxWindowModal="true" ajaxReplaceWindow="false">
+        <LinkParameter id="sv1#area1#page16#pwu12#ln88#par20" name="Product Key" source="data[].pkg1#ent8#att38" target="sv1#area1#miu2.mov1#mpkg2#hym6#icu7#icp5"/>
+      </Link>
+      <SortAttribute attribute="pkg1#ent8#att39" order="ascending"/>
+      <SortAttribute attribute="pkg1#ent8#att41" order="ascending"/>
+      <SortAttribute attribute="pkg1#ent8#att42" order="ascending"/>
+      <DefaultSortAttribute attribute="pkg1#ent8#att39" order="ascending"/>
+      <DefaultSortAttribute attribute="pkg1#ent8#att41" order="ascending"/>
+      <DefaultSortAttribute attribute="pkg1#ent8#att42" order="ascending"/>
+    </PowerIndexUnit>
+    <PowerIndexUnit id="sv1#area1#page16#pwu4" entity="pkg1#ent1" displayAttributes="pkg1#ent1#att2" sortable="true" checkable="false" useCountQuery="false" gr:x="0" gr:y="5" name="Categories" linkOrder="sv1#area1#page16#pwu4#ln60">
+      <SortAttribute attribute="pkg1#ent1#att2" order="ascending"/>
+      <SortAttribute attribute="pkg1#ent1#att8" order="ascending"/>
+      <Selector id="sv1#area1#page16#pwu4#su19" defaultPolicy="fill" booleanOperator="and"/>
+      <DefaultSortAttribute attribute="pkg1#ent1#att2" order="ascending"/>
+      <DefaultSortAttribute attribute="pkg1#ent1#att8" order="ascending"/>
+      <Link id="sv1#area1#page16#pwu4#ln60" name="Filter Catalog" to="sv1#area1#page16#seu3" automaticCoupling="true" type="normal" validate="true" ajaxEnabled="true"/>
+    </PowerIndexUnit>
+    <SelectorUnit id="sv1#area1#page16#seu3" entity="pkg1#ent1" distinctAttributes="pkg1#ent1#att2 pkg1#ent1#att8" gr:x="125" gr:y="0" name="Selected Category">
+      <Selector id="sv1#area1#page16#seu3#su3" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="sv1#area1#page16#seu3#su3#kcond2" predicate="in" implied="false" name="Category"/>
+      </Selector>
+      <Link id="sv1#area1#page16#seu3#ln16" name="Link61" to="sv1#area1#page16#pwu12" type="transport" automaticCoupling="true" validate="true"/>
+      <Link id="sv1#area1#page16#seu3#ln19" name="Link19" to="sv1#area1#page16#pwu4" automaticCoupling="true" type="transport" validate="true" gr:bendpoints="-83,-66,62,-66"/>
+    </SelectorUnit>
+  </ContentUnits>
+  <layout:Grid>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv1#area1#page16#pwu4">
+          <layout:Attribute attribute="pkg1#ent1#att2"/>
+          <layout:Link link="sv1#area1#page16#pwu4#ln60"/>
+          <layout:Link link="sv1#area1#page16#pwu4pkg1#ent1#att2"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv1#area1#page16#pwu12">
+          <layout:Attribute attribute="pkg1#ent8#att39"/>
+          <layout:Attribute attribute="pkg1#ent8#att41"/>
+          <layout:Attribute attribute="pkg1#ent8#att42" layout:attributeVisibilityCondition="cexpr4"/>
+          <layout:Link link="sv1#area1#page16#pwu12#ln88"/>
+          <layout:Link link="sv1#area1#page16#pwu12pkg1#ent8#att39"/>
+          <layout:Link link="sv1#area1#page16#pwu12pkg1#ent8#att41"/>
+          <layout:Link link="sv1#area1#page16#pwu12pkg1#ent8#att42"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+</Page>

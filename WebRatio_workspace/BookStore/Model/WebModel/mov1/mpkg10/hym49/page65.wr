@@ -1,0 +1,71 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" id="mov1#mpkg10#hym49#page65" name="Order" layout:pageLayout="WRDefault/Empty" gr:x="155" gr:y="15">
+  <ContentUnits>
+    <MultiDataUnit id="mov1#mpkg10#hym49#page65#mdu5" name="Cart Items" gr:x="0" gr:y="100" entity="ent1" displayAttributes="ent1#att12 ent1#att10 ent1#att26 ent1#att37 ent1#att39 ent1#att38">
+      <Selector id="mov1#mpkg10#hym49#page65#mdu5#su120" defaultPolicy="fill" booleanOperator="and">
+        <RelationshipRoleCondition id="mov1#mpkg10#hym49#page65#mdu5#su120#rcond25" name="Order" predicate="in" implied="false" role="rel12#role6.rel17#role7"/>
+      </Selector>
+      <SortAttribute attribute="ent1#att12" order="ascending"/>
+      <SortAttribute attribute="ent1#att10" order="ascending"/>
+      <SortAttribute attribute="ent1#att26" order="ascending"/>
+      <SortAttribute attribute="ent1#att37" order="ascending"/>
+      <SortAttribute attribute="ent1#att39" order="ascending"/>
+      <SortAttribute attribute="ent1#att38" order="ascending"/>
+    </MultiDataUnit>
+    <DataUnit id="mov1#mpkg10#hym49#page65#dau4" name="Details" linkOrder="mov1#mpkg10#hym49#page65#dau4#ln249" gr:x="65" gr:y="0" entity="ent12" displayAttributes="ent12#att72 ent12#att7 ent12#att6 ent12#att47">
+      <Selector id="mov1#mpkg10#hym49#page65#dau4#su121" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="mov1#mpkg10#hym49#page65#dau4#su121#kcond46" name="Order" predicate="in" implied="false"/>
+      </Selector>
+      <Link id="mov1#mpkg10#hym49#page65#dau4#ln249" name="Dispatch Order" to="mov1#mpkg10#hym49#mfu18" type="normal" validate="true">
+        <LinkParameter id="mov1#mpkg10#hym49#page65#dau4#ln249#par590" name="Order Key" source="data.ent12#att45" target="mov1#mpkg10#hym49#mfu18#su119#kcond45.ent12#att45"/>
+        <LinkParameter id="mov1#mpkg10#hym49#page65#dau4#ln249#par591" name="Status" target="mov1#mpkg10#hym49#mfu18.ent12#att6" sourceValue="true"/>
+      </Link>
+    </DataUnit>
+  </ContentUnits>
+  <layout:Grid>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="mov1#mpkg10#hym49#page65#dau4">
+          <layout:Attribute attribute="ent12#att72"/>
+          <layout:Attribute attribute="ent12#att7"/>
+          <layout:Attribute attribute="ent12#att6"/>
+          <layout:Attribute attribute="ent12#att47"/>
+          <layout:Link link="mov1#mpkg10#hym49#page65#dau4#ln249"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="mov1#mpkg10#hym49#page65#mdu5">
+          <layout:Attribute attribute="ent1#att12"/>
+          <layout:Attribute attribute="ent1#att10"/>
+          <layout:Attribute attribute="ent1#att26"/>
+          <layout:Attribute attribute="ent1#att37"/>
+          <layout:Attribute attribute="ent1#att39"/>
+          <layout:Attribute attribute="ent1#att38"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+</Page>

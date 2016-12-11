@@ -1,0 +1,94 @@
+#?delimiters [%, %], [%=, %]
+<wr:LayoutParameter label="Separator" name="separator" type="string">
+A string representing the separator between
+the different attributes of the index.
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Section Width" name="section-width" type="enum" values="2|3|4|6|12" default="12">
+Defines the number of columns to be used.
+Allowed values are: 1(default),2,3,4,5,6.
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Show Fields Name" name="show-label" type="enum" values="top|left|false" default="left">
+Defines the rendition of the fields names.
+Allowed values are:
+- left (default): places the fields name on the left
+- top: places the fields name at the top
+- false: the fields name are not shown
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Use Empty Unit Message" name="use-empty-unit-message" type="boolean" default="false">
+Defines the usage of a message for empty units.
+Allowed values are: true(default) or false.
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Empty Unit Message" name="empty-unit-message" type="string" default="emptyUnitMessage">
+Defines the key of the message to use if the unit is empty.
+Default value: emptyUnitMessage
+</wr:LayoutParameter>
+[%
+import org.apache.commons.lang.StringUtils
+
+setHTMLOutput()
+def unitId = unit["id"]
+
+def separator = StringUtils.defaultIfEmpty(params["separator"], " ")
+def useEmptyUnitMessage = params["use-empty-unit-message"]
+def emptyUnitMessage = params["empty-unit-message"]
+def attributes = unit.selectNodes("layout:Attribute")
+def unitLink = unit.selectSingleNode("layout:Link[1]")
+def sectionWidth = params["section-width"]
+def showLabel = params["show-label"]
+def labelPosition = "top".equals(showLabel) ? "label-top" : ""
+%]
+[% if (useEmptyUnitMessage != "true") { %]
+<c:if test="${not(empty <wr:Id context="unit" />) and (<wr:Id context="unit" />.dataSize gt 0)}">
+[% }%]
+<wr:Frame>
+	<div class="plain <wr:StyleClass/>">
+		<div class="plain DropdownIndexUnit">
+			<fieldset class="[%= labelPosition %]">
+
+             <section class="g[%= sectionWidth %]">
+	            [% if (!"false".equals(showLabel)) { %]<label><wr:Label context="unit"/></label>[%}%]
+				
+	             <div class="<wr:StyleClass/>">
+	             
+	               <select class="<wr:StyleClass/> selectionfield" name="<wr:Id context="unit" />" onChange="window.location.href=[%if(enableURLFragments()){%]'<%=wrBaseURI%>' + [%}%]this.value">
+				        [% if (useEmptyUnitMessage == "true") { %]
+						<c:choose>
+						<c:when test="${not(empty <wr:Id context="unit" />) and (<wr:Id context="unit" />.dataSize gt 0)}">
+						[% } %]
+				        <option value="">--<wr:Label context="unit"/>--</option>
+			            <c:forEach var="current" varStatus="status" items="${<wr:Id context="unit" />.data}">
+			              <c:set var="index" value="${status.index}"/>
+			              <c:choose>
+			                <c:when test="${<wr:Id context="unit" />.currentIndex eq index}">
+			          	      <option value="<wr:URL context="unitLink"/>" selected="selected">
+			          	    </c:when>
+			          	    <c:otherwise>
+			          	      <option value="<wr:URL context="unitLink"/>">
+			          	    </c:otherwise>
+			          	  </c:choose>
+			          	   <wr:Iterate var="attr" context="unit" select="layout:Attribute">
+			                  <wr:Value/>
+			                  [% if (index < (attributes.size() - 1)) { %]
+			                  	[%= separator %]
+			                  [% } %]
+			          	  </wr:Iterate>
+			          	  </option>  
+			            </c:forEach>
+			            [% if (useEmptyUnitMessage == "true") { %]
+			            </c:when>
+						<c:otherwise>
+							<option value="">--<bean:message key="[%printJSPTagValue(emptyUnitMessage)%]"/>--</option>
+						</c:otherwise>
+						</c:choose>
+						[% } %] 
+			            
+				      </select>
+	             </div> 
+             </section>
+		</fieldset>
+	</div>
+</div>
+</wr:Frame>
+[% if (useEmptyUnitMessage != "true") { %]
+</c:if>
+[% }%]

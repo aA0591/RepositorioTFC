@@ -1,0 +1,22 @@
+<OperationModule xmlns:gr="http://www.webratio.com/2006/WebML/Graph" id="mov2#mpkg13#opm13" name="Save Item Cart Quantity" gr:x="0" gr:y="0" gr:icon="ModulesIcons/Edit.png">
+  <OperationUnits>
+    <InputCollectorUnit id="mov2#mpkg13#opm13#icu66" name="Input" gr:x="-120" gr:y="260">
+      <InputCollectorParameter id="mov2#mpkg13#opm13#icu66#icp186" name="Cart Item Key"/>
+      <InputCollectorParameter id="mov2#mpkg13#opm13#icu66#icp187" name="Operation"/>
+      <InputCollectorParameter id="mov2#mpkg13#opm13#icu66#icp188" name="Value"/>
+      <Link id="mov2#mpkg13#opm13#icu66#ln108" name="Link108" to="mov2#mpkg13#opm13#opg5#mfu6" type="transport" validate="true" gr:bendpoints="142,79,-293,79;368,79,-67,79">
+        <LinkParameter id="mov2#mpkg13#opm13#icu66#ln108#par217" name="Cart Item Key" source="mov2#mpkg13#opm13#icu66#icp186" target="mov2#mpkg13#opm13#opg5#mfu6#su33#kcond13.pkg1#ent5#att30"/>
+      </Link>
+      <Link id="mov2#mpkg13#opm13#icu66#ln109" name="Link109" to="mov2#mpkg13#opm13#opg5#dlu3" type="transport" validate="true">
+        <LinkParameter id="mov2#mpkg13#opm13#icu66#ln109#par219" name="Cart Item Key" source="mov2#mpkg13#opm13#icu66#icp186" target="mov2#mpkg13#opm13#opg5#dlu3#su32#kcond12.pkg1#ent5#att30"/>
+      </Link>
+      <OKLink id="mov2#mpkg13#opm13#icu66#oln76" name="OKLink76" to="mov2#mpkg13#opm13#opg5#scu6">
+        <LinkParameter id="mov2#mpkg13#opm13#icu66#oln76#par220" name="Operation" source="mov2#mpkg13#opm13#icu66#icp187" target="mov2#mpkg13#opm13#opg5#scu6.operation"/>
+        <LinkParameter id="mov2#mpkg13#opm13#icu66#oln76#par222" name="Value" source="mov2#mpkg13#opm13#icu66#icp188" target="mov2#mpkg13#opm13#opg5#scu6.value"/>
+      </OKLink>
+    </InputCollectorUnit>
+    <KOCollectorUnit gr:x="695" gr:y="140" id="mov2#mpkg13#opm13#kocu3" name="Error"/>
+    <OKCollectorUnit id="mov2#mpkg13#opm13#okcu17" name="Success" gr:x="695" gr:y="275"/>
+  </OperationUnits>
+  <Comment xml:space="preserve">Operation Module to handle the quantity of a certain Items of the Cart of the logged in User.</Comment>
+</OperationModule>

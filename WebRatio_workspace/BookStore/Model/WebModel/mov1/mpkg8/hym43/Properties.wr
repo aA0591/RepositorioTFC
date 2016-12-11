@@ -1,0 +1,39 @@
+<HybridModule xmlns:gr="http://www.webratio.com/2006/WebML/Graph" id="mov1#mpkg8#hym43" name="Delete Category" gr:x="0" gr:y="55" gr:icon="ModulesIcons/Delete.png">
+  <OperationUnits>
+    <SwitchUnit id="mov1#mpkg8#hym43#switch6" name="Category's #Books" gr:x="225" gr:y="195">
+      <Case value="0"/>
+      <OKLink id="mov1#mpkg8#hym43#switch6#oln205" name="OKLink205" to="mov1#mpkg8#hym43#dlu14" code="0"/>
+      <OKLink id="mov1#mpkg8#hym43#switch6#oln206" name="OKLink206" to="mov1#mpkg8#hym43#page59" automaticCoupling="true"/>
+    </SwitchUnit>
+    <DeleteUnit id="mov1#mpkg8#hym43#dlu14" name="Delete Category" gr:x="230" gr:y="310" entity="ent6">
+      <Selector id="mov1#mpkg8#hym43#dlu14#su106" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="mov1#mpkg8#hym43#dlu14#su106#kcond37" name="Category" predicate="in" implied="false"/>
+      </Selector>
+      <OKLink id="mov1#mpkg8#hym43#dlu14#oln207" name="OKLink207" to="mov1#mpkg8#hym43#okcu50" automaticCoupling="true"/>
+    </DeleteUnit>
+    <InputCollectorUnit id="mov1#mpkg8#hym43#icu53" name="Input" gr:x="-70" gr:y="185">
+      <InputCollectorParameter id="mov1#mpkg8#hym43#icu53#icp135" name="Category Key"/>
+      <InputCollectorParameter id="mov1#mpkg8#hym43#icu53#icp136" name="Category's #Books"/>
+      <Link id="mov1#mpkg8#hym43#icu53#ln228" name="Link228" to="mov1#mpkg8#hym43#dlu14" type="transport" validate="true">
+        <LinkParameter id="mov1#mpkg8#hym43#icu53#ln228#par524" name="Category Key" source="mov1#mpkg8#hym43#icu53#icp135" target="mov1#mpkg8#hym43#dlu14#su106#kcond37.ent6#att62"/>
+      </Link>
+      <Link id="mov1#mpkg8#hym43#icu53#ln229" name="Link229" to="mov1#mpkg8#hym43#page59#mdu4" type="transport" validate="true">
+        <LinkParameter id="mov1#mpkg8#hym43#icu53#ln229#par525" name="Category Key" source="mov1#mpkg8#hym43#icu53#icp135" target="mov1#mpkg8#hym43#page59#mdu4#su107#rcond23.ent6#att62"/>
+      </Link>
+      <OKLink id="mov1#mpkg8#hym43#icu53#oln208" name="OKLink208" to="mov1#mpkg8#hym43#switch6">
+        <LinkParameter id="mov1#mpkg8#hym43#icu53#oln208#par526" name="Category's #Books" source="mov1#mpkg8#hym43#icu53#icp136" target="mov1#mpkg8#hym43#switch6.switch"/>
+      </OKLink>
+      <Link id="mov1#mpkg8#hym43#icu53#ln230" name="Link230" to="mov1#mpkg8#hym43#page59#seu57" type="transport" validate="true" gr:bendpoints="131,-165,-109,75">
+        <LinkParameter id="mov1#mpkg8#hym43#icu53#ln230#par69" name="Category Key" source="mov1#mpkg8#hym43#icu53#icp135" target="mov1#mpkg8#hym43#page59#seu57#su108#kcond11.ent6#att62"/>
+      </Link>
+      <Link id="mov1#mpkg8#hym43#icu53#ln231" name="Link231" to="mov1#mpkg8#hym43#page59#enu17" type="transport" validate="true" gr:bendpoints="82,-294,-158,66">
+        <LinkParameter id="mov1#mpkg8#hym43#icu53#ln231#par1" name="Category Key" source="mov1#mpkg8#hym43#icu53#icp135" target="mov1#mpkg8#hym43#page59#enu17.ent6#att62"/>
+      </Link>
+    </InputCollectorUnit>
+    <OKCollectorUnit id="mov1#mpkg8#hym43#okcu50" name="Output" gr:x="500" gr:y="315"/>
+    <ModuleInstanceUnit id="mov1#mpkg8#hym43#miu31" name="Change Book's Category" gr:x="445" gr:y="-170" moduleId="mov1#mpkg9#opm11">
+      <OKLink id="mov1#mpkg8#hym43#miu31#oln209" name="OKLink209" to="mov1#mpkg8#hym43#okcu50" automaticCoupling="true"/>
+    </ModuleInstanceUnit>
+  </OperationUnits>
+  <Comment xml:space="preserve">Hybrid Module that implements the actions required to delete a Category.</Comment>
+</HybridModule>

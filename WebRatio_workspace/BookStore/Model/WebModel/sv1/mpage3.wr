@@ -1,0 +1,68 @@
+<MasterPage xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" id="sv1#mpage3" name="Master Page" gr:x="470" gr:y="-490">
+  <ContentUnits>
+    <EntryUnit gr:x="10" gr:y="130" id="sv1#mpage3#enu4" name="Login" linkOrder="sv1#mpage3#enu4#ln103">
+      <Field id="sv1#mpage3#enu4#fld31" name="username" type="string" modifiable="true">
+        <VRules>
+          <MandatoryValidationRule id="sv1#mpage3#enu4#fld31#mnd5" name="Mandatory Field"/>
+        </VRules>
+      </Field>
+      <Field id="sv1#mpage3#enu4#fld32" name="password" type="password" modifiable="true">
+        <VRules>
+          <MandatoryValidationRule id="sv1#mpage3#enu4#fld32#mnd4" name="Mandatory Field"/>
+        </VRules>
+      </Field>
+      <Link id="sv1#mpage3#enu4#ln103" name="Login" to="sv1#lgu3" type="normal" validate="true" ajaxEnabled="false">
+        <LinkParameter id="sv1#mpage3#enu4#ln103#par218" name="Username" source="sv1#mpage3#enu4#fld31" target="sv1#lgu3.username"/>
+        <LinkParameter id="sv1#mpage3#enu4#ln103#par221" name="Password" source="sv1#mpage3#enu4#fld32" target="sv1#lgu3.password"/>
+      </Link>
+    </EntryUnit>
+    <MultiMessageUnit id="sv1#mpage3#mssu6" name="Registration" gr:x="0" gr:y="210" linkOrder="sv1#mpage3#mssu6#ln104">
+      <Message xml:space="preserve">To buy our books please: </Message>
+      <Link id="sv1#mpage3#mssu6#ln104" name="Sign Up" to="sv1#miu9" automaticCoupling="true" type="normal" validate="true"/>
+    </MultiMessageUnit>
+    <GetUnit id="sv1#mpage3#gtu1a" name="Get Current User Key" gr:x="15" gr:y="10" contextParameters="UserCtxParam">
+      <Link id="sv1#mpage3#gtu1a#ln1a" name="Link37" to="sv1#mpage3#dau1a" type="transport" automaticCoupling="true" validate="true"/>
+    </GetUnit>
+    <DataUnit id="sv1#mpage3#dau1a" entity="User" name="Select User" gr:x="205" gr:y="0" displayAttributes="userName" linkOrder="sv1#mpage3#dau1a#ln2a">
+      <Selector id="sv1#mpage3#dau1a#su2a" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="sv1#mpage3#dau1a#su2a#kcond2a" predicate="in" implied="false" name="User"/>
+      </Selector>
+      <Link id="sv1#mpage3#dau1a#ln2a" name="Logout" to="sv1#lou4" type="normal" automaticCoupling="true" validate="true"/>
+    </DataUnit>
+  </ContentUnits>
+  <ConditionExpression id="sv1#mpage3#cexpr7" name="seelogin">
+    <TextValue xml:space="preserve">UserCtxParam == '0'</TextValue>
+  </ConditionExpression>
+  <Comment xml:space="preserve">Here the information related to a specific User are shown, and also the actions that a User can do (Login / Register / Logout).</Comment>
+  <layout:CustomLocation name="User">
+    <layout:Grid containerType="cell">
+      <layout:Row>
+        <layout:Cell>
+          <layout:Unit unitId="sv1#mpage3#dau1a" layout:frameLayout="None" layout:unitLayout="WRDefault/User">
+            <layout:Attribute attribute="userName"/>
+            <layout:Link link="sv1#mpage3#dau1a#ln2a"/>
+            <layout:LayoutParameter name="prefix-text" value="Welcome" type="unit"/>
+            <layout:LayoutParameter name="link-style" value="normal" type="link"/>
+          </layout:Unit>
+        </layout:Cell>
+      </layout:Row>
+    </layout:Grid>
+  </layout:CustomLocation>
+  <layout:CustomLocation name="Right">
+    <layout:Grid containerType="cell">
+      <layout:Row>
+        <layout:Cell>
+          <layout:Unit unitId="sv1#mpage3#enu4" layout:unitVisibilityCondition="sv1#mpage3#cexpr7">
+            <layout:Field field="sv1#mpage3#enu4#fld31"/>
+            <layout:Field field="sv1#mpage3#enu4#fld32"/>
+            <layout:Link link="sv1#mpage3#enu4#ln103"/>
+            <layout:LayoutParameter name="mandatory-fields" value="true" type="unit"/>
+          </layout:Unit>
+          <layout:Unit unitId="sv1#mpage3#mssu6" layout:unitVisibilityCondition="sv1#mpage3#cexpr7">
+            <layout:Link link="sv1#mpage3#mssu6#ln104"/>
+          </layout:Unit>
+        </layout:Cell>
+      </layout:Row>
+    </layout:Grid>
+  </layout:CustomLocation>
+</MasterPage>

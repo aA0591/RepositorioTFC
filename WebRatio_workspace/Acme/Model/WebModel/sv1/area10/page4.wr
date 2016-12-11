@@ -1,0 +1,97 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" id="sv1#area10#page4" name="Search Products" protected="false" gr:x="0" gr:y="95">
+  <ContentUnits>
+    <PowerIndexUnit id="sv1#area10#page4#pwu2" name="Product List" linkOrder="sv1#area10#page4#pwu2#ln24" customDescriptor="false" gr:x="75" gr:y="105" sortable="true" checkable="false" useCountQuery="false" entity="pkg1#ent8" displayAttributes="pkg1#ent8#att48 pkg1#ent8#att39 pkg1#ent8#att41 pkg1#ent8#att42" distinct="false" blockFactor="10" blockWindow="1">
+      <Selector id="sv1#area10#page4#pwu2#su5" defaultPolicy="fill" booleanOperator="and">
+        <AttributesCondition id="sv1#area10#page4#pwu2#su5#acond2" name="Name" predicate="contains" booleanOperator="or" implied="true" ignoreCase="false" attributes="pkg1#ent8#att41"/>
+        <AttributesCondition id="sv1#area10#page4#pwu2#su5#acond5" name="Price" predicate="eq" booleanOperator="or" implied="true" attributes="pkg1#ent8#att42"/>
+        <RelationshipRoleCondition id="sv1#area10#page4#pwu2#su5#rcond3" name="Category" predicate="in" implied="true" role="rel12#rel7"/>
+      </Selector>
+      <VRules>
+        <CheckedUnitItemsValidationRule id="sv1#area10#page4#pwu2#ckd4" name="Validate Items Number" predicate="min" itemCount="1"/>
+      </VRules>
+      <Link id="sv1#area10#page4#pwu2#ln24" name="Details" to="sv1#area10#miu6" type="normal" validate="true" ajaxEnabled="false" ajaxOpenWindow="true" ajaxWindowUseTitle="true" ajaxWindowResizable="true" ajaxWindowAutoResizing="true" ajaxWindowClosable="true" ajaxWindowDraggable="false" ajaxWindowModal="true" ajaxOpenWaitingDialog="false" ajaxReplaceWindow="false" ajaxWindowTitle="Product Details">
+        <LinkParameter id="sv1#area10#page4#pwu2#ln24#par57" name="Product Key" source="data[].pkg1#ent8#att38" target="sv1#area10#miu6.mov1#mpkg2#hym6#icu7#icp5"/>
+      </Link>
+      <SortAttribute attribute="pkg1#ent8#att48" order="ascending"/>
+      <SortAttribute attribute="pkg1#ent8#att39" order="ascending"/>
+      <SortAttribute attribute="pkg1#ent8#att41" order="ascending"/>
+      <SortAttribute attribute="pkg1#ent8#att42" order="ascending"/>
+      <DefaultSortAttribute attribute="pkg1#ent8#att48" order="ascending"/>
+      <DefaultSortAttribute attribute="pkg1#ent8#att39" order="ascending"/>
+      <DefaultSortAttribute attribute="pkg1#ent8#att41" order="ascending"/>
+      <DefaultSortAttribute attribute="pkg1#ent8#att42" order="ascending"/>
+    </PowerIndexUnit>
+    <EntryUnit id="sv1#area10#page4#enu13" name="Search" linkOrder="sv1#area10#page4#enu13#ln40 sv1#area10#page4#enu13#ln28" gr:x="110" gr:y="0" entity="pkg1#ent8" fieldOrder="sv1#area10#page4#enu13#sfld6 sv1#area10#page4#enu13#fld49 sv1#area10#page4#enu13#fld50">
+      <Link id="sv1#area10#page4#enu13#ln40" name="Search" to="sv1#area10#page4#pwu2" type="normal" validate="true">
+        <LinkParameter id="sv1#area10#page4#enu13#ln40#par76" name="Category Key" source="sv1#area10#page4#enu13#sfld6" target="sv1#area10#page4#pwu2#su5#rcond3.pkg1#ent1#att1"/>
+        <LinkParameter id="sv1#area10#page4#enu13#ln40#par77" name="Name" source="sv1#area10#page4#enu13#fld49" target="sv1#area10#page4#pwu2#su5#acond2"/>
+        <LinkParameter id="sv1#area10#page4#enu13#ln40#par78" name="Price" source="sv1#area10#page4#enu13#fld50" target="sv1#area10#page4#pwu2#su5#acond5"/>
+      </Link>
+      <SelectionField id="sv1#area10#page4#enu13#sfld6" name="Category" type="string" role="rel12#rel8"/>
+      <Field id="sv1#area10#page4#enu13#fld49" name="Product" type="string" modifiable="true" attribute="pkg1#ent8#att41"/>
+      <Field id="sv1#area10#page4#enu13#fld50" name="Price" type="float" modifiable="true" attribute="pkg1#ent8#att42"/>
+      <Link id="sv1#area10#page4#enu13#ln28" name="Reset" to="sv1#area10#opu5" type="normal" validate="true"/>
+    </EntryUnit>
+    <SelectorUnit id="sv1#area10#page4#seu8" name="Categories" gr:x="0" gr:y="0" entity="pkg1#ent1">
+      <Link id="sv1#area10#page4#seu8#ln41" name="Link59" to="sv1#area10#page4#enu13" type="transport" validate="true">
+        <LinkParameter id="sv1#area10#page4#seu8#ln41#par79" name="Category Name" source="pkg1#ent1#att2Array" target="sv1#area10#page4#enu13#sfld6_label"/>
+        <LinkParameter id="sv1#area10#page4#seu8#ln41#par81" name="Category Key" source="pkg1#ent1#att1Array" target="sv1#area10#page4#enu13#sfld6_output"/>
+      </Link>
+    </SelectorUnit>
+  </ContentUnits>
+  <layout:Grid>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv1#area10#page4#enu13">
+          <layout:Field field="sv1#area10#page4#enu13#sfld6"/>
+          <layout:Field field="sv1#area10#page4#enu13#fld49"/>
+          <layout:Field field="sv1#area10#page4#enu13#fld50"/>
+          <layout:Link link="sv1#area10#page4#enu13#ln40"/>
+          <layout:Link link="sv1#area10#page4#enu13#ln28"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv1#area10#page4#pwu2">
+          <layout:Attribute attribute="pkg1#ent8#att48"/>
+          <layout:Attribute attribute="pkg1#ent8#att39"/>
+          <layout:Attribute attribute="pkg1#ent8#att41"/>
+          <layout:Attribute attribute="pkg1#ent8#att42" layout:attributeVisibilityCondition="cexpr5"/>
+          <layout:Link link="sv1#area10#page4#pwu2#ln24"/>
+          <layout:Link link="sv1#area10#page4#pwu2pkg1#ent8#att48"/>
+          <layout:Link link="sv1#area10#page4#pwu2pkg1#ent8#att39"/>
+          <layout:Link link="sv1#area10#page4#pwu2pkg1#ent8#att41"/>
+          <layout:Link link="sv1#area10#page4#pwu2pkg1#ent8#att42"/>
+          <layout:Link link="sv1#area10#page4#pwu2First"/>
+          <layout:Link link="sv1#area10#page4#pwu2Previous"/>
+          <layout:Link link="sv1#area10#page4#pwu2Block"/>
+          <layout:Link link="sv1#area10#page4#pwu2Next"/>
+          <layout:Link link="sv1#area10#page4#pwu2Last"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+</Page>

@@ -1,0 +1,138 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" id="mov2#mpkg13#hym1#page2" name="Cart" ignoreMasterPage="true" layout:pageLayout="WRDefault/Empty" ajaxEnabled="true" gr:x="270" gr:y="55">
+  <ContentUnits>
+    <DataUnit id="mov2#mpkg13#hym1#page2#dau6" name="Details" linkOrder="mov2#mpkg13#hym1#page2#dau6#ln17" gr:x="0" gr:y="5" entity="pkg1#ent3" displayAttributes="pkg1#ent3#att25 pkg1#ent3#att28 pkg1#ent3#att29">
+      <Link id="mov2#mpkg13#hym1#page2#dau6#ln17" name="Confirm" to="mov2#mpkg13#hym1#miu20" type="normal" validate="true" ajaxEnabled="true"/>
+    </DataUnit>
+    <PowerIndexUnit id="mov2#mpkg13#hym1#page2#pwu10" name="My Books" linkOrder="mov2#mpkg13#hym1#page2#pwu10#ln18 mov2#mpkg13#hym1#page2#pwu10#ln20" gr:x="100" gr:y="110" entity="pkg1#ent5" displayAttributes="pkg1#ent5#att22 pkg1#ent5#att20 pkg1#ent5#att32 pkg1#ent5#att46 pkg1#ent5#att56" sortable="true" checkable="false" useCountQuery="false">
+      <Link id="mov2#mpkg13#hym1#page2#pwu10#ln18" name="(-)" to="mov2#mpkg13#hym1#miu12" type="normal" validate="true" ajaxEnabled="true" gr:bendpoints="47,84,47,-81">
+        <LinkParameter id="mov2#mpkg13#hym1#page2#pwu10#ln18#par54" name="Cart Item Key" source="data[].pkg1#ent5#att30" target="mov2#mpkg13#hym1#miu12.mov2#mpkg13#opm13#icu66#icp186"/>
+        <LinkParameter id="mov2#mpkg13#hym1#page2#pwu10#ln18#par55" name="Quantity" source="data[].pkg1#ent5#att56" target="mov2#mpkg13#hym1#miu12.mov2#mpkg13#opm13#icu66#icp188"/>
+        <LinkParameter id="mov2#mpkg13#hym1#page2#pwu10#ln18#par56" name="Operation" target="mov2#mpkg13#hym1#miu12.mov2#mpkg13#opm13#icu66#icp187" sourceValue="less"/>
+      </Link>
+      <Link id="mov2#mpkg13#hym1#page2#pwu10#ln20" name="(+)" to="mov2#mpkg13#hym1#miu12" type="normal" validate="true" ajaxEnabled="true">
+        <LinkParameter id="mov2#mpkg13#hym1#page2#pwu10#ln20#par57" name="Cart Item Key" source="data[].pkg1#ent5#att30" target="mov2#mpkg13#hym1#miu12.mov2#mpkg13#opm13#icu66#icp186"/>
+        <LinkParameter id="mov2#mpkg13#hym1#page2#pwu10#ln20#par58" name="Quantity" source="data[].pkg1#ent5#att56" target="mov2#mpkg13#hym1#miu12.mov2#mpkg13#opm13#icu66#icp188"/>
+        <LinkParameter id="mov2#mpkg13#hym1#page2#pwu10#ln20#par59" name="Operation" target="mov2#mpkg13#hym1#miu12.mov2#mpkg13#opm13#icu66#icp187" sourceValue="add"/>
+      </Link>
+      <SortAttribute attribute="pkg1#ent5#att30" order="ascending"/>
+      <SortAttribute attribute="pkg1#ent5#att32" order="ascending"/>
+      <SortAttribute attribute="pkg1#ent5#att46" order="ascending"/>
+      <SortAttribute attribute="pkg1#ent5#att55" order="ascending"/>
+      <SortAttribute attribute="pkg1#ent5#att56" order="ascending"/>
+      <SortAttribute attribute="pkg1#ent5#att20" order="ascending"/>
+      <DefaultSortAttribute attribute="pkg1#ent5#att30" order="ascending"/>
+      <DefaultSortAttribute attribute="pkg1#ent5#att32" order="ascending"/>
+      <DefaultSortAttribute attribute="pkg1#ent5#att46" order="ascending"/>
+      <DefaultSortAttribute attribute="pkg1#ent5#att55" order="ascending"/>
+      <DefaultSortAttribute attribute="pkg1#ent5#att56" order="ascending"/>
+      <DefaultSortAttribute attribute="pkg1#ent5#att20" order="ascending"/>
+    </PowerIndexUnit>
+    <MultiMessageUnit id="mov2#mpkg13#hym1#page2#mssu4" name="Notifications" gr:x="95" gr:y="20"/>
+    <DataUnit gr:x="200" gr:y="0" id="mov2#mpkg13#hym1#page2#dau5" name="Order Information" entity="ent12" displayAttributes="ent12#att72 ent12#att7 ent12#att47" linkOrder="mov2#mpkg13#hym1#page2#dau5#ln74 mov2#mpkg13#hym1#page2#dau5#ln76">
+      <Selector id="mov2#mpkg13#hym1#page2#dau5#su19" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="mov2#mpkg13#hym1#page2#dau5#su19#kcond8" name="Order" predicate="in" implied="false"/>
+      </Selector>
+      <Link id="mov2#mpkg13#hym1#page2#dau5#ln74" name="Close" to="mov2#mpkg13#hym1#okcu3" type="normal" validate="true" ajaxEnabled="true"/>
+      <Link id="mov2#mpkg13#hym1#page2#dau5#ln76" name="Export Order To PDF" to="mov2#mpkg13#hym1#okcu2" type="normal" validate="true" ajaxEnabled="true">
+        <LinkParameter id="mov2#mpkg13#hym1#page2#dau5#ln76#par128" name="Order Key" source="data.ent12#att45" target="mov2#mpkg13#hym1#okcu2#ocp2"/>
+      </Link>
+    </DataUnit>
+  </ContentUnits>
+  <layout:Grid>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="mov2#mpkg13#hym1#page2#mssu4" layout:unitVisibilityCondition="mov2#mpkg13#hym1#page2#cexpr11"/>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="mov2#mpkg13#hym1#page2#dau5" layout:unitVisibilityCondition="mov2#mpkg13#hym1#page2#cexpr11">
+          <layout:Attribute attribute="ent12#att72"/>
+          <layout:Attribute attribute="ent12#att7"/>
+          <layout:Attribute attribute="ent12#att47"/>
+          <layout:Link link="mov2#mpkg13#hym1#page2#dau5#ln74"/>
+          <layout:Link link="mov2#mpkg13#hym1#page2#dau5#ln76"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="4">
+        <layout:Unit unitId="mov2#mpkg13#hym1#page2#dau6" layout:unitVisibilityCondition="mov2#mpkg13#hym1#page2#cexpr11" layout:unitVisibilityConditionNegated="true">
+          <layout:Attribute attribute="pkg1#ent3#att25">
+            <Property id="mov2#mpkg13#hym1#page2#prop2" name="Property 1"/>
+          </layout:Attribute>
+          <layout:Attribute attribute="pkg1#ent3#att28"/>
+          <layout:Attribute attribute="pkg1#ent3#att29"/>
+          <layout:Link link="mov2#mpkg13#hym1#page2#dau6#ln17"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell colspan="8"/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="mov2#mpkg13#hym1#page2#pwu10" layout:unitVisibilityCondition="mov2#mpkg13#hym1#page2#cexpr11" layout:unitVisibilityConditionNegated="true">
+          <layout:Attribute attribute="pkg1#ent5#att22"/>
+          <layout:Attribute attribute="pkg1#ent5#att20"/>
+          <layout:Attribute attribute="pkg1#ent5#att32"/>
+          <layout:Attribute attribute="pkg1#ent5#att46"/>
+          <layout:Attribute attribute="pkg1#ent5#att56"/>
+          <layout:Link link="mov2#mpkg13#hym1#page2#pwu10#ln18"/>
+          <layout:Link link="mov2#mpkg13#hym1#page2#pwu10#ln20"/>
+          <layout:Link link="mov2#mpkg13#hym1#page2#pwu10pkg1#ent5#att32"/>
+          <layout:Link link="mov2#mpkg13#hym1#page2#pwu10pkg1#ent5#att46"/>
+          <layout:Link link="mov2#mpkg13#hym1#page2#pwu10pkg1#ent5#att56"/>
+          <layout:Link link="mov2#mpkg13#hym1#page2#pwu10pkg1#ent5#att20"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:LayoutParameter name="link-style" value="button" type="link"/>
+    <layout:LayoutParameter name="show" value="text" type="link"/>
+  </layout:Grid>
+  <Variable id="mov2#mpkg13#hym1#page2#var11" name="showorders" value="false"/>
+  <ConditionExpression id="mov2#mpkg13#hym1#page2#cexpr11" name="seeorders">
+    <TextValue xml:space="preserve">showorders == "true"</TextValue>
+  </ConditionExpression>
+</Page>

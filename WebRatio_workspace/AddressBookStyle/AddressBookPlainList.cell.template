@@ -1,0 +1,193 @@
+#?delimiters [%, %], [%=, %]
+
+<wr:LayoutParameter label="List Links Position" name="list-link-position" type="enum" values="right|on_row" default="right">
+Defines the rendition of the links.
+Allowed values are:
+- right: places the links on the right
+- on_row (default): places the first link on the attributes
+</wr:LayoutParameter>
+
+<wr:LayoutParameter label="Show List Headers" name="show-list-headers" type="boolean" default="true">
+Defines the rendition of the list headers
+Allowed values are:
+- true (default): shows the list headers
+- false: doesn't show the list headers
+</wr:LayoutParameter>
+
+<wr:LayoutParameter label="Actions Position" name="actions-position" type="enum" values="top|bottom" default="top">
+Defines the rendition of the actions form
+Allowed values are:
+- top (default): shows the actions form on top of the list
+- bottom: shows the actions form below the list 
+</wr:LayoutParameter>
+
+<wr:LayoutParameter label="Empty Unit Message" name="empty-unit-message" type="string" default="emptyUnitMessage">
+Defines the key of the message to use if the unit is empty.
+Default value: emptyUnitMessage
+</wr:LayoutParameter>
+
+[%setHTMLOutput()%]
+
+[%	
+	def listLinkPosition = params["list-link-position"]
+	boolean showListHeaders = Boolean.parseBoolean(params["show-list-headers"])
+	def actionsPosition = params["actions-position"]
+	
+	boolean useEmptyUnitMessage = Boolean.parseBoolean("true")
+	def emptyUnitMessage = params["empty-unit-message"]
+	
+	def unitType = ""
+	
+	def actionsUnit = getLayoutUnitsByType(cell, "EntryUnit")[0]
+	def formUnit = getLayoutUnitsByType(cell, "EntryUnit")[1]
+	println "form: " + formUnit
+	def detailsUnit = getLayoutUnitsByType(cell, "DataUnit")[0]
+	def listUnit = getLayoutUnitsByType(cell, "PowerIndexUnit")[0]
+	
+	if(listUnit == null){
+	
+		listUnit = getLayoutUnitsByType(cell, "IndexUnit")[0]
+		
+		if(listUnit == null){
+		
+			listUnit = getLayoutUnitsByType(cell, "HierarchicalIndexUnit")[0]
+			unitType = "HierarchicalIndexUnit"
+		}
+		
+		else unitType = "IndexUnit"
+	}
+	else unitType = "PowerIndexUnit"
+	
+	def attributes = listUnit.selectNodes("layout:Attribute[not(Property[@name='subTitle'])]")
+	def subTitleAttributes = listUnit.selectNodes("layout:Attribute[Property[@name='subTitle']]")
+
+	def links = listUnit.selectNodes("layout:Link[position() > 1][not(@_exp) or @_exp !='t']")
+	def detailsLink = listUnit.selectSingleNode("layout:Link[1]")
+	
+	def colspan = attributes.size() + links.size()
+%]
+		
+<style>
+	.rowCurrent{
+		background: white;
+	}
+	.rowCurrentAlternate{
+		background: #f3f3f3;
+	}
+</style>
+
+<section>
+[% if(listUnit == null){ %]
+
+	<div>
+		<p>The List Unit has not been inclueded in the cell.</p>
+	</div>
+	
+[% } else { %] 
+	 	
+		[% def unitLinks = listUnit.selectNodes("layout:Link").findAll{it["_exp"]!='t'}
+		def unitLink = unitLinks.empty ? null : unitLinks[0] %]
+			
+		<header>
+			<h3><wr:Label context="listUnit"/></h3>
+			[% if((actionsUnit != null) && (actionsPosition.equals("top"))){ %]
+			<section class="buttons">
+				<wr:Iterate var="link" context="actionsUnit" select="layout:Link">
+		        	<wr:Visible>
+		                 <wr:Link type="button" class="button"/>
+		            </wr:Visible>
+		        </wr:Iterate>
+			</section>
+			[% } %]
+		</header>
+		
+		<div>
+			<wr:PrintTemplate var="formUnit" type="formUnit"/>
+		</div>
+		
+		<c:choose>
+	 	<c:when test="${not(empty <wr:Id context="listUnit"/>) and (<wr:Id context="listUnit"/>.dataSize gt 0)}">		
+			<div>
+				<table>
+					[% if(showListHeaders){ %]
+					<tr>
+				  		<wr:Iterate var="attrLabel" context="listUnit" select="layout:Attribute">
+							<wr:Visible>
+								<th><wr:Label/></th>
+							</wr:Visible>		  
+						</wr:Iterate>
+				  		<wr:Iterate var="link" context="listUnit" select="layout:Link[position() &gt; 1][not(@_exp) or @_exp !='t']">
+							<wr:Visible>
+								<th></th>
+							</wr:Visible>		  
+						</wr:Iterate>
+				  	</tr>
+				  	[% } %]
+				  	<tbody>
+				  		<c:forEach var="current" varStatus="status" items="${<wr:Id context="listUnit"/>.data}">
+					  	<c:set var="index" value="${status.index}"/>
+								<tr class="row<c:if test="${<wr:Id context="listUnit"/>.currentIndex eq index}">Current</c:if><c:if test="${index mod 2 eq 0}">Alternate</c:if>">
+									<wr:Iterate var="attr" context="listUnit" select="layout:Attribute[not(Property[@name='subTitle'])]">
+												<td [% if(index == 0) {%]rowspan="2" style="width: 48px"[% } %]>[% if(index == 1) {%]<a href="<wr:URL context="detailsLink"/>" onclick="<wr:AjaxURL context="detailsLink"/>">[% } %]
+													<wr:Value context="attr"/>
+												[% if(index == 1) {%]</a>[% } %]</td>
+									</wr:Iterate>
+									<wr:Iterate var="link" context="listUnit" select="layout:Link[position() &gt; 1][not(@_exp) or @_exp !='t']">
+										<wr:Visible><td><wr:Link context="link"/></td></wr:Visible>
+									</wr:Iterate>
+								</tr>
+								<tr class="row<c:if test="${<wr:Id context="listUnit"/>.currentIndex eq index}">Current</c:if><c:if test="${index mod 2 eq 0}">Alternate</c:if>"> 
+									<td colspan="[%= colspan %]">
+										<wr:Iterate var="attr" context="listUnit" select="layout:Attribute[Property[@name='subTitle']]">
+											<wr:Visible>[% if (index > 0) { %] > [% } %]<wr:Value context="attr"/> </wr:Visible>
+										</wr:Iterate>
+									</td>  
+								</tr>
+								</tr>
+							</tr>
+							[% if(detailsUnit != null) { %]
+							<tr class="rowCurrent<c:if test="${index mod 2 eq 0}">Alternate</c:if>" style="display:<c:if test="${<wr:Id context="detailsUnit"/>.data.oid eq current.oid}">visible</c:if>none;" id="${current.oid}">        
+							[% def attrs = detailsUnit.selectNodes("layout:Attribute")
+							   def countAttrs = attrs.size()
+
+							   def index = 0
+							%]
+							<!-- blank td in order to align to the name attribute -->
+							<td></td>
+							[%   	
+							   for(attr in attrs){ 
+							   		if((index != 0)&&(index%3 == 0)) {%]
+							   		</tr>
+							   		<tr class="rowCurrent<c:if test="${index mod 2 eq 0}">Alternate</c:if>" style="display:<c:if test="${<wr:Id context="detailsUnit"/>.data.oid eq current.oid}">visible</c:if>none;" id="${current.oid}">
+								   		<!-- blank td in order to align to the name attribute -->
+										<td></td>
+							   		[% } %]
+										<td valign="top" class="<wr:StyleClass/> value">
+											<b><wr:Label context="attr"/>: </b><wr:Value context="attr"/>
+										</td>
+							   		[% index++ %]
+								[% } %]
+							</tr>
+							[% } %]
+				  		</c:forEach>
+					</tbody>
+				</table>
+			</div>
+		</c:when>
+		<c:otherwise>
+			<div>
+				<p><bean:message key="[%printJSPTagValue(emptyUnitMessage)%]"/></p>
+			</div>
+		</c:otherwise>
+	</c:choose>
+	[% if((actionsUnit != null) && (actionsPosition.equals("bottom"))){ %]
+		<section class="buttons">
+			<wr:Iterate var="link" context="actionsUnit" select="layout:Link">
+			   	<wr:Visible>
+				    <wr:Link type="button" class="button"/>
+			    </wr:Visible>
+			</wr:Iterate>
+		</section>
+	[% } %]
+	[% } %]
+</section>

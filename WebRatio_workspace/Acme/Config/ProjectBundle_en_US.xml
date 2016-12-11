@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle>
+  <Entry key="errors.footer"> </Entry>
+  <Entry key="errors.header"> </Entry>
+  <Entry key="Welcome">Welcome</Entry>
+  <Entry key="Welcome Message">Welcome to the Acme Store. Register to ship our products or to know their prices.</Entry>
+  <Entry key="Welcome to the Acme Store. Register to buy our products or to know their prices.">Welcome to the Acme Store. Register to buy our products or to know their prices.</Entry>
+</Bundle>

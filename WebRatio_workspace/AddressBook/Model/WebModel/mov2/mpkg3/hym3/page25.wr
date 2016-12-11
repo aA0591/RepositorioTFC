@@ -1,0 +1,46 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" id="mov2#mpkg3#hym3#page25" name="Select Area" ignoreMasterPage="true" ajaxEnabled="false" gr:x="175" gr:y="345" layout:pageLayout="WRDefault/Empty">
+  <ContentUnits>
+    <HierarchicalIndexUnit id="mov2#mpkg3#hym3#page25#hinu2z" name="Departments" gr:x="0" gr:y="0" sortable="false" entity="ent6" displayAttributes="ent6#att33 ent6#att35" linkOrder="mov2#mpkg3#hym3#page25#hinu2z#ln9z mov2#mpkg3#hym3#page25#hinu2z#ln30z">
+      <SortAttribute attribute="ent6#att33" order="ascending"/>
+      <SortAttribute attribute="ent6#att35" order="ascending"/>
+      <HierarchicalIndexLevel id="mov2#mpkg3#hym3#page25#hinu2z#hiulvl2z" name="Department Units" entity="ent6" displayAttributes="ent6#att33 ent6#att35" role="rel1z#role1z">
+        <SortAttribute attribute="ent6#att33" order="ascending"/>
+        <SortAttribute attribute="ent6#att35" order="ascending"/>
+      </HierarchicalIndexLevel>
+      <Selector id="mov2#mpkg3#hym3#page25#hinu2z#su13z" defaultPolicy="fill" booleanOperator="and">
+        <AttributesCondition id="mov2#mpkg3#hym3#page25#hinu2z#su13z#acond2z" name="type" predicate="eq" booleanOperator="or" implied="false" attributes="ent6#att8z" value="Department"/>
+      </Selector>
+      <Link id="mov2#mpkg3#hym3#page25#hinu2z#ln9z" name="Select" to="mov2#mpkg3#hym3#page24#enu17" type="normal" validate="true" preserveForm="true" ajaxEnabled="true" ajaxCloseWindow="true" gr:bendpoints="85,-111,-160,94">
+        <LinkParameter id="mov2#mpkg3#hym3#page25#hinu2z#ln9z#par18z" name="name_Area" source="data[].ent6#att33" target="mov2#mpkg3#hym3#page24#enu17#fld1z_slot"/>
+        <LinkParameter id="mov2#mpkg3#hym3#page25#hinu2z#ln9z#par55z" name="oid_Area oid" source="data[].ent6#att32" target="mov2#mpkg3#hym3#page24#enu17#fld2z_slot"/>
+      </Link>
+      <Link id="mov2#mpkg3#hym3#page25#hinu2z#ln30z" name="Select" to="mov2#mpkg3#hym3#page24#enu17" type="normal" validate="true" ajaxEnabled="true" ajaxCloseWindow="true">
+        <LinkParameter id="mov2#mpkg3#hym3#page25#hinu2z#ln30z#par56z" name="name(Department Units)_Area" source="data[].mov2#mpkg3#hym3#page25#hinu2z#hiulvl2zdata[].ent6#att33" target="mov2#mpkg3#hym3#page24#enu17#fld1z_slot"/>
+        <LinkParameter id="mov2#mpkg3#hym3#page25#hinu2z#ln30z#par57z" name="oid(Department Units)_Area oid" source="data[].mov2#mpkg3#hym3#page25#hinu2z#hiulvl2zdata[].ent6#att32" target="mov2#mpkg3#hym3#page24#enu17#fld2z_slot"/>
+      </Link>
+    </HierarchicalIndexUnit>
+  </ContentUnits>
+  <layout:Grid containerType="grid">
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="mov2#mpkg3#hym3#page25#hinu2z" layout:frameLayout="None">
+          <layout:Attribute attribute="ent6#att33"/>
+          <layout:Attribute attribute="ent6#att35"/>
+          <layout:Link link="mov2#mpkg3#hym3#page25#hinu2z#ln9z"/>
+          <layout:Link link="mov2#mpkg3#hym3#page25#hinu2z#ln30z"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+</Page>

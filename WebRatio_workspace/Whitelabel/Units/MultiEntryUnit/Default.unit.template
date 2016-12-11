@@ -1,0 +1,153 @@
+#?delimiters [%, %], [%=, %]
+<wr:LayoutParameter label="Columns Number" name="num-cols" type="enum" values="1|2|3|4|5|6" default="1">
+Defines the number of columns to be used.
+Allowed values are: 1(default),2,3,4,5,6.
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Show Fields Name" name="show-label" type="enum" values="top|left|false" default="left">
+Defines the rendition of the fields names.
+Allowed values are:
+- left (default): places the fields name on the left
+- top: places the fields name at the top
+- false: the fields name are not shown
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Show Mandatory Fields" name="mandatory-fields" type="boolean" default="true">
+Defines whether to show a '*' for mandatory fields or not.
+Allowed values are: true or false(default).
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Disable Buttons on Click" name="disable-buttons-on-click" type="boolean" default="false">
+Defines whether the buttons must be disabled on click to avoid multiple requests.
+</wr:LayoutParameter>
+[%
+import org.apache.commons.lang.StringUtils
+import org.apache.commons.lang.math.NumberUtils
+
+setHTMLOutput()
+def unitId = unit["id"]
+def fields = unit.selectNodes("layout:Field")
+def showLabel = params["show-label"]
+def numCols = Integer.parseInt(params["num-cols"])
+def showMandatoryFields = params["mandatory-fields"]
+def links = unit.selectNodes("layout:Link")
+def disableButtonsOnClick = params["disable-buttons-on-click"] == "true"
+
+def sectionWidth = (12 / numCols).intValue()
+def widthCounter = 0
+def formBean = getFormBeanName(page);
+
+def modifiableFields = false
+for(field in unit.selectNodes("layout:Field")){
+   modifiableFields |= ("true" == field["modifiable"]) || ("SelectionField" == getById(field["field"])?.name)
+}
+%]
+<wr:Frame>
+	<div class="plain <wr:StyleClass/>">
+		<div class="plain MultiEntryUnit">
+			<html:hidden property="<wr:Id context="unit" />Keys" styleId="<wr:Id context="unit" />Key"></html:hidden>
+			<html:hidden property="<wr:Id context="unit" />DataSize" styleId="<wr:Id context="unit" />DataSize"></html:hidden>
+			<script>
+				multiEntryMap["<wr:Id context="unit" />LastIndex"] = "<c:out value="${[%= formBean %].map.<wr:Id context="unit" />DataSize -1}"></c:out>";
+			</script>
+			
+			<c:set var="wr_errors"><html:errors property="<wr:Id context="unit" />" /></c:set>
+			<c:if test="${not empty wr_errors}">
+				<section class="error"><html:errors property="<wr:Id context="unit" />" /></section>
+			</c:if>
+			
+			<div id="<wr:Id context="unit" />">
+			<c:forEach var="<wr:Id context="unit" />" varStatus="status" items="${[%= formBean %].map.<wr:Id context="unit" />}">
+				<c:set var="index" value="${status.index}"/>
+				<fieldset id="<c:out value="<wr:Id context="unit" />[${index}]"/>" class="w_90 fl container_12 ajaxPreservedMarkup">
+					<html:hidden property="value(key)" indexed="true" name="[%= unitId %]"/>
+					[% for (hiddenField in getById(unit["id"])?.selectNodes("Field[@hidden = 'true']")) {
+						def type = hiddenField["type"]
+						if (type == "blob") { %]
+							<html:hidden property="value([%= hiddenField["id"]%]_preload)" indexed="true" name="[%= unitId %]"/>
+						[% } else { %]
+							<html:hidden property="value([%= hiddenField["id"]%])" indexed="true" name="[%= unitId %]"/>
+						[% } %]
+					[% } %]
+					<wr:Iterate var="field" context="unit" select="layout:Field">
+		            [% 	def fieldType = getById(field["field"])?.name 
+		 			    def type = field["type"]
+		 			    def fieldName = field["name"]
+						def subType = getById(field["subType"])
+						def typeId = type
+						if(subType != null){
+						  typeId = subType["id"]
+						  type = subType["type"]
+						}
+				        def isMandatory = isMandatoryField(field)
+				        def fieldProp = field["field"] + ((isLocalizedType(type) && fieldType == "Field") ? "_locale" : "")
+				        
+				        widthCounter += sectionWidth
+						if (widthCounter > 12) {
+							widthCounter = sectionWidth 
+							%]<div class="clear">&nbsp;</div>[% } 
+						def gridClass = "grid_" + sectionWidth
+						if ( widthCounter == sectionWidth )//first
+							gridClass += " alpha"
+						if ( (widthCounter + sectionWidth) > 12 ) //last
+							gridClass += " omega"
+				    %] 
+		             <wr:Visible>
+		             <c:set var="wr_errors"><html:errors property="[%=fieldProp%]"/></c:set>
+		             <section class="[%= gridClass %] field[% if ("left".equals(showLabel)) {%] leftLabel[% } %]<c:if test="${not empty wr_errors}"> error</c:if>">
+			            [% if (!"false".equals(showLabel)) { %]
+						
+						[%
+						def modifiable = (field["modifiable"] == "true")
+						%]
+						<wr:Visible position="'index'">
+						<label[% if( modifiable) { %] for="[%=unitId%][${index}].value([%=fieldProp%])"[% } %]>
+							<wr:Label/>[%}%][% if (isMandatory) { %] <span class="required">&nbsp;</span>[% } %]</label>
+			             <div class="<wr:StyleClass/>">
+			             	<wr:Value/>
+			             	<wr:FieldError/>
+			             </div> 
+			             </wr:Visible>
+		             </section>       
+		             </wr:Visible>
+		           </wr:Iterate>
+		           
+				</fieldset>
+				
+				<div class="fl r">
+					<a class="btn i_cross remove nt" href="#" onClick="wl_removeRow('<wr:Id context="unit" />', '<c:out value="<wr:Id context="unit" />[${index}]"/>' ); return false;" title="Remove row"></a>
+				</div>
+			</c:forEach>
+			</div>
+			
+			<div class="fl r">
+				<a class="btn i_plus add nt" href="#" onClick="wl_addRow( '<wr:Id context="unit" />' ); return false;" title="Add row"></a>
+			</div>
+			
+			[%if(links.size() > 0){%]
+		      <section class="buttons r">
+		          <wr:Iterate var="link" context="unit" select="layout:Link">
+		            <wr:Visible>
+		                 <wr:Link type="button" class="button"/>
+		            </wr:Visible>
+		          </wr:Iterate>
+		      [%if(disableButtonsOnClick){%]
+		         <script type="text/javascript">
+		            [%def submitVar = unit["id"] + "_submit_" + unit.hashCode()%]
+		            var [%=submitVar%] = false;
+		            $("#[%=getFormBeanName(page)%]").on("submit", function(e) {
+		                if([%=submitVar%]){
+		                   e.stop();
+		                } else {
+		                   [%=submitVar%] = true;
+		                   <wr:Iterate var="link" context="unit" select="layout:Link">
+		                   $('[id="button:[%=link["id"]%]"]').addClass("disabled").css("cursor","wait");
+		                   </wr:Iterate> 
+		                   return true 
+		                }    
+		            });
+				 </script>
+		      [%}%]
+		      </section>
+			[%}%]
+			<div class="clear">&nbsp;</div>
+		</div>
+	</div>
+</wr:Frame>

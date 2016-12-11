@@ -1,0 +1,72 @@
+<OperationGroup xmlns:gr="http://www.webratio.com/2006/WebML/Graph" id="mov1#mpkg1#opm8#opg8" name="Save Product Information" transaction="true" gr:x="190" gr:y="115">
+  <OperationUnits>
+    <CreateUnit id="mov1#mpkg1#opm8#opg8#cru13" name="Create Product" gr:x="5" gr:y="0" entity="pkg1#ent8">
+      <OKLink id="mov1#mpkg1#opm8#opg8#cru13#oln89" name="OKLink73" to="mov1#mpkg1#opm8#opg8#pcu18">
+        <LinkParameter id="mov1#mpkg1#opm8#opg8#cru13#oln89#par216" name="Product Key" source="pkg1#ent8#att38Array" target="mov1#mpkg1#opm8#opg8#pcu18#pcp49"/>
+      </OKLink>
+    </CreateUnit>
+    <ModifyUnit id="mov1#mpkg1#opm8#opg8#mfu10" name="Modify Product" gr:x="0" gr:y="195" entity="pkg1#ent8">
+      <Selector id="mov1#mpkg1#opm8#opg8#mfu10#su33" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="mov1#mpkg1#opm8#opg8#mfu10#su33#kcond25" name="Product" predicate="in" implied="false"/>
+      </Selector>
+      <OKLink id="mov1#mpkg1#opm8#opg8#mfu10#oln90" name="OKLink15" to="mov1#mpkg1#opm8#opg8#pcu18">
+        <LinkParameter id="mov1#mpkg1#opm8#opg8#mfu10#oln90#par217" name="Product Key" source="pkg1#ent8#att38Array" target="mov1#mpkg1#opm8#opg8#pcu18#pcp49"/>
+      </OKLink>
+    </ModifyUnit>
+    <IsNotNullUnit id="mov1#mpkg1#opm8#opg8#inn11" name="Existing Product?" gr:x="0" gr:y="110">
+      <OKLink id="mov1#mpkg1#opm8#opg8#inn11#oln91" name="OKLink47" to="mov1#mpkg1#opm8#opg8#mfu10">
+        <LinkParameter id="mov1#mpkg1#opm8#opg8#inn11#oln91#par285" name="Product Key" source="inputValue" target="mov1#mpkg1#opm8#opg8#mfu10#su33#kcond25.pkg1#ent8#att38"/>
+      </OKLink>
+      <KOLink id="mov1#mpkg1#opm8#opg8#inn11#kln28" name="KOLink19" to="mov1#mpkg1#opm8#opg8#cru13"/>
+    </IsNotNullUnit>
+    <ParameterCollectorUnit id="mov1#mpkg1#opm8#opg8#pcu16" name="Collect Message Information" gr:x="1060" gr:y="100">
+      <CollectorParameter id="mov1#mpkg1#opm8#opg8#pcu16#pcp36" name="Message" value="Tech Record succesfully saved"/>
+      <OKLink id="mov1#mpkg1#opm8#opg8#pcu16#oln92" name="OKLink78" to="mov1#mpkg1#opm8#okcu9">
+        <LinkParameter id="mov1#mpkg1#opm8#opg8#pcu16#oln92#par219" name="Message" source="mov1#mpkg1#opm8#opg8#pcu16#pcp36" target="mov1#mpkg1#opm8#okcu9#ocp11"/>
+      </OKLink>
+    </ParameterCollectorUnit>
+    <CreateUnit id="mov1#mpkg1#opm8#opg8#cru14" name="Create Photogallery" gr:x="355" gr:y="100" bulk="true" entity="pkg1#ent7" skipBlankRecords="true" notBlankAttributes="pkg1#ent7#att37">
+      <OKLink id="mov1#mpkg1#opm8#opg8#cru14#oln94" name="OKLink74" to="mov1#mpkg1#opm8#opg8#cru15"/>
+      <Link id="mov1#mpkg1#opm8#opg8#cru14#ln87" name="Link21" to="mov1#mpkg1#opm8#opg8#rcnu6" type="transport" automaticCoupling="true" validate="true" gr:bendpoints="62,-119,-474,-119;462,-119,-74,-119"/>
+    </CreateUnit>
+    <CreateUnit id="mov1#mpkg1#opm8#opg8#cru15" name="Create Tech Record" gr:x="530" gr:y="100" bulk="true" entity="pkg1#ent9" skipBlankRecords="true" notBlankAttributes="pkg1#ent9#att46">
+      <OKLink id="mov1#mpkg1#opm8#opg8#cru15#oln95" name="OKLink17" to="mov1#mpkg1#opm8#opg8#rcnu5" automaticCoupling="true"/>
+    </CreateUnit>
+    <ParameterCollectorUnit id="mov1#mpkg1#opm8#opg8#pcu18" name="Collect Product Information" gr:x="140" gr:y="100">
+      <CollectorParameter id="mov1#mpkg1#opm8#opg8#pcu18#pcp49" name="Product Key"/>
+      <OKLink id="mov1#mpkg1#opm8#opg8#pcu18#oln96" name="OKLink16" to="mov1#mpkg1#opm8#opg8#cru14">
+        <LinkParameter id="mov1#mpkg1#opm8#opg8#pcu18#oln96#par243" name="Product Key" source="mov1#mpkg1#opm8#opg8#pcu18#pcp49" target="mov1#mpkg1#opm8#opg8#cru14.rel11#rel5.pkg1#ent8#att38"/>
+      </OKLink>
+      <Link id="mov1#mpkg1#opm8#opg8#pcu18#ln89" name="Link13" to="mov1#mpkg1#opm8#opg8#cru15" type="transport" validate="true" gr:bendpoints="116,-76,-255,-76;285,-77,-86,-77">
+        <LinkParameter id="mov1#mpkg1#opm8#opg8#pcu18#ln89#par275" name="Product Key" source="mov1#mpkg1#opm8#opg8#pcu18#pcp49" target="mov1#mpkg1#opm8#opg8#cru15.rel10#rel3.pkg1#ent8#att38"/>
+      </Link>
+      <Link id="mov1#mpkg1#opm8#opg8#pcu18#ln91" name="Link19" to="mov1#mpkg1#opm8#opg8#rcnu5" type="transport" validate="true" gr:bendpoints="51,-100,-500,-100;443,-99,-108,-99">
+        <LinkParameter id="mov1#mpkg1#opm8#opg8#pcu18#ln91#par245" name="Product Key" source="mov1#mpkg1#opm8#opg8#pcu18#pcp49" target="mov1#mpkg1#opm8#opg8#rcnu5#su34#kcond26.pkg1#ent8#att38"/>
+      </Link>
+      <Link id="mov1#mpkg1#opm8#opg8#pcu18#ln94" name="Link20" to="mov1#mpkg1#opm8#opg8#rcnu6" type="transport" validate="true" gr:bendpoints="60,81,-671,81;600,80,-131,80">
+        <LinkParameter id="mov1#mpkg1#opm8#opg8#pcu18#ln94#par246" name="Product Key" source="mov1#mpkg1#opm8#opg8#pcu18#pcp49" target="mov1#mpkg1#opm8#opg8#rcnu6#su39#kcond28.pkg1#ent8#att38"/>
+      </Link>
+    </ParameterCollectorUnit>
+    <ReconnectUnit id="mov1#mpkg1#opm8#opg8#rcnu5" name="Product 2 Tech Record" gr:x="705" gr:y="85" relationship="rel10#rel4">
+      <SourceSelector id="mov1#mpkg1#opm8#opg8#rcnu5#su34" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="mov1#mpkg1#opm8#opg8#rcnu5#su34#kcond26" name="Product" predicate="in" implied="false"/>
+      </SourceSelector>
+      <TargetSelector id="mov1#mpkg1#opm8#opg8#rcnu5#su37" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="mov1#mpkg1#opm8#opg8#rcnu5#su37#kcond27" name="Tech Record" predicate="in" implied="false"/>
+      </TargetSelector>
+      <OKLink id="mov1#mpkg1#opm8#opg8#rcnu5#oln97" name="OKLink18" to="mov1#mpkg1#opm8#opg8#rcnu6" automaticCoupling="true"/>
+    </ReconnectUnit>
+    <ReconnectUnit id="mov1#mpkg1#opm8#opg8#rcnu6" name="Product 2 Image" gr:x="890" gr:y="85" relationship="rel11#rel6">
+      <SourceSelector id="mov1#mpkg1#opm8#opg8#rcnu6#su39" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="mov1#mpkg1#opm8#opg8#rcnu6#su39#kcond28" name="Product" predicate="in" implied="false"/>
+      </SourceSelector>
+      <TargetSelector id="mov1#mpkg1#opm8#opg8#rcnu6#su40" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="mov1#mpkg1#opm8#opg8#rcnu6#su40#kcond29" name="Image" predicate="in" implied="false"/>
+      </TargetSelector>
+      <OKLink id="mov1#mpkg1#opm8#opg8#rcnu6#oln98" name="OKLink19" to="mov1#mpkg1#opm8#opg8#pcu16"/>
+    </ReconnectUnit>
+  </OperationUnits>
+  <KOLink id="mov1#mpkg1#opm8#opg8#kln33" name="KOLink33" to="mov1#mpkg1#opm8#kocu7">
+    <LinkParameter id="mov1#mpkg1#opm8#opg8#kln33#par280" name="Message" sourceValue="Product not saved" target="mov1#mpkg1#opm8#kocu7#ocp17"/>
+  </KOLink>
+</OperationGroup>

@@ -1,0 +1,17 @@
+<HybridModule xmlns:gr="http://www.webratio.com/2006/WebML/Graph" id="mov2#mpkg13#hym54" name="Export Cart As PDF" gr:icon="ModulesIcons/PDF.png" gr:x="215" gr:y="0">
+  <OperationUnits>
+    <InputCollectorUnit id="mov2#mpkg13#hym54#icu67" name="Input" gr:x="-155" gr:y="140">
+      <OKLink id="mov2#mpkg13#hym54#icu67#oln255" name="OKLink255" to="mov2#mpkg13#hym54#page72#mdu8">
+        <LinkParameter id="mov2#mpkg13#hym54#icu67#oln255#par38" name="Order Key" source="mov2#mpkg13#hym54#icu67#icp3" target="mov2#mpkg13#hym54#page72#mdu8#su133#kcond53.ent12#att45"/>
+      </OKLink>
+      <InputCollectorParameter id="mov2#mpkg13#hym54#icu67#icp3" name="Order Key"/>
+      <Link id="mov2#mpkg13#hym54#icu67#ln49" name="Link49" to="mov2#mpkg13#hym54#page72#mdu7" type="transport" validate="true">
+        <LinkParameter id="mov2#mpkg13#hym54#icu67#ln49#par50" name="Order Key" source="mov2#mpkg13#hym54#icu67#icp3" target="mov2#mpkg13#hym54#page72#mdu7#su132#rcond30.ent12#att45"/>
+      </Link>
+      <Link id="mov2#mpkg13#hym54#icu67#ln1" name="Link1" to="mov2#mpkg13#hym54#page72#mdu1" type="transport" validate="true">
+        <LinkParameter id="mov2#mpkg13#hym54#icu67#ln1#par23" name="Order Key" source="mov2#mpkg13#hym54#icu67#icp3" target="mov2#mpkg13#hym54#page72#mdu1#su10#rcond7.ent12#att45"/>
+      </Link>
+    </InputCollectorUnit>
+  </OperationUnits>
+  <Comment xml:space="preserve">Hybrid Module that exports the Cart of the logged in user into a PDF file.</Comment>
+</HybridModule>

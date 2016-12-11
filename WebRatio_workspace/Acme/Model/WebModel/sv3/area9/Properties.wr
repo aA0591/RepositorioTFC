@@ -1,0 +1,26 @@
+<Area xmlns:gr="http://www.webratio.com/2006/WebML/Graph" id="sv3#area9" name="Combinations" defaultPage="sv3#area9#page23" landmark="true" protected="false" gr:x="-50" gr:y="375">
+  <OperationUnits>
+    <DeleteUnit id="sv3#area9#dlu6" name="Delete Combination" gr:x="0" gr:y="35" entity="ent4">
+      <Selector id="sv3#area9#dlu6#su58" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="sv3#area9#dlu6#su58#kcond46" name="Combination" predicate="in" implied="false"/>
+      </Selector>
+      <OKLink id="sv3#area9#dlu6#oln59" name="OKLink56" to="sv3#area9#page23#mssu3" gr:bendpoints="0,140,-165,0">
+        <LinkParameter id="sv3#area9#dlu6#oln59#par40" name="Message" sourceValue="Opreration complited" target="sv3#area9#page23#mssu3.shownMessages"/>
+      </OKLink>
+      <KOLink id="sv3#area9#dlu6#kln15" name="KOLink15" to="sv3#area9#page23#mssu3">
+        <LinkParameter id="sv3#area9#dlu6#kln15#par38" name="Message" sourceValue="Error: opreration incomplited" target="sv3#area9#page23#mssu3.shownMessages"/>
+      </KOLink>
+    </DeleteUnit>
+    <ModuleInstanceUnit gr:x="480" gr:y="300" id="sv3#area9#miu12" name="Save Combination Information" moduleId="mov1#mpkg1#opm7">
+      <KOLink id="sv3#area9#miu12#kln22" to="sv3#area9#page23#mssu3" name="KOLink4" gr:bendpoints="-325,-1,0,109">
+        <LinkParameter id="sv3#area9#miu12#kln22#par284" name="Message" source="mov1#mpkg1#opm7#kocu4#ocp16" target="sv3#area9#page23#mssu3.shownMessages"/>
+      </KOLink>
+      <OKLink id="sv3#area9#miu12#oln77" to="sv3#area9#page23#mssu3" name="OKLink13" gr:bendpoints="-278,-42,47,68">
+        <LinkParameter id="sv3#area9#miu12#oln77#par188" source="mov1#mpkg1#opm7#okcu8#ocp10" name="Message" target="sv3#area9#page23#mssu3.shownMessages"/>
+      </OKLink>
+    </ModuleInstanceUnit>
+    <NoOpOperationUnit gr:x="725" gr:y="185" id="sv3#area9#opu2" name="Cancel">
+      <OKLink id="sv3#area9#opu2#oln8" name="OKLink8" to="sv3#area9#page23" automaticCoupling="true" gr:bendpoints="0,-81,315,-1"/>
+    </NoOpOperationUnit>
+  </OperationUnits>
+</Area>

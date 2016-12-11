@@ -1,0 +1,38 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" id="mov2#mpkg11#hym52#page68" name="Editorial Review" layout:pageLayout="WRDefault/Empty" ajaxEnabled="true" gr:x="370" gr:y="105">
+  <ContentUnits>
+    <EntryUnit id="mov2#mpkg11#hym52#page68#enu19" name="Editorial Review Information" linkOrder="mov2#mpkg11#hym52#page68#enu19#ln114 mov2#mpkg11#hym52#page68#enu19#ln99" gr:x="0" gr:y="0" entity="ent9" fieldOrder="mov2#mpkg11#hym52#page68#enu19#fld41 mov2#mpkg11#hym52#page68#enu19#fld42">
+      <Field id="mov2#mpkg11#hym52#page68#enu19#fld41" name="reviewer" type="string" modifiable="true" preloaded="true" attribute="ent9#att34"/>
+      <Field id="mov2#mpkg11#hym52#page68#enu19#fld42" name="review" type="text" modifiable="true" preloaded="true" attribute="ent9#att35" contentType="text/html"/>
+      <Field id="mov2#mpkg11#hym52#page68#enu19#fld43" name="added on" type="timestamp" modifiable="false" preloaded="true" attribute="ent9#att49" hidden="true"/>
+      <Link id="mov2#mpkg11#hym52#page68#enu19#ln99" name="Cancel" to="mov2#mpkg11#hym52#page69" automaticCoupling="true" type="normal" validate="true" gr:bendpoints="-116,-43,139,-33"/>
+      <Link id="mov2#mpkg11#hym52#page68#enu19#ln114" name="Save" to="mov2#mpkg11#hym52#opg9#tmu3" type="normal" validate="true" ajaxEnabled="true"/>
+      <Link id="mov2#mpkg11#hym52#page68#enu19#ln115" name="Link115" to="mov2#mpkg11#hym52#opg9#mfu7" type="transport" validate="true">
+        <LinkParameter id="mov2#mpkg11#hym52#page68#enu19#ln115#par66" name="Editorial Review Object" source="entityBean" target="mov2#mpkg11#hym52#opg9#mfu7.entityBeans"/>
+        <LinkParameter id="mov2#mpkg11#hym52#page68#enu19#ln115#par78" name="Editorial Review Key" source="key.ent9#att33" target="mov2#mpkg11#hym52#opg9#mfu7#su36#kcond15.ent9#att33"/>
+      </Link>
+    </EntryUnit>
+  </ContentUnits>
+  <layout:Grid>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="mov2#mpkg11#hym52#page68#enu19">
+          <layout:Field field="mov2#mpkg11#hym52#page68#enu19#fld41"/>
+          <layout:Field field="mov2#mpkg11#hym52#page68#enu19#fld42"/>
+          <layout:Link link="mov2#mpkg11#hym52#page68#enu19#ln114"/>
+          <layout:Link link="mov2#mpkg11#hym52#page68#enu19#ln99"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+</Page>

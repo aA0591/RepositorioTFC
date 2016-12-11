@@ -1,0 +1,19 @@
+<WebModel xmlns:layout="http://www.webratio.com/2006/WebML/Layout" layout:style="WebRatio" defaultLocale="en_US" control="Q291bnRyeUlTT0N0eFBhcmFtR3JvdXBDdHhQYXJhbUxhbmd1YWdlSVNPQ3R4UGFyYW1Vc2VyQ3R4UGFyYW0=" homeSiteView="sv1" layout:inheritParameters="true">
+  <Locale id="en_US" language="en" country="US">
+    <PatternConfiguration type="boolean" pattern="yes|no"/>
+    <PatternConfiguration type="date" pattern="MM/dd/yyyy"/>
+    <PatternConfiguration type="decimal" maxDecimal="3" minDecimal="0" minInteger="1" useThousandSeparator="false"/>
+    <PatternConfiguration type="float" maxDecimal="3" minDecimal="0" minInteger="1" useThousandSeparator="false"/>
+    <PatternConfiguration type="integer" minInteger="1" useThousandSeparator="false"/>
+    <PatternConfiguration type="time" pattern="h:mm:ss a"/>
+    <PatternConfiguration type="timestamp" pattern="MM/dd/yyyy h:mm:ss a"/>
+    <PatternConfiguration type="sbt1" maxDecimal="2" minDecimal="2" minInteger="1" useThousandSeparator="true" pattern="&#8364; #,##0.00" useNumberPattern="true"/>
+  </Locale>
+  <ContextParameter id="UserCtxParam" name="UserCtxParam" entity="User" type="entity"/>
+  <ContextParameter id="GroupCtxParam" name="GroupCtxParam" entity="Group" type="entity"/>
+  <ContextParameter id="LanguageISOCtxParam" name="LanguageISOCtxParam" type="string"/>
+  <ContextParameter id="CountryISOCtxParam" name="CountryISOCtxParam" type="string"/>
+  <layout:LayoutParameter name="header-and-menu-position" value="right" type="page"/>
+  <layout:LayoutParameter name="show-left-column" value="false" type="page"/>
+  <layout:LayoutParameter name="show-right-column" value="true" type="page"/>
+</WebModel>

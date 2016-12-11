@@ -1,0 +1,28 @@
+<OperationGroup xmlns:gr="http://www.webratio.com/2006/WebML/Graph" id="mov1#mpkg1#opm7#opg7" name="Save Combination Information" transaction="true" gr:x="120" gr:y="-10">
+  <OperationUnits>
+    <CreateUnit id="mov1#mpkg1#opm7#opg7#cru12" name="Create Combination" gr:x="155" gr:y="0" entity="ent4">
+      <OKLink id="mov1#mpkg1#opm7#opg7#cru12#oln84" name="OKLink51" to="mov1#mpkg1#opm7#opg7#pcu15"/>
+    </CreateUnit>
+    <ModifyUnit id="mov1#mpkg1#opm7#opg7#mfu9" name="Modify Combination" gr:x="155" gr:y="190" entity="ent4">
+      <OKLink id="mov1#mpkg1#opm7#opg7#mfu9#oln85" name="OKLink69" to="mov1#mpkg1#opm7#opg7#pcu15"/>
+      <Selector id="mov1#mpkg1#opm7#opg7#mfu9#su32" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="mov1#mpkg1#opm7#opg7#mfu9#su32#kcond24" name="Combination" predicate="in" implied="false"/>
+      </Selector>
+    </ModifyUnit>
+    <IsNotNullUnit id="mov1#mpkg1#opm7#opg7#inn10" name="Existing Combination?" gr:x="0" gr:y="100">
+      <OKLink id="mov1#mpkg1#opm7#opg7#inn10#oln86" name="OKLink47" to="mov1#mpkg1#opm7#opg7#mfu9">
+        <LinkParameter id="mov1#mpkg1#opm7#opg7#inn10#oln86#par268" name="Combination Key" source="inputValue" target="mov1#mpkg1#opm7#opg7#mfu9#su32#kcond24.ent4#att27"/>
+      </OKLink>
+      <KOLink id="mov1#mpkg1#opm7#opg7#inn10#kln26" name="KOLink19" to="mov1#mpkg1#opm7#opg7#cru12"/>
+    </IsNotNullUnit>
+    <ParameterCollectorUnit id="mov1#mpkg1#opm7#opg7#pcu15" name="Collect Message Information" gr:x="295" gr:y="90">
+      <CollectorParameter id="mov1#mpkg1#opm7#opg7#pcu15#pcp35" name="Message" value="Combination succesfully saved"/>
+      <OKLink id="mov1#mpkg1#opm7#opg7#pcu15#oln87" name="OKLink13" to="mov1#mpkg1#opm7#okcu8">
+        <LinkParameter id="mov1#mpkg1#opm7#opg7#pcu15#oln87#par203" name="Message" source="mov1#mpkg1#opm7#opg7#pcu15#pcp35" target="mov1#mpkg1#opm7#okcu8#ocp10"/>
+      </OKLink>
+    </ParameterCollectorUnit>
+  </OperationUnits>
+  <KOLink id="mov1#mpkg1#opm7#opg7#kln27" name="KOLink4" to="mov1#mpkg1#opm7#kocu4">
+    <LinkParameter id="mov1#mpkg1#opm7#opg7#kln27#par269" name="Message" sourceValue="Combination not saved" target="mov1#mpkg1#opm7#kocu4#ocp16"/>
+  </KOLink>
+</OperationGroup>

@@ -1,0 +1,19 @@
+<OperationModule xmlns:gr="http://www.webratio.com/2006/WebML/Graph" gr:x="0" gr:y="165" id="mov1#mpkg9#opm5" name="Compute Saving" gr:icon="ModulesIcons/Saving.png">
+  <OperationUnits>
+    <InputCollectorUnit gr:x="0" gr:y="150" id="mov1#mpkg9#opm5#icu6" name="Input">
+      <InputCollectorParameter id="mov1#mpkg9#opm5#icu6#icp17" name="Price"/>
+      <InputCollectorParameter id="mov1#mpkg9#opm5#icu6#icp18" name="Discount"/>
+      <InputCollectorParameter id="mov1#mpkg9#opm5#icu6#icp19" name="Listing Price"/>
+      <OKLink id="mov1#mpkg9#opm5#icu6#oln32" to="mov1#mpkg9#opm5#opg15#mathu2" validate="false" name="Compute Price" ajaxEnabled="true">
+        <LinkParameter id="mov1#mpkg9#opm5#icu6#oln32#par121" source="mov1#mpkg9#opm5#icu6#icp17" name="Listing Price" target="mov1#mpkg9#opm5#opg15#mathu2#mathv3"/>
+        <LinkParameter id="mov1#mpkg9#opm5#icu6#oln32#par119" source="mov1#mpkg9#opm5#icu6#icp18" name="Discount" target="mov1#mpkg9#opm5#opg15#mathu2#mathv4"/>
+      </OKLink>
+      <Link id="mov1#mpkg9#opm5#icu6#ln62" to="mov1#mpkg9#opm5#opg15#mathu1" type="transport" validate="true" name="Link21">
+        <LinkParameter id="mov1#mpkg9#opm5#icu6#ln62#par163" source="mov1#mpkg9#opm5#icu6#icp19" name="Listing Price" target="mov1#mpkg9#opm5#opg15#mathu1#mathv2"/>
+      </Link>
+    </InputCollectorUnit>
+    <OKCollectorUnit gr:x="635" gr:y="165" id="mov1#mpkg9#opm5#okcu6" name="Success">
+      <OutputCollectorParameter id="mov1#mpkg9#opm5#okcu6#ocp9" name="Result"/>
+    </OKCollectorUnit>
+  </OperationUnits>
+</OperationModule>

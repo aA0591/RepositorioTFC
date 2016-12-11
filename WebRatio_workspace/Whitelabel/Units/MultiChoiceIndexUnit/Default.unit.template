@@ -1,0 +1,221 @@
+#?delimiters [%, %], [%=, %]
+<wr:LayoutParameter label="Use Alternate Rows" name="use-alternate" type="boolean" default="true">
+Defines the usage of alternates colours for each line.
+Allowed values are: true or false(default).
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Show Filter" name="show-filter" type="boolean" default="true">
+Defines the rendition of the search box on the top.
+Allowed values are: true (default) or false.
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Show Info" name="show-info" type="boolean" default="true">
+Defines the rendition of the table info on the bottom.
+Allowed values are: true (default) or false.
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Sortable" name="sortable" type="boolean" default="true">
+Defines the rendition of sortable link in the header.
+Allowed values are: true (default) or false.
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Links Position" name="link-position" type="enum" values="left|right|on_row" default="right">
+Defines the rendition of the sub levels links.
+Allowed values are:
+- right (default): places the links on the right
+- left: places the links on the left
+- on_row: places the first link on the attributes
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Use Empty Unit Message" name="use-empty-unit-message" type="boolean" default="false">
+Defines the usage of a message for empty units.
+Allowed values are: true(default) or false.
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Empty Unit Message" name="empty-unit-message" type="string" default="emptyUnitMessage">
+Defines the key of the message to use if the unit is empty.
+Default value: emptyUnitMessage
+</wr:LayoutParameter>
+[%
+import org.apache.commons.lang.StringUtils
+import org.apache.commons.lang.math.NumberUtils
+
+setXMLOutput()
+def unitId = unit["id"]
+
+def useAlternate = params["use-alternate"]
+def showFilter = params["show-filter"]
+def showInfo = params["show-info"]
+def sortable = params["sortable"]
+def linkPosition = params["link-position"]
+
+
+
+def options = (useAlternate == "false") ? "data-as-strip-classes=[]" : "";
+options += (showFilter == "true") ? " data-b-filter=true" : ""
+options += (showInfo == "true") ? " data-b-info=true" : ""
+options += (sortable == "true") ? " data-b-sort=true" : ""
+options += " data-b-length-change=false"
+//options += " data-s-pagination-type=false"
+
+def useEmptyUnitMessage = params["use-empty-unit-message"]
+def emptyUnitMessage = params["empty-unit-message"]
+def links = unit.selectNodes("layout:Link[string(@_exp) != 't']")
+def unitLink = unit.selectSingleNode("layout:Link")
+def unitLinkIsAjax = unitLink != null ? (unitLink["ajaxEnabled"] == "true" && isAjaxPage(page)) : false
+def link = unitLink?.valueOf("@link")
+
+def isButton(link){
+  def navLink = getById(link["link"])
+  def linkParams = navLink.selectNodes("LinkParameter").collect{it["source"]}
+  if(linkParams.isEmpty()){
+    linkParams = getAutomaticLinkParameters(navLink).collect{it["source"]}
+  }
+  for(param in linkParams){
+    if(param?.startsWith("data")){
+      return false;
+    }
+  }
+  return true
+}
+
+
+def getInfoLevel( attr ) {
+	def infoLevel = attr.selectSingleNode("Property[@name='informationLevel']/@value")?.getStringValue();
+	
+	def level = ""
+	switch( infoLevel ) {
+	 case "high":
+	 	level = "data-information-level=high" 
+	 	break;
+	 case "medium":
+	 	level = "data-information-level=medium" 
+	 	break;
+	 case "low":
+	 	level = "data-information-level=low" 
+	 	break;
+	}
+	
+  	return level;
+}
+
+
+%]
+
+
+[% if (useEmptyUnitMessage != "true") { %]
+<c:if test="${not(empty <wr:Id context="unit" />) and (<wr:Id context="unit" />.dataSize gt 0)}">
+[% } else { %]
+<c:choose>
+<c:when test="${not(empty <wr:Id context="unit" />) and (<wr:Id context="unit" />.dataSize gt 0)}">
+[% } %]
+	<wr:Frame>
+		<div class="plain <wr:StyleClass/>">
+			<div class="plain DataTableIndexUnit">
+				<table id="[%= getLayoutId(unit) + "_sortable" %]" class="datatable enhanced" [%= options %]>
+				
+				<thead>
+					<tr>
+					<th class="checkall link-h">&nbsp;</th>
+					[% if (linkPosition == "left") { %]
+					<wr:Iterate var="l" context="unit" select="layout:Link[string(@_exp) != 't']">
+						[% if (isButton(l)) { %]
+						<wr:Visible>
+					   		<th class="<wr:StyleClass/> link-h"></th>
+					   	</wr:Visible>
+					   	[% } %]
+					</wr:Iterate>
+					[% }  %]
+					<wr:Iterate var="attr" context="unit" select="layout:Attribute">
+					<wr:Visible>
+						<th class="<wr:StyleClass/>" [%= getInfoLevel(attr) %]><wr:Label/></th>
+					</wr:Visible>
+					</wr:Iterate>
+					<wr:Iterate var="l" context="unit" select="layout:Link[string(@_exp) != 't']">
+					[% if (!isButton(l) && (linkPosition == "right" || (linkPosition == "on_row" && index > 0))) { %]
+					<wr:Visible>
+				   		<th class="<wr:StyleClass/> link-h"></th>
+					</wr:Visible>
+					[% } %]
+					</wr:Iterate>
+					</tr>
+				</thead>
+				
+				<tbody>
+				<c:forEach var="current" varStatus="status" items="${<wr:Id context="unit" />.data}">
+					<c:set var="index" value="${status.index}"/>	
+						<tr>
+							<td>
+								<html:multibox property="<wr:Id context="unit" />Checked" styleClass="checkBox">
+									<c:out value="${<wr:Id context="unit" />.key[index]}"/>
+								</html:multibox>
+							</td>
+						  [% if (linkPosition == "left") { %]
+								<wr:Iterate var="l" context="unit" select="layout:Link[string(@_exp) != 't']">
+								<wr:Visible>
+								<td class="link <wr:StyleClass/>">
+						   			<wr:Link class="link"/>
+								</td>
+								</wr:Visible>
+							    </wr:Iterate>
+							[% } %]
+							
+							<wr:Iterate var="attr" context="unit" select="layout:Attribute">
+								<wr:Visible>
+								[% if ((linkPosition == "on_row") && (!links.empty)) {%]
+									<td class="<wr:StyleClass context="unitLink"/>" [%= getInfoLevel(attr) %]>
+									<wr:Visible position="'index'">
+										<wr:Visible context="unitLink" position="'index'">
+											<a href="<wr:URL context="unitLink"/>" class="<wr:StyleClass context="unitLink"/> link" onclick="<wr:AjaxURL context="unitLink" />">
+										</wr:Visible>
+										<wr:Value/>
+										<wr:Visible context="unitLink" position="'index'">
+											</a>
+										</wr:Visible>
+									</wr:Visible>
+									</td>
+								[% } else {%]
+									<td class="<wr:StyleClass/>" [%= getInfoLevel(attr) %]>				
+										<wr:Value/>
+									</td>
+								[% } %]
+							  </wr:Visible>
+							</wr:Iterate>
+							
+							<wr:Iterate var="l" context="unit" select="layout:Link[string(@_exp) != 't']">
+								[% if ((linkPosition == "on_row" && index > 0) || linkPosition == "right") {
+									 if (!isButton(l)) { %]
+									 <wr:Visible>
+										<td class="link <wr:StyleClass/>">
+											<wr:Link class="link"/>	
+									   	</td>
+									</wr:Visible>
+								   	[% } %]
+								[% } %]
+							</wr:Iterate>
+						</tr>
+					</c:forEach>
+					</tbody>
+				</table>
+				<section class="buttons r">
+		          <wr:Iterate var="l" context="unit" select="layout:Link">
+		          [% if (isButton(l)) { %]
+		            <wr:Visible>
+		                 <wr:Link type="button" class="button"/>
+		            </wr:Visible>
+		          </wr:Iterate>
+		          [% } %]
+		        </section>
+				<div class="clear">&nbsp;</div>
+			</div>
+		</div>
+	 </wr:Frame>
+[% if (useEmptyUnitMessage != "true") { %]
+</c:if>
+[% } else { %]
+</c:when>
+<c:otherwise>
+	<wr:Frame>
+		<div class="plain <wr:StyleClass/>">
+			<div class="plain IndexUnit">
+				<bean:message key="[%printJSPTagValue(emptyUnitMessage)%]"/>
+			</div>
+		</div>
+	</wr:Frame>
+</c:otherwise>
+</c:choose>
+[% } %]   

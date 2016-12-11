@@ -1,0 +1,106 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" id="sv1#area6#page14" name="Home" gr:x="200" gr:y="80" protected="false">
+  <ContentUnits>
+    <PowerIndexUnit id="sv1#area6#page14#pwu9" name="Highlighted Products" linkOrder="sv1#area6#page14#pwu9#ln32 sv1#area6#page14#pwu9#ln90" customDescriptor="false" gr:x="15" gr:y="0" sortable="true" checkable="false" useCountQuery="false" entity="pkg1#ent8" displayAttributes="pkg1#ent8#att39 pkg1#ent8#att41 pkg1#ent8#att48 pkg1#ent8#att43 pkg1#ent8#att42" distinct="false" blockFactor="5" blockWindow="1">
+      <Selector id="sv1#area6#page14#pwu9#su36" defaultPolicy="fill" booleanOperator="and">
+        <AttributesCondition id="sv1#area6#page14#pwu9#su36#acond21" name="Highlighted" predicate="eq" booleanOperator="or" implied="false" attributes="pkg1#ent8#att44" value="true"/>
+      </Selector>
+      <VRules>
+        <CheckedUnitItemsValidationRule id="sv1#area6#page14#pwu9#ckd3" name="Validate Items Number" predicate="min" itemCount="1"/>
+      </VRules>
+      <Link id="sv1#area6#page14#pwu9#ln32" name="Details" to="sv1#area6#miu10" type="normal" validate="true" ajaxEnabled="false" ajaxOpenWindow="true" ajaxWindowUseTitle="true" ajaxWindowResizable="true" ajaxWindowAutoResizing="true" ajaxWindowClosable="true" ajaxWindowDraggable="false" ajaxWindowModal="true" ajaxOpenWaitingDialog="false" ajaxReplaceWindow="false" ajaxWindowTitle="Product Details">
+        <LinkParameter id="sv1#area6#page14#pwu9#ln32#par37" name="Product Key" source="data[].pkg1#ent8#att38" target="sv1#area6#miu10.mov1#mpkg2#hym6#icu7#icp5"/>
+      </Link>
+      <DefaultSortAttribute attribute="pkg1#ent8#att48" order="ascending"/>
+      <DefaultSortAttribute attribute="pkg1#ent8#att41" order="ascending"/>
+      <SortAttribute attribute="pkg1#ent8#att48" order="ascending"/>
+      <SortAttribute attribute="pkg1#ent8#att41" order="ascending"/>
+      <SortAttribute attribute="pkg1#ent8#att42" order="ascending"/>
+      <Link id="sv1#area6#page14#pwu9#ln90" name="Add To Bag" to="sv1#area6#page26#dau3" automaticCoupling="true" type="normal" validate="true" ajaxEnabled="false" ajaxOpenWindow="true" ajaxWindowUseTitle="true" ajaxWindowModal="true" ajaxWindowResizable="true" ajaxWindowAutoResizing="true" ajaxWindowClosable="true"/>
+    </PowerIndexUnit>
+    <PowerIndexUnit id="sv1#area6#page14#pwu10" name="Highlighted Combinations" linkOrder="sv1#area6#page14#pwu10#ln37 sv1#area6#page14#pwu10#ln132" gr:x="0" gr:y="130" sortable="true" checkable="false" useCountQuery="false" entity="ent4" displayAttributes="ent4#att3 ent4#att5 ent4#att20 ent4#att21 ent4#att7 ent4#att6" blockFactor="5" blockWindow="2">
+      <Link id="sv1#area6#page14#pwu10#ln37" name="Details" to="sv1#area6#miu26" type="normal" validate="true" ajaxEnabled="false" ajaxOpenWindow="true" ajaxWindowUseTitle="true" ajaxWindowResizable="true" ajaxWindowAutoResizing="true" ajaxWindowClosable="true" ajaxWindowModal="true" ajaxReplaceWindow="false" ajaxWindowTitle="Combination Details" gr:bendpoints="236,-46,-299,-1">
+        <LinkParameter id="sv1#area6#page14#pwu10#ln37#par147" name="Combination Key" source="data[].ent4#att27" target="sv1#area6#miu26.mov1#mpkg2#hym5#icu6#icp4"/>
+      </Link>
+      <Selector id="sv1#area6#page14#pwu10#su35" defaultPolicy="fill" booleanOperator="and">
+        <AttributesCondition id="sv1#area6#page14#pwu10#su35#acond24" name="Highlighted" predicate="eq" booleanOperator="or" implied="false" attributes="ent4#att22" value="true"/>
+      </Selector>
+      <DefaultSortAttribute attribute="ent4#att21" order="ascending"/>
+      <DefaultSortAttribute attribute="ent4#att3" order="ascending"/>
+      <VRules>
+        <CheckedUnitItemsValidationRule id="sv1#area6#page14#pwu10#ckd6" name="Validate Items Number" predicate="min" itemCount="1"/>
+      </VRules>
+      <Link id="sv1#area6#page14#pwu10#ln132" name="Add To Bag" to="sv1#area6#page26#dau6" type="normal" validate="true" ajaxEnabled="false" ajaxOpenWindow="true" ajaxWindowUseTitle="true" ajaxWindowResizable="true" ajaxWindowAutoResizing="true" ajaxWindowClosable="true" ajaxWindowModal="true" automaticCoupling="true"/>
+      <SortAttribute attribute="ent4#att21" order="ascending"/>
+      <SortAttribute attribute="ent4#att5" order="ascending"/>
+      <SortAttribute attribute="ent4#att6" order="ascending"/>
+    </PowerIndexUnit>
+  </ContentUnits>
+  <layout:Grid>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv1#area6#page14#pwu9">
+          <layout:Attribute attribute="pkg1#ent8#att39"/>
+          <layout:Attribute attribute="pkg1#ent8#att41"/>
+          <layout:Attribute attribute="pkg1#ent8#att48"/>
+          <layout:Attribute attribute="pkg1#ent8#att43"/>
+          <layout:Attribute attribute="pkg1#ent8#att42" layout:attributeVisibilityCondition="cexpr4"/>
+          <layout:Link link="sv1#area6#page14#pwu9#ln32"/>
+          <layout:Link link="sv1#area6#page14#pwu9#ln90" layout:linkVisibilityCondition="cexpr4"/>
+          <layout:Link link="sv1#area6#page14#pwu9pkg1#ent8#att48"/>
+          <layout:Link link="sv1#area6#page14#pwu9pkg1#ent8#att41"/>
+          <layout:Link link="sv1#area6#page14#pwu9pkg1#ent8#att42"/>
+          <layout:Link link="sv1#area6#page14#pwu9First"/>
+          <layout:Link link="sv1#area6#page14#pwu9Previous"/>
+          <layout:Link link="sv1#area6#page14#pwu9Block"/>
+          <layout:Link link="sv1#area6#page14#pwu9Next"/>
+          <layout:Link link="sv1#area6#page14#pwu9Last"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv1#area6#page14#pwu10">
+          <layout:Attribute attribute="ent4#att3"/>
+          <layout:Attribute attribute="ent4#att5"/>
+          <layout:Attribute attribute="ent4#att20"/>
+          <layout:Attribute attribute="ent4#att21"/>
+          <layout:Attribute attribute="ent4#att7"/>
+          <layout:Attribute attribute="ent4#att6" layout:attributeVisibilityCondition="cexpr4"/>
+          <layout:Link link="sv1#area6#page14#pwu10#ln37"/>
+          <layout:Link link="sv1#area6#page14#pwu10#ln132" layout:linkVisibilityCondition="cexpr4"/>
+          <layout:Link link="sv1#area6#page14#pwu10ent4#att21"/>
+          <layout:Link link="sv1#area6#page14#pwu10ent4#att5"/>
+          <layout:Link link="sv1#area6#page14#pwu10ent4#att6"/>
+          <layout:Link link="sv1#area6#page14#pwu10First"/>
+          <layout:Link link="sv1#area6#page14#pwu10Previous"/>
+          <layout:Link link="sv1#area6#page14#pwu10Block"/>
+          <layout:Link link="sv1#area6#page14#pwu10Next"/>
+          <layout:Link link="sv1#area6#page14#pwu10Last"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+  <Comment xml:space="preserve">The Home page contains the offers.</Comment>
+</Page>

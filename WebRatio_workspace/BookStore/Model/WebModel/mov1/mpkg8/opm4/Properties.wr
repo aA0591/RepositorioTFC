@@ -1,0 +1,17 @@
+<OperationModule xmlns:gr="http://www.webratio.com/2006/WebML/Graph" gr:x="0" gr:y="165" id="mov1#mpkg8#opm4" name="Get Parent" gr:icon="ModulesIcons/Get.png">
+  <OperationUnits>
+    <InputCollectorUnit gr:x="0" gr:y="205" id="mov1#mpkg8#opm4#icu5" name="Input">
+      <InputCollectorParameter id="mov1#mpkg8#opm4#icu5#icp15" name="Book Key"/>
+      <InputCollectorParameter id="mov1#mpkg8#opm4#icu5#icp16" name="Category Key"/>
+      <OKLink id="mov1#mpkg8#opm4#icu5#oln13" to="mov1#mpkg8#opm4#opg8#pcu1" validate="true" name="Edit">
+        <LinkParameter id="mov1#mpkg8#opm4#icu5#oln13#par96" source="mov1#mpkg8#opm4#icu5#icp15" name="Book Key" target="mov1#mpkg8#opm4#opg8#pcu1#pcp3"/>
+        <LinkParameter id="mov1#mpkg8#opm4#icu5#oln13#par97" source="mov1#mpkg8#opm4#icu5#icp16" name="Category" target="mov1#mpkg8#opm4#opg8#pcu1#pcp4"/>
+      </OKLink>
+    </InputCollectorUnit>
+    <OKCollectorUnit gr:x="700" gr:y="25" id="mov1#mpkg8#opm4#okcu1" name="Success">
+      <OutputCollectorParameter id="mov1#mpkg8#opm4#okcu1#ocp1" name="Category Key"/>
+      <OutputCollectorParameter id="mov1#mpkg8#opm4#okcu1#ocp4" name="Book Key"/>
+      <OutputCollectorParameter id="mov1#mpkg8#opm4#okcu1#ocp5" name="Category Name"/>
+    </OKCollectorUnit>
+  </OperationUnits>
+</OperationModule>

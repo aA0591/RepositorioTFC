@@ -1,0 +1,19 @@
+<OperationModule xmlns:gr="http://www.webratio.com/2006/WebML/Graph" id="mov2#mpkg13#opm14" name="Save Cart" gr:x="135" gr:y="55" gr:icon="ModulesIcons/Cart.png">
+  <OperationUnits>
+    <InputCollectorUnit id="mov2#mpkg13#opm14#icu68" name="Input" gr:x="-115" gr:y="55">
+      <InputCollectorParameter id="mov2#mpkg13#opm14#icu68#icp1" name="Book Key"/>
+      <Link id="mov2#mpkg13#opm14#icu68#ln121" name="Link3" to="mov2#mpkg13#opm14#opg11#seu20" type="transport" validate="true" gr:bendpoints="123,-47,-417,-47;478,-45,-62,-45">
+        <LinkParameter id="mov2#mpkg13#opm14#icu68#ln121#par81" name="Book Key" source="mov2#mpkg13#opm14#icu68#icp1" target="mov2#mpkg13#opm14#opg11#seu20#su39#kcond10.ent1#att60"/>
+      </Link>
+      <OKLink id="mov2#mpkg13#opm14#icu68#oln107" name="OKLink20" to="mov2#mpkg13#opm14#opg11#seu19"/>
+      <Link id="mov2#mpkg13#opm14#icu68#ln122" name="Link94" to="mov2#mpkg13#opm14#opg11#cru7" type="transport" validate="true" gr:bendpoints="115,-51,-550,-51;593,-51,-72,-51">
+        <LinkParameter id="mov2#mpkg13#opm14#icu68#ln122#par93" name="Cart Item Object" source="mov2#mpkg13#opm14#icu68#icp14" target="mov2#mpkg13#opm14#opg11#cru7.entityBeans"/>
+      </Link>
+      <InputCollectorParameter id="mov2#mpkg13#opm14#icu68#icp14" name="Cart Item Object"/>
+    </InputCollectorUnit>
+    <OKCollectorUnit id="mov2#mpkg13#opm14#okcu62" name="Success" gr:x="795" gr:y="55">
+      <OutputCollectorParameter id="mov2#mpkg13#opm14#okcu62#ocp7" name="Book Key"/>
+    </OKCollectorUnit>
+  </OperationUnits>
+  <Comment xml:space="preserve">Operation Module that implements the operation chain to save temporanely the Cart and the Items of the currently logged in User.</Comment>
+</OperationModule>

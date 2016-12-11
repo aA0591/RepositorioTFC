@@ -1,0 +1,271 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" id="sv1#area6#page21" name="Book Details" layout:gridLayout="WRDefault/Default" gr:x="505" gr:y="230">
+  <ContentUnits>
+    <DataUnit id="sv1#area6#page21#dau3" name="Details" gr:x="35" gr:y="0" entity="ent1" displayAttributes="ent1#att36 ent1#att10 ent1#att17 ent1#att11 ent1#att40 ent1#att26 ent1#att9 ent1#att1 ent1#att15 ent1#att16 ent1#att14" linkOrder="sv1#area6#page21#dau3#ln12 sv1#area6#page21#dau3#ln43 sv1#area6#page21#dau3#ln15">
+      <Selector id="sv1#area6#page21#dau3#su18" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="sv1#area6#page21#dau3#su18#kcond4" name="Book" predicate="in" implied="false"/>
+      </Selector>
+      <Link id="sv1#area6#page21#dau3#ln12" name="Reviews" to="sv1#area6#miu15" type="normal" validate="true" ajaxEnabled="true" ajaxOpenWindow="true" ajaxWindowUseTitle="true" ajaxWindowTitle="Book Reviews" ajaxWindowWidth="600" ajaxWindowHeight="500" ajaxWindowAutoResizing="false" ajaxWindowClosable="true" ajaxWindowMaximizable="false" ajaxWindowMinimizable="false" ajaxWindowDraggable="true" ajaxWindowModal="true">
+        <LinkParameter id="sv1#area6#page21#dau3#ln12#par52" name="Book Key" source="data.ent1#att60" target="sv1#area6#miu15.mov2#mpkg11#hym52#icu64#icp184"/>
+      </Link>
+      <Link id="sv1#area6#page21#dau3#ln15" name="Buy" to="sv1#area6#page4#enu2" type="normal" validate="true" ajaxEnabled="true" ajaxOpenWindow="true" ajaxWindowUseTitle="true" ajaxWindowTitle="Buy the Book" ajaxWindowAutoResizing="false" ajaxWindowClosable="true" ajaxWindowDraggable="true" ajaxWindowModal="true" ajaxWindowWidth="380" ajaxWindowHeight="160" gr:bendpoints="-26,124,129,-1">
+        <LinkParameter id="sv1#area6#page21#dau3#ln15#par2" name="Book Key" source="data.ent1#att60" target="sv1#area6#page4#enu2#fld3_slot"/>
+      </Link>
+      <Link id="sv1#area6#page21#dau3#ln43" name="Comment" to="sv1#area6#miu10" type="normal" validate="true" ajaxEnabled="true" ajaxOpenWindow="true" ajaxWindowUseTitle="true" ajaxWindowTitle="Comment" ajaxWindowWidth="430" ajaxWindowHeight="440" ajaxWindowAutoResizing="false" ajaxWindowClosable="true" ajaxWindowMaximizable="false" ajaxWindowMinimizable="false" ajaxWindowDraggable="true" ajaxWindowModal="true" gr:bendpoints="160,95,-335,-70;495,95,0,-70">
+        <LinkParameter id="sv1#area6#page21#dau3#ln43#par42" name="Book Key" source="data.ent1#att60" target="sv1#area6#miu10.mov2#mpkg11#hym56#icu71#icp9"/>
+      </Link>
+      <Link id="sv1#area6#page21#dau3#ln2" name="Link29" to="sv1#area6#page21#pwu5" type="transport" automaticCoupling="true" validate="true"/>
+      <Link id="sv1#area6#page21#dau3#ln3" name="Link27" to="sv1#area6#page21#enu12" type="transport" validate="true">
+        <LinkParameter id="sv1#area6#page21#dau3#ln3#par5" name="Rating Preselection" target="sv1#area6#page21#enu12#sfld4_presel" sourceValue="5"/>
+        <LinkParameter id="sv1#area6#page21#dau3#ln3#par94" name="Book Key" source="data.ent1#att60" target="sv1#area6#page21#enu12.ent1#att60"/>
+      </Link>
+      <Link id="sv1#area6#page21#dau3#ln7" name="Link41" to="sv1#area6#page21#pwu6" type="transport" automaticCoupling="true" validate="true"/>
+      <Link id="sv1#area6#page21#dau3#ln8" name="Link51" to="sv1#area6#miu8" type="transport" validate="true">
+        <LinkParameter id="sv1#area6#page21#dau3#ln8#par7" name="Book Key" source="data.ent1#att60" target="sv1#area6#miu8.mov2#mpkg11#hym50#icu61#icp13"/>
+      </Link>
+    </DataUnit>
+    <PowerIndexUnit gr:x="140" gr:y="170" id="sv1#area6#page21#pwu5" name="Comments" sortable="true" checkable="false" useCountQuery="false" entity="ent10" displayAttributes="ent10#att50 ent10#att42" blockFactor="10" blockWindow="5">
+      <Selector id="sv1#area6#page21#pwu5#su20" defaultPolicy="fill" booleanOperator="and">
+        <RelationshipRoleCondition id="sv1#area6#page21#pwu5#su20#rcond6" name="Book" role="rel5#rel21" predicate="in" implied="false"/>
+      </Selector>
+      <SortAttribute attribute="ent10#att50" order="ascending"/>
+      <DefaultSortAttribute attribute="ent10#att50" order="ascending"/>
+    </PowerIndexUnit>
+    <EntryUnit gr:x="385" gr:y="5" id="sv1#area6#page21#enu12" name="Rate" fieldOrder="sv1#area6#page21#enu12#fld29 sv1#area6#page21#enu12#sfld4" linkOrder="sv1#area6#page21#enu12#ln52" entity="ent1">
+      <SelectionField id="sv1#area6#page21#enu12#sfld4" name="rating" type="string" preselectValue="1">
+        <Slot id="sv1#area6#page21#enu12#sfld4#slot3" name="ratings" label="true" output="true" value="1|2|3|4|5"/>
+        <VRules>
+          <MandatoryValidationRule id="sv1#area6#page21#enu12#sfld4#mnd8" name="Mandatory Field"/>
+        </VRules>
+      </SelectionField>
+      <Field id="sv1#area6#page21#enu12#fld29" name="average" type="integer" modifiable="false" preloaded="false" attribute="ent1#att14"/>
+      <Link id="sv1#area6#page21#enu12#ln52" name="Rate" to="sv1#area6#miu18" type="normal" validate="true" ajaxEnabled="true">
+        <LinkParameter id="sv1#area6#page21#enu12#ln52#par73" name="Rating" source="sv1#area6#page21#enu12#sfld4" target="sv1#area6#miu18.mov2#mpkg11#opm1#icu2#icp5"/>
+        <LinkParameter id="sv1#area6#page21#enu12#ln52#par77" name="Book Key" source="key.ent1#att60" target="sv1#area6#miu18.mov2#mpkg11#opm1#icu2#icp2"/>
+      </Link>
+    </EntryUnit>
+    <NoOpContentUnit id="sv1#area6#page21#gctu7" gr:x="0" gr:y="205" name="Operations" linkOrder="sv1#area6#page21#gctu7#ln47">
+      <Link id="sv1#area6#page21#gctu7#ln47" name="My Cart" to="sv1#area6#miu13" type="normal" automaticCoupling="true" validate="true" ajaxEnabled="true" ajaxOpenWindow="true" ajaxWindowUseTitle="true" ajaxWindowTitle="My Cart" ajaxWindowAutoResizing="true" ajaxWindowClosable="true" ajaxWindowDraggable="true" ajaxWindowModal="true" gr:bendpoints="-109,44,116,-1"/>
+    </NoOpContentUnit>
+    <PowerIndexUnit gr:x="230" gr:y="0" id="sv1#area6#page21#pwu6" name="Authors" sortable="true" checkable="false" useCountQuery="false" entity="ent4" displayAttributes="ent4#att24" blockFactor="3" blockWindow="5" linkOrder="sv1#area6#page21#pwu6#ln38">
+      <Selector id="sv1#area6#page21#pwu6#su16" defaultPolicy="fill" booleanOperator="and">
+        <RelationshipRoleCondition id="sv1#area6#page21#pwu6#su16#rcond15" name="Book" role="rel15#rel31" predicate="in" implied="false"/>
+      </Selector>
+      <SortAttribute attribute="ent4#att24" order="ascending"/>
+      <DefaultSortAttribute attribute="ent4#att24" order="ascending"/>
+      <Link id="sv1#area6#page21#pwu6#ln38" name="View" to="sv1#area6#miu8" type="normal" validate="true" ajaxEnabled="true" ajaxOpenWindow="true" ajaxWindowUseTitle="true" ajaxWindowTitle="Author Books" ajaxWindowAutoResizing="true" ajaxWindowClosable="true" ajaxWindowDraggable="true" ajaxWindowModal="true">
+        <LinkParameter id="sv1#area6#page21#pwu6#ln38#par40" name="Author Key" source="data[].ent4#att61" target="sv1#area6#miu8.mov2#mpkg11#hym50#icu61#icp180"/>
+      </Link>
+    </PowerIndexUnit>
+    <MultiMessageUnit gr:x="365" gr:y="180" id="sv1#area6#page21#mssu1" name="Notifications"/>
+    <SelectorUnit id="sv1#area6#page21#seu13" name="Select Cart Items" gr:x="235" gr:y="280" entity="pkg1#ent5"/>
+  </ContentUnits>
+  <layout:Grid>
+    <layout:Row>
+      <layout:Cell colspan="6">
+        <layout:Unit unitId="sv1#area6#page21#mssu1"/>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell colspan="6">
+        <layout:Unit unitId="sv1#area6#page21#gctu7" layout:unitVisibilityCondition="sv1#area6#page21#cexpr6">
+          <layout:Link link="sv1#area6#page21#gctu7#ln47"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="6">
+        <layout:Unit unitId="sv1#area6#page21#pwu6">
+          <layout:Attribute attribute="ent4#att24"/>
+          <layout:Link link="sv1#area6#page21#pwu6#ln38"/>
+          <layout:Link link="sv1#area6#page21#pwu6ent4#att24"/>
+          <layout:Link link="sv1#area6#page21#pwu6First"/>
+          <layout:Link link="sv1#area6#page21#pwu6Previous"/>
+          <layout:Link link="sv1#area6#page21#pwu6Block"/>
+          <layout:Link link="sv1#area6#page21#pwu6Next"/>
+          <layout:Link link="sv1#area6#page21#pwu6Last"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell colspan="6">
+        <layout:Unit unitId="sv1#area6#page21#enu12">
+          <layout:LayoutParameter name="link-position" value="right" type="unit"/>
+          <layout:LayoutParameter name="mandatory-fields" value="true" type="unit"/>
+          <layout:Field field="sv1#area6#page21#enu12#fld29"/>
+          <layout:Field field="sv1#area6#page21#enu12#sfld4"/>
+          <layout:Link link="sv1#area6#page21#enu12#ln52"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell colspan="3"/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv1#area6#page21#dau3" layout:unitLayout="WRDefault/Normal">
+          <layout:Attribute attribute="ent1#att36"/>
+          <layout:Attribute attribute="ent1#att10"/>
+          <layout:Attribute attribute="ent1#att17"/>
+          <layout:Attribute attribute="ent1#att11"/>
+          <layout:Attribute attribute="ent1#att40"/>
+          <layout:Attribute attribute="ent1#att26"/>
+          <layout:Attribute attribute="ent1#att9"/>
+          <layout:Attribute attribute="ent1#att1"/>
+          <layout:Attribute attribute="ent1#att15"/>
+          <layout:Attribute attribute="ent1#att16"/>
+          <layout:Attribute attribute="ent1#att14"/>
+          <layout:LayoutParameter name="link-style" value="button" type="link"/>
+          <layout:LayoutParameter name="show" value="text" type="link"/>
+          <layout:LayoutParameter name="link-position" value="bottom" type="unit"/>
+          <layout:LayoutParameter name="link-orientation" value="horizontal" type="unit"/>
+          <layout:Link link="sv1#area6#page21#dau3#ln12"/>
+          <layout:Link link="sv1#area6#page21#dau3#ln43" layout:linkVisibilityCondition="sv1#area6#page21#cexpr17" layout:linkVisibilityConditionNegated="true"/>
+          <layout:Link link="sv1#area6#page21#dau3#ln15" layout:linkVisibilityCondition="sv1#area6#page21#cexpr17" layout:linkVisibilityConditionNegated="true"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv1#area6#page21#pwu5">
+          <layout:Attribute attribute="ent10#att50"/>
+          <layout:Attribute attribute="ent10#att42"/>
+          <layout:Link link="sv1#area6#page21#pwu5ent10#att50"/>
+          <layout:Link link="sv1#area6#page21#pwu5First"/>
+          <layout:Link link="sv1#area6#page21#pwu5Previous"/>
+          <layout:Link link="sv1#area6#page21#pwu5Block"/>
+          <layout:Link link="sv1#area6#page21#pwu5Next"/>
+          <layout:Link link="sv1#area6#page21#pwu5Last"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="12"/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="12"/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="12"/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="12"/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="12"/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="12"/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+  <ConditionExpression id="sv1#area6#page21#cexpr6" name="seecart">
+    <TextValue xml:space="preserve">cartvisibility != 0</TextValue>
+  </ConditionExpression>
+  <ConditionExpression id="sv1#area6#page21#cexpr17" name="seeloggeduserlinks">
+    <TextValue xml:space="preserve">UserCtxParam == '0'</TextValue>
+  </ConditionExpression>
+  <Variable id="sv1#area6#page21#var1" name="cartvisibility" type="integer" unitId="sv1#area6#page21#seu13" parameter="dataSize" value="0"/>
+  <Comment xml:space="preserve">This Page displays all the information of a previously selected Book. Here are shown the Authors, the Comments and all the other related details.
+
+A logged in User may leave a Comment, rate the Book and add it to his own Cart.</Comment>
+</Page>

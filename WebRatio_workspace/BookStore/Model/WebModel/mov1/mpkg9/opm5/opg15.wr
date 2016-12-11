@@ -1,0 +1,24 @@
+<OperationGroup xmlns:gr="http://www.webratio.com/2006/WebML/Graph" id="mov1#mpkg9#opm5#opg15" name="Compute Price And Saving" transaction="true" gr:x="300" gr:y="0">
+  <OperationUnits>
+    <MathUnit id="mov1#mpkg9#opm5#opg15#mathu1" name="Compute Saving" gr:x="25" gr:y="130" resultType="float" defaultExpression="Listprice - Price">
+      <MathVariable id="mov1#mpkg9#opm5#opg15#mathu1#mathv1" name="Price"/>
+      <MathVariable id="mov1#mpkg9#opm5#opg15#mathu1#mathv2" name="Listing Price"/>
+      <OKLink id="mov1#mpkg9#opm5#opg15#mathu1#oln36" to="mov1#mpkg9#opm5#okcu6" preserveForm="true" name="OKLink17">
+        <LinkParameter id="mov1#mpkg9#opm5#opg15#mathu1#oln36#par166" source="result" name="Saving" target="mov1#mpkg9#opm5#okcu6#ocp9"/>
+      </OKLink>
+    </MathUnit>
+    <MathUnit id="mov1#mpkg9#opm5#opg15#mathu2" name="Compute Price" gr:x="0" gr:y="0" resultType="float" defaultExpression="Price - (Price * Discount) / 100">
+      <MathVariable id="mov1#mpkg9#opm5#opg15#mathu2#mathv3" name="Price"/>
+      <MathVariable id="mov1#mpkg9#opm5#opg15#mathu2#mathv4" name="Discount"/>
+      <OKLink id="mov1#mpkg9#opm5#opg15#mathu2#oln35" name="OKLink19" to="mov1#mpkg9#opm5#opg15#mathu1">
+        <LinkParameter id="mov1#mpkg9#opm5#opg15#mathu2#oln35#par162" name="Total" source="result" target="mov1#mpkg9#opm5#opg15#mathu1#mathv1"/>
+      </OKLink>
+      <Link id="mov1#mpkg9#opm5#opg15#mathu2#ln73" to="mov1#mpkg9#opm5#okcu6" type="transport" name="Link19">
+        <LinkParameter id="mov1#mpkg9#opm5#opg15#mathu2#ln73#par167" source="result" name="Total" target="mov1#mpkg9#opm5#okcu6#ocp9"/>
+      </Link>
+    </MathUnit>
+  </OperationUnits>
+  <Comment xml:space="preserve">An operation chain to compute immediately the final price of the Book, using the information of the list price and the discount. 
+
+This operation chain is triggered by and Ajax event on the field19 of the Entry Unit called Book Information of the default Page.</Comment>
+</OperationGroup>

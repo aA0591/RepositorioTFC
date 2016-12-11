@@ -1,0 +1,13 @@
+<HybridModule xmlns:gr="http://www.webratio.com/2006/WebML/Graph" gr:x="185" gr:y="55" id="mov2#mpkg11#hym56" name="Save Comment" gr:icon="ModulesIcons/Save.png">
+  <OperationUnits>
+    <InputCollectorUnit gr:x="-120" gr:y="55" id="mov2#mpkg11#hym56#icu71" name="Input">
+      <OKLink id="mov2#mpkg11#hym56#icu71#oln280" name="OKLink280" to="mov2#mpkg11#hym56#page74#enu21" ajaxOpenWindow="false">
+        <LinkParameter id="mov2#mpkg11#hym56#icu71#oln280#par44" name="Book Key" source="mov2#mpkg11#hym56#icu71#icp9" target="mov2#mpkg11#hym56#page74#enu21#fld28_slot"/>
+      </OKLink>
+      <InputCollectorParameter id="mov2#mpkg11#hym56#icu71#icp9" name="Book Key"/>
+    </InputCollectorUnit>
+    <OKCollectorUnit gr:x="710" gr:y="210" id="mov2#mpkg11#hym56#okcu65" name="Success"/>
+    <KOCollectorUnit gr:x="710" gr:y="100" id="mov2#mpkg11#hym56#kocu6" name="Error"/>
+  </OperationUnits>
+  <Comment xml:space="preserve">Hybrid Module that allows the logged User to write a new Comment for a certain Book.</Comment>
+</HybridModule>

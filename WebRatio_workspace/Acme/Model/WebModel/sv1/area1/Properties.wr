@@ -1,0 +1,14 @@
+<Area xmlns:gr="http://www.webratio.com/2006/WebML/Graph" gr:x="1525" gr:y="-530" id="sv1#area1" name="Catalog" landmark="true" defaultPage="sv1#area1#page16">
+  <OperationUnits>
+    <ModuleInstanceUnit gr:x="345" gr:y="165" id="sv1#area1#miu2" name="Product Details" protected="false" moduleId="mov1#mpkg2#hym6">
+      <OKLink id="sv1#area1#miu2#oln36" name="Photo Gallery" to="sv1#area1#miu24" ajaxOpenWindow="true" ajaxWindowUseTitle="true" ajaxWindowResizable="true" ajaxWindowAutoResizing="true" ajaxWindowClosable="true" ajaxWindowModal="true" codeRef="mov1#mpkg2#hym6#okcu4" ajaxWindowTitle="Photogallery">
+        <LinkParameter id="sv1#area1#miu2#oln36#par101" name="Product Key" source="mov1#mpkg2#hym6#okcu4#ocp4" target="sv1#area1#miu24.mov1#mpkg2#hym7#icu8#icp6"/>
+      </OKLink>
+      <OKLink id="sv1#area1#miu2#oln1" name="OKLink1" to="sv1#area1#miu7" codeRef="mov1#mpkg2#hym6#okcu2" ajaxOpenWindow="true" ajaxWindowUseTitle="true" ajaxWindowResizable="true" ajaxWindowAutoResizing="true" ajaxWindowClosable="true" ajaxWindowModal="true" ajaxWindowTitle="Combination Details">
+        <LinkParameter id="sv1#area1#miu2#oln1#par2" name="Combination Key" source="mov1#mpkg2#hym6#okcu2#ocp2" target="sv1#area1#miu7.mov1#mpkg2#hym5#icu6#icp4"/>
+      </OKLink>
+    </ModuleInstanceUnit>
+    <ModuleInstanceUnit id="sv1#area1#miu24" name="Photo Gallery" protected="false" gr:x="570" gr:y="50" moduleId="mov1#mpkg2#hym7"/>
+    <ModuleInstanceUnit gr:x="560" gr:y="280" id="sv1#area1#miu7" name="Combination Details" moduleId="mov1#mpkg2#hym5"/>
+  </OperationUnits>
+</Area>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?webml version="7.2.0.4"?>
+
+<WebProject xmlns:gr="http://www.webratio.com/2006/WebML/Graph" gr:showUnitContent="true" gr:showTooltip="true" outputPath="${webapps_loc}/${project_name}" httpPort="8080" httpsPort="8443" enableBrowserIntegration="true" enableProjectDependencies="false" gr:useUMLStyle="false">
+  <ServiceDataProviders>
+    <SMTPServer id="smtp1" name="MyMail" url="mail.provider.com" port="000" username="username" password="cGFzc3dvcmQ=" defaultFrom="myaddress@provider.com" cryptedPassword="true">
+      <Property id="smtp1#prop4" name="mail.smtp.ssl.enable" value="true"/>
+    </SMTPServer>
+  </ServiceDataProviders>
+  <ReferencedProject name="WebRatio" natureId="com.webratio.ide.styles.wrstylenature"/>
+  <Comment xml:space="preserve">Acme is a Web application for shopping online. It's composed by a product catalog made of furniture. The catalog is organized into categories. The user can register in order to become a customer and buy products. He can view the product details and check the content of his shopping bag. There's an administrator private section in which it's possible to manage the entire product catalog.</Comment>
+  <BundleKey name="Welcome"/>
+  <BundleKey name="Welcome to the Acme Store. Register to buy our products or to know their prices."/>
+</WebProject>

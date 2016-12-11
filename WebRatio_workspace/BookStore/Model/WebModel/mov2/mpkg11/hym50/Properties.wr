@@ -1,0 +1,18 @@
+<HybridModule xmlns:gr="http://www.webratio.com/2006/WebML/Graph" id="mov2#mpkg11#hym50" name="Author Details" gr:x="195" gr:y="0" gr:icon="ModulesIcons/Details.png">
+  <OperationUnits>
+    <InputCollectorUnit id="mov2#mpkg11#hym50#icu61" name="Input" gr:x="-60" gr:y="85">
+      <InputCollectorParameter id="mov2#mpkg11#hym50#icu61#icp180" name="Author Key"/>
+      <Link id="mov2#mpkg11#hym50#icu61#ln250" name="Link250" to="mov2#mpkg11#hym50#page66#pwu14" type="transport" validate="true">
+        <LinkParameter id="mov2#mpkg11#hym50#icu61#ln250#par4" name="Book Key" source="mov2#mpkg11#hym50#icu61#icp13" target="mov2#mpkg11#hym50#page66#pwu14#su122#kcond2.ent1#att60"/>
+      </Link>
+      <InputCollectorParameter id="mov2#mpkg11#hym50#icu61#icp13" name="Book Key"/>
+      <OKLink id="mov2#mpkg11#hym50#icu61#oln6" name="Link94" to="mov2#mpkg11#hym50#page66#dau2">
+        <LinkParameter id="mov2#mpkg11#hym50#icu61#oln6#par89" name="Author Key" source="mov2#mpkg11#hym50#icu61#icp180" target="mov2#mpkg11#hym50#page66#dau2#su14#kcond3.ent4#att61"/>
+      </OKLink>
+    </InputCollectorUnit>
+    <OKCollectorUnit id="mov2#mpkg11#hym50#okcu58" name="Output" gr:x="420" gr:y="155">
+      <OutputCollectorParameter id="mov2#mpkg11#hym50#okcu58#ocp57" name="Book Key"/>
+    </OKCollectorUnit>
+  </OperationUnits>
+  <Comment xml:space="preserve">Hybrid Module that allows the User to see all the Books written by a certain Author.</Comment>
+</HybridModule>

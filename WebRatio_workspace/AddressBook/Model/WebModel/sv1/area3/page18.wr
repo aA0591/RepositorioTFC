@@ -1,0 +1,167 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" id="sv1#area3#page18" name="Address Book" protected="false" localized="false" ajaxEnabled="true" gr:x="275" gr:y="0" landmark="false" ignoreMasterPage="false">
+  <ContentUnits>
+    <EntryUnit id="sv1#area3#page18#enu14" name="Search Employee" linkOrder="sv1#area3#page18#enu14#ln95" gr:x="155" gr:y="0" entity="ent1">
+      <Field id="sv1#area3#page18#enu14#fld62" name="Name" type="string" modifiable="true" attribute="ent1#att2"/>
+      <SelectionField id="sv1#area3#page18#enu14#sfld22" name="Role" type="string" role="rel7#role13"/>
+      <Link id="sv1#area3#page18#enu14#ln95" name="Search" to="sv1#area3#page18#pwu1z" type="normal" validate="true" ajaxEnabled="true">
+        <LinkParameter id="sv1#area3#page18#enu14#ln95#par189" name="name_name" source="sv1#area3#page18#enu14#fld62" target="sv1#area3#page18#pwu1z#su3z#acond1z"/>
+        <LinkParameter id="sv1#area3#page18#enu14#ln95#par190" name="EmployeeToPosition_position [oid]" source="sv1#area3#page18#enu14#sfld22" target="sv1#area3#page18#pwu1z#su3z#rcond1z.ent10#att29"/>
+        <LinkParameter id="sv1#area3#page18#enu14#ln95#par3t" name="Department_area [oid]" source="sv1#area3#page18#enu14#sfld1t" target="sv1#area3#page18#pwu1z#su3z#rcond2z.ent6#att32"/>
+      </Link>
+      <SelectionField id="sv1#area3#page18#enu14#sfld1t" type="string" name="Department" role="rel1#role1"/>
+    </EntryUnit>
+    <SelectorUnit gr:x="285" gr:y="0" id="sv1#area3#page18#seu2" name="Roles" entity="ent10">
+      <Link id="sv1#area3#page18#seu2#ln7" name="Link7" to="sv1#area3#page18#enu14" type="transport" validate="true">
+        <LinkParameter id="sv1#area3#page18#seu2#ln7#par7" name="name_EmployeeToPosition [label]" source="ent10#att30Array" target="sv1#area3#page18#enu14#sfld22_label"/>
+        <LinkParameter id="sv1#area3#page18#seu2#ln7#par8" name="oid_EmployeeToPosition [output]" source="ent10#att29Array" target="sv1#area3#page18#enu14#sfld22_output"/>
+      </Link>
+    </SelectorUnit>
+    <DataUnit id="sv1#area3#page18#dau1z" name="Employee Details" ajaxEnableExpandedLinks="false" gr:x="350" gr:y="135" entity="ent1" displayAttributes="ent1#att7 ent1#att11 ent1#att6 ent1#att4 ent1#att9 ent1#att12">
+      <Selector id="sv1#area3#page18#dau1z#su1z" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="sv1#area3#page18#dau1z#su1z#kcond1z" name="KeyCondition4" predicate="in" implied="false"/>
+      </Selector>
+    </DataUnit>
+    <PowerIndexUnit id="sv1#area3#page18#pwu1z" entity="ent1" displayAttributes="ent1#att14 ent1#att1z email ent1#att3z ent1#att44" sortable="true" checkable="false" useCountQuery="false" name="Employees" linkOrder="sv1#area3#page18#pwu1z#ln7z sv1#area3#page18#pwu1z#ln6z" ajaxTooltipEnabled="false" ajaxTooltipElement="row" ajaxTooltipEvent="click" ajaxTooltipWidth="600" ajaxTooltipHeight="90" ajaxEnableExpandedLinks="false" gr:x="105" gr:y="125" blockFactor="20" blockWindow="2" sortHistorySize="5">
+      <Selector id="sv1#area3#page18#pwu1z#su3z" defaultPolicy="fill" booleanOperator="and">
+        <AttributesCondition id="sv1#area3#page18#pwu1z#su3z#acond1z" attributes="ent1#att1z" predicate="contains" ignoreCase="true" booleanOperator="or" implied="true" name="name"/>
+        <RelationshipRoleCondition id="sv1#area3#page18#pwu1z#su3z#rcond1z" role="rel7#role14" predicate="in" implied="true" name="position"/>
+        <RelationshipRoleCondition id="sv1#area3#page18#pwu1z#su3z#rcond2z" role="rel1#role2" predicate="in" implied="true" name="area"/>
+      </Selector>
+      <Link id="sv1#area3#page18#pwu1z#ln6z" name="Edit" to="sv1#area3#miu3" type="normal" validate="false">
+        <LinkParameter id="sv1#area3#page18#pwu1z#ln6z#par16z" name="oid_KeyCondition11 [oid]" source="data[].userOID" target="sv1#area3#miu3.mov2#mpkg3#hym3#icu4#icp28"/>
+      </Link>
+      <Link id="sv1#area3#page18#pwu1z#ln7z" name="See Details" to="sv1#area3#page18#dau1z" type="normal" automaticCoupling="true" validate="true" ajaxEnabled="true" ajaxOpenWindow="false" ajaxWindowUseTitle="true" ajaxWindowUseLinkAsTitle="false" ajaxWindowTitle="User Details" ajaxWindowAutoResizing="true" ajaxWindowClosable="true" ajaxWindowDraggable="true"/>
+      <SortAttribute attribute="ent1#att1z" order="ascending"/>
+      <SortAttribute attribute="email" order="ascending"/>
+      <SortAttribute attribute="ent1#att3z" order="ascending"/>
+      <SortAttribute attribute="ent1#att44" order="ascending"/>
+      <SortAttribute attribute="ent1#att4" order="ascending"/>
+      <DefaultSortAttribute attribute="ent1#att1z" order="ascending"/>
+      <DefaultSortAttribute attribute="email" order="ascending"/>
+      <DefaultSortAttribute attribute="ent1#att3z" order="ascending"/>
+      <DefaultSortAttribute attribute="ent1#att44" order="ascending"/>
+      <DefaultSortAttribute attribute="ent1#att4" order="ascending"/>
+    </PowerIndexUnit>
+    <EntryUnit id="sv1#area3#page18#enu2z" name="Actions" gr:x="110" gr:y="255" linkOrder="sv1#area3#page18#enu2z#ln11z">
+      <Link id="sv1#area3#page18#enu2z#ln11z" name="Register new Employee" to="sv1#area3#miu3" type="normal" validate="true">
+        <LinkParameter id="sv1#area3#page18#enu2z#ln11z#par9o" name="$$NULL$$_employeeID" sourceValue="$$NULL$$" target="sv1#area3#miu3.mov2#mpkg3#hym3#icu4#icp28"/>
+      </Link>
+    </EntryUnit>
+    <SelectorUnit gr:x="0" gr:y="0" id="sv1#area3#page18#seu1t" name="Departments" entity="ent6">
+      <SortAttribute attribute="ent6#att33" order="ascending"/>
+      <Link id="sv1#area3#page18#seu1t#ln1t" name="Flow1" to="sv1#area3#page18#enu14" type="transport" validate="true">
+        <LinkParameter id="sv1#area3#page18#seu1t#ln1t#par1t" name="Name_Department [label]" source="ent6#att33Array" target="sv1#area3#page18#enu14#sfld1t_label"/>
+        <LinkParameter id="sv1#area3#page18#seu1t#ln1t#par2t" name="oid_Department [output]" source="ent6#att32Array" target="sv1#area3#page18#enu14#sfld1t_output"/>
+      </Link>
+    </SelectorUnit>
+  </ContentUnits>
+  <layout:Grid containerType="grid">
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv1#area3#page18#enu14">
+          <layout:Link link="sv1#area3#page18#enu14#ln95"/>
+          <layout:Field field="sv1#area3#page18#enu14#fld62"/>
+          <layout:Field field="sv1#area3#page18#enu14#sfld22"/>
+          <layout:Field field="sv1#area3#page18#enu14#sfld1t"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="12" rowspan="2">
+        <layout:Grid containerType="cell">
+          <layout:Row>
+            <layout:Cell layout:cellLayout="AddressBookStyle/AddressBookPlainList">
+              <layout:Unit unitId="sv1#area3#page18#pwu1z" layout:style="WRDefault" layout:frameLayout="None">
+                <layout:Attribute attribute="ent1#att14">
+                  <layout:LayoutParameter name="image-width" value="48" type="attribute"/>
+                  <layout:LayoutParameter name="image-height" value="48" type="attribute"/>
+                </layout:Attribute>
+                <layout:Attribute attribute="ent1#att1z"/>
+                <layout:Attribute attribute="email"/>
+                <layout:Attribute attribute="ent1#att3z">
+                  <Property id="sv1#area3#page18#prop1o" name="subTitle"/>
+                </layout:Attribute>
+                <layout:Attribute attribute="ent1#att44">
+                  <Property id="sv1#area3#page18#prop2o" name="subTitle"/>
+                </layout:Attribute>
+                <layout:Link link="sv1#area3#page18#pwu1z#ln7z"/>
+                <layout:Link link="sv1#area3#page18#pwu1z#ln6z"/>
+                <layout:Link link="sv1#area3#page18#pwu1zent1#att1z"/>
+                <layout:Link link="sv1#area3#page18#pwu1zemail"/>
+                <layout:Link link="sv1#area3#page18#pwu1zent1#att3z"/>
+                <layout:Link link="sv1#area3#page18#pwu1zent1#att44"/>
+                <layout:Link link="sv1#area3#page18#pwu1zFirst"/>
+                <layout:Link link="sv1#area3#page18#pwu1zPrevious"/>
+                <layout:Link link="sv1#area3#page18#pwu1zBlock"/>
+                <layout:Link link="sv1#area3#page18#pwu1zNext"/>
+                <layout:Link link="sv1#area3#page18#pwu1zLast"/>
+              </layout:Unit>
+              <layout:Unit unitId="sv1#area3#page18#dau1z">
+                <layout:Attribute attribute="ent1#att7"/>
+                <layout:Attribute attribute="ent1#att11"/>
+                <layout:Attribute attribute="ent1#att6"/>
+                <layout:Attribute attribute="ent1#att4"/>
+                <layout:Attribute attribute="ent1#att9"/>
+                <layout:Attribute attribute="ent1#att12"/>
+              </layout:Unit>
+              <layout:Unit unitId="sv1#area3#page18#enu2z">
+                <layout:Link link="sv1#area3#page18#enu2z#ln11z"/>
+              </layout:Unit>
+              <layout:LayoutParameter name="show-list-headers" value="false" type="cell"/>
+            </layout:Cell>
+          </layout:Row>
+        </layout:Grid>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="12"/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+</Page>

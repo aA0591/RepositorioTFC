@@ -1,0 +1,129 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" gr:x="0" gr:y="5" id="sv1#area6#page14" name="Home Page">
+  <ContentUnits>
+    <HierarchicalIndexUnit gr:x="10" gr:y="0" id="sv1#area6#page14#hinu1" name="Categories" sortable="true" entity="ent6" displayAttributes="ent6#att19" ajaxTooltipEnabled="false" blockFactor="20" blockWindow="2" ajaxTooltipElement="row" ajaxTooltipEvent="click" linkOrder="sv1#area6#page14#hinu1#ln58 sv1#area6#page14#hinu1#ln63" ajaxTooltipLink="sv1#area6#page14#hinu1#ln58">
+      <SortAttribute attribute="ent6#att19" order="ascending"/>
+      <DefaultSortAttribute attribute="ent6#att19" order="ascending"/>
+      <Link id="sv1#area6#page14#hinu1#ln58" name="Books" to="sv1#area6#page14#pwu8" type="normal" validate="true">
+        <LinkParameter id="sv1#area6#page14#hinu1#ln58#par86" name="Category Key" source="data[].ent6#att62" target="sv1#area6#page14#pwu8#su27#rcond5.ent6#att62"/>
+        <LinkParameter id="sv1#area6#page14#hinu1#ln58#par87" name="Show Highlighted" sourceValue="false" targetVariable="sv1#area6#page14#var6"/>
+        <LinkParameter id="sv1#area6#page14#hinu1#ln58#par15" name="Show List" sourceValue="true" targetVariable="sv1#area6#page14#var10"/>
+      </Link>
+      <Link id="sv1#area6#page14#hinu1#ln63" name="Related Categories" to="sv1#area6#page16#hinu3" type="normal" validate="true" ajaxEnabled="true" ajaxOpenWindow="true" ajaxWindowAutoResizing="false" ajaxWindowClosable="true" ajaxWindowMaximizable="false" ajaxWindowMinimizable="false" ajaxWindowDraggable="true" automaticCoupling="true" ajaxWindowWidth="400" ajaxWindowHeight="300" ajaxWindowModal="true"/>
+    </HierarchicalIndexUnit>
+    <PowerIndexUnit gr:x="0" gr:y="125" id="sv1#area6#page14#pwu8" name="Book List" sortable="true" checkable="false" useCountQuery="false" entity="ent1" displayAttributes="ent1#att10" blockFactor="20" blockWindow="2" linkOrder="sv1#area6#page14#pwu8#ln68">
+      <SortAttribute attribute="ent1#att10" order="ascending"/>
+      <DefaultSortAttribute attribute="ent1#att10" order="ascending"/>
+      <Selector id="sv1#area6#page14#pwu8#su27" defaultPolicy="fill" booleanOperator="and">
+        <RelationshipRoleCondition id="sv1#area6#page14#pwu8#su27#rcond5" name="Category" predicate="in" implied="false" role="rel2#rel7"/>
+      </Selector>
+      <Link id="sv1#area6#page14#pwu8#ln68" name="Details" to="sv1#area6#page21#dau3" type="normal" validate="true" gr:bendpoints="133,74,-312,-26;296,74,-149,-26">
+        <LinkParameter id="sv1#area6#page14#pwu8#ln68#par34" name="Book Key" source="data[].ent1#att60" target="sv1#area6#page21#dau3#su18#kcond4.ent1#att60"/>
+      </Link>
+    </PowerIndexUnit>
+    <PowerIndexUnit gr:x="0" gr:y="225" id="sv1#area6#page14#pwu7" name="Highlighted Books" sortable="true" checkable="false" useCountQuery="false" entity="ent1" displayAttributes="ent1#att10" linkOrder="sv1#area6#page14#pwu7#ln67">
+      <SortAttribute attribute="ent1#att10" order="ascending"/>
+      <DefaultSortAttribute attribute="ent1#att10" order="ascending"/>
+      <Selector id="sv1#area6#page14#pwu7#su21" defaultPolicy="fill" booleanOperator="and">
+        <AttributesCondition id="sv1#area6#page14#pwu7#su21#acond1" name="Highlighted" predicate="eq" booleanOperator="or" implied="false" attributes="ent1#att23" value="true"/>
+      </Selector>
+      <Link id="sv1#area6#page14#pwu7#ln67" name="Details" to="sv1#area6#page21#dau3" type="normal" validate="true">
+        <LinkParameter id="sv1#area6#page14#pwu7#ln67#par60" name="Book Key" source="data[].ent1#att60" target="sv1#area6#page21#dau3#su18#kcond4.ent1#att60"/>
+      </Link>
+    </PowerIndexUnit>
+    <NoOpContentUnit gr:x="25" gr:y="330" id="sv1#area6#page14#gctu2" name="Operations" linkOrder="sv1#area6#page14#gctu2#ln44">
+      <Link id="sv1#area6#page14#gctu2#ln44" name="My Cart" to="sv1#area6#miu13" type="normal" automaticCoupling="true" validate="true" ajaxEnabled="true" ajaxOpenWindow="true" ajaxWindowUseTitle="true" ajaxWindowTitle="My Cart" ajaxWindowAutoResizing="true" ajaxWindowClosable="true" ajaxWindowDraggable="true" ajaxWindowModal="true" gr:bendpoints="121,89,-139,-56"/>
+    </NoOpContentUnit>
+    <SelectorUnit gr:x="10" gr:y="430" id="sv1#area6#page14#seu15" name="Select Cart Items" entity="pkg1#ent5"/>
+  </ContentUnits>
+  <layout:Grid>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv1#area6#page14#gctu2" layout:unitVisibilityCondition="sv1#area6#page14#cexpr4">
+          <layout:LayoutParameter name="link-alignment" value="center" type="unit"/>
+          <layout:Link link="sv1#area6#page14#gctu2#ln44"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="6">
+        <layout:Unit unitId="sv1#area6#page14#hinu1">
+          <layout:LayoutParameter name="link-position" value="on_row" type="unit"/>
+          <layout:Link link="sv1#area6#page14#hinu1#ln58"/>
+          <layout:Link link="sv1#area6#page14#hinu1#ln63"/>
+          <layout:Link link="sv1#area6#page14#hinu1ent6#att19"/>
+          <layout:Link link="sv1#area6#page14#hinu1First"/>
+          <layout:Link link="sv1#area6#page14#hinu1Previous"/>
+          <layout:Link link="sv1#area6#page14#hinu1Block"/>
+          <layout:Link link="sv1#area6#page14#hinu1Next"/>
+          <layout:Link link="sv1#area6#page14#hinu1Last"/>
+          <layout:Attribute attribute="ent6#att19"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell colspan="6">
+        <layout:Grid containerType="cell">
+          <layout:Row>
+            <layout:Cell>
+              <layout:Unit unitId="sv1#area6#page14#pwu7" layout:unitVisibilityCondition="sv1#area6#page14#cexpr3">
+                <layout:Attribute attribute="ent1#att10"/>
+                <layout:LayoutParameter name="link-position" value="on_row" type="unit"/>
+                <layout:Link link="sv1#area6#page14#pwu7#ln67"/>
+                <layout:Link link="sv1#area6#page14#pwu7ent1#att10"/>
+              </layout:Unit>
+              <layout:Unit unitId="sv1#area6#page14#pwu8" layout:unitVisibilityCondition="sv1#area6#page14#cexpr10">
+                <layout:Attribute attribute="ent1#att10"/>
+                <layout:LayoutParameter name="link-position" value="on_row" type="unit"/>
+                <layout:LayoutParameter name="use-empty-unit-message" value="true" type="unit"/>
+                <layout:LayoutParameter name="empty-unit-message" value="nobooks" type="unit"/>
+                <layout:Link link="sv1#area6#page14#pwu8#ln68"/>
+                <layout:Link link="sv1#area6#page14#pwu8ent1#att10"/>
+                <layout:Link link="sv1#area6#page14#pwu8First"/>
+                <layout:Link link="sv1#area6#page14#pwu8Previous"/>
+                <layout:Link link="sv1#area6#page14#pwu8Block"/>
+                <layout:Link link="sv1#area6#page14#pwu8Next"/>
+                <layout:Link link="sv1#area6#page14#pwu8Last"/>
+              </layout:Unit>
+            </layout:Cell>
+          </layout:Row>
+        </layout:Grid>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+  <Variable id="sv1#area6#page14#var6" name="showhighlighted" value="true"/>
+  <ConditionExpression id="sv1#area6#page14#cexpr3" name="seehighlighted">
+    <TextValue xml:space="preserve">showhighlighted == "true"</TextValue>
+  </ConditionExpression>
+  <ConditionExpression id="sv1#area6#page14#cexpr4" name="seecart">
+    <TextValue xml:space="preserve">cartvisibility != 0</TextValue>
+  </ConditionExpression>
+  <Variable id="sv1#area6#page14#var10" name="showlist" value="false"/>
+  <ConditionExpression id="sv1#area6#page14#cexpr10" name="seelist">
+    <TextValue xml:space="preserve">showlist == "true"</TextValue>
+  </ConditionExpression>
+  <Variable id="sv1#area6#page14#var2" name="cartvisibility" value="0" type="integer" unitId="sv1#area6#page14#seu15" parameter="dataSize"/>
+  <Comment xml:space="preserve">This is the home Page of the Public Site View. 
+
+Here all the Books are shown, filtered by Category, and also all the highlighted Books are shown aside.
+
+A logged in User can open in a popup page his own Cart to check the status.</Comment>
+</Page>

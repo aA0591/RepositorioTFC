@@ -1,0 +1,44 @@
+<Area xmlns:gr="http://www.webratio.com/2006/WebML/Graph" gr:x="665" gr:y="-265" id="sv3#area3" name="Book Search" landmark="true" defaultPage="sv3#area3#page1">
+  <OperationUnits>
+    <ModuleInstanceUnit gr:x="0" gr:y="175" id="sv3#area3#miu14" name="Edit Editorial Reviews" moduleId="mov2#mpkg11#hym52">
+      <OKLink id="sv3#area3#miu14#oln30" name="OKLink30" to="sv3#area3#page1#mssu46" gr:bendpoints="-1,-79,-236,-79">
+        <LinkParameter id="sv3#area3#miu14#oln30#par276" name="Message" sourceValue="Review was saved successfully" target="sv3#area3#page1#mssu46.shownMessages"/>
+      </OKLink>
+      <KOLink id="sv3#area3#miu14#kln20" name="KOLink20" to="sv3#area3#page1#mssu46">
+        <LinkParameter id="sv3#area3#miu14#kln20#par142" name="Message" sourceValue="There was an error in the Operation." target="sv3#area3#page1#mssu46.shownMessages"/>
+      </KOLink>
+    </ModuleInstanceUnit>
+    <ModuleInstanceUnit gr:x="275" gr:y="515" id="sv3#area3#miu16" name="Save Reviews" moduleId="mov1#mpkg9#hym44">
+      <OKLink id="sv3#area3#miu16#oln78" name="OKLink78" to="sv3#area3#page1#mssu46" gr:bendpoints="123,-82,128,303;123,-285,128,100">
+        <LinkParameter id="sv3#area3#miu16#oln78#par164" name="Message" sourceValue="Review Saved successfully" target="sv3#area3#page1#mssu46.shownMessages"/>
+      </OKLink>
+      <KOLink id="sv3#area3#miu16#kln26" name="KOLink26" to="sv3#area3#page1#mssu46" gr:bendpoints="148,-62,153,323;148,-303,153,82">
+        <LinkParameter id="sv3#area3#miu16#kln26#par169" name="Message" sourceValue="There was an error saving the review" target="sv3#area3#page1#mssu46.shownMessages"/>
+      </KOLink>
+    </ModuleInstanceUnit>
+    <ModifyUnit gr:x="275" gr:y="0" id="sv3#area3#mfu25" name="Modify Book" entity="ent1">
+      <Selector id="sv3#area3#mfu25#su142" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="sv3#area3#mfu25#su142#kcond58" name="Book" predicate="in" implied="false"/>
+      </Selector>
+      <OKLink id="sv3#area3#mfu25#oln286" name="OKLink286" to="sv3#area3#page1#mssu46">
+        <LinkParameter id="sv3#area3#mfu25#oln286#par718" name="Show Edit" targetVariable="sv3#area3#page1#var14" sourceValue="false"/>
+        <LinkParameter id="sv3#area3#mfu25#oln286#par274" name="Message" sourceValue="Edition Success" target="sv3#area3#page1#mssu46.shownMessages"/>
+      </OKLink>
+    </ModifyUnit>
+    <NoOpOperationUnit gr:x="470" gr:y="20" id="sv3#area3#opu5" name="Cancel Operations">
+      <OKLink id="sv3#area3#opu5#oln59" name="OKLink59" to="sv3#area3#page1">
+        <LinkParameter id="sv3#area3#opu5#oln59#par207" name="Show Edit" sourceValue="false" targetVariable="sv3#area3#page1#var14"/>
+      </OKLink>
+    </NoOpOperationUnit>
+    <DeleteUnit id="sv3#area3#dlu1" name="Delete Book" gr:x="60" gr:y="340" entity="ent1">
+      <Selector id="sv3#area3#dlu1#su22" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="sv3#area3#dlu1#su22#kcond6" name="Book" predicate="in" implied="false"/>
+      </Selector>
+      <OKLink id="sv3#area3#dlu1#oln7" name="OKLink7" to="sv3#area3#page1#mssu46">
+        <LinkParameter id="sv3#area3#dlu1#oln7#par109" name="Show Edit" sourceValue="false" targetVariable="sv3#area3#page1#var14"/>
+        <LinkParameter id="sv3#area3#dlu1#oln7#par275" name="Message" sourceValue="Book Deleted Successfully" target="sv3#area3#page1#mssu46.shownMessages"/>
+      </OKLink>
+    </DeleteUnit>
+  </OperationUnits>
+  <Comment xml:space="preserve">Area that allows the administrator to quickly manage Books.</Comment>
+</Area>

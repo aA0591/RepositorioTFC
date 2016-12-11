@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?webml version="7.2.0.1"?>
+
+<WebProject xmlns:db="http://www.webratio.com/2006/WebML/Database" xmlns:gr="http://www.webratio.com/2006/WebML/Graph" outputPath="${webapps_loc}/${project_name}" gr:showUnitContent="true" gr:showTooltip="true" httpPort="8080" httpsPort="8443" jobGroupName="WEBRATIO" enableBrowserIntegration="false" adminArea="true" db:jobDatabase="db1" enableProjectDependencies="true">
+  <ServiceDataProviders/>
+  <ReferencedProject name="ClearStyle" natureId="com.webratio.ide.styles.wrstylenature"/>
+  <ReferencedProject name="AddressBookStyle" natureId="com.webratio.ide.styles.wrstylenature"/>
+  <BundleKey name="Welcome"/>
+</WebProject>

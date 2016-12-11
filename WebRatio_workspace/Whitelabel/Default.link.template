@@ -1,0 +1,335 @@
+#?delimiters [%, %], [%=, %]
+<wr:LayoutParameter label="Custom ID"  name="custom-id" type="string">
+Specifies a custom value for the "id" attribute of the generated
+HTML link. This overrides any identifier that is usually generated.
+Defaults to the link ID (for normal links) or "button:" followed by link ID (for button links).
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Link Style" name="link-style" type="enum" values="normal|button" default="normal">
+Defines the style of the link. 
+Allowed values are:
+- normal (default)
+- button
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Button Size" name="button-size" type="enum" values="small|normal|big" default="normal">
+Defines the size of button
+Allowed values are:
+- small
+- normal (default)
+- big
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Show" name="show" type="enum" values="text|icon|icon &amp; text|text &amp; icon" default="text">
+Defines the content of the link.
+Allowed values are:
+- text (default)
+- icon & text
+- text & icon
+- icon
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Icon Name" name="icon-name" type="string">
+Defines the name of the image to use. If omitted the name of the link is used.
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Icon Folder" name="icon-folder" type="string" default="Whitelabel/images">
+Defines the path to the folder containing the icon used to render links if you choose icon, icon & text or text & icon in the "Show" parameter.
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Icon Extension" name="icon-extension" type="string" default="png">
+Defines the extension of the icon used to render links if you choose icon, icon & text or text & icon in the "Show" parameter.
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Icon external" name="icon-external" type="boolean" default="false">
+Defines if the icon is not part of the whitelabel style
+</wr:LayoutParameter>
+<wr:LayoutParameter label="New Window Type" name="new-window-type" type="enum" values="normal|javascript" default="normal">
+Defines the type of the window in which the target of the link has to be opened. 
+Allowed values are:
+- normal (default)
+- javascript
+</wr:LayoutParameter>
+<wr:LayoutParameter label="New Window Options" name="new-window-options" type="string" default="width=640,height=480,status=yes">
+Defines the properties of the window. It is a string written as you would write the style HTML attribute.
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Use Confirm Dialog" name="confirmation" type="boolean" default="false">
+Defines if a confirmation dialog has to be shown before the link is navigated. 
+Allowed values are:
+- true 
+- false (default)
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Confirm Message Key" name="confirm-message" type="string" default="linkConfirmMessage">
+Defines the message to show to the user in the confirmation dialog. It is a key that has also to be added in the Localization dialog.
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Disable on Click" name="disable-on-click" type="boolean" default="false">
+Defines whether the link must be disabled on click.
+</wr:LayoutParameter>
+[%
+	import org.apache.commons.lang.StringUtils
+	import org.apache.commons.lang.StringEscapeUtils
+	import java.io.File
+
+	unitId = link.selectSingleNode("ancestor::layout:Unit")?.valueOf("@unitId")
+	if (unitId == "") {
+		unitId = link["unitId"]
+	}
+	def unitName = link.selectSingleNode("ancestor::layout:Unit")?.valueOf("@unitTagName")
+	def isIndexed = StringUtils.endsWithIgnoreCase(unitName, "IndexUnit")
+	def htmlId = StringUtils.defaultIfEmpty(params["custom-id"], getLinkId(link))
+//	if (isIndexed)
+//		htmlId = htmlId + "_\${status.index}"
+	def htmlButtonId = StringUtils.defaultIfEmpty(params["custom-id"], "button:" + getLinkId(link))
+	sortAtt = StringUtils.substringAfter(link["link"], unitId)
+	def linkStyle =  params["link-style"]
+	def show = params["show"]
+	def newWindowType = params["new-window-type"]
+	def newWindowOptions = params["new-window-options"]
+	def useImage = (show == "icon" || show == "icon & text" || show == "text & icon") ? true : false
+	
+	useImage = useImage && Boolean.valueOf( params["icon-external"] )
+	
+	def image = params["icon-folder"] + "|" + params["icon-extension"]
+	def confirmation = params["confirmation"]
+	def confirmMessage = params["confirm-message"]
+	def targetPage = getAncestorTopLevelPage(getById(link["to"]))
+	
+	if ((linkStyle == "button") && (show == "icon")) {
+		//show = "text"
+	}
+	
+	if (((type == "") || (type == "-ajax")) && (link["unitId"] != "")) {  // link individually placed
+	     type = (isFormBased(getById(link["unitId"])) ? "button" : "") + type
+	}
+	def isAjax = isAjaxLink(link)
+	def formBean = getFormBeanName(page)
+	def folder = params["icon-folder"] + "/"
+	def extension = "." + params["icon-extension"]
+	if (useImage) { 
+		def tokens = StringUtils.splitPreserveAllTokens(image, "|");		
+		if (tokens.length > 1) {
+			folder = tokens[0]
+			if (folder == "") {
+				folder = params["icon-folder"] + "/"
+			} else {
+				if (folder.startsWith(File.separator)) {
+		           folder = StringUtils.substringAfter(folder, File.separator)
+		        }
+				if (!folder.endsWith(File.separator)) {
+		           folder = folder + File.separator;
+		        }
+		     }
+		    folder = StringUtils.replace(folder, File.separator, "/")
+			extension = tokens[1]
+			if (extension == "") {
+				extension = "." + params["icon-extension"]
+			} else {
+				if (!extension.startsWith(".")) {
+		           extension = "." + extension
+		        }
+			}
+		}	
+	}
+	
+%]
+[% if (confirmation == "true") { %]
+	<c:set var="_wr_message"><bean:message key="[%printJSPTagValue(confirmMessage)%]"/></c:set>
+	<% pageContext.setAttribute("_wr_message", org.apache.commons.lang.StringEscapeUtils.escapeJavaScript((String) pageContext.getAttribute("_wr_message")));%>
+[% } %]
+[%
+	def getAlternativeText() {
+		if (link["alternativeText"] != "") {
+			if (isLocalizedAncestorOrSelf(link)) {
+	   			return "alt=\"<bean:message key=\"" + getJSPTagValue(link["alternativeText"]) +  "\"/>\""
+			} else { 
+			  return "alt=\""+link["alternativeText"]+"\""
+			} 
+		}
+		if (isLocalizedAncestorOrSelf(link)) {
+   			return "alt=\"<bean:message key=\"" + getJSPTagValue(getTitle(link)) +  "\"/>\""
+		} else { 
+		  return "alt=\""+getTitle(link)+"\""
+		} 
+		return ""
+	}
+	
+	def getTitleText() {
+		if (link["alternativeText"] != "") {
+			if (isLocalizedAncestorOrSelf(link)) {
+	   			return "title=\"<bean:message key=\"" + getJSPTagValue(link["alternativeText"]) +  "\"/>\""
+			} else { 
+			  return "title=\""+link["alternativeText"]+"\""
+			} 
+		}
+		return ""
+	}
+
+	def getIconName() {
+		def iconName = StringUtils.defaultIfEmpty(params["icon-name"], "")
+		if (iconName != "") {
+			return iconName
+		}
+		return link["name"]
+	}
+	
+	def disableOnClick = { 
+	  if(params["disable-on-click"] == "true"){%]if(disableOnClick(this)){return false;}[%}    
+	}
+	
+	def getExternalBgImage(folder,name,extension) {
+		def show = params["show"]
+		def useImage = (show == "icon" || show == "icon & text" || show == "text & icon") ? true : false
+		useImage = useImage && Boolean.valueOf( params["icon-external"] )
+		
+		def style = ""
+		if( useImage && Boolean.valueOf(params["icon-external"]) ) {
+			style += "background-image: url('"+folder+name+extension+"');"
+		 	style += "background-repeat: no-repeat;"
+		 	if( show=="icon" ) {
+		 		style += "background-position: center;"
+		 	} else if( show=="icon & text" ) {
+		 		style += "background-position: 5% center;"
+		 		style += "padding-left: 25px;"
+		 	} else if( show=="text & icon" ) {
+		 		style += "background-position: 93% center;"
+		 		style += "padding-right: 25px;"
+		 	}
+		}
+		return style;
+	}
+	
+	def getStyleClass() {
+		
+		def style = "";
+					
+		if (type.contains("button") || params["link-style"].contains("button")) {
+			style = (!styleClass.contains("button")) ? "button" : ""
+			style += (!"normal".equals(params["button-size"])) ? " "+params["button-size"] : ""
+		}
+		
+		if( params["show"]!="text" && StringUtils.isNotBlank(params["icon-name"]) && params["icon-external"]!="true" ) {
+			style += " i_"+params["icon-name"]
+			
+			if ( params["link-style"].contains("button") ) {
+				if( params["show"]=="icon & text" || params["show"]=="text & icon" ) {
+					style += " icon"
+				}
+			} else {
+				style += " icon"
+			}
+			
+			if( params["show"]=="icon" ) {
+				style += " nt"
+			}
+			
+			if( params["show"]=="icon & text" ) {
+				style += " left"
+			} else if( params["show"]=="text & icon" ) {
+				style += " right"
+			}
+		}
+		
+		if (params["show"] == "text" && type == "sort" && !params["link-style"].contains("button")) {
+			%][%= style+" "+styleClass %] <c:choose><c:when test="${[%= unitId %].sortMask.[%= sortAtt %] eq 'A'}">sorting_asc</c:when><c:otherwise>sorting_desc</c:otherwise></c:choose>[%
+		} else {
+			%][%= style+" "+styleClass %][%
+		}
+	}
+%]
+
+[% if (type.contains("-ajax")) { 
+	if (isAjax) { %]
+		return [% printRaw(getAjaxRequestCall(link, position)) %]
+	[% }
+ } else {
+ 
+ def disableCond = getDisableCondition(link, position)
+ def visibility = StringUtils.defaultIfEmpty(getVisibilityPolicy(getById(link["to"])), "hide")
+ def isProtected = isProtectedAncestorOrSelf(getById(link["to"]))
+ 
+ if (isProtected || disableCond != null) {
+     if (isProtected && visibility == "hide" && disableCond == null) { %]
+		<c:if test="${webratio:isTargetAccessible('[%=getLinkId(link)%]', pageContext)}">
+	 [% } else if (isProtected && visibility == "hide" && disableCond != null) { %]
+		<c:choose>
+	       <c:when test="${not(webratio:isTargetAccessible('[%=getLinkId(link)%]', pageContext))}"/>
+	       <c:when test="${not([%printJSPTagValue(disableCond)%])}">
+	 [% } else if (visibility == "inactive" || disableCond != null) { %]
+	    [% def conds = []
+	       if(isProtected && visibility != "always"){
+	        conds.add("webratio:isTargetAccessible('" + getLinkId(link) + "', pageContext)")
+	       }
+	       if(disableCond != null){
+	         conds.add("not(" + disableCond + ")")
+	       }
+	    %]
+	    <c:choose>
+	       <c:when test="${[%printJSPTagValue(conds.join(" and "))%]}">
+	 [% } 
+ }%]
+ 	[% if ("button" == type) { %]
+ 		[% if (isAjax) { %]
+ 			<input [%= getTitleText() %] onclick="[%disableOnClick()%][% if (confirmation == "true") { %]  var c = confirm('<c:out value="${_wr_message}"/>'); if (c) { [% } %]return [% printRaw(getAjaxRequestCall(link, position)) %][% if (confirmation == "true") { %] } else  { $('[%= formBean %]').target='_self' }  return c; [% } %]" class="[%getStyleClass()%]" [% if (useImage) { %] style="[%= getExternalBgImage(folder,getIconName(),extension) %]" [% } %] id="[%= htmlButtonId %]" name="button:[%= getLinkId(link) %]" type="submit" value="[% if (!useImage || show == "icon & text" || show == "text" || show == "text & icon"){ %]<wr:Label context="link"/>[% } %]">
+ 		[% } else { %]
+			<input [%= getTitleText() %] onclick="[%disableOnClick()%][% if (confirmation == "true") { %] var c = confirm('<c:out value="${_wr_message}"/>'); if (c) { [% } %][%if (link["newWindow"] == "true") { %][%if (newWindowType == "normal") { %] $('[%= formBean %]').target='_blank'[% } else { %] $('#[%= escapeCSS(formBean) %]')[0].target = '[%= htmlId %]'; window.open('','[%= htmlId %]','[%= newWindowOptions %]'); return true;[% } %][% } else { %]$('#[%= escapeCSS(formBean) %]')[0].target='_self'[% } %][% if (confirmation == "true") { %] }; return c; [% } %]" class="[%getStyleClass()%]" [% if (useImage) { %] style="[%= getExternalBgImage(folder,getIconName(),extension) %]" [% } %] id="[%= htmlButtonId %]" name="button:[%= getLinkId(link) %]" type="submit" value="[% if (!useImage || show == "icon & text" || show == "text"){ %]<wr:Label context="link"/>[% } %]">
+		[% } %]
+	[% } else { %]
+		[% if (linkStyle == "button" && "sort" != type) { %]
+			[% if (isAjax) { %]
+				<input [%= getTitleText() %] id="[%= htmlId %]" class="[%getStyleClass()%]" [% if (useImage) { %] style="[%= getExternalBgImage(folder,getIconName(),extension) %]" [% } %] type="button" [% if (!useImage || show == "text & icon" || show == "icon & text" || show == "text"){ %]value="<wr:Label context="link"/>"[% } %] onclick="[%disableOnClick()%][% if (confirmation == "true") { %] var c = confirm('<c:out value="${_wr_message}"/>'); if (c) { [% } %]return [% printRaw(getAjaxRequestCall(link, position)) %][% if (confirmation == "true") { %] }  return c; [% } %]">
+ 			[% } else { %]
+				<input [%= getTitleText() %] id="[%= htmlId %]" class="[%getStyleClass()%]" [% if (useImage) { %] style="[%= getExternalBgImage(folder,getIconName(),extension) %]" [% } %] type="button" [% if (!useImage || show == "text & icon" || show == "icon & text" || show == "text"){ %]value="<wr:Label context="link"/>"[% } %] onclick="[%disableOnClick()%][% if (confirmation == "true") { %] if (confirm('<c:out value="${_wr_message}"/>')) { [% } %][%if (link["newWindow"] == "true") { %]window.open('<webratio:Link link="[%= getLinkId(link) %]" position="[%= position %]"/>','','[%if (newWindowType == "javascript") { %][%= newWindowOptions %][%} %]'); return false;[% } else { %]setWindowLocation('<webratio:Link link="[%= getLinkId(link) %]" position="[%= position %]"/>')[% } %][% if (confirmation == "true") { %] } [% } %]">
+			[% } %]
+		[% } else  { %]
+			[% if (isAjax) { %]
+	 			<a [%= getTitleText() %] id="[%= htmlId %]" onclick="[%disableOnClick()%][% if (confirmation == "true") { %] var c = confirm('<c:out value="${_wr_message}"/>'); if (c) { [% } %]return [% printRaw(getAjaxRequestCall(link, position)) %][% if (confirmation == "true") { %] }  return c; [% } %]" class="[%getStyleClass()%]" href="<webratio:Link link="[%= getLinkId(link) %]" position="[%= position %]"/>">							
+	 		[% } else { %]
+	 			<a [%= getTitleText() %] id="[%= htmlId %]" class="[%getStyleClass()%]" href="<webratio:Link link="[%= getLinkId(link) %]" position="[%= position %]"/>"[%if (link["newWindow"] == "true") { %][%if (newWindowType == "normal") { %] target="_blank" [% if (confirmation == "true") { %] onclick="[%disableOnClick()%]return confirm('<c:out value="${_wr_message}"/>')"[% } %][% } else { %] onclick="[%disableOnClick()%][% if (confirmation == "true") { %] if (confirm('<c:out value="${_wr_message}"/>')) {[% } %] window.open('<webratio:Link link="[%= getLinkId(link) %]" position="[%= position %]"/>' ,'', '[%= newWindowOptions %]'); return false;[% if (confirmation == "true") { %] } [% } %]"[% } %][% } else { %] onclick="[%disableOnClick()%][% if (confirmation == "true") { %] return confirm('<c:out value="${_wr_message}"/>')[% } %]"[% } %]>
+			[% } %]
+	        [% if (useImage && show == "text & icon") { %]
+				<wr:Label context="link"/>
+			[% } %]
+			[% if (useImage) { %]
+					[% if (type == "sort") { %]
+						<c:choose>
+		         			<c:when test="${[%= unitId %].sortMask.[%= sortAtt %] eq 'A'}">
+		         				<img [%= getTitleText() %] [%= getAlternativeText() %] src="Whitelabel/images/icons/dark/triangle_up.png" />
+		         			</c:when>
+		         			<c:otherwise>
+		         				<img [%= getTitleText() %] [%= getAlternativeText() %] src="Whitelabel/images/icons/dark/triangle_down.png"/>
+		         			</c:otherwise>
+		         		</c:choose>
+					[% } else { %]
+						<img [%= getTitleText() %] [%= getAlternativeText() %] src="[%=folder%][%= getIconName() %][%=extension%]" />
+					[% } %]	
+			[% } %]	
+			[% if (!useImage || show == "icon & text" || show == "text"){ %]
+				<wr:Label context="link"/>
+			[% } %]
+				</a>
+		[% } %]
+	[% } %]									
+ [% if (isProtected || disableCond != null) {
+ 	if (visibility == "inactive"  || disableCond != null) { %]
+     </c:when>
+	 <c:otherwise>
+	 	[% if ("button" == type) { %]
+			<input [%= getTitleText() %] disabled="disabled" class="disabled [%getStyleClass()%]" [% if (useImage) { %] style="[%= getExternalBgImage(folder,getIconName(),extension) %]" [% } %] id="[%= htmlButtonId %]" name="button:[%= getLinkId(link) %]" type="submit" value="[% if (!useImage || show == "text & icon" || show == "icon & text" || show == "text"){ %]<wr:Label context="link"/>[% } %]">
+		[% } else { %]
+			[% if (linkStyle == "button" && "sort" != type) { %]
+				<input [%= getTitleText() %] disabled="disabled" class="disabled [%getStyleClass()%]" [% if (useImage) { %] style="[%= getExternalBgImage(folder,getIconName(),extension) %]" [% } %] id="[%= htmlId %]" type="button" [% if (!useImage || show == "icon & text" || show == "text"){ %]value="<wr:Label context="link"/>"[% } %]>
+			[% } else  { %]
+				<span id="[%= htmlId %]" [%= getTitleText() %] class="disabled [%=styleClass%]">
+					[% if (show == "text & icon") { %]
+							<wr:Label context="link"/>
+					[% } %]
+					[% if (useImage) { %]
+							<img [%= getAlternativeText() %] [%= getTitleText() %] src="[%=folder%][%= getIconName() %]_disabled[%=extension%]"/>
+					[% } %]	
+					[% if (!useImage || show == "icon & text" || show == "text"){ %]
+							<wr:Label context="link"/>
+					[% } %]
+				</span>
+			[% } %]
+		[% } %]		
+	 </c:otherwise>
+  </c:choose>	 
+ [% } else if(visibility == "hide" && disableCond == null){ %]
+	</c:if>
+ [% } %]
+ [% } %]
+ [% } %]
+ 

@@ -1,0 +1,12 @@
+<HybridModule xmlns:gr="http://www.webratio.com/2006/WebML/Graph" id="mov2#mpkg13#hym55" name="Save Order" gr:x="0" gr:y="55" gr:icon="ModulesIcons/Save.png">
+  <OperationUnits>
+    <InputCollectorUnit id="mov2#mpkg13#hym55#icu70" name="Input" gr:x="-150" gr:y="185">
+      <OKLink id="mov2#mpkg13#hym55#icu70#oln83" name="OKLink83" to="mov2#mpkg13#hym55#opg6#tmu2"/>
+    </InputCollectorUnit>
+    <KOCollectorUnit gr:x="1040" gr:y="40" id="mov2#mpkg13#hym55#kocu4" name="Error"/>
+    <OKCollectorUnit id="mov2#mpkg13#hym55#okcu18" name="Success" gr:x="1040" gr:y="180">
+      <OutputCollectorParameter id="mov2#mpkg13#hym55#okcu18#ocp6" name="Order Key"/>
+    </OKCollectorUnit>
+  </OperationUnits>
+  <Comment xml:space="preserve">Hybrid Module that stores the volatile information of the Cart entity into the persistent one of the Order.</Comment>
+</HybridModule>

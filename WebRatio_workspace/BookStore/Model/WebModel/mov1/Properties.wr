@@ -1,0 +1,7 @@
+<ModuleView id="mov1" name="Administrator Modules">
+  <OperationUnits/>
+  <Comment xml:space="preserve">This is the Module View that contains the logic functionalities reserved to the administrators of the Web application. 
+They are grouped by context.
+
+The first group contains the Modules used to manage Categories, the second one contains the ones to manage Books, the last one is reserved to Order management.
+</Comment></ModuleView>

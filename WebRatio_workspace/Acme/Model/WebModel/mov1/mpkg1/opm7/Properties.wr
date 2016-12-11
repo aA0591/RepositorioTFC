@@ -1,0 +1,23 @@
+<OperationModule xmlns:gr="http://www.webratio.com/2006/WebML/Graph" id="mov1#mpkg1#opm7" name="Save Combination" gr:x="0" gr:y="70" gr:icon="ModulesIcons/Save.png">
+  <OperationUnits>
+    <InputCollectorUnit id="mov1#mpkg1#opm7#icu9" name="Input" gr:x="-175" gr:y="115">
+      <InputCollectorParameter id="mov1#mpkg1#opm7#icu9#icp32" name="Combination Key"/>
+      <InputCollectorParameter id="mov1#mpkg1#opm7#icu9#icp35" name="Combination Object"/>
+      <OKLink id="mov1#mpkg1#opm7#icu9#oln83" name="Save" to="mov1#mpkg1#opm7#opg7#inn10">
+        <LinkParameter id="mov1#mpkg1#opm7#icu9#oln83#par199" name="Combination Key" source="mov1#mpkg1#opm7#icu9#icp32" target="mov1#mpkg1#opm7#opg7#inn10.isnotnull"/>
+      </OKLink>
+      <Link id="mov1#mpkg1#opm7#icu9#ln77" name="Link10" to="mov1#mpkg1#opm7#opg7#cru12" type="transport" validate="true">
+        <LinkParameter id="mov1#mpkg1#opm7#icu9#ln77#par200" name="Combination Object" source="mov1#mpkg1#opm7#icu9#icp35" target="mov1#mpkg1#opm7#opg7#cru12.entityBeans"/>
+      </Link>
+      <Link id="mov1#mpkg1#opm7#icu9#ln78" name="Link11" to="mov1#mpkg1#opm7#opg7#mfu9" type="transport" validate="true">
+        <LinkParameter id="mov1#mpkg1#opm7#icu9#ln78#par202" name="Combination Object" source="mov1#mpkg1#opm7#icu9#icp35" target="mov1#mpkg1#opm7#opg7#mfu9.entityBeans"/>
+      </Link>
+    </InputCollectorUnit>
+    <KOCollectorUnit id="mov1#mpkg1#opm7#kocu4" name="Error" gr:x="695" gr:y="-5">
+      <OutputCollectorParameter id="mov1#mpkg1#opm7#kocu4#ocp16" name="Message"/>
+    </KOCollectorUnit>
+    <OKCollectorUnit id="mov1#mpkg1#opm7#okcu8" name="Success" gr:x="695" gr:y="115">
+      <OutputCollectorParameter id="mov1#mpkg1#opm7#okcu8#ocp10" name="Message"/>
+    </OKCollectorUnit>
+  </OperationUnits>
+</OperationModule>

@@ -1,0 +1,4 @@
+<ModulePackage xmlns:gr="http://www.webratio.com/2006/WebML/Graph" gr:x="-265" gr:y="100" id="mov2#mpkg13" name="Manage Cart">
+  <OperationUnits/>
+  <Comment xml:space="preserve">Package that collects all the Modules to manage the User's Cart.</Comment>
+</ModulePackage>

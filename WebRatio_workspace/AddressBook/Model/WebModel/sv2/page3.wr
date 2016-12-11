@@ -1,0 +1,71 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" id="sv2#page3" name="Login" gr:x="22" gr:y="15">
+  <ContentUnits>
+    <EntryUnit id="sv2#page3#enu2" name="Login" gr:x="0" gr:y="80" linkOrder="sv2#page3#enu2#ln1">
+      <Field id="sv2#page3#enu2#fld3" name="User Name" type="string" modifiable="true"/>
+      <Field id="sv2#page3#enu2#fld4" name="Password" type="password" modifiable="true"/>
+      <Link id="sv2#page3#enu2#ln1" name="Login" to="sv2#lgu1" type="normal" validate="true">
+        <LinkParameter id="sv2#page3#enu2#ln1#par1" name="username _Username" source="sv2#page3#enu2#fld3" target="sv2#lgu1.username"/>
+        <LinkParameter id="sv2#page3#enu2#ln1#par2" name="password_Password" source="sv2#page3#enu2#fld4" target="sv2#lgu1.password"/>
+        <LinkParameter id="sv2#page3#enu2#ln1#par3" name="Remember credentials_Remember Credentials (cookies)" source="sv2#page3#enu2#fld5" target="sv2#lgu1.rememberCredentials"/>
+      </Link>
+      <Field id="sv2#page3#enu2#fld5" name="Remember credentials" type="boolean" modifiable="true"/>
+    </EntryUnit>
+    <MultiMessageUnit gr:x="0" gr:y="0" id="sv2#page3#mssu1z" name="Error"/>
+    <PowerIndexUnit gr:x="0" gr:y="155" id="sv2#page3#pwu1o" name="Log In As" sortable="true" checkable="false" useCountQuery="false" entity="User" displayAttributes="userName User2DefaultGroup.groupName" linkOrder="sv2#page3#pwu1o#ln1o">
+      <Link id="sv2#page3#pwu1o#ln1o" name="Log In As" to="sv2#lgu1" type="normal" validate="true">
+        <LinkParameter id="sv2#page3#pwu1o#ln1o#par1o" name="userName_Username" source="data[].userName" target="sv2#lgu1.username"/>
+        <LinkParameter id="sv2#page3#pwu1o#ln1o#par2o" name="password_Password" source="data[].password" target="sv2#lgu1.password"/>
+      </Link>
+      <SortAttribute attribute="User2DefaultGroup.groupName" order="ascending"/>
+      <SortAttribute attribute="userName" order="ascending"/>
+      <DefaultSortAttribute attribute="User2DefaultGroup.groupName" order="ascending"/>
+    </PowerIndexUnit>
+  </ContentUnits>
+  <layout:Grid containerType="grid">
+    <layout:Row>
+      <layout:Cell colspan="6">
+        <layout:Unit unitId="sv2#page3#enu2">
+          <layout:Link link="sv2#page3#enu2#ln1"/>
+          <layout:Field field="sv2#page3#enu2#fld3"/>
+          <layout:Field field="sv2#page3#enu2#fld4"/>
+          <layout:Field field="sv2#page3#enu2#fld5"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell colspan="6">
+        <layout:Unit unitId="sv2#page3#pwu1o">
+          <layout:Attribute attribute="userName"/>
+          <layout:Attribute attribute="User2DefaultGroup.groupName"/>
+          <layout:Link link="sv2#page3#pwu1o#ln1o"/>
+          <layout:Link link="sv2#page3#pwu1oUser2DefaultGroup$groupName"/>
+          <layout:Link link="sv2#page3#pwu1ouserName"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="6">
+        <layout:Unit unitId="sv2#page3#mssu1z"/>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell colspan="6"/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+</Page>

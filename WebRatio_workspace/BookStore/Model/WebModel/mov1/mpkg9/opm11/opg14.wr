@@ -1,0 +1,36 @@
+<OperationGroup xmlns:gr="http://www.webratio.com/2006/WebML/Graph" gr:x="175" gr:y="10" id="mov1#mpkg9#opm11#opg14" name="Save Book's Categories" transaction="true">
+  <OperationUnits>
+    <DeleteUnit id="mov1#mpkg9#opm11#opg14#dlu6" name="Delete Category" gr:x="655" gr:y="5" entity="ent6">
+      <Selector id="mov1#mpkg9#opm11#opg14#dlu6#su40" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="mov1#mpkg9#opm11#opg14#dlu6#su40#kcond17" name="Category" predicate="in" implied="false"/>
+      </Selector>
+      <OKLink id="mov1#mpkg9#opm11#opg14#dlu6#oln117" name="OKLink117" to="mov1#mpkg9#opm11#okcu53" automaticCoupling="true"/>
+    </DeleteUnit>
+    <DisconnectUnit id="mov1#mpkg9#opm11#opg14#dcnu1" name="Delete Subcategories" gr:x="360" gr:y="0" relationship="rel16#rel10">
+      <SourceSelector id="mov1#mpkg9#opm11#opg14#dcnu1#su41" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="mov1#mpkg9#opm11#opg14#dcnu1#su41#kcond18" name="Category" predicate="in" implied="false"/>
+      </SourceSelector>
+      <TargetSelector id="mov1#mpkg9#opm11#opg14#dcnu1#su42" defaultPolicy="fill" booleanOperator="and">
+        <RelationshipRoleCondition id="mov1#mpkg9#opm11#opg14#dcnu1#su42#rcond2" predicate="in" implied="false" name="Category" role="rel16#rel10"/>
+      </TargetSelector>
+      <OKLink id="mov1#mpkg9#opm11#opg14#dcnu1#oln118" name="OKLink118" to="mov1#mpkg9#opm11#opg14#dlu6">
+        <LinkParameter id="mov1#mpkg9#opm11#opg14#dcnu1#oln118#par84" name="Category Key" source="sourceent6#att62" target="mov1#mpkg9#opm11#opg14#dlu6#su40#kcond17.ent6#att62"/>
+      </OKLink>
+    </DisconnectUnit>
+    <ModifyUnit id="mov1#mpkg9#opm11#opg14#mfu9" name="Modify Book" gr:x="200" gr:y="5" entity="ent1" bulk="true">
+      <Selector id="mov1#mpkg9#opm11#opg14#mfu9#su43" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="mov1#mpkg9#opm11#opg14#mfu9#su43#kcond20" name="Book" predicate="in" implied="false"/>
+      </Selector>
+      <OKLink id="mov1#mpkg9#opm11#opg14#mfu9#oln12" name="OKLink12" to="mov1#mpkg9#opm11#opg14#dcnu1" automaticCoupling="true"/>
+    </ModifyUnit>
+    <SelectorUnit id="mov1#mpkg9#opm11#opg14#seu22" name="Select Books" gr:x="0" gr:y="5" entity="ent1">
+      <Selector id="mov1#mpkg9#opm11#opg14#seu22#su45" defaultPolicy="fill" booleanOperator="and">
+        <RelationshipRoleCondition id="mov1#mpkg9#opm11#opg14#seu22#su45#rcond1" name="Category" predicate="in" implied="false" role="rel2#rel7"/>
+      </Selector>
+      <OKLink id="mov1#mpkg9#opm11#opg14#seu22#oln121" name="OKLink121" to="mov1#mpkg9#opm11#opg14#mfu9">
+        <LinkParameter id="mov1#mpkg9#opm11#opg14#seu22#oln121#par278" name="Book Key" source="ent1#att60Array" target="mov1#mpkg9#opm11#opg14#mfu9#su43#kcond20.ent1#att60"/>
+      </OKLink>
+    </SelectorUnit>
+  </OperationUnits>
+  <KOLink id="mov1#mpkg9#opm11#opg14#kln23" name="KOLink23" to="mov1#mpkg9#opm11#kocu7" automaticCoupling="true"/>
+</OperationGroup>

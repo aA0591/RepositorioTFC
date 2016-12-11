@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Layout pageLayout="Default" frameLayout="Default" errorPage="Default" loginPage="Default" gridLayout="Default" linkLayout="Default" fieldLayout="EntryUnit" attributeLayout="Default"> 
+  <UnitConfiguration unitType="IndexUnit" unitLayout="DataTable"/>  
+  <UnitConfiguration unitType="EntryUnit" unitLayout="Default"/>  
+  <UnitConfiguration unitType="DataUnit" unitLayout="Default"/>  
+  <UnitConfiguration unitType="MultiChoiceIndexUnit" unitLayout="Default"/>  
+  <UnitConfiguration unitType="MultiMessageUnit" unitLayout="Default"/>  
+  <UnitConfiguration unitType="MultiEntryUnit" unitLayout="Default" fieldLayout="MultiEntryUnit"/>  
+  <UnitConfiguration unitType="PowerIndexUnit" unitLayout="Default"/>  
+  <UnitConfiguration unitType="EventCalendarUnit" unitLayout="Default"/>  
+  <UnitConfiguration unitType="HierarchicalIndexUnit" unitLayout="Normal"/>  
+  <UnitConfiguration unitType="MultiDataUnit" unitLayout="Normal"/>  
+  <UnitConfiguration unitType="NoOpContentUnit" unitLayout="Default"/>  
+  <Resources alwaysRequired="wl-grid12 wl-html5 wl-ie wl-style wl-theme wl-webfont wl-webratio"> 
+    <Resource type="css" path="Whitelabel/css/webfont.css" name="wl-webfont"/>  
+    <Resource type="css" path="Whitelabel/css/style.css" name="wl-style" requires="wl-webfont"/>  
+    <Resource type="css" path="Whitelabel/css/light/theme.css" name="wl-theme" requires="wl-style"/>  
+    <Resource type="css" path="Whitelabel/css/webratio.css" name="wl-webratio" requires="wl-theme"/>  
+    <Resource type="css" path="Whitelabel/css/ie.css" name="wl-ie" ieCondition="lt IE 9"/>  
+    <Resource type="javascript" path="Whitelabel/script/html5.js" name="wl-html5" ieCondition="lt IE 9"/>  
+    <Resource type="javascript" path="Whitelabel/script/wl_scripts.js" name="wl-scripts" requires="jquery jquery-ui"/>  
+    <Resource type="javascript" path="Whitelabel/script/script.js" name="wl-init-script" requires="wl-scripts"/>  
+    <Resource type="css" path="Whitelabel/css/grid_12.css" name="wl-grid12" requires="wl-webratio"/>  
+    <Resource type="javascript" path="Whitelabel/script/Whitelabel/fullcalendar.js" name="wl-fullcalendar" requires="jquery"/>  
+    <Resource type="javascript" path="Whitelabel/script/Whitelabel/wl_Calendar.js" name="wl-calendar" requires="jquery wl-fullcalendar"/>  
+    <Resource type="javascript" path="Whitelabel/script/Whitelabel/wr_Calendar.js" name="wl-wr-calendar" requires="jquery"/>  
+    <Resource type="javascript" path="Whitelabel/script/Whitelabel/datatables.js" name="wl-datatable" requires="jquery"/>  
+    <Resource type="javascript" path="Whitelabel/script/Whitelabel/editor.js" name="wl-editor"/>  
+    <Resource type="javascript" path="Whitelabel/script/Whitelabel/wl_Editor.js" name="wl-wl-editor" requires="wl-editor"/>  
+    <Resource type="javascript" path="Whitelabel/script/Whitelabel/wl_Color.js" name="wl-color"/>  
+    <Resource type="javascript" path="Whitelabel/script/Whitelabel/wl_Number.js" name="wl-number"/>  
+    <Resource type="javascript" path="Whitelabel/script/Whitelabel/wl_Valid.js" name="wl-valid"/>  
+    <Resource type="javascript" path="Whitelabel/script/Whitelabel/wl_Password.js" name="wl-password"/>  
+    <Resource type="javascript" path="Whitelabel/script/Whitelabel/wl_Multiselect.js" name="wl-multiselect"/> 
+  </Resources>  
+  <UnitConfiguration unitType="ProcessUnit" unitLayout="Normal"/> 
+</Layout>

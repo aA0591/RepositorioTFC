@@ -1,0 +1,42 @@
+<OperationGroup xmlns:gr="http://www.webratio.com/2006/WebML/Graph" gr:x="140" gr:y="15" id="mov2#mpkg13#opm14#opg11" name="Save Temporary Cart Items" transaction="true">
+  <OperationUnits>
+    <SelectorUnit id="mov2#mpkg13#opm14#opg11#seu19" name="Select Cart" gr:x="0" gr:y="5" entity="pkg1#ent3">
+      <OKLink id="mov2#mpkg13#opm14#opg11#seu19#oln101" name="OKLink17" to="mov2#mpkg13#opm14#opg11#inn11">
+        <LinkParameter id="mov2#mpkg13#opm14#opg11#seu19#oln101#par250" name="Data Size" source="pkg1#ent3#att25Array" target="mov2#mpkg13#opm14#opg11#inn11.isnotnull"/>
+      </OKLink>
+    </SelectorUnit>
+    <CreateUnit id="mov2#mpkg13#opm14#opg11#cru6" name="Create Cart" gr:x="305" gr:y="135" entity="pkg1#ent3">
+      <OKLink id="mov2#mpkg13#opm14#opg11#cru6#oln102" name="OKLink41" to="mov2#mpkg13#opm14#opg11#seu20"/>
+      <Link id="mov2#mpkg13#opm14#opg11#cru6#ln120" name="Link61" to="mov2#mpkg13#opm14#opg11#cru7" type="transport" automaticCoupling="true" validate="true"/>
+    </CreateUnit>
+    <SelectorUnit id="mov2#mpkg13#opm14#opg11#seu20" name="Select Book" gr:x="305" gr:y="0" entity="ent1" linkOrder="mov2#mpkg13#opm14#opg11#seu20#ln29">
+      <Selector id="mov2#mpkg13#opm14#opg11#seu20#su39" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="mov2#mpkg13#opm14#opg11#seu20#su39#kcond10" name="Book" predicate="in" implied="false"/>
+      </Selector>
+      <OKLink id="mov2#mpkg13#opm14#opg11#seu20#oln103" name="OKLink29" to="mov2#mpkg13#opm14#opg11#cru7">
+        <LinkParameter id="mov2#mpkg13#opm14#opg11#seu20#oln103#par251" name="Book Title" source="ent1#att10Array" target="mov2#mpkg13#opm14#opg11#cru7.pkg1#ent5#att20"/>
+        <LinkParameter id="mov2#mpkg13#opm14#opg11#seu20#oln103#par252" name="Book Listing Price" source="ent1#att26Array" target="mov2#mpkg13#opm14#opg11#cru7.pkg1#ent5#att32"/>
+        <LinkParameter id="mov2#mpkg13#opm14#opg11#seu20#oln103#par253" name="Book Cover" source="ent1#att12Array" target="mov2#mpkg13#opm14#opg11#cru7.pkg1#ent5#att22"/>
+        <LinkParameter id="mov2#mpkg13#opm14#opg11#seu20#oln103#par254" name="Book Key" source="ent1#att60Array" target="mov2#mpkg13#opm14#opg11#cru7.pkg1#ent5#att55"/>
+      </OKLink>
+      <Link id="mov2#mpkg13#opm14#opg11#seu20#ln29" name="Link29" to="mov2#mpkg13#opm14#okcu62" type="transport" validate="true" gr:bendpoints="134,97,-216,97">
+        <LinkParameter id="mov2#mpkg13#opm14#opg11#seu20#ln29#par83" name="Book Key" source="ent1#att60Array" target="mov2#mpkg13#opm14#okcu62#ocp7"/>
+      </Link>
+    </SelectorUnit>
+    <CreateUnit id="mov2#mpkg13#opm14#opg11#cru7" name="Create Cart Item" gr:x="455" gr:y="5" entity="pkg1#ent5" bulk="true">
+      <OKLink id="mov2#mpkg13#opm14#opg11#cru7#oln104" name="OKLink44" to="mov2#mpkg13#opm14#okcu62"/>
+    </CreateUnit>
+    <TimeUnit id="mov2#mpkg13#opm14#opg11#tmu4" name="Today Time" gr:x="135" gr:y="145">
+      <OKLink id="mov2#mpkg13#opm14#opg11#tmu4#oln105" name="OKLink26" to="mov2#mpkg13#opm14#opg11#cru6">
+        <LinkParameter id="mov2#mpkg13#opm14#opg11#tmu4#oln105#par255" name="Current Timestamp" source="currentTimestamp" target="mov2#mpkg13#opm14#opg11#cru6.pkg1#ent3#att28"/>
+      </OKLink>
+    </TimeUnit>
+    <IsNotNullUnit id="mov2#mpkg13#opm14#opg11#inn11" name="Cart Exists?" gr:x="140" gr:y="15">
+      <KOLink id="mov2#mpkg13#opm14#opg11#inn11#kln17" name="KOLink5" to="mov2#mpkg13#opm14#opg11#tmu4"/>
+      <OKLink id="mov2#mpkg13#opm14#opg11#inn11#oln106" name="OKLink30" to="mov2#mpkg13#opm14#opg11#seu20"/>
+      <Link id="mov2#mpkg13#opm14#opg11#inn11#ln27" name="Link92" to="mov2#mpkg13#opm14#opg11#cru7" type="transport" validate="true" gr:bendpoints="45,-67,-190,-67;198,-67,-37,-67">
+        <LinkParameter id="mov2#mpkg13#opm14#opg11#inn11#ln27#par82" name="Cart Key" source="inputValue" target="mov2#mpkg13#opm14#opg11#cru7.rel18#role2.pkg1#ent3#att25"/>
+      </Link>
+    </IsNotNullUnit>
+  </OperationUnits>
+</OperationGroup>

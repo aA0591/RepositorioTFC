@@ -1,0 +1,31 @@
+<OperationModule xmlns:gr="http://www.webratio.com/2006/WebML/Graph" id="mov1#mpkg1#opm8" name="Save Product" gr:x="0" gr:y="0" gr:icon="ModulesIcons/Save.png">
+  <OperationUnits>
+    <InputCollectorUnit id="mov1#mpkg1#opm8#icu10" name="Input" gr:x="-115" gr:y="235">
+      <InputCollectorParameter id="mov1#mpkg1#opm8#icu10#icp56" name="Product Key"/>
+      <InputCollectorParameter id="mov1#mpkg1#opm8#icu10#icp57" name="Product Object"/>
+      <InputCollectorParameter id="mov1#mpkg1#opm8#icu10#icp58" name="Tech Record Object"/>
+      <InputCollectorParameter id="mov1#mpkg1#opm8#icu10#icp59" name="Image Object"/>
+      <OKLink id="mov1#mpkg1#opm8#icu10#oln109" name="OKLink109" to="mov1#mpkg1#opm8#opg8#inn11">
+        <LinkParameter id="mov1#mpkg1#opm8#icu10#oln109#par270" name="Product Key" source="mov1#mpkg1#opm8#icu10#icp56" target="mov1#mpkg1#opm8#opg8#inn11.isnotnull"/>
+      </OKLink>
+      <Link id="mov1#mpkg1#opm8#icu10#ln100" name="Link100" to="mov1#mpkg1#opm8#opg8#cru13" type="transport" validate="true">
+        <LinkParameter id="mov1#mpkg1#opm8#icu10#ln100#par271" name="Product Object" source="mov1#mpkg1#opm8#icu10#icp57" target="mov1#mpkg1#opm8#opg8#cru13.entityBeans"/>
+      </Link>
+      <Link id="mov1#mpkg1#opm8#icu10#ln101" name="Link101" to="mov1#mpkg1#opm8#opg8#mfu10" type="transport" validate="true">
+        <LinkParameter id="mov1#mpkg1#opm8#icu10#ln101#par272" name="Product Object" source="mov1#mpkg1#opm8#icu10#icp57" target="mov1#mpkg1#opm8#opg8#mfu10.entityBeans"/>
+      </Link>
+      <Link id="mov1#mpkg1#opm8#icu10#ln102" name="Link102" to="mov1#mpkg1#opm8#opg8#cru14" type="transport" validate="true" gr:bendpoints="201,-184,-423,-184;530,-183,-94,-183">
+        <LinkParameter id="mov1#mpkg1#opm8#icu10#ln102#par273" name="Image Objects" source="mov1#mpkg1#opm8#icu10#icp59" target="mov1#mpkg1#opm8#opg8#cru14.entityBeans"/>
+      </Link>
+      <Link id="mov1#mpkg1#opm8#icu10#ln103" name="Link103" to="mov1#mpkg1#opm8#opg8#cru15" type="transport" validate="true" gr:bendpoints="224,173,-576,173;694,172,-106,172">
+        <LinkParameter id="mov1#mpkg1#opm8#icu10#ln103#par274" name="Tech Record Objects" source="mov1#mpkg1#opm8#icu10#icp58" target="mov1#mpkg1#opm8#opg8#cru15.entityBeans"/>
+      </Link>
+    </InputCollectorUnit>
+    <OKCollectorUnit id="mov1#mpkg1#opm8#okcu9" name="Success" gr:x="1530" gr:y="250">
+      <OutputCollectorParameter id="mov1#mpkg1#opm8#okcu9#ocp11" name="Message"/>
+    </OKCollectorUnit>
+    <KOCollectorUnit gr:x="1530" gr:y="140" id="mov1#mpkg1#opm8#kocu7" name="Error">
+      <OutputCollectorParameter id="mov1#mpkg1#opm8#kocu7#ocp17" name="Message"/>
+    </KOCollectorUnit>
+  </OperationUnits>
+</OperationModule>

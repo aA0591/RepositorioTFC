@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report>
+  <MyCart dataSize="10">
+    <i18n.totalAmount>totalAmount</i18n.totalAmount>
+    <i18n.date>date</i18n.date>
+    <i18n.status>status</i18n.status>
+    <i18n.fullName>fullName</i18n.fullName>
+    <Order>
+      <totalAmount>1023.0</totalAmount>
+      <date>2007-10-23 13:20:10</date>
+      <status>false</status>
+      <fullName>String Value 0</fullName>
+    </Order>
+    <Order>
+      <totalAmount>1023.1</totalAmount>
+      <date>2007-10-23 13:20:11</date>
+      <status>false</status>
+      <fullName>String Value 1</fullName>
+    </Order>
+    <Order>
+      <totalAmount>1023.2</totalAmount>
+      <date>2007-10-23 13:20:12</date>
+      <status>false</status>
+      <fullName>String Value 2</fullName>
+    </Order>
+    <Order>
+      <totalAmount>1023.3</totalAmount>
+      <date>2007-10-23 13:20:13</date>
+      <status>false</status>
+      <fullName>String Value 3</fullName>
+    </Order>
+    <Order>
+      <totalAmount>1023.4</totalAmount>
+      <date>2007-10-23 13:20:14</date>
+      <status>false</status>
+      <fullName>String Value 4</fullName>
+    </Order>
+    <Order>
+      <totalAmount>1023.5</totalAmount>
+      <date>2007-10-23 13:20:15</date>
+      <status>true</status>
+      <fullName>String Value 5</fullName>
+    </Order>
+    <Order>
+      <totalAmount>1023.6</totalAmount>
+      <date>2007-10-23 13:20:16</date>
+      <status>true</status>
+      <fullName>String Value 6</fullName>
+    </Order>
+    <Order>
+      <totalAmount>1023.7</totalAmount>
+      <date>2007-10-23 13:20:17</date>
+      <status>true</status>
+      <fullName>String Value 7</fullName>
+    </Order>
+    <Order>
+      <totalAmount>1023.8</totalAmount>
+      <date>2007-10-23 13:20:18</date>
+      <status>true</status>
+      <fullName>String Value 8</fullName>
+    </Order>
+    <Order>
+      <totalAmount>1023.9</totalAmount>
+      <date>2007-10-23 13:20:19</date>
+      <status>true</status>
+      <fullName>String Value 9</fullName>
+    </Order>
+  </MyCart>
+  <CartItems dataSize="10">
+    <i18n.title>title</i18n.title>
+    <i18n.language>language</i18n.language>
+    <i18n.pages>pages</i18n.pages>
+    <i18n.published>published</i18n.published>
+    <i18n.price>price</i18n.price>
+    <i18n.cover>cover</i18n.cover>
+    <Book>
+      <title>String Value 0</title>
+      <language>String Value 0</language>
+      <pages>String Value 0</pages>
+      <published>String Value 0</published>
+      <price>1023.0</price>
+      <cover>0.png</cover>
+    </Book>
+    <Book>
+      <title>String Value 1</title>
+      <language>String Value 1</language>
+      <pages>String Value 1</pages>
+      <published>String Value 1</published>
+      <price>1023.1</price>
+      <cover>1.png</cover>
+    </Book>
+    <Book>
+      <title>String Value 2</title>
+      <language>String Value 2</language>
+      <pages>String Value 2</pages>
+      <published>String Value 2</published>
+      <price>1023.2</price>
+      <cover>2.png</cover>
+    </Book>
+    <Book>
+      <title>String Value 3</title>
+      <language>String Value 3</language>
+      <pages>String Value 3</pages>
+      <published>String Value 3</published>
+      <price>1023.3</price>
+      <cover>3.png</cover>
+    </Book>
+    <Book>
+      <title>String Value 4</title>
+      <language>String Value 4</language>
+      <pages>String Value 4</pages>
+      <published>String Value 4</published>
+      <price>1023.4</price>
+      <cover>4.png</cover>
+    </Book>
+    <Book>
+      <title>String Value 5</title>
+      <language>String Value 5</language>
+      <pages>String Value 5</pages>
+      <published>String Value 5</published>
+      <price>1023.5</price>
+      <cover>5.png</cover>
+    </Book>
+    <Book>
+      <title>String Value 6</title>
+      <language>String Value 6</language>
+      <pages>String Value 6</pages>
+      <published>String Value 6</published>
+      <price>1023.6</price>
+      <cover>6.png</cover>
+    </Book>
+    <Book>
+      <title>String Value 7</title>
+      <language>String Value 7</language>
+      <pages>String Value 7</pages>
+      <published>String Value 7</published>
+      <price>1023.7</price>
+      <cover>7.png</cover>
+    </Book>
+    <Book>
+      <title>String Value 8</title>
+      <language>String Value 8</language>
+      <pages>String Value 8</pages>
+      <published>String Value 8</published>
+      <price>1023.8</price>
+      <cover>8.png</cover>
+    </Book>
+    <Book>
+      <title>String Value 9</title>
+      <language>String Value 9</language>
+      <pages>String Value 9</pages>
+      <published>String Value 9</published>
+      <price>1023.9</price>
+      <cover>9.png</cover>
+    </Book>
+  </CartItems>
+  <Quantity dataSize="10">
+    <i18n.quantity>quantity</i18n.quantity>
+    <OrderItem>
+      <quantity>100</quantity>
+    </OrderItem>
+    <OrderItem>
+      <quantity>101</quantity>
+    </OrderItem>
+    <OrderItem>
+      <quantity>102</quantity>
+    </OrderItem>
+    <OrderItem>
+      <quantity>103</quantity>
+    </OrderItem>
+    <OrderItem>
+      <quantity>104</quantity>
+    </OrderItem>
+    <OrderItem>
+      <quantity>105</quantity>
+    </OrderItem>
+    <OrderItem>
+      <quantity>106</quantity>
+    </OrderItem>
+    <OrderItem>
+      <quantity>107</quantity>
+    </OrderItem>
+    <OrderItem>
+      <quantity>108</quantity>
+    </OrderItem>
+    <OrderItem>
+      <quantity>109</quantity>
+    </OrderItem>
+  </Quantity>
+</Report>

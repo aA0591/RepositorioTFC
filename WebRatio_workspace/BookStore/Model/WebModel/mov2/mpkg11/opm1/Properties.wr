@@ -1,0 +1,18 @@
+<OperationModule xmlns:gr="http://www.webratio.com/2006/WebML/Graph" id="mov2#mpkg11#opm1" name="Compute Rating" gr:x="0" gr:y="55" gr:icon="ModulesIcons/Rating.png">
+  <OperationUnits>
+    <InputCollectorUnit id="mov2#mpkg11#opm1#icu2" name="Input" gr:x="-70" gr:y="75">
+      <InputCollectorParameter id="mov2#mpkg11#opm1#icu2#icp5" name="Ratings"/>
+      <InputCollectorParameter id="mov2#mpkg11#opm1#icu2#icp2" name="Book Key"/>
+      <OKLink id="mov2#mpkg11#opm1#icu2#oln99" name="OKLink99" to="mov2#mpkg11#opm1#opg10#seu17">
+        <LinkParameter id="mov2#mpkg11#opm1#icu2#oln99#par51" name="Book Key" source="mov2#mpkg11#opm1#icu2#icp2" target="mov2#mpkg11#opm1#opg10#seu17#su38#kcond9.ent1#att60"/>
+      </OKLink>
+      <Link id="mov2#mpkg11#opm1#icu2#ln118" name="Link118" to="mov2#mpkg11#opm1#opg10#scu9" type="transport" validate="true" gr:bendpoints="123,57,-332,57;423,57,-32,57">
+        <LinkParameter id="mov2#mpkg11#opm1#icu2#ln118#par244" name="Rating" source="mov2#mpkg11#opm1#icu2#icp5" target="mov2#mpkg11#opm1#opg10#scu9.rating"/>
+      </Link>
+    </InputCollectorUnit>
+    <OKCollectorUnit id="mov2#mpkg11#opm1#okcu4" name="Success" gr:x="820" gr:y="75">
+      <OutputCollectorParameter id="mov2#mpkg11#opm1#okcu4#ocp8" name="Book Key"/>
+    </OKCollectorUnit>
+  </OperationUnits>
+  <Comment xml:space="preserve">Operation Module that contains the logic to set a rating for a certain Book.</Comment>
+</OperationModule>

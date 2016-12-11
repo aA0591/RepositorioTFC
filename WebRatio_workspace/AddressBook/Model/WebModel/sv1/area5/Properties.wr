@@ -1,0 +1,24 @@
+<Area xmlns:gr="http://www.webratio.com/2006/WebML/Graph" gr:x="310" gr:y="710" id="sv1#area5" name="Organization Units" landmark="true" protected="true" linkVisibilityPolicy="hide" defaultPage="sv1#area5#page27">
+  <OperationUnits>
+    <ModuleInstanceUnit gr:x="145" gr:y="290" id="sv1#area5#miu1" name="Save" moduleId="mov2#mpkg2#opm2">
+      <OKLink id="sv1#area5#miu1#oln7" name="OKLink7" to="sv1#area5#page27#hinu1z">
+        <LinkParameter id="sv1#area5#miu1#oln7#par32z" name="organizationUnitID_current oid" source="mov2#mpkg2#opm2#okcu3#ocp2z" target="sv1#area5#page27#hinu1z.current.ent6#att32"/>
+      </OKLink>
+    </ModuleInstanceUnit>
+    <NoOpOperationUnit gr:x="450" gr:y="410" id="sv1#area5#opu1z" name="Change type">
+      <OKLink id="sv1#area5#opu1z#oln4z" name="OKLink4" to="sv1#area5#page1#enu1" gr:bendpoints="-54,51,88,-38" preserveForm="true"/>
+    </NoOpOperationUnit>
+    <DeleteUnit gr:x="335" gr:y="290" id="sv1#area5#dlu1z" name="Delete" entity="ent6">
+      <Selector id="sv1#area5#dlu1z#su7z" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="sv1#area5#dlu1z#su7z#kcond3z" name="KeyCondition3" predicate="in" implied="false"/>
+      </Selector>
+      <OKLink id="sv1#area5#dlu1z#oln5z" name="OKLink5" to="sv1#area5#page27" automaticCoupling="true"/>
+    </DeleteUnit>
+    <NoOpOperationUnit id="sv1#area5#opu2z" name="Clear" gr:x="555" gr:y="410">
+      <OKLink id="sv1#area5#opu2z#oln6z" name="OKLink6" to="sv1#area5#page1#enu1" gr:bendpoints="-80,102,110,-93" preserveForm="true">
+        <LinkParameter id="sv1#area5#opu2z#oln6z#par40z" name="$$NULL$$_manager" sourceValue="$$NULL$$" target="sv1#area5#page1#enu1#fld4z_slot"/>
+        <LinkParameter id="sv1#area5#opu2z#oln6z#par41z" name="$$NULL$$_manager oid" sourceValue="$$NULL$$" target="sv1#area5#page1#enu1#fld5z_slot"/>
+      </OKLink>
+    </NoOpOperationUnit>
+  </OperationUnits>
+</Area>

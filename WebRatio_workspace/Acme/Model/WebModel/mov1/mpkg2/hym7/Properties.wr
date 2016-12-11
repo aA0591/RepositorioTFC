@@ -1,0 +1,10 @@
+<HybridModule xmlns:gr="http://www.webratio.com/2006/WebML/Graph" id="mov1#mpkg2#hym7" name="Photo Gallery" gr:x="0" gr:y="0" gr:icon="ModulesIcons/Photo.png">
+  <OperationUnits>
+    <InputCollectorUnit id="mov1#mpkg2#hym7#icu8" name="Input" gr:x="-125" gr:y="65">
+      <InputCollectorParameter id="mov1#mpkg2#hym7#icu8#icp6" name="Product Key"/>
+      <OKLink id="mov1#mpkg2#hym7#icu8#oln6" name="OKLink6" to="mov1#mpkg2#hym7#page9#pwu11" ajaxOpenWindow="false" ajaxWindowUseTitle="true" ajaxWindowResizable="true" ajaxWindowAutoResizing="true" ajaxWindowClosable="true" ajaxWindowModal="true">
+        <LinkParameter id="mov1#mpkg2#hym7#icu8#oln6#par7" name="Product Key" source="mov1#mpkg2#hym7#icu8#icp6" target="mov1#mpkg2#hym7#page9#pwu11#su16#rcond11.pkg1#ent8#att38"/>
+      </OKLink>
+    </InputCollectorUnit>
+  </OperationUnits>
+</HybridModule>

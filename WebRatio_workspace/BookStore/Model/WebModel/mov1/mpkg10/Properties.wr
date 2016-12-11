@@ -1,0 +1,4 @@
+<ModulePackage xmlns:gr="http://www.webratio.com/2006/WebML/Graph" gr:x="520" gr:y="-10" id="mov1#mpkg10" name="Manage Orders">
+  <OperationUnits/>
+  <Comment xml:space="preserve">Package that collects all the Modules directly related to the entity Order.
+</Comment></ModulePackage>

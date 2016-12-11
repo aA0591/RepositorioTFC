@@ -1,0 +1,54 @@
+<MasterPage xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" id="sv1#mpage4" name="Master Page" gr:x="-255" gr:y="-210">
+  <ContentUnits>
+    <MultiMessageUnit gr:x="195" gr:y="125" id="sv1#mpage4#mssu4" name="Register" linkOrder="sv1#mpage4#mssu4#ln1 sv1#mpage4#mssu4#ln26">
+      <Message xml:space="preserve">Welcome to the Acme Store. Register to buy our products or to know their prices.</Message>
+      <Link id="sv1#mpage4#mssu4#ln1" name="Register" to="sv1#page13" type="normal" validate="false" ajaxEnabled="false" ajaxOpenWindow="true" ajaxWindowClosable="true" ajaxWindowModal="true" ajaxWindowResizable="true" ajaxWindowAutoResizing="false" ajaxWindowUseTitle="true" ajaxWindowWidth="600" ajaxWindowHeight="600" ajaxWindowTitle="Register"/>
+      <Link id="sv1#mpage4#mssu4#ln26" name="Login" to="sv1#page11#enu4" type="normal" validate="true" ajaxEnabled="false" ajaxOpenWindow="true" ajaxWindowModal="true" ajaxWindowClosable="true" ajaxWindowWidth="350" ajaxWindowHeight="300" ajaxWindowUseTitle="true" ajaxWindowTitle="Login"/>
+    </MultiMessageUnit>
+    <GetUnit id="sv1#mpage4#gtu1o" name="Get Current User" gr:x="0" gr:y="10" contextParameters="UserCtxParam">
+      <Link id="sv1#mpage4#gtu1o#ln1o" name="Link24" to="sv1#mpage4#dau1o" type="transport" automaticCoupling="true" validate="true"/>
+    </GetUnit>
+    <DataUnit id="sv1#mpage4#dau1o" entity="User" name="User" gr:x="190" gr:y="0" displayAttributes="userName" linkOrder="sv1#mpage4#dau1o#ln3o sv1#mpage4#dau1o#ln2o">
+      <Selector id="sv1#mpage4#dau1o#su2o" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="sv1#mpage4#dau1o#su2o#kcond2o" predicate="in" implied="false" name="User"/>
+      </Selector>
+      <Link id="sv1#mpage4#dau1o#ln2o" name="Logout" to="sv1#lou3" type="normal" validate="true"/>
+      <Link id="sv1#mpage4#dau1o#ln3o" name="My Shopping Bag" to="sv1#page15" type="normal" automaticCoupling="true" validate="true" ajaxEnabled="false" ajaxOpenWindow="true" ajaxWindowUseTitle="true" ajaxWindowResizable="true" ajaxWindowAutoResizing="true" ajaxWindowClosable="true" ajaxWindowModal="true"/>
+    </DataUnit>
+  </ContentUnits>
+  <layout:CustomLocation name="Top">
+    <layout:Grid containerType="cell">
+      <layout:Row>
+        <layout:Cell>
+          <layout:Unit unitId="sv1#mpage4#mssu4" layout:unitVisibilityConditionNegated="true" layout:unitVisibilityCondition="cexpr4">
+            <layout:Link link="sv1#mpage4#mssu4#ln1"/>
+            <layout:Link link="sv1#mpage4#mssu4#ln26"/>
+            <layout:LayoutParameter name="message-localized" value="true" type="unit"/>
+          </layout:Unit>
+        </layout:Cell>
+      </layout:Row>
+    </layout:Grid>
+  </layout:CustomLocation>
+  <layout:CustomLocation name="User">
+    <layout:Grid containerType="cell">
+      <layout:Row>
+        <layout:Cell>
+          <layout:Unit unitId="sv1#mpage4#dau1o" layout:unitVisibilityCondition="cexpr4" layout:unitLayout="WRDefault/User" layout:frameLayout="None">
+            <layout:Attribute attribute="userName"/>
+            <layout:Link link="sv1#mpage4#dau1o#ln3o" layout:linkVisibilityCondition="cexpr5"/>
+            <layout:Link link="sv1#mpage4#dau1o#ln2o"/>
+            <layout:LayoutParameter name="prefix-text" value="Welcome" type="unit"/>
+            <layout:LayoutParameter name="link-style" value="normal" type="link"/>
+          </layout:Unit>
+        </layout:Cell>
+      </layout:Row>
+    </layout:Grid>
+  </layout:CustomLocation>
+  <layout:CustomLocation name="Right">
+    <layout:Grid containerType="cell">
+      <layout:Row>
+        <layout:Cell/>
+      </layout:Row>
+    </layout:Grid>
+  </layout:CustomLocation>
+</MasterPage>

@@ -1,0 +1,44 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" id="mov2#mpkg11#hym56#page74" name="Comment" ignoreMasterPage="true" layout:pageLayout="WRDefault/Empty" gr:x="120" gr:y="20">
+  <ContentUnits>
+    <EntryUnit id="mov2#mpkg11#hym56#page74#enu21" name="Comment Information" gr:x="0" gr:y="0" linkOrder="mov2#mpkg11#hym56#page74#enu21#ln124" entity="ent10">
+      <Field id="mov2#mpkg11#hym56#page74#enu21#fld64" name="comment" type="text" modifiable="true" contentType="text/html" attribute="ent10#att42">
+        <VRules>
+          <MandatoryValidationRule id="mov2#mpkg11#hym56#page74#enu21#fld64#mnd21" name="Mandatory Field"/>
+        </VRules>
+      </Field>
+      <Field id="mov2#mpkg11#hym56#page74#enu21#fld28" name="book key" type="string" modifiable="false" preloaded="true" hidden="true"/>
+      <Link id="mov2#mpkg11#hym56#page74#enu21#ln124" name="Save" to="mov2#mpkg11#hym56#opg12#pcu2" type="normal" validate="true" ajaxEnabled="true">
+        <LinkParameter id="mov2#mpkg11#hym56#page74#enu21#ln124#par261" name="Comment Object" source="entityBean" target="mov2#mpkg11#hym56#opg12#pcu2#pcp5"/>
+        <LinkParameter id="mov2#mpkg11#hym56#page74#enu21#ln124#par80" name="Book Key" source="mov2#mpkg11#hym56#page74#enu21#fld28" target="mov2#mpkg11#hym56#opg12#pcu2#pcp6"/>
+      </Link>
+    </EntryUnit>
+  </ContentUnits>
+  <layout:Grid>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Grid containerType="cell">
+          <layout:Row>
+            <layout:Cell>
+              <layout:Unit unitId="mov2#mpkg11#hym56#page74#enu21">
+                <layout:LayoutParameter name="show-label" value="top" type="unit"/>
+                <layout:Field field="mov2#mpkg11#hym56#page74#enu21#fld64"/>
+                <layout:Link link="mov2#mpkg11#hym56#page74#enu21#ln124"/>
+              </layout:Unit>
+            </layout:Cell>
+          </layout:Row>
+        </layout:Grid>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+</Page>

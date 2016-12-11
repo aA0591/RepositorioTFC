@@ -1,0 +1,28 @@
+<OperationGroup xmlns:gr="http://www.webratio.com/2006/WebML/Graph" id="mov1#mpkg1#opm10#opg10" name="Save Category Information" transaction="true" gr:x="115" gr:y="-15">
+  <OperationUnits>
+    <CreateUnit id="mov1#mpkg1#opm10#opg10#cru17" name="Create Category" gr:x="135" gr:y="0" entity="pkg1#ent1">
+      <OKLink id="mov1#mpkg1#opm10#opg10#cru17#oln105" name="OKLink51" to="mov1#mpkg1#opm10#opg10#pcu20"/>
+    </CreateUnit>
+    <ModifyUnit id="mov1#mpkg1#opm10#opg10#mfu12" name="Modify Category" gr:x="135" gr:y="190" entity="pkg1#ent1">
+      <OKLink id="mov1#mpkg1#opm10#opg10#mfu12#oln106" name="OKLink69" to="mov1#mpkg1#opm10#opg10#pcu20"/>
+      <Selector id="mov1#mpkg1#opm10#opg10#mfu12#su45" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="mov1#mpkg1#opm10#opg10#mfu12#su45#kcond31" name="Category" predicate="in" implied="false"/>
+      </Selector>
+    </ModifyUnit>
+    <IsNotNullUnit id="mov1#mpkg1#opm10#opg10#inn13" name="Existing Category?" gr:x="0" gr:y="100">
+      <OKLink id="mov1#mpkg1#opm10#opg10#inn13#oln107" name="OKLink47" to="mov1#mpkg1#opm10#opg10#mfu12">
+        <LinkParameter id="mov1#mpkg1#opm10#opg10#inn13#oln107#par260" name="Category Key" source="inputValue" target="mov1#mpkg1#opm10#opg10#mfu12#su45#kcond31.pkg1#ent1#att1"/>
+      </OKLink>
+      <KOLink id="mov1#mpkg1#opm10#opg10#inn13#kln31" name="KOLink19" to="mov1#mpkg1#opm10#opg10#cru17"/>
+    </IsNotNullUnit>
+    <ParameterCollectorUnit id="mov1#mpkg1#opm10#opg10#pcu20" name="Collect Message Information" gr:x="275" gr:y="95">
+      <CollectorParameter id="mov1#mpkg1#opm10#opg10#pcu20#pcp51" name="Message" value="Category succesfully saved"/>
+      <OKLink id="mov1#mpkg1#opm10#opg10#pcu20#oln108" name="OKLink1" to="mov1#mpkg1#opm10#okcu11">
+        <LinkParameter id="mov1#mpkg1#opm10#opg10#pcu20#oln108#par258" name="Message" source="mov1#mpkg1#opm10#opg10#pcu20#pcp51" target="mov1#mpkg1#opm10#okcu11#ocp14"/>
+      </OKLink>
+    </ParameterCollectorUnit>
+  </OperationUnits>
+  <KOLink id="mov1#mpkg1#opm10#opg10#kln32" name="KOLink10" to="mov1#mpkg1#opm10#kocu6">
+    <LinkParameter id="mov1#mpkg1#opm10#opg10#kln32#par259" name="Message" target="mov1#mpkg1#opm10#kocu6#ocp15" sourceValue="Category not saved"/>
+  </KOLink>
+</OperationGroup>

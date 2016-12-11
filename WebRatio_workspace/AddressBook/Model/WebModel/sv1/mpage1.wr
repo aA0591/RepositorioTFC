@@ -1,0 +1,32 @@
+<MasterPage xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" gr:x="-15" gr:y="470" id="sv1#mpage1" name="Master page">
+  <ContentUnits>
+    <GetUnit gr:x="0" gr:y="10" id="sv1#mpage1#gtu2z" name="Get User" contextParameters="UserCtxParam">
+      <Link id="sv1#mpage1#gtu2z#ln19z" name="Link19" to="sv1#mpage1#dau2z" automaticCoupling="true" type="transport" validate="true"/>
+    </GetUnit>
+    <DataUnit gr:x="150" gr:y="0" id="sv1#mpage1#dau2z" name="User" entity="User" displayAttributes="userName" linkOrder="sv1#mpage1#dau2z#ln20z">
+      <Selector id="sv1#mpage1#dau2z#su11z" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="sv1#mpage1#dau2z#su11z#kcond5z" name="KeyCondition5" predicate="in" implied="false"/>
+      </Selector>
+      <Link id="sv1#mpage1#dau2z#ln20z" name="Logout" to="sv1#lou1" type="normal" validate="true"/>
+    </DataUnit>
+  </ContentUnits>
+  <Variable id="sv1#mpage1#var2" name="userRole" type="integer"/>
+  <ConditionExpression id="sv1#mpage1#cexpr1" name="UserAdmin">
+    <TextValue xml:space="preserve">return userRole==1</TextValue>
+  </ConditionExpression>
+  <layout:LayoutParameter name="use-right-bar" value="true" type="page"/>
+  <layout:CustomLocation name="User">
+    <layout:Grid containerType="cell">
+      <layout:Row>
+        <layout:Cell>
+          <layout:Unit unitId="sv1#mpage1#dau2z" layout:unitLayout="WRDefault/User" layout:frameLayout="None">
+            <layout:Attribute attribute="userName"/>
+            <layout:Link link="sv1#mpage1#dau2z#ln20z"/>
+            <layout:LayoutParameter name="prefix-text" value="Welcome" type="unit"/>
+            <layout:LayoutParameter name="link-style" value="normal" type="link"/>
+          </layout:Unit>
+        </layout:Cell>
+      </layout:Row>
+    </layout:Grid>
+  </layout:CustomLocation>
+</MasterPage>

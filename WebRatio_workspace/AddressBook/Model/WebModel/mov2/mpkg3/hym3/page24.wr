@@ -1,0 +1,355 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" id="mov2#mpkg3#hym3#page24" name="Employee" ajaxEnabled="true" gr:x="270" gr:y="30">
+  <ContentUnits>
+    <EntryUnit id="mov2#mpkg3#hym3#page24#enu17" name="Employee data" linkOrder="mov2#mpkg3#hym3#page24#enu17#ln131 mov2#mpkg3#hym3#page24#enu17#ln18z mov2#mpkg3#hym3#page24#enu17#ln132 mov2#mpkg3#hym3#page24#enu17#ln130 mov2#mpkg3#hym3#page24#enu17#ln129" gr:x="245" gr:y="140" entity="ent1" fieldOrder="mov2#mpkg3#hym3#page24#enu17#fld89 mov2#mpkg3#hym3#page24#enu17#fld83 mov2#mpkg3#hym3#page24#enu17#fld6z mov2#mpkg3#hym3#page24#enu17#fld90 mov2#mpkg3#hym3#page24#enu17#fld92 mov2#mpkg3#hym3#page24#enu17#sfld2z mov2#mpkg3#hym3#page24#enu17#fld88 mov2#mpkg3#hym3#page24#enu17#fld3z mov2#mpkg3#hym3#page24#enu17#fld1z mov2#mpkg3#hym3#page24#enu17#sfld28 mov2#mpkg3#hym3#page24#enu17#fld87 mov2#mpkg3#hym3#page24#enu17#fld84">
+      <Field id="mov2#mpkg3#hym3#page24#enu17#fld83" name="First name" type="string" modifiable="true" attribute="ent1#att2" preloaded="true">
+        <VRules>
+          <MandatoryValidationRule id="mov2#mpkg3#hym3#page24#enu17#fld83#mnd2z" name="mandatory"/>
+        </VRules>
+      </Field>
+      <Field id="mov2#mpkg3#hym3#page24#enu17#fld84" name="Phone" type="string" modifiable="true" attribute="ent1#att4" preloaded="true"/>
+      <Field id="mov2#mpkg3#hym3#page24#enu17#fld87" name="Location" type="string" modifiable="true" attribute="ent1#att9" preloaded="true"/>
+      <Field id="mov2#mpkg3#hym3#page24#enu17#fld88" name="Birthday" type="date" modifiable="true" attribute="ent1#att11" preloaded="true"/>
+      <Field id="mov2#mpkg3#hym3#page24#enu17#fld89" name="Picture" type="blob" modifiable="true" contentType="image" attribute="ent1#att14" preloaded="true"/>
+      <Field id="mov2#mpkg3#hym3#page24#enu17#fld90" name="User name" type="string" modifiable="true" attribute="userName" preloaded="true">
+        <VRules>
+          <MandatoryValidationRule id="mov2#mpkg3#hym3#page24#enu17#fld90#mnd7z" name="mandatory"/>
+        </VRules>
+      </Field>
+      <Field id="mov2#mpkg3#hym3#page24#enu17#fld92" name="Email" type="string" modifiable="true" attribute="email" preloaded="true">
+        <VRules>
+          <MandatoryValidationRule id="mov2#mpkg3#hym3#page24#enu17#fld92#mnd4z" name="mandatory"/>
+        </VRules>
+      </Field>
+      <SelectionField id="mov2#mpkg3#hym3#page24#enu17#sfld28" name="Role" type="string" role="rel7#role13">
+        <VRules>
+          <MandatoryValidationRule id="mov2#mpkg3#hym3#page24#enu17#sfld28#mnd6z" name="mandatory"/>
+        </VRules>
+      </SelectionField>
+      <Link id="mov2#mpkg3#hym3#page24#enu17#ln129" name="Clear" to="mov2#mpkg3#hym3#opu6" type="normal" validate="false" ajaxEnabled="true">
+        <Property id="mov2#mpkg3#hym3#page24#enu17#ln129#prop6z" name="fieldLink" value="Organization Unit"/>
+      </Link>
+      <Link id="mov2#mpkg3#hym3#page24#enu17#ln130" name="Choose" to="mov2#mpkg3#hym3#page25" type="normal" automaticCoupling="true" validate="false" ajaxEnabled="true" ajaxOpenWindow="true" ajaxWindowResizable="true" ajaxWindowAutoResizing="false" ajaxWindowClosable="true" ajaxWindowDraggable="true" ajaxWindowUseTitle="true" ajaxWindowWidth="500" ajaxWindowHeight="500" ajaxWindowModal="true" gr:bendpoints="-169,114,161,-21">
+        <Property id="mov2#mpkg3#hym3#page24#enu17#ln130#prop5z" name="fieldLink" value="Organization Unit"/>
+      </Link>
+      <Link id="mov2#mpkg3#hym3#page24#enu17#ln131" name="Save" to="mov2#mpkg3#hym3#inn1z" type="normal" validate="true" gr:bendpoints="-13,154,-18,-146"/>
+      <Link id="mov2#mpkg3#hym3#page24#enu17#ln132" name="Cancel" to="mov2#mpkg3#hym3#okcu4" type="normal" validate="false">
+        <LinkParameter id="mov2#mpkg3#hym3#page24#enu17#ln132#par14z" name="Key [oid]_employeeID" source="key.userOID" target="mov2#mpkg3#hym3#okcu4#ocp1z"/>
+      </Link>
+      <Link id="mov2#mpkg3#hym3#page24#enu17#ln3z" name="Link3" to="mov2#mpkg3#hym3#cru1z" type="transport" validate="true">
+        <LinkParameter id="mov2#mpkg3#hym3#page24#enu17#ln3z#par4z" name="Area oid_Area.oid(EmployeeToArea)" source="mov2#mpkg3#hym3#page24#enu17#fld2z" target="mov2#mpkg3#hym3#cru1z.rel1#role1.ent6#att32"/>
+        <LinkParameter id="mov2#mpkg3#hym3#page24#enu17#ln3z#par5z" name="Employee Object_Employee Bean" source="entityBean" target="mov2#mpkg3#hym3#cru1z.entityBeans"/>
+        <LinkParameter id="mov2#mpkg3#hym3#page24#enu17#ln3z#par19z" name="password_password" sourceValue="password" target="mov2#mpkg3#hym3#cru1z.password"/>
+        <LinkParameter id="mov2#mpkg3#hym3#page24#enu17#ln3z#par3o" name="Organization Unit oid_Organization Unit.oid(ManagerToArea)" source="mov2#mpkg3#hym3#page24#enu17#fld2z" target="mov2#mpkg3#hym3#cru1z.rel8#role15.ent6#att32"/>
+        <LinkParameter id="mov2#mpkg3#hym3#page24#enu17#ln3z#par5o" name="Picture_Pic" source="mov2#mpkg3#hym3#page24#enu17#fld89" target="mov2#mpkg3#hym3#cru1z.ent1#att14"/>
+        <LinkParameter id="mov2#mpkg3#hym3#page24#enu17#ln3z#par6o" name="profile.png_Pic [file name]" target="mov2#mpkg3#hym3#cru1z.ent1#att14_name" source="mov2#mpkg3#hym3#page24#enu17#fld89"/>
+      </Link>
+      <Link id="mov2#mpkg3#hym3#page24#enu17#ln4z" name="Link4" to="mov2#mpkg3#hym3#mfu1z" type="transport" validate="true">
+        <LinkParameter id="mov2#mpkg3#hym3#page24#enu17#ln4z#par7z" name="Employee Object_Employee Bean" source="entityBean" target="mov2#mpkg3#hym3#mfu1z.entityBeans"/>
+        <LinkParameter id="mov2#mpkg3#hym3#page24#enu17#ln4z#par8z" name="Key [oid]_KeyCondition12 [oid]" source="key.userOID" target="mov2#mpkg3#hym3#mfu1z#su2z#kcond2z.userOID"/>
+        <LinkParameter id="mov2#mpkg3#hym3#page24#enu17#ln4z#par46z" name="Area oid_Organization Unit.oid(EmployeeToArea)" source="mov2#mpkg3#hym3#page24#enu17#fld2z" target="mov2#mpkg3#hym3#mfu1z.rel1#role1.ent6#att32"/>
+        <LinkParameter id="mov2#mpkg3#hym3#page24#enu17#ln4z#par4o" name="Organization Unit oid_Organization Unit.oid(ManagerToArea)" source="mov2#mpkg3#hym3#page24#enu17#fld2z" target="mov2#mpkg3#hym3#mfu1z.rel8#role15.ent6#att32"/>
+        <LinkParameter id="mov2#mpkg3#hym3#page24#enu17#ln4z#par7o" name="Picture_Pic" source="mov2#mpkg3#hym3#page24#enu17#fld89" target="mov2#mpkg3#hym3#mfu1z.ent1#att14"/>
+        <LinkParameter id="mov2#mpkg3#hym3#page24#enu17#ln4z#par8o" name="profile.png_Pic [file name]" target="mov2#mpkg3#hym3#mfu1z.ent1#att14_name" source="mov2#mpkg3#hym3#page24#enu17#fld89"/>
+      </Link>
+      <Field id="mov2#mpkg3#hym3#page24#enu17#fld1z" type="string" modifiable="false" name="Organization Unit" preloaded="true">
+        <VRules>
+          <MandatoryValidationRule id="mov2#mpkg3#hym3#page24#enu17#fld1z#mnd5z" name="mandatory"/>
+        </VRules>
+      </Field>
+      <Field id="mov2#mpkg3#hym3#page24#enu17#fld2z" name="Organization Unit oid" type="string" modifiable="false" preloaded="true" hidden="true"/>
+      <Field id="mov2#mpkg3#hym3#page24#enu17#fld3z" name="Entry date" type="date" modifiable="true" attribute="ent1#att6" preloaded="true">
+        <VRules>
+          <MandatoryValidationRule id="mov2#mpkg3#hym3#page24#enu17#fld3z#mnd3z" name="mandatory"/>
+        </VRules>
+      </Field>
+      <Field id="mov2#mpkg3#hym3#page24#enu17#fld6z" name="Last name" type="string" modifiable="true" attribute="ent1#att31">
+        <VRules>
+          <MandatoryValidationRule id="mov2#mpkg3#hym3#page24#enu17#fld6z#mnd1z" name="mandatory"/>
+        </VRules>
+      </Field>
+      <SelectionField id="mov2#mpkg3#hym3#page24#enu17#sfld2z" attribute="ent1#att7" type="string" name="Gender">
+        <Slot id="mov2#mpkg3#hym3#page24#enu17#sfld2z#slot2z" name="values" label="true" output="true" value="M|F"/>
+      </SelectionField>
+      <Link id="mov2#mpkg3#hym3#page24#enu17#ln18z" name="Delete" to="mov2#mpkg3#hym3#dlu2z" automaticCoupling="true" type="normal" validate="true"/>
+      <Link id="mov2#mpkg3#hym3#page24#enu17#ln1z" name="Link1" to="mov2#mpkg3#hym3#inn1z" type="transport" validate="true">
+        <LinkParameter id="mov2#mpkg3#hym3#page24#enu17#ln1z#par1z" name="Key [oid]_Input" source="key.userOID" target="mov2#mpkg3#hym3#inn1z.isnotnull"/>
+      </Link>
+    </EntryUnit>
+    <SelectorUnit id="mov2#mpkg3#hym3#page24#seu27" name="Organization Units" gr:x="250" gr:y="10" entity="ent6">
+      <Link id="mov2#mpkg3#hym3#page24#seu27#ln133" name="Link24" to="mov2#mpkg3#hym3#page24#enu17" type="transport" validate="true"/>
+    </SelectorUnit>
+    <SelectorUnit id="mov2#mpkg3#hym3#page24#seu28" name="Roles" gr:x="130" gr:y="10" entity="ent10">
+      <Link id="mov2#mpkg3#hym3#page24#seu28#ln134" name="Link26" to="mov2#mpkg3#hym3#page24#enu17" type="transport" validate="true">
+        <LinkParameter id="mov2#mpkg3#hym3#page24#seu28#ln134#par318" name="name_EmployeeToPosition [label]" source="ent10#att30Array" target="mov2#mpkg3#hym3#page24#enu17#sfld28_label"/>
+        <LinkParameter id="mov2#mpkg3#hym3#page24#seu28#ln134#par319" name="oid_EmployeeToPosition [output]" source="ent10#att29Array" target="mov2#mpkg3#hym3#page24#enu17#sfld28_output"/>
+      </Link>
+    </SelectorUnit>
+    <TimeUnit id="mov2#mpkg3#hym3#page24#tmu6" name="Get Date" gr:x="440" gr:y="110">
+      <Link id="mov2#mpkg3#hym3#page24#tmu6#ln5z" name="Link5" to="mov2#mpkg3#hym3#page24#enu17" type="transport" validate="true">
+        <LinkParameter id="mov2#mpkg3#hym3#page24#tmu6#ln5z#par11z" name="Current/Input Date_Entry date" source="currentDate" target="mov2#mpkg3#hym3#page24#enu17#fld3z_slot"/>
+      </Link>
+    </TimeUnit>
+    <SelectorUnit id="mov2#mpkg3#hym3#page24#seu29" name="Employee" gr:x="0" gr:y="0" entity="ent1">
+      <Selector id="mov2#mpkg3#hym3#page24#seu29#su29" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="mov2#mpkg3#hym3#page24#seu29#su29#kcond15" name="KeyCondition11" predicate="in" implied="false"/>
+      </Selector>
+      <Link id="mov2#mpkg3#hym3#page24#seu29#ln136" name="Link86" to="mov2#mpkg3#hym3#page24#enu17" type="transport" validate="true">
+        <LinkParameter id="mov2#mpkg3#hym3#page24#seu29#ln136#par321" name="birthday_birthday" source="ent1#att11Array" target="mov2#mpkg3#hym3#page24#enu17#fld88_slot"/>
+        <LinkParameter id="mov2#mpkg3#hym3#page24#seu29#ln136#par322" name="email_email" source="emailArray" target="mov2#mpkg3#hym3#page24#enu17#fld92_slot"/>
+        <LinkParameter id="mov2#mpkg3#hym3#page24#seu29#ln136#par324" name="EmployeeToPosition.oid_EmployeeToPosition - Preselection" source="rel7#role13_ent10#att29Array" target="mov2#mpkg3#hym3#page24#enu17#sfld28_presel"/>
+        <LinkParameter id="mov2#mpkg3#hym3#page24#seu29#ln136#par327" name="location_location" source="ent1#att9Array" target="mov2#mpkg3#hym3#page24#enu17#fld87_slot"/>
+        <LinkParameter id="mov2#mpkg3#hym3#page24#seu29#ln136#par328" name="name_name" source="ent1#att2Array" target="mov2#mpkg3#hym3#page24#enu17#fld83_slot"/>
+        <LinkParameter id="mov2#mpkg3#hym3#page24#seu29#ln136#par330" name="phone_phone" source="ent1#att4Array" target="mov2#mpkg3#hym3#page24#enu17#fld84_slot"/>
+        <LinkParameter id="mov2#mpkg3#hym3#page24#seu29#ln136#par331" name="pic_pic" source="ent1#att14Array" target="mov2#mpkg3#hym3#page24#enu17#fld89_slot"/>
+        <LinkParameter id="mov2#mpkg3#hym3#page24#seu29#ln136#par332" name="userName_userName" source="userNameArray" target="mov2#mpkg3#hym3#page24#enu17#fld90_slot"/>
+        <LinkParameter id="mov2#mpkg3#hym3#page24#seu29#ln136#par36z" name="entrydate_Entry date" source="ent1#att6Array" target="mov2#mpkg3#hym3#page24#enu17#fld3z_slot"/>
+        <LinkParameter id="mov2#mpkg3#hym3#page24#seu29#ln136#par37z" name="gender_Gender - Preselection" source="ent1#att7Array" target="mov2#mpkg3#hym3#page24#enu17#sfld2z_presel"/>
+        <LinkParameter id="mov2#mpkg3#hym3#page24#seu29#ln136#par38z" name="oid_Key Condition [oid]" source="userOIDArray" target="mov2#mpkg3#hym3#page24#enu17.userOID"/>
+      </Link>
+      <Link id="mov2#mpkg3#hym3#page24#seu29#ln23z" name="Link23" to="mov2#mpkg3#hym3#page24#seu1z" type="transport" validate="true">
+        <LinkParameter id="mov2#mpkg3#hym3#page24#seu29#ln23z#par44z" name="EmployeeToArea.oid_KeyCondition6 [oid]" source="rel1#role1_ent6#att32Array" target="mov2#mpkg3#hym3#page24#seu1z#su4z#kcond6z.ent6#att32"/>
+      </Link>
+    </SelectorUnit>
+    <SelectorUnit gr:x="50" gr:y="130" id="mov2#mpkg3#hym3#page24#seu1z" name="Organization Unit" entity="ent6">
+      <Selector id="mov2#mpkg3#hym3#page24#seu1z#su4z" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="mov2#mpkg3#hym3#page24#seu1z#su4z#kcond6z" name="KeyCondition6" predicate="in" implied="false"/>
+      </Selector>
+      <Link id="mov2#mpkg3#hym3#page24#seu1z#ln24z" name="Link24" to="mov2#mpkg3#hym3#page24#enu17" type="transport" validate="true">
+        <LinkParameter id="mov2#mpkg3#hym3#page24#seu1z#ln24z#par39z" name="name_Area" source="ent6#att33Array" target="mov2#mpkg3#hym3#page24#enu17#fld1z_slot"/>
+        <LinkParameter id="mov2#mpkg3#hym3#page24#seu1z#ln24z#par43z" name="oid_Area oid" source="ent6#att32Array" target="mov2#mpkg3#hym3#page24#enu17#fld2z_slot"/>
+      </Link>
+    </SelectorUnit>
+    <GetUnit gr:x="415" gr:y="10" id="mov2#mpkg3#hym3#page24#gtu1o" name="Logged In User" contextParameters="UserCtxParam"/>
+  </ContentUnits>
+  <layout:Grid containerType="grid">
+    <layout:Row>
+      <layout:Cell colspan="9"/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell colspan="3">
+        <layout:Link unitId="mov2#mpkg3#hym3#page24#enu17" link="mov2#mpkg3#hym3#page24#enu17#ln18z" layout:linkVisibilityCondition="mov2#mpkg3#hym3#page24#cexpr2o">
+          <layout:LayoutParameter name="icon-padding" value="20px" type="link"/>
+          <layout:LayoutParameter name="confirmation" value="true" type="link"/>
+        </layout:Link>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="9">
+        <layout:Field unitId="mov2#mpkg3#hym3#page24#enu17" mode="full" field="mov2#mpkg3#hym3#page24#enu17#fld90"/>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell colspan="3"/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="9">
+        <layout:Field unitId="mov2#mpkg3#hym3#page24#enu17" mode="full" field="mov2#mpkg3#hym3#page24#enu17#fld1z"/>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell colspan="3" rowspan="10">
+        <layout:Field unitId="mov2#mpkg3#hym3#page24#enu17" mode="full" field="mov2#mpkg3#hym3#page24#enu17#fld89"/>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="6">
+        <layout:Link unitId="mov2#mpkg3#hym3#page24#enu17" link="mov2#mpkg3#hym3#page24#enu17#ln130"/>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell colspan="3"/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="9">
+        <layout:Field unitId="mov2#mpkg3#hym3#page24#enu17" mode="full" field="mov2#mpkg3#hym3#page24#enu17#sfld28"/>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="5">
+        <layout:Field unitId="mov2#mpkg3#hym3#page24#enu17" mode="full" field="mov2#mpkg3#hym3#page24#enu17#fld84"/>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell colspan="4">
+        <layout:Field unitId="mov2#mpkg3#hym3#page24#enu17" mode="full" field="mov2#mpkg3#hym3#page24#enu17#fld87"/>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="9">
+        <layout:Field unitId="mov2#mpkg3#hym3#page24#enu17" mode="full" field="mov2#mpkg3#hym3#page24#enu17#fld92"/>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="9">
+        <layout:Field unitId="mov2#mpkg3#hym3#page24#enu17" mode="full" field="mov2#mpkg3#hym3#page24#enu17#fld3z"/>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="5">
+        <layout:Field unitId="mov2#mpkg3#hym3#page24#enu17" mode="full" field="mov2#mpkg3#hym3#page24#enu17#fld83"/>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell colspan="4">
+        <layout:Field unitId="mov2#mpkg3#hym3#page24#enu17" mode="full" field="mov2#mpkg3#hym3#page24#enu17#fld6z"/>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="5">
+        <layout:Field unitId="mov2#mpkg3#hym3#page24#enu17" mode="full" field="mov2#mpkg3#hym3#page24#enu17#fld88"/>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell colspan="4">
+        <layout:Field unitId="mov2#mpkg3#hym3#page24#enu17" mode="full" field="mov2#mpkg3#hym3#page24#enu17#sfld2z"/>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="9"/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="2">
+        <layout:Link unitId="mov2#mpkg3#hym3#page24#enu17" link="mov2#mpkg3#hym3#page24#enu17#ln131"/>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell colspan="2">
+        <layout:Link unitId="mov2#mpkg3#hym3#page24#enu17" link="mov2#mpkg3#hym3#page24#enu17#ln132"/>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell colspan="2">
+        <layout:Link unitId="mov2#mpkg3#hym3#page24#enu17" link="mov2#mpkg3#hym3#page24#enu17#ln129"/>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell colspan="3"/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+  <Variable id="mov2#mpkg3#hym3#page24#var3z" name="selectedEmployee" type="integer" unitId="mov2#mpkg3#hym3#page24#enu17" parameter="key.userOID"/>
+  <ConditionExpression id="mov2#mpkg3#hym3#page24#cexpr3z" name="isEmployeeSelected">
+    <TextValue xml:space="preserve">import com.webratio.rtx.core.BeanHelper
+
+!BeanHelper.isNullOrEmptyString(selectedEmployee)</TextValue>
+  </ConditionExpression>
+  <Variable id="mov2#mpkg3#hym3#page24#var1o" name="loggedUser" type="integer" unitId="mov2#mpkg3#hym3#page24#gtu1o" parameter="mov2#mpkg3#hym3#page24#gtu1o.UserCtxParam"/>
+  <ConditionExpression id="mov2#mpkg3#hym3#page24#cexpr2o" name="showDelete">
+    <TextValue xml:space="preserve">import com.webratio.rtx.core.BeanHelper
+
+def isNull = BeanHelper.isNullOrEmptyString(selectedEmployee)
+
+if(!isNull){
+
+	if(loggedUser != selectedEmployee[0]){
+		
+		return true
+	}
+	
+	else return false
+}
+
+else return false</TextValue>
+  </ConditionExpression>
+</Page>

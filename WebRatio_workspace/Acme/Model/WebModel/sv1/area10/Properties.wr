@@ -1,0 +1,17 @@
+<Area xmlns:gr="http://www.webratio.com/2006/WebML/Graph" id="sv1#area10" name="Search" defaultPage="sv1#area10#page4" landmark="true" gr:x="1090" gr:y="-120">
+  <OperationUnits>
+    <ModuleInstanceUnit id="sv1#area10#miu5" name="Photo Gallery" protected="false" gr:x="520" gr:y="365" moduleId="mov1#mpkg2#hym7"/>
+    <ModuleInstanceUnit id="sv1#area10#miu6" name="Product Details" protected="false" gr:x="295" gr:y="265" moduleId="mov1#mpkg2#hym6">
+      <OKLink id="sv1#area10#miu6#oln7" name="Photo Gallery" to="sv1#area10#miu5" codeRef="mov1#mpkg2#hym6#okcu4" ajaxOpenWindow="true" ajaxWindowUseTitle="true" ajaxWindowResizable="true" ajaxWindowAutoResizing="true" ajaxWindowClosable="true" ajaxWindowModal="true" ajaxWindowTitle="Photogallery">
+        <LinkParameter id="sv1#area10#miu6#oln7#par54" name="Product Key" source="mov1#mpkg2#hym6#okcu4#ocp4" target="sv1#area10#miu5.mov1#mpkg2#hym7#icu8#icp6"/>
+      </OKLink>
+      <OKLink id="sv1#area10#miu6#oln2" name="OKLink2" to="sv1#area10#miu19" codeRef="mov1#mpkg2#hym6#okcu2" ajaxOpenWindow="true" ajaxWindowUseTitle="true" ajaxWindowResizable="true" ajaxWindowAutoResizing="true" ajaxWindowClosable="true" ajaxWindowModal="true" ajaxWindowTitle="Combination Details">
+        <LinkParameter id="sv1#area10#miu6#oln2#par13" name="Combination Key" source="mov1#mpkg2#hym6#okcu2#ocp2" target="sv1#area10#miu19.mov1#mpkg2#hym5#icu6#icp4"/>
+      </OKLink>
+    </ModuleInstanceUnit>
+    <ModuleInstanceUnit id="sv1#area10#miu19" name="Combination Details" gr:x="515" gr:y="145" protected="false" moduleId="mov1#mpkg2#hym5"/>
+    <NoOpOperationUnit gr:x="120" gr:y="0" id="sv1#area10#opu5" name="Reset Search">
+      <OKLink id="sv1#area10#opu5#oln13" name="OKLink13" to="sv1#area10#page4" automaticCoupling="true" gr:bendpoints="-103,0,-68,-210"/>
+    </NoOpOperationUnit>
+  </OperationUnits>
+</Area>

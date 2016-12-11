@@ -1,0 +1,177 @@
+#?delimiters [%, %], [%=, %]
+<wr:LayoutParameter label="Use Alternate Rows" name="use-alternate" type="boolean" default="true">
+Defines the usage of alternates colours for each line.
+Allowed values are: true or false(default).
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Show Filter" name="show-filter" type="boolean" default="false">
+Defines the rendition of the search box on the top.
+Allowed values are: true (default) or false.
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Show Info" name="show-info" type="boolean" default="false">
+Defines the rendition of the table info on the bottom.
+Allowed values are: true (default) or false.
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Sortable" name="sortable" type="boolean" default="true">
+Defines the rendition of sortable link in the header.
+Allowed values are: true (default) or false.
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Paginate" name="paginate" type="boolean" default="false">
+Defines the rendition of the header on the top.
+Allowed values are: true (default) or false.
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Pagination type" name="pagination-type" type="enum" values="full numbers|two button" default="full numbers">
+Defines the rendition of pagination.
+Allowed values are: full number(default) or two button.
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Show Page Length Menu" name="show-length-menu" type="boolean" default="false">
+Defines the rendition of Page Length menu.
+Allowed values are: true (default) or false.
+</wr:LayoutParameter>
+[%setXMLOutput()
+
+def createLink = unit.selectSingleNode("layout:Link[@name='create']")
+def updateLink = unit.selectSingleNode("layout:Link[@name='update']")
+def forceUpdateLink = unit.selectSingleNode("layout:Link[@name='forceUpdate']")
+def deleteLink = unit.selectSingleNode("layout:Link[@name='delete']")
+def diagramLink = unit.selectSingleNode("layout:Link[@name='diagram']")
+
+def updateAllLink = unit.selectSingleNode("layout:Link[@name='updateAll']")
+def deleteAllLink = unit.selectSingleNode("layout:Link[@name='deleteAll']")
+
+def myIndex = unit.hashCode()
+
+def useAlternate = params["use-alternate"]
+def showFilter = params["show-filter"]
+def showInfo = params["show-info"]
+def sortable = params["sortable"]
+def paginate = params["paginate"]
+def paginationType = params["pagination-type"]
+def pageLengthMenu = params["show-length-menu"]
+def linkPosition = params["link-position"]
+
+def options = (useAlternate == "false") ? "data-as-strip-classes=[]" : "";
+options += " data-b-filter=" + showFilter
+options += " data-b-info=" + showInfo
+options += " data-b-sort=" + sortable
+options += " data-b-length-change=" + pageLengthMenu
+if (paginate == "true") {
+	options += " data-s-pagination-type="+StringUtils.replace(paginationType, " ", "_");
+} else {
+	options += " data-b-paginate=false"
+}
+
+%]
+<c:if test="${not(empty <wr:Id context="unit" />)}">
+<wr:Frame>
+<div class="plain <wr:StyleClass/>">
+ <div class="plain ProcessUnit DataTableIndexUnit">
+	<c:if test="${not(empty <wr:Id context="unit" />.status)}">
+		<c:choose>
+		  	<c:when test="${<wr:Id context="unit" />.status == 'updated'}">
+				<div class="alert success" data-sticky="true"> 
+			</c:when>
+			<c:otherwise>
+		  		<div class="alert warning" data-sticky="true">
+			</c:otherwise>
+		</c:choose>
+		<span><bean:message key="Process.metadata.${<wr:Id context="unit" />.status}"/></span>
+	</div>	
+	</c:if>
+	
+	<table id="[%= getLayoutId(unit) + "_sortable" %]" class="datatable" [%= options %] >
+       <thead>
+       <tr>
+            <th class="<wr:StyleClass/> link-h header">
+                <!--<script>multiChoiceMap.set("<wr:Id context="unit" />_[%= myIndex%]", "all")</script>
+				<a href="#" onmouseover="this.cursor='pointer'" onmouseout="this.cursor='default'" onclick="return checkall('<wr:Id context="unit" />', '[%= myIndex%]', 'Checked')"> <img id="<wr:Id context="unit" />[%= myIndex%]image" src="WRResources/spacer.gif" class="selectAll" border="0" /></a>
+				-->
+            </th>
+			<th class="<wr:StyleClass/> header">Process</th>
+			<th class="<wr:StyleClass/> header" data-information-level="low">Version</th>
+			<th class="<wr:StyleClass/> header" data-information-level="medium">Status</th>	
+			<th class="<wr:StyleClass/> link-h header"></th>
+			<th class="<wr:StyleClass/> link-h header"></th>
+			<th class="<wr:StyleClass/> link-h header"></th>
+		</tr>
+		</thead>
+		<tbody>
+		<c:if test="${not(empty <wr:Id context="unit" />.data)}">
+		   <c:forEach var="current" varStatus="status" items="${<wr:Id context="unit" />.data}">
+		      <c:set var="index" value="${status.index}"/>
+		      <c:set var="processStatus" value="${current.status}"/>
+		      <tr>
+		         <td class="<wr:StyleClass/> value status-${processStatus}">
+		           <c:choose>
+		             <c:when test="${current.status eq 'invalid'}">
+		                <html:multibox disabled="true" property="<wr:Id context="unit" />Checked" styleClass="checkBox" value="${current.key}"/>
+		             </c:when>
+		             <c:otherwise>
+		                <html:multibox styleId="<wr:Id context="unit" />_[%= myIndex%]_${index}" property="<wr:Id context="unit" />Checked" styleClass="checkBox" value="${current.key}"/>
+		             </c:otherwise>
+		           </c:choose>
+		         </td>
+		         
+		         <td class="<wr:StyleClass/> value status-${processStatus}"><c:out value="${current.[%=getFieldName("processName")%]}"/></td>
+		         <td class="<wr:StyleClass/> value status-${processStatus}" data-information-level="low"><c:out value="${current.[%=getFieldName("processVersion")%]}"/></td>
+		         <td class="<wr:StyleClass/> value status-${processStatus}" data-information-level="medium">${current.status}</td>
+		         <td class="<wr:StyleClass/> link status-${processStatus} nowrap">
+			     <c:choose>
+		           <c:when test="${current.status eq 'new'}">
+		               <wr:Link class="btn i_plus icon small notext" context="createLink"/>
+		           </c:when>
+		           <c:when test="${current.status eq 'invalid'}">
+		               <wr:Link class="btn i_refresh icon small notext" context="forceUpdateLink"/>
+		           </c:when>
+		           <c:when test="${current.status eq 'outdated'}">
+		               <wr:Link class="btn i_refresh icon small notext" context="updateLink"/>
+		           </c:when>
+		           <c:otherwise>
+		           	<a href="#" onclick="return false" class="btn i_refresh icon small notext" title="<wr:Label context="updateLink"/>">&nbsp;</a>
+		           </c:otherwise>
+		         </c:choose>
+		         </td>
+		         <td class="<wr:StyleClass/> link status-${processStatus} nowrap">
+		         <c:choose>
+		           <c:when test="${current.status ne 'new'}">
+		             <wr:Link class="btn i_cross icon small notext" context="deleteLink"/>
+		           </c:when>
+		           <c:otherwise>
+			       	<a href="#" onclick="return false" class="btn i_cross icon small notext" title="<wr:Label context="deleteLink"/>">&nbsp;</a>
+		           </c:otherwise>
+		         </c:choose>
+		         </td>
+		         <td class="<wr:StyleClass/> link status-${processStatus}">
+		         	<wr:Link class="btn i_information icon small notext" context="diagramLink"/>
+		         </td>
+		      
+		      </tr>
+		      <c:if test="${not(empty current.details)}">
+		      <tr>
+		        <td colspan="7" class="status-${processStatus} detail l" style="padding-left:50px">
+		            <ul>
+		            <c:forEach var="detail" items="${current.details}">
+		              <li><c:out value="${detail}"/></li>
+		            </c:forEach>
+		            </ul>
+		        </td>
+		      </tr>
+		      </c:if>
+		   </c:forEach>
+		</c:if>
+		</tbody>
+	</table>
+	
+	<div class="clear">&nbsp;</div>
+    <section class="fr">
+        <c:set var="_wr_error"><html:errors property="<wr:Id context="unit" />Checked"/></c:set>
+        <c:if test="${fn:length(_wr_error) gt 0}">
+        	<span class="error" ><html:errors property="<wr:Id context="unit" />Checked" /></span>
+        </c:if>
+        <span><wr:Link context="updateAllLink" type="button"/></span>
+        <span><wr:Link context="deleteAllLink" type="button"/></span>
+    </section>	
+    <div class="clear">&nbsp;</div>
+   </div>
+  </div>   
+</wr:Frame>
+</c:if>   

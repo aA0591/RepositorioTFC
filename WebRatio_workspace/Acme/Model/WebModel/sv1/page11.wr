@@ -1,0 +1,42 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" gr:x="-60" gr:y="50" id="sv1#page11" name="Login" layout:pageLayout="WRDefault/Empty" ignoreMasterPage="true">
+  <ContentUnits>
+    <EntryUnit id="sv1#page11#enu4" name="Login" linkOrder="sv1#page11#enu4#ln25" gr:x="0" gr:y="0" entity="User">
+      <Field id="sv1#page11#enu4#fld5" name="UserName" type="string" modifiable="true" attribute="userName">
+        <VRules>
+          <MandatoryValidationRule id="sv1#page11#enu4#fld5#mnd1" name="Mandatory Field"/>
+        </VRules>
+      </Field>
+      <Field id="sv1#page11#enu4#fld6" name="Password" type="password" modifiable="true" attribute="password">
+        <VRules>
+          <MandatoryValidationRule id="sv1#page11#enu4#fld6#mnd2" name="Mandatory Field"/>
+        </VRules>
+      </Field>
+      <Link id="sv1#page11#enu4#ln25" name="Login" to="sv1#lgu2" type="normal" validate="true">
+        <LinkParameter id="sv1#page11#enu4#ln25#par3" name="Username" source="sv1#page11#enu4#fld5" target="sv1#lgu2.username"/>
+        <LinkParameter id="sv1#page11#enu4#ln25#par9" name="Password" source="sv1#page11#enu4#fld6" target="sv1#lgu2.password"/>
+      </Link>
+    </EntryUnit>
+  </ContentUnits>
+  <layout:Grid containerType="grid">
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv1#page11#enu4" layout:unitVisibilityCondition="cexpr4" layout:unitVisibilityConditionNegated="true" layout:frameLayout="None">
+          <layout:Field field="sv1#page11#enu4#fld5"/>
+          <layout:Field field="sv1#page11#enu4#fld6"/>
+          <layout:Link link="sv1#page11#enu4#ln25"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+</Page>

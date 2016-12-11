@@ -1,0 +1,19 @@
+<HybridModule xmlns:gr="http://www.webratio.com/2006/WebML/Graph" id="mov2#mpkg11#hym52" name="Edit Editorial Reviews" gr:x="0" gr:y="0" gr:icon="ModulesIcons/Edit.png">
+  <OperationUnits>
+    <DeleteUnit id="mov2#mpkg11#hym52#dlu17" name="Delete Editorial Review" gr:x="145" gr:y="310" entity="ent9">
+      <Selector id="mov2#mpkg11#hym52#dlu17#su127" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="mov2#mpkg11#hym52#dlu17#su127#kcond49" name="Editorial Review" predicate="in" implied="false"/>
+      </Selector>
+      <OKLink id="mov2#mpkg11#hym52#dlu17#oln241" name="OKLink241" to="mov2#mpkg11#hym52#page69" automaticCoupling="true" gr:bendpoints="44,-68,34,112"/>
+    </DeleteUnit>
+    <InputCollectorUnit id="mov2#mpkg11#hym52#icu64" name="Input" gr:x="-130" gr:y="140">
+      <InputCollectorParameter id="mov2#mpkg11#hym52#icu64#icp184" name="Book Key"/>
+      <OKLink id="mov2#mpkg11#hym52#icu64#oln242" name="OKLink242" to="mov2#mpkg11#hym52#page69#pwu16" ajaxOpenWindow="false" ajaxWindowUseTitle="true" ajaxWindowTitle="Related Reviews" ajaxWindowWidth="700" ajaxWindowHeight="600" ajaxWindowAutoResizing="false" ajaxWindowClosable="true" ajaxWindowDraggable="true">
+        <LinkParameter id="mov2#mpkg11#hym52#icu64#oln242#par609" name="Book Key" source="mov2#mpkg11#hym52#icu64#icp184" target="mov2#mpkg11#hym52#page69#pwu16#su128#rcond29.ent1#att60"/>
+      </OKLink>
+    </InputCollectorUnit>
+    <OKCollectorUnit id="mov2#mpkg11#hym52#okcu60" name="Success" gr:x="805" gr:y="190"/>
+    <KOCollectorUnit gr:x="805" gr:y="290" id="mov2#mpkg11#hym52#kocu5" name="Error"/>
+  </OperationUnits>
+  <Comment xml:space="preserve">Hybrid Module that allows the User to see and add Editorial Reviews to a specific Book.</Comment>
+</HybridModule>

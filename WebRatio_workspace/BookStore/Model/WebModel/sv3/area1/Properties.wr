@@ -1,0 +1,30 @@
+<Area xmlns:gr="http://www.webratio.com/2006/WebML/Graph" id="sv3#area1" name="Category Management" defaultPage="sv3#area1#page5" landmark="true" gr:x="660" gr:y="-940" protected="false">
+  <OperationUnits>
+    <ModuleInstanceUnit id="sv3#area1#miu1" name="Delete Category" gr:x="595" gr:y="525" moduleId="mov1#mpkg8#hym43">
+      <OKLink id="sv3#area1#miu1#oln1" name="OKLink1" to="sv3#area1#page5#mssu48">
+        <LinkParameter id="sv3#area1#miu1#oln1#par175" name="Message" sourceValue="The Category was deleted Successfully" target="sv3#area1#page5#mssu48.shownMessages"/>
+      </OKLink>
+    </ModuleInstanceUnit>
+    <ModuleInstanceUnit id="sv3#area1#miu3" name="Edit Parent" gr:x="225" gr:y="0" moduleId="mov1#mpkg8#hym42">
+      <OKLink id="sv3#area1#miu3#oln2" name="OKLink2" to="sv3#area1#page5#enu7" preserveForm="true" gr:bendpoints="31,138,36,-122">
+        <LinkParameter id="sv3#area1#miu3#oln2#par26" name="Parent Category Name" source="mov1#mpkg8#hym42#okcu48#ocp49" target="sv3#area1#page5#enu7#fld11_slot"/>
+        <LinkParameter id="sv3#area1#miu3#oln2#par29" name="Parent Category Key" source="mov1#mpkg8#hym42#okcu48#ocp3" target="sv3#area1#page5#enu7#fld33_slot"/>
+      </OKLink>
+    </ModuleInstanceUnit>
+    <NoOpOperationUnit id="sv3#area1#opu1" name="Cancel Operations" gr:x="25" gr:y="535">
+      <OKLink id="sv3#area1#opu1#oln15" name="OKLink15" to="sv3#area1#page5#enu7">
+        <LinkParameter id="sv3#area1#opu1#oln15#par156" name="Category Key" sourceValue="$$NULL$$" target="sv3#area1#page5#enu7.ent6#att62"/>
+        <LinkParameter id="sv3#area1#opu1#oln15#par157" name="Parent Category Key" sourceValue="$$NULL$$" target="sv3#area1#page5#enu7#fld11_slot"/>
+      </OKLink>
+    </NoOpOperationUnit>
+    <ModuleInstanceUnit id="sv3#area1#miu24" name="Save Category" gr:x="210" gr:y="515" moduleId="mov1#mpkg8#opm3">
+      <OKLink id="sv3#area1#miu24#oln25" name="OKLink25" to="sv3#area1#page5#mssu48" gr:bendpoints="179,0,-1,100">
+        <LinkParameter id="sv3#area1#miu24#oln25#par180" name="Message" sourceValue="The operation was successfully performed." target="sv3#area1#page5#mssu48.shownMessages"/>
+      </OKLink>
+      <KOLink id="sv3#area1#miu24#kln1" name="KOLink1" to="sv3#area1#page5#mssu48">
+        <LinkParameter id="sv3#area1#miu24#kln1#par176" name="Message" sourceValue="Something Was Wrong with the operation." target="sv3#area1#page5#mssu48.shownMessages"/>
+      </KOLink>
+    </ModuleInstanceUnit>
+  </OperationUnits>
+  <Comment xml:space="preserve">Area to handle the Categories.</Comment>
+</Area>

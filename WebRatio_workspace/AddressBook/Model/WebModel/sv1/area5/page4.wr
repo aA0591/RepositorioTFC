@@ -1,0 +1,71 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" gr:x="680" gr:y="300" id="sv1#area5#page4" name="Choose Manager" ignoreMasterPage="true" layout:pageLayout="WRDefault/Empty">
+  <ContentUnits>
+    <EntryUnit id="sv1#area5#page4#enu3" name="Search Employee" linkOrder="sv1#area5#page4#enu3#ln23" gr:x="35" gr:y="0" entity="ent1">
+      <Field id="sv1#area5#page4#enu3#fld7" name="Name" type="string" modifiable="true" attribute="ent1#att2"/>
+      <SelectionField id="sv1#area5#page4#enu3#sfld3" name="Role" type="string" role="rel7#role13"/>
+      <Link id="sv1#area5#page4#enu3#ln23" name="Search" to="sv1#area5#page4#inu1" type="normal" validate="true" ajaxEnabled="true">
+        <LinkParameter id="sv1#area5#page4#enu3#ln23#par36" name="name_name" source="sv1#area5#page4#enu3#fld7" target="sv1#area5#page4#inu1#su3#acond2"/>
+        <LinkParameter id="sv1#area5#page4#enu3#ln23#par37" name="EmployeeToPosition_position [oid]" source="sv1#area5#page4#enu3#sfld3" target="sv1#area5#page4#inu1#su3#rcond1.ent10#att29"/>
+      </Link>
+    </EntryUnit>
+    <SelectorUnit id="sv1#area5#page4#seu6" name="Roles" gr:x="165" gr:y="0" entity="ent10">
+      <Link id="sv1#area5#page4#seu6#ln24" name="Link7" to="sv1#area5#page4#enu3" type="transport" validate="true">
+        <LinkParameter id="sv1#area5#page4#seu6#ln24#par38" name="name_EmployeeToPosition [label]" source="ent10#att30Array" target="sv1#area5#page4#enu3#sfld3_label"/>
+        <LinkParameter id="sv1#area5#page4#seu6#ln24#par39" name="oid_EmployeeToPosition [output]" source="ent10#att29Array" target="sv1#area5#page4#enu3#sfld3_output"/>
+      </Link>
+    </SelectorUnit>
+    <IndexUnit id="sv1#area5#page4#inu1" entity="ent1" displayAttributes="ent1#att2 ent1#att31" name="Employees" ajaxTooltipEnabled="false" ajaxTooltipElement="row" ajaxTooltipEvent="click" ajaxTooltipWidth="600" ajaxTooltipHeight="90" ajaxEnableExpandedLinks="false" gr:x="0" gr:y="115" linkOrder="sv1#area5#page4#inu1#ln2">
+      <SortAttribute attribute="ent1#att2" order="ascending"/>
+      <Selector id="sv1#area5#page4#inu1#su3" defaultPolicy="fill" booleanOperator="and">
+        <AttributesCondition id="sv1#area5#page4#inu1#su3#acond2" attributes="ent1#att1z" predicate="contains" ignoreCase="true" booleanOperator="or" implied="true" name="name"/>
+        <RelationshipRoleCondition id="sv1#area5#page4#inu1#su3#rcond1" role="rel7#role14" predicate="in" implied="true" name="position"/>
+      </Selector>
+      <Link id="sv1#area5#page4#inu1#ln2" name="Select" to="sv1#area5#page1#enu1" type="normal" validate="true" preserveForm="true" ajaxEnabled="true" ajaxCloseWindow="true">
+        <LinkParameter id="sv1#area5#page4#inu1#ln2#par24z" name="full name_manager" source="data[].ent1#att1z" target="sv1#area5#page1#enu1#fld4z_slot"/>
+        <LinkParameter id="sv1#area5#page4#inu1#ln2#par25z" name="oid_manager oid" source="data[].userOID" target="sv1#area5#page1#enu1#fld5z_slot"/>
+      </Link>
+    </IndexUnit>
+  </ContentUnits>
+  <layout:Grid containerType="grid">
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv1#area5#page4#enu3">
+          <layout:Link link="sv1#area5#page4#enu3#ln23"/>
+          <layout:Field field="sv1#area5#page4#enu3#fld7"/>
+          <layout:Field field="sv1#area5#page4#enu3#sfld3"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv1#area5#page4#inu1" layout:style="WRDefault">
+          <layout:Attribute attribute="ent1#att2"/>
+          <layout:Attribute attribute="ent1#att31"/>
+          <layout:Link link="sv1#area5#page4#inu1#ln2"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+</Page>

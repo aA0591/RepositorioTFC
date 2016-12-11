@@ -1,0 +1,6 @@
+<ModuleView id="mov2" name="User Modules">
+  <Comment xml:space="preserve">This is the Module View related to the handing of Users and the operations they can do.
+
+The Modules are grouped by context, there is one section for Modules related to the handling of the Orders and Cart, another one for the operations available on a Book, while last one contains the operations strictly related to a single User.
+
+</Comment></ModuleView>

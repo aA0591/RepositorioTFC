@@ -1,11 +1,14 @@
-<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" gr:x="245" gr:y="95" id="sv1#page1" name="Scroll to top sample" landmark="false" ajaxEnabled="true">
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" gr:x="245" gr:y="85" id="sv1#page1" name="Scroll to top sample" landmark="false" ajaxEnabled="true">
   <ContentUnits>
-    <PowerIndexUnit gr:x="5" gr:y="0" id="sv1#page1#pwu1" name="Arguments" sortable="true" checkable="false" useCountQuery="true" entity="ent1" displayAttributes="ent1#att2 ent1#att4 ent1#att6" blockFactor="50" ajaxTooltipEnabled="false" distinct="false" maxResults="220">
+    <PowerIndexUnit gr:x="5" gr:y="10" id="sv1#page1#pwu1" name="Arguments" sortable="true" checkable="false" useCountQuery="true" entity="ent1" displayAttributes="ent1#att2 ent1#att4 ent1#att6" blockFactor="50" ajaxTooltipEnabled="false" distinct="false" maxResults="220">
       <SortAttribute attribute="ent1#att6" order="descending"/>
     </PowerIndexUnit>
-    <MultiMessageUnit gr:x="0" gr:y="100" id="sv1#page1#mssu1y" name="Scroll to top" ajaxEnableExpandedLinks="true">
+    <MultiMessageUnit gr:x="0" gr:y="110" id="sv1#page1#mssu1y" name="Scroll to top" ajaxEnableExpandedLinks="true">
       <Message xml:space="preserve">scroll-to-top</Message>
     </MultiMessageUnit>
+    <PowerIndexUnit id="sv1#page1#pwu2" name="Arguments2" ajaxTooltipEnabled="false" gr:x="100" gr:y="0" sortable="true" checkable="false" useCountQuery="true" entity="ent1" displayAttributes="ent1#att2 ent1#att4 ent1#att6" blockFactor="50" distinct="false" maxResults="220">
+      <SortAttribute attribute="ent1#att6" order="descending"/>
+    </PowerIndexUnit>
   </ContentUnits>
   <layout:Grid>
     <layout:Row>
@@ -22,8 +25,22 @@
           <layout:Link link="sv1#page1#pwu1Last"/>
         </layout:Unit>
       </layout:Cell>
+      <layout:Cell>
+        <layout:Unit unitId="sv1#page1#pwu2">
+          <layout:Attribute attribute="ent1#att2"/>
+          <layout:Attribute attribute="ent1#att4"/>
+          <layout:Attribute attribute="ent1#att6"/>
+          <layout:Link link="sv1#page1#pwu2ent1#att6"/>
+          <layout:Link link="sv1#page1#pwu2First"/>
+          <layout:Link link="sv1#page1#pwu2Previous"/>
+          <layout:Link link="sv1#page1#pwu2Block"/>
+          <layout:Link link="sv1#page1#pwu2Next"/>
+          <layout:Link link="sv1#page1#pwu2Last"/>
+        </layout:Unit>
+      </layout:Cell>
     </layout:Row>
     <layout:Row>
+      <layout:Cell/>
       <layout:Cell>
         <layout:Unit unitId="sv1#page1#mssu1y" layout:unitLayout="StoreTemplates/ScrollToTop"/>
       </layout:Cell>

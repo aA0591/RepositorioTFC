@@ -1,0 +1,15 @@
+<SiteView xmlns:gr="http://www.webratio.com/2006/WebML/Graph" id="sv1" name="Public" landmarks="sv1#area6" homePage="sv1#area6#page14" protected="false">
+  <OperationUnits>
+    <LogoutUnit id="sv1#lou4" name="Logout" landmark="false" gr:x="855" gr:y="-445" siteView="sv1"/>
+    <LoginUnit gr:x="860" gr:y="-325" id="sv1#lgu3" name="Login"/>
+    <ModuleInstanceUnit id="sv1#miu9" name="Registration" gr:x="845" gr:y="-250" moduleId="mov2#mpkg12#hym53"/>
+  </OperationUnits>
+  <Comment xml:space="preserve">This is the public Site View of the BookStore project. 
+
+Here you find the Main Content Area which is the container for the main content of the Site View. Inside this area all the generic information related to Books are available. The User can look up for Books and eventually once that he is logged in, he can add Items to Cart and make some other operations related to a Book. For example leaving a Comment, rating a Book and see is own Cart.
+
+Outside the Area there is the definition of the Master Page, which contains the User related information, and the buttons to manage the User session (Register New User / Login / Logout).
+
+
+
+</Comment></SiteView>

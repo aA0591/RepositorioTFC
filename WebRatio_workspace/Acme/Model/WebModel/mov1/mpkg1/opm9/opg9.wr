@@ -1,0 +1,28 @@
+<OperationGroup xmlns:gr="http://www.webratio.com/2006/WebML/Graph" id="mov1#mpkg1#opm9#opg9" name="Save Store Information" transaction="true" gr:x="255" gr:y="-45">
+  <OperationUnits>
+    <CreateUnit id="mov1#mpkg1#opm9#opg9#cru16" name="Create Store" gr:x="130" gr:y="0" entity="ent5">
+      <OKLink id="mov1#mpkg1#opm9#opg9#cru16#oln100" name="OKLink51" to="mov1#mpkg1#opm9#opg9#pcu19"/>
+    </CreateUnit>
+    <ModifyUnit id="mov1#mpkg1#opm9#opg9#mfu11" name="Modify Store" gr:x="130" gr:y="205" entity="ent5">
+      <OKLink id="mov1#mpkg1#opm9#opg9#mfu11#oln101" name="OKLink69" to="mov1#mpkg1#opm9#opg9#pcu19"/>
+      <Selector id="mov1#mpkg1#opm9#opg9#mfu11#su44" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="mov1#mpkg1#opm9#opg9#mfu11#su44#kcond30" name="Store" predicate="in" implied="false"/>
+      </Selector>
+    </ModifyUnit>
+    <IsNotNullUnit id="mov1#mpkg1#opm9#opg9#inn12" name="Existing Store?" gr:x="0" gr:y="125">
+      <OKLink id="mov1#mpkg1#opm9#opg9#inn12#oln102" name="OKLink47" to="mov1#mpkg1#opm9#opg9#mfu11">
+        <LinkParameter id="mov1#mpkg1#opm9#opg9#inn12#oln102#par265" name="Store Key" source="inputValue" target="mov1#mpkg1#opm9#opg9#mfu11#su44#kcond30.ent5#att28"/>
+      </OKLink>
+      <KOLink id="mov1#mpkg1#opm9#opg9#inn12#kln29" name="KOLink19" to="mov1#mpkg1#opm9#opg9#cru16"/>
+    </IsNotNullUnit>
+    <ParameterCollectorUnit id="mov1#mpkg1#opm9#opg9#pcu19" name="Collect Message Information" gr:x="235" gr:y="120">
+      <CollectorParameter id="mov1#mpkg1#opm9#opg9#pcu19#pcp50" name="Message" value="Store succesfully saved"/>
+      <OKLink id="mov1#mpkg1#opm9#opg9#pcu19#oln103" name="OKLink49" to="mov1#mpkg1#opm9#okcu10">
+        <LinkParameter id="mov1#mpkg1#opm9#opg9#pcu19#oln103#par251" name="Message" source="mov1#mpkg1#opm9#opg9#pcu19#pcp50" target="mov1#mpkg1#opm9#okcu10#ocp12"/>
+      </OKLink>
+    </ParameterCollectorUnit>
+  </OperationUnits>
+  <KOLink id="mov1#mpkg1#opm9#opg9#kln30" name="KOLink12" to="mov1#mpkg1#opm9#kocu5">
+    <LinkParameter id="mov1#mpkg1#opm9#opg9#kln30#par252" name="Message" target="mov1#mpkg1#opm9#kocu5#ocp13" sourceValue="Store not saved"/>
+  </KOLink>
+</OperationGroup>

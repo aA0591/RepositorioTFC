@@ -1,0 +1,79 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" id="sv1#page15" name="Cart" landmark="false" layout:pageLayout="WRDefault/Empty" gr:x="-150" gr:y="-415" ajaxEnabled="false" ignoreMasterPage="true">
+  <ContentUnits>
+    <PowerIndexUnit id="sv1#page15#pwu14" name="Cart Items" gr:x="0" gr:y="0" sortable="true" checkable="true" useCountQuery="false" entity="pkg2#ent12" displayAttributes="pkg2#ent12#att57 pkg2#ent12#att58 pkg2#ent12#att59 pkg2#ent12#att60" linkOrder="sv1#page15#pwu14#ln154 sv1#page15#pwu14#ln70" blockWindow="1">
+      <Selector id="sv1#page15#pwu14#su48" defaultPolicy="fill" booleanOperator="and">
+        <RelationshipRoleCondition id="sv1#page15#pwu14#su48#rcond25" predicate="in" implied="false" name="Cart" role="rel15#role6"/>
+      </Selector>
+      <DefaultSortAttribute attribute="pkg2#ent12#att57" order="ascending"/>
+      <DefaultSortAttribute attribute="pkg2#ent12#att58" order="ascending"/>
+      <DefaultSortAttribute attribute="pkg2#ent12#att59" order="ascending"/>
+      <DefaultSortAttribute attribute="pkg2#ent12#att60" order="ascending"/>
+      <Link id="sv1#page15#pwu14#ln154" name="Delete" to="sv1#dlu4" type="normal" validate="true" gr:bendpoints="54,-82,54,88">
+        <LinkParameter id="sv1#page15#pwu14#ln154#par254" name="Cart Item Key" source="data[].pkg2#ent12#att56" target="sv1#dlu4#su47#kcond58.pkg2#ent12#att56"/>
+      </Link>
+      <Link id="sv1#page15#pwu14#ln70" name="Delete Selected Elements" to="sv1#dlu4" type="normal" validate="true">
+        <LinkParameter id="sv1#page15#pwu14#ln70#par170" name="Checked Cart Item Keys" source="pkg2#ent12#att56Checked" target="sv1#dlu4#su47#kcond58.pkg2#ent12#att56"/>
+      </Link>
+      <SortAttribute attribute="pkg2#ent12#att57" order="ascending"/>
+      <SortAttribute attribute="pkg2#ent12#att58" order="ascending"/>
+      <SortAttribute attribute="pkg2#ent12#att59" order="ascending"/>
+      <SortAttribute attribute="pkg2#ent12#att60" order="ascending"/>
+    </PowerIndexUnit>
+    <DataUnit id="sv1#page15#dau11" name="Cart" gr:x="175" gr:y="10" entity="pkg2#ent10" displayAttributes="pkg2#ent10#att54 pkg2#ent10#att55">
+      <Selector id="sv1#page15#dau11#su49" defaultPolicy="fill" booleanOperator="and"/>
+      <Link id="sv1#page15#dau11#ln80" name="Link75" to="sv1#page15#pwu14" type="transport" validate="true" automaticCoupling="true"/>
+    </DataUnit>
+  </ContentUnits>
+  <layout:Grid>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv1#page15#dau11">
+          <layout:Attribute attribute="pkg2#ent10#att54"/>
+          <layout:Attribute attribute="pkg2#ent10#att55"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv1#page15#pwu14">
+          <layout:Attribute attribute="pkg2#ent12#att57"/>
+          <layout:Attribute attribute="pkg2#ent12#att58"/>
+          <layout:Attribute attribute="pkg2#ent12#att59"/>
+          <layout:Attribute attribute="pkg2#ent12#att60"/>
+          <layout:Link link="sv1#page15#pwu14#ln154">
+            <layout:LayoutParameter name="confirmation" value="true" type="link"/>
+          </layout:Link>
+          <layout:Link link="sv1#page15#pwu14#ln70">
+            <layout:LayoutParameter name="confirmation" value="true" type="link"/>
+          </layout:Link>
+          <layout:Link link="sv1#page15#pwu14pkg2#ent12#att57"/>
+          <layout:Link link="sv1#page15#pwu14pkg2#ent12#att58"/>
+          <layout:Link link="sv1#page15#pwu14pkg2#ent12#att59"/>
+          <layout:Link link="sv1#page15#pwu14pkg2#ent12#att60"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+</Page>

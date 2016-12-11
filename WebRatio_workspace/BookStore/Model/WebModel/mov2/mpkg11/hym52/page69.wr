@@ -1,0 +1,51 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" id="mov2#mpkg11#hym52#page69" name="Editorial Reviews" layout:pageLayout="WRDefault/Empty" ajaxEnabled="true" gr:x="125" gr:y="100">
+  <ContentUnits>
+    <PowerIndexUnit id="mov2#mpkg11#hym52#page69#pwu16" name="Editorial Reviews" linkOrder="mov2#mpkg11#hym52#page69#pwu16#ln260 mov2#mpkg11#hym52#page69#pwu16#ln261" gr:x="0" gr:y="0" sortable="true" checkable="false" useCountQuery="false" entity="ent9" displayAttributes="ent9#att49 ent9#att34 ent9#att35" blockFactor="5" blockWindow="5">
+      <Selector id="mov2#mpkg11#hym52#page69#pwu16#su128" defaultPolicy="fill" booleanOperator="and">
+        <RelationshipRoleCondition id="mov2#mpkg11#hym52#page69#pwu16#su128#rcond29" name="Book" role="rel4#rel19" predicate="in" implied="false"/>
+      </Selector>
+      <Link id="mov2#mpkg11#hym52#page69#pwu16#ln260" name="Edit" to="mov2#mpkg11#hym52#page68#enu19" type="normal" automaticCoupling="true" validate="false" ajaxEnabled="true" ajaxOpenWindow="true" ajaxReplaceWindow="false" ajaxWindowUseTitle="true" ajaxWindowTitle="Edit Review" ajaxWindowWidth="500" ajaxWindowHeight="500" ajaxWindowAutoResizing="false" ajaxWindowClosable="true" ajaxWindowDraggable="true"/>
+      <Link id="mov2#mpkg11#hym52#page69#pwu16#ln261" name="Delete" to="mov2#mpkg11#hym52#dlu17" type="normal" automaticCoupling="true" validate="true" ajaxEnabled="true"/>
+      <SortAttribute attribute="ent9#att49" order="descending"/>
+      <DefaultSortAttribute attribute="ent9#att49" order="descending"/>
+    </PowerIndexUnit>
+  </ContentUnits>
+  <layout:Grid>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="mov2#mpkg11#hym52#page69#pwu16">
+          <layout:Attribute attribute="ent9#att49"/>
+          <layout:Attribute attribute="ent9#att34"/>
+          <layout:Attribute attribute="ent9#att35"/>
+          <layout:LayoutParameter name="use-empty-unit-message" value="true" type="unit"/>
+          <layout:LayoutParameter name="empty-unit-message" value="noreviews" type="unit"/>
+          <layout:Link link="mov2#mpkg11#hym52#page69#pwu16#ln260" layout:linkVisibilityCondition="mov2#mpkg11#hym52#page69#cexpr21"/>
+          <layout:Link link="mov2#mpkg11#hym52#page69#pwu16#ln261" layout:linkVisibilityCondition="mov2#mpkg11#hym52#page69#cexpr21">
+            <layout:LayoutParameter name="confirmation" value="true" type="link"/>
+            <layout:LayoutParameter name="confirm-message" value="areyousure" type="link"/>
+          </layout:Link>
+          <layout:Link link="mov2#mpkg11#hym52#page69#pwu16ent9#att49"/>
+          <layout:Link link="mov2#mpkg11#hym52#page69#pwu16First"/>
+          <layout:Link link="mov2#mpkg11#hym52#page69#pwu16Previous"/>
+          <layout:Link link="mov2#mpkg11#hym52#page69#pwu16Block"/>
+          <layout:Link link="mov2#mpkg11#hym52#page69#pwu16Next"/>
+          <layout:Link link="mov2#mpkg11#hym52#page69#pwu16Last"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+  <ConditionExpression id="mov2#mpkg11#hym52#page69#cexpr21" name="seelinks">
+    <TextValue xml:space="preserve">UserCtxParam == '2'</TextValue>
+  </ConditionExpression>
+</Page>

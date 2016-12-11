@@ -1,0 +1,37 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" id="mov1#mpkg8#hym42#page58" name="Edit Parent" ignoreMasterPage="true" layout:pageLayout="WRDefault/Empty" gr:x="235" gr:y="15">
+  <ContentUnits>
+    <HierarchicalIndexUnit gr:x="0" gr:y="0" id="mov1#mpkg8#hym42#page58#hinu2" name="Available Categories" sortable="false" entity="ent6" displayAttributes="ent6#att19" linkOrder="mov1#mpkg8#hym42#page58#hinu2#ln40">
+      <Selector id="mov1#mpkg8#hym42#page58#hinu2#su17" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="mov1#mpkg8#hym42#page58#hinu2#su17#kcond19" name="Category" predicate="notIn" implied="false"/>
+      </Selector>
+      <Link id="mov1#mpkg8#hym42#page58#hinu2#ln40" name="Select" to="mov1#mpkg8#hym42#okcu48" type="normal" validate="true">
+        <LinkParameter id="mov1#mpkg8#hym42#page58#hinu2#ln40#par39" name="Category Key" source="data[].ent6#att62" target="mov1#mpkg8#hym42#okcu48#ocp3"/>
+        <LinkParameter id="mov1#mpkg8#hym42#page58#hinu2#ln40#par53" name="Category Name" source="data[].ent6#att19" target="mov1#mpkg8#hym42#okcu48#ocp49"/>
+      </Link>
+      <SortAttribute attribute="ent6#att19" order="ascending"/>
+    </HierarchicalIndexUnit>
+  </ContentUnits>
+  <layout:Grid>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="mov1#mpkg8#hym42#page58#hinu2">
+          <layout:Attribute attribute="ent6#att19"/>
+          <layout:Link link="mov1#mpkg8#hym42#page58#hinu2#ln40"/>
+          <layout:LayoutParameter name="link-position" value="on_row" type="unit"/>
+          <layout:LayoutParameter name="level-link-position" value="on_row" type="unit"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+</Page>

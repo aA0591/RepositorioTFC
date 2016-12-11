@@ -1,0 +1,39 @@
+<HybridModule xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" id="mov2#mpkg3#hym3" name="Employee Details" gr:x="0" gr:y="0" layout:singleLayout="false">
+  <OperationUnits>
+    <InputCollectorUnit id="mov2#mpkg3#hym3#icu4" name="Input Collector" gr:x="-125" gr:y="75">
+      <InputCollectorParameter id="mov2#mpkg3#hym3#icu4#icp28" name="employeeID"/>
+      <OKLink id="mov2#mpkg3#hym3#icu4#oln25" name="Start" to="mov2#mpkg3#hym3#page24#seu29">
+        <LinkParameter id="mov2#mpkg3#hym3#icu4#oln25#par303" name="oid_KeyCondition11 [oid]" source="mov2#mpkg3#hym3#icu4#icp28" target="mov2#mpkg3#hym3#page24#seu29#su29#kcond15.userOID"/>
+      </OKLink>
+    </InputCollectorUnit>
+    <OKCollectorUnit id="mov2#mpkg3#hym3#okcu4" name="OK Cancel" gr:x="1055" gr:y="500">
+      <OutputCollectorParameter id="mov2#mpkg3#hym3#okcu4#ocp1z" name="employeeID"/>
+    </OKCollectorUnit>
+    <NoOpOperationUnit id="mov2#mpkg3#hym3#opu6" name="Clear" gr:x="875" gr:y="230">
+      <OKLink id="mov2#mpkg3#hym3#opu6#oln26" name="OKLink6" to="mov2#mpkg3#hym3#page24#enu17" gr:bendpoints="-25,-64,-55,76" preserveForm="true"/>
+    </NoOpOperationUnit>
+    <CreateUnit id="mov2#mpkg3#hym3#cru1z" name="Create Employee" gr:x="430" gr:y="665" entity="ent1">
+      <OKLink id="mov2#mpkg3#hym3#cru1z#oln2z" name="OKLink2" to="mov2#mpkg3#hym3#okcu4">
+        <LinkParameter id="mov2#mpkg3#hym3#cru1z#oln2z#par13z" name="oid_employeeID" source="userOIDArray" target="mov2#mpkg3#hym3#okcu4#ocp1z"/>
+      </OKLink>
+    </CreateUnit>
+    <ModifyUnit id="mov2#mpkg3#hym3#mfu1z" name="ModifyEmployee" gr:x="685" gr:y="645" entity="ent1">
+      <Selector id="mov2#mpkg3#hym3#mfu1z#su2z" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="mov2#mpkg3#hym3#mfu1z#su2z#kcond2z" name="KeyCondition12" predicate="in" implied="false"/>
+      </Selector>
+      <OKLink id="mov2#mpkg3#hym3#mfu1z#oln3z" name="OKLink3" to="mov2#mpkg3#hym3#okcu4">
+        <LinkParameter id="mov2#mpkg3#hym3#mfu1z#oln3z#par12z" name="oid_employeeID" source="userOIDArray" target="mov2#mpkg3#hym3#okcu4#ocp1z"/>
+      </OKLink>
+    </ModifyUnit>
+    <IsNotNullUnit id="mov2#mpkg3#hym3#inn1z" name="Employee id not null" gr:x="530" gr:y="525">
+      <OKLink id="mov2#mpkg3#hym3#inn1z#oln1z" name="OKLink14" to="mov2#mpkg3#hym3#mfu1z"/>
+      <KOLink id="mov2#mpkg3#hym3#inn1z#kln1z" name="KOLink1" to="mov2#mpkg3#hym3#cru1z"/>
+    </IsNotNullUnit>
+    <DeleteUnit gr:x="780" gr:y="415" id="mov2#mpkg3#hym3#dlu2z" name="Delete" entity="ent1">
+      <Selector id="mov2#mpkg3#hym3#dlu2z#su10z" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="mov2#mpkg3#hym3#dlu2z#su10z#kcond4z" name="KeyCondition4" predicate="in" implied="false"/>
+      </Selector>
+      <OKLink id="mov2#mpkg3#hym3#dlu2z#oln9z" name="OKLink9" to="mov2#mpkg3#hym3#okcu4"/>
+    </DeleteUnit>
+  </OperationUnits>
+</HybridModule>

@@ -1,0 +1,21 @@
+<OperationModule xmlns:gr="http://www.webratio.com/2006/WebML/Graph" id="mov1#mpkg9#opm11" name="Change Book's Category" gr:x="0" gr:y="55" gr:icon="ModulesIcons/Save.png">
+  <OperationUnits>
+    <InputCollectorUnit id="mov1#mpkg9#opm11#icu56" name="Input" gr:x="-85" gr:y="55">
+      <InputCollectorParameter id="mov1#mpkg9#opm11#icu56#icp152" name="Old Category Key"/>
+      <InputCollectorParameter id="mov1#mpkg9#opm11#icu56#icp153" name="New Category Key"/>
+      <OKLink id="mov1#mpkg9#opm11#icu56#oln122" name="OKLink122" to="mov1#mpkg9#opm11#opg14#seu22">
+        <LinkParameter id="mov1#mpkg9#opm11#icu56#oln122#par279" name="Old Category Key" source="mov1#mpkg9#opm11#icu56#icp152" target="mov1#mpkg9#opm11#opg14#seu22#su45#rcond1.ent6#att62"/>
+      </OKLink>
+      <Link id="mov1#mpkg9#opm11#icu56#ln128" name="Link128" to="mov1#mpkg9#opm11#opg14#mfu9" type="transport" gr:bendpoints="138,89,-217,94;314,90,-96,90">
+        <LinkParameter id="mov1#mpkg9#opm11#icu56#ln128#par280" name="New Category Key" source="mov1#mpkg9#opm11#icu56#icp153" target="mov1#mpkg9#opm11#opg14#mfu9.rel2#rel8.ent6#att62"/>
+      </Link>
+      <Link id="mov1#mpkg9#opm11#icu56#ln131" name="Link131" to="mov1#mpkg9#opm11#opg14#dcnu1" type="transport" validate="true" gr:bendpoints="146,-94,-479,-94;580,-94,-45,-94">
+        <LinkParameter id="mov1#mpkg9#opm11#icu56#ln131#par283" name="Old Category Key" source="mov1#mpkg9#opm11#icu56#icp152" target="mov1#mpkg9#opm11#opg14#dcnu1#su41#kcond18.ent6#att62"/>
+        <LinkParameter id="mov1#mpkg9#opm11#icu56#ln131#par75" name="Old Category Key" source="mov1#mpkg9#opm11#icu56#icp152" target="mov1#mpkg9#opm11#opg14#dcnu1#su42#rcond2.ent6#att62"/>
+      </Link>
+    </InputCollectorUnit>
+    <OKCollectorUnit id="mov1#mpkg9#opm11#okcu53" name="Success" gr:x="1120" gr:y="-20"/>
+    <KOCollectorUnit gr:x="1120" gr:y="115" id="mov1#mpkg9#opm11#kocu7" name="Error"/>
+  </OperationUnits>
+  <Comment xml:space="preserve">Operation Module that contains all the operations needed to reassign Books to a new Category.</Comment>
+</OperationModule>

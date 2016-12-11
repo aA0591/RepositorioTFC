@@ -1,0 +1,49 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" id="sv1#area5#page8" name="Store Catalog" gr:x="0" gr:y="0">
+  <ContentUnits>
+    <PowerIndexUnit id="sv1#area5#page8#pwu7" name="Stores List" linkOrder="sv1#area5#page8#pwu7#ln34" ajaxTooltipEnabled="false" ajaxDragEnabled="false" ajaxDropEnabled="false" gr:x="5" gr:y="0" sortable="true" checkable="false" useCountQuery="false" entity="ent5" displayAttributes="ent5#att13" blockFactor="5" blockWindow="4">
+      <DefaultSortAttribute attribute="ent5#att13" order="ascending"/>
+      <DefaultSortAttribute attribute="ent5#att14" order="ascending"/>
+      <SortAttribute attribute="ent5#att13" order="ascending"/>
+      <Link id="sv1#area5#page8#pwu7#ln34" name="Details" to="sv1#area5#page8#dau4" type="normal" automaticCoupling="true" validate="true" newWindow="false" ajaxEnabled="false" ajaxOpenWindow="true" ajaxWindowUseTitle="true" ajaxWindowResizable="false" ajaxWindowAutoResizing="false" ajaxWindowClosable="false" ajaxWindowMaximizable="false" ajaxWindowMinimizable="false" ajaxWindowModal="false" ajaxReplaceWindow="false" ajaxOpenWaitingDialog="false"/>
+    </PowerIndexUnit>
+    <DataUnit id="sv1#area5#page8#dau4" name="Store Details" ajaxTooltipEnabled="false" ajaxEnableExpandedLinks="false" gr:x="0" gr:y="130" entity="ent5" displayAttributes="ent5#att13 ent5#att14 ent5#att15 ent5#att16">
+      <Selector id="sv1#area5#page8#dau4#su23" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="sv1#area5#page8#dau4#su23#kcond4" name="Store" predicate="in" implied="false"/>
+      </Selector>
+    </DataUnit>
+  </ContentUnits>
+  <layout:Grid>
+    <layout:Row>
+      <layout:Cell colspan="6">
+        <layout:Unit unitId="sv1#area5#page8#pwu7">
+          <layout:Attribute attribute="ent5#att13"/>
+          <layout:Link link="sv1#area5#page8#pwu7#ln34"/>
+          <layout:Link link="sv1#area5#page8#pwu7ent5#att13"/>
+          <layout:Link link="sv1#area5#page8#pwu7First"/>
+          <layout:Link link="sv1#area5#page8#pwu7Previous"/>
+          <layout:Link link="sv1#area5#page8#pwu7Block"/>
+          <layout:Link link="sv1#area5#page8#pwu7Next"/>
+          <layout:Link link="sv1#area5#page8#pwu7Last"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell colspan="6">
+        <layout:Unit unitId="sv1#area5#page8#dau4">
+          <layout:Attribute attribute="ent5#att13"/>
+          <layout:Attribute attribute="ent5#att14"/>
+          <layout:Attribute attribute="ent5#att15"/>
+          <layout:Attribute attribute="ent5#att16"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+</Page>

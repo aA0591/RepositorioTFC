@@ -1,0 +1,17 @@
+<SiteView xmlns:gr="http://www.webratio.com/2006/WebML/Graph" id="sv1" name="Shop" landmarks="sv1#area1 sv1#area10 sv1#area5" protected="false" homePage="sv1#area6#page14">
+  <OperationUnits>
+    <DeleteUnit id="sv1#dlu4" name="Remove Items" gr:x="-125" gr:y="-545" entity="pkg2#ent12">
+      <Selector id="sv1#dlu4#su47" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="sv1#dlu4#su47#kcond58" name="Cart Item Key" predicate="in" implied="false"/>
+      </Selector>
+      <OKLink id="sv1#dlu4#oln44" name="OKLink6" to="sv1#page15" gr:bendpoints="-120,0,-185,-155;-123,74,-183,-81"/>
+    </DeleteUnit>
+    <ModuleInstanceUnit gr:x="265" gr:y="-375" id="sv1#miu1" name="Manage Cart" moduleId="mov1#opm4">
+      <OKLink id="sv1#miu1#oln12" to="sv1#page15" name="OKLink42" automaticCoupling="true" ajaxWindowModal="true" ajaxWindowAutoResizing="true" ajaxOpenWindow="true" ajaxWindowUseTitle="false" ajaxWindowResizable="true" ajaxWindowClosable="true" ajaxReplaceWindow="true"/>
+    </ModuleInstanceUnit>
+    <LogoutUnit gr:x="95" gr:y="-165" id="sv1#lou3" name="Logout" siteView="sv1"/>
+    <LoginUnit id="sv1#lgu2" name="Login" gr:x="80" gr:y="95">
+      <KOLink id="sv1#lgu2#kln1" name="KOLink6" to="sv1#page11#enu4" gr:bendpoints="-93,46,97,46"/>
+    </LoginUnit>
+  </OperationUnits>
+</SiteView>

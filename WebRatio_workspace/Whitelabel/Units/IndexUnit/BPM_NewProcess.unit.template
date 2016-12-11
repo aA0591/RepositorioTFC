@@ -1,0 +1,32 @@
+#?delimiters [%, %], [%=, %]
+[%
+def firstAttribute = unit.selectSingleNode("layout:Attribute[1]");
+def firstLink = unit.selectSingleNode("layout:Link[string(@_exp) != 't']")
+
+%]
+<c:if test="${not(empty <wr:Id context="unit" />) and (<wr:Id context="unit" />.dataSize gt 0)}">
+<nav>
+	<ul id="nav">
+		<li class="<wr:StyleClass/>">
+			<a href="#">
+				<span><wr:Label context="unit"/></span>
+			</a>
+			<ul>
+				<li>   
+					<ul>
+						<c:forEach var="current" varStatus="status" items="${<wr:Id context="unit" />.data}">
+							<c:set var="index" value="${status.index}"/>
+							<li>
+								<a href="<wr:URL context="firstLink"/>">
+									<wr:Value context="firstAttribute"/>
+								</a>
+							</li>
+						</c:forEach>
+					</ul>
+					<div class="clear">&nbsp;</div>
+				</li>
+			</ul>
+		</li>
+	</ul>
+</nav>
+</c:if>

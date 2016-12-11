@@ -1,0 +1,32 @@
+<Job xmlns:gr="http://www.webratio.com/2006/WebML/Graph" gr:x="170" gr:y="140" id="wsv1n#job1n" name="Init database">
+  <OperationUnits>
+    <InitJobUnit id="wsv1n#job1n#iju1n" name="Init Job" gr:x="0" gr:y="0">
+      <OKLink id="wsv1n#job1n#iju1n#oln4n" name="OKLink4" to="wsv1n#job1n#seu1n"/>
+    </InitJobUnit>
+    <SelectorUnit gr:x="115" gr:y="0" id="wsv1n#job1n#seu1n" name="Get users" entity="User">
+      <KOLink id="wsv1n#job1n#seu1n#kln1n" name="KOLink1" to="wsv1n#job1n#scu1n">
+        <LinkParameter id="wsv1n#job1n#seu1n#kln1n#par1n" name="structure.sql_fileName" sourceValue="structure.sql" target="wsv1n#job1n#scu1n.fileName"/>
+      </KOLink>
+      <OKLink id="wsv1n#job1n#seu1n#oln1n" name="OKLink1" to="wsv1n#job1n#switch1n">
+        <LinkParameter id="wsv1n#job1n#seu1n#oln1n#par2n" name="Data Size_Switch" source="dataSize" target="wsv1n#job1n#switch1n.switch"/>
+      </OKLink>
+    </SelectorUnit>
+    <ScriptUnit gr:x="5" gr:y="145" id="wsv1n#job1n#scu1n" name="Create tables" script="WEB-INF/descr/groovy/executeSQLQueryFile.groovy">
+      <OKLink id="wsv1n#job1n#scu1n#oln3n" name="OKLink3" to="wsv1n#job1n#scu2n">
+        <LinkParameter id="wsv1n#job1n#scu1n#oln3n#par4n" name="data.sql_fileName" sourceValue="data.sql" target="wsv1n#job1n#scu2n.fileName"/>
+      </OKLink>
+    </ScriptUnit>
+    <SwitchUnit gr:x="225" gr:y="140" id="wsv1n#job1n#switch1n" name="Has data">
+      <Case value="0"/>
+      <OKLink id="wsv1n#job1n#switch1n#oln2n" name="OKLink2" to="wsv1n#job1n#scu2n" code="0">
+        <LinkParameter id="wsv1n#job1n#switch1n#oln2n#par3n" name="data.sql_fileName" sourceValue="data.sql" target="wsv1n#job1n#scu2n.fileName"/>
+      </OKLink>
+      <OKLink id="wsv1n#job1n#switch1n#oln1t" name="OKFlow1" to="wsv1n#job1n#opu1t"/>
+    </SwitchUnit>
+    <ScriptUnit gr:x="115" gr:y="270" id="wsv1n#job1n#scu2n" name="Insert into tables" script="WEB-INF/descr/groovy/executeSQLQueryFile.groovy">
+      <OKLink id="wsv1n#job1n#scu2n#oln2t" name="OKFlow2" to="wsv1n#job1n#opu1t"/>
+    </ScriptUnit>
+    <NoOpOperationUnit gr:x="335" gr:y="140" id="wsv1n#job1n#opu1t" name="End"/>
+  </OperationUnits>
+  <Trigger id="wsv1n#job1n#trg1n" name="Trigger" schedulePolicy="startup"/>
+</Job>

@@ -1,0 +1,41 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" gr:x="325" gr:y="360" id="sv1#area6#page4" name="Add To My Cart" layout:pageLayout="WRDefault/Empty">
+  <ContentUnits>
+    <EntryUnit id="sv1#area6#page4#enu2" name="Cart Information" gr:x="0" gr:y="0" linkOrder="sv1#area6#page4#enu2#ln51" entity="pkg1#ent5">
+      <Field id="sv1#area6#page4#enu2#fld2" name="quantity" type="integer" modifiable="true" attribute="pkg1#ent5#att56">
+        <VRules>
+          <MandatoryValidationRule id="sv1#area6#page4#enu2#fld2#mnd12" name="Mandatory Field"/>
+        </VRules>
+      </Field>
+      <Field id="sv1#area6#page4#enu2#fld3" name="bookid" type="string" modifiable="false" preloaded="true" hidden="true"/>
+      <Link id="sv1#area6#page4#enu2#ln51" name="Add" to="sv1#area6#miu17" type="normal" validate="true" ajaxEnabled="true">
+        <LinkParameter id="sv1#area6#page4#enu2#ln51#par71" name="Book Key" source="sv1#area6#page4#enu2#fld3" target="sv1#area6#miu17.mov2#mpkg13#opm14#icu68#icp1"/>
+        <LinkParameter id="sv1#area6#page4#enu2#ln51#par68" name="Cart Item Object" source="entityBean" target="sv1#area6#miu17.mov2#mpkg13#opm14#icu68#icp14"/>
+      </Link>
+    </EntryUnit>
+  </ContentUnits>
+  <layout:Grid>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv1#area6#page4#enu2">
+          <layout:LayoutParameter name="show-label" value="top" type="unit"/>
+          <layout:LayoutParameter name="link-position" value="right" type="unit"/>
+          <layout:LayoutParameter name="mandatory-fields" value="true" type="unit"/>
+          <layout:Field field="sv1#area6#page4#enu2#fld2"/>
+          <layout:Link link="sv1#area6#page4#enu2#ln51"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+  <Comment xml:space="preserve">This is a popup Page that allows the logged in User to add Items to his Cart.</Comment>
+</Page>

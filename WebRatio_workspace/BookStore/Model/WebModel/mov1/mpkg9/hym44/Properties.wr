@@ -1,0 +1,13 @@
+<HybridModule xmlns:gr="http://www.webratio.com/2006/WebML/Graph" id="mov1#mpkg9#hym44" name="Save Reviews" gr:x="0" gr:y="0" gr:icon="ModulesIcons/Save.png">
+  <OperationUnits>
+    <InputCollectorUnit id="mov1#mpkg9#hym44#icu54" name="Input" gr:x="-140" gr:y="45">
+      <InputCollectorParameter id="mov1#mpkg9#hym44#icu54#icp137" name="Book Key"/>
+      <OKLink id="mov1#mpkg9#hym44#icu54#oln212" name="OKLink212" to="mov1#mpkg9#hym44#page60#enu18" ajaxOpenWindow="false" ajaxWindowUseTitle="true" ajaxWindowTitle="Add Review" ajaxWindowAutoResizing="true" ajaxWindowClosable="true" ajaxWindowDraggable="true">
+        <LinkParameter id="mov1#mpkg9#hym44#icu54#oln212#par85" name="Book Key" source="mov1#mpkg9#hym44#icu54#icp137" target="mov1#mpkg9#hym44#page60#enu18.ent9#att33"/>
+      </OKLink>
+    </InputCollectorUnit>
+    <OKCollectorUnit gr:x="580" gr:y="105" id="mov1#mpkg9#hym44#okcu11" name="Success"/>
+    <KOCollectorUnit gr:x="580" gr:y="195" id="mov1#mpkg9#hym44#kocu8" name="Error"/>
+  </OperationUnits>
+  <Comment xml:space="preserve">Hybrid Module used to store the Reviews related to a specific Book.</Comment>
+</HybridModule>

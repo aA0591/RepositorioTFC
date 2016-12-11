@@ -1,0 +1,50 @@
+<OperationGroup xmlns:gr="http://www.webratio.com/2006/WebML/Graph" gr:x="175" gr:y="35" id="mov2#mpkg11#opm1#opg10" name="Compute Rating" transaction="true">
+  <OperationUnits>
+    <IsNotNullUnit id="mov2#mpkg11#opm1#opg10#inn10" name="Already Rated?" gr:x="160" gr:y="15" emptyStringAsNull="true">
+      <OKLink id="mov2#mpkg11#opm1#opg10#inn10#oln95" name="OKLink95" to="mov2#mpkg11#opm1#opg10#scu9">
+        <LinkParameter id="mov2#mpkg11#opm1#opg10#inn10#oln95#par236" name="0" target="mov2#mpkg11#opm1#opg10#scu9.flag" sourceValue="0"/>
+      </OKLink>
+      <KOLink id="mov2#mpkg11#opm1#opg10#inn10#kln16" name="KOLink16" to="mov2#mpkg11#opm1#opg10#scu9" gr:bendpoints="90,38,-85,38">
+        <LinkParameter id="mov2#mpkg11#opm1#opg10#inn10#kln16#par237" name="1" target="mov2#mpkg11#opm1#opg10#scu9.flag" sourceValue="1"/>
+      </KOLink>
+    </IsNotNullUnit>
+    <ScriptUnit id="mov2#mpkg11#opm1#opg10#scu9" name="Set Rating" gr:x="345" gr:y="15" script="WEB-INF/descr/groovy/setratings.groovy">
+      <ScriptUnitText xml:space="preserve">#input int rating, int avgbefore, int flag
+#output int avgrating
+
+def avgrating
+
+if(flag == 0){
+	avgrating = (rating + avgbefore)/2
+}
+else{
+	avgrating = rating
+}
+
+return ["avgrating":avgrating]</ScriptUnitText>
+      <OKLink id="mov2#mpkg11#opm1#opg10#scu9#oln96" name="OKLink96" to="mov2#mpkg11#opm1#opg10#mfu8">
+        <LinkParameter id="mov2#mpkg11#opm1#opg10#scu9#oln96#par238" name="Rating" source="result(avgrating)" target="mov2#mpkg11#opm1#opg10#mfu8.ent1#att14"/>
+      </OKLink>
+    </ScriptUnit>
+    <ModifyUnit id="mov2#mpkg11#opm1#opg10#mfu8" name="Modify Book" gr:x="475" gr:y="0" entity="ent1">
+      <Selector id="mov2#mpkg11#opm1#opg10#mfu8#su37" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="mov2#mpkg11#opm1#opg10#mfu8#su37#kcond16" name="Book" predicate="in" implied="false"/>
+      </Selector>
+      <OKLink id="mov2#mpkg11#opm1#opg10#mfu8#oln97" name="OKLink97" to="mov2#mpkg11#opm1#okcu4">
+        <LinkParameter id="mov2#mpkg11#opm1#opg10#mfu8#oln97#par90" name="Book Key" source="ent1#att60Array" target="mov2#mpkg11#opm1#okcu4#ocp8"/>
+      </OKLink>
+    </ModifyUnit>
+    <SelectorUnit id="mov2#mpkg11#opm1#opg10#seu17" name="Select Rating" gr:x="0" gr:y="0" entity="ent1">
+      <Selector id="mov2#mpkg11#opm1#opg10#seu17#su38" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="mov2#mpkg11#opm1#opg10#seu17#su38#kcond9" name="Book" predicate="in" implied="false"/>
+      </Selector>
+      <OKLink id="mov2#mpkg11#opm1#opg10#seu17#oln98" name="OKLink98" to="mov2#mpkg11#opm1#opg10#inn10">
+        <LinkParameter id="mov2#mpkg11#opm1#opg10#seu17#oln98#par239" name="Rating" source="ent1#att14Array" target="mov2#mpkg11#opm1#opg10#inn10.isnotnull"/>
+      </OKLink>
+      <Link id="mov2#mpkg11#opm1#opg10#seu17#ln116" name="Link116" to="mov2#mpkg11#opm1#opg10#scu9" type="transport" validate="true" gr:bendpoints="83,-46,-217,-46;220,-46,-80,-46">
+        <LinkParameter id="mov2#mpkg11#opm1#opg10#seu17#ln116#par241" name="Rating" source="ent1#att14Array" target="mov2#mpkg11#opm1#opg10#scu9.avgbefore"/>
+      </Link>
+      <Link id="mov2#mpkg11#opm1#opg10#seu17#ln41" name="Link41" to="mov2#mpkg11#opm1#opg10#mfu8" automaticCoupling="true" type="transport" validate="true" gr:bendpoints="61,-67,-399,-72;392,-69,-68,-69"/>
+    </SelectorUnit>
+  </OperationUnits>
+</OperationGroup>

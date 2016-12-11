@@ -1,0 +1,79 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" id="mov2#mpkg11#hym50#page66" name="Author" ignoreMasterPage="true" layout:pageLayout="WRDefault/Empty" gr:x="215" gr:y="-15">
+  <ContentUnits>
+    <PowerIndexUnit id="mov2#mpkg11#hym50#page66#pwu14" name="Book List" linkOrder="mov2#mpkg11#hym50#page66#pwu14#ln251" gr:x="0" gr:y="120" sortable="true" checkable="false" useCountQuery="false" entity="ent1" displayAttributes="ent1#att12 ent1#att10 ent1#att37 ent1#att39 ent1#att38">
+      <Selector id="mov2#mpkg11#hym50#page66#pwu14#su122" defaultPolicy="fill" booleanOperator="and">
+        <RelationshipRoleCondition id="mov2#mpkg11#hym50#page66#pwu14#su122#rcond26" name="Author" predicate="in" implied="false" role="rel15#rel32"/>
+        <KeyCondition id="mov2#mpkg11#hym50#page66#pwu14#su122#kcond2" name="Book" predicate="notIn" implied="false"/>
+      </Selector>
+      <SortAttribute attribute="ent1#att12" order="ascending"/>
+      <SortAttribute attribute="ent1#att10" order="ascending"/>
+      <SortAttribute attribute="ent1#att37" order="ascending"/>
+      <SortAttribute attribute="ent1#att39" order="ascending"/>
+      <SortAttribute attribute="ent1#att38" order="ascending"/>
+      <DefaultSortAttribute attribute="ent1#att12" order="ascending"/>
+      <DefaultSortAttribute attribute="ent1#att10" order="ascending"/>
+      <DefaultSortAttribute attribute="ent1#att37" order="ascending"/>
+      <DefaultSortAttribute attribute="ent1#att39" order="ascending"/>
+      <DefaultSortAttribute attribute="ent1#att38" order="ascending"/>
+      <Link id="mov2#mpkg11#hym50#page66#pwu14#ln251" name="Details" to="mov2#mpkg11#hym50#okcu58" type="normal" validate="true" ajaxEnabled="true">
+        <LinkParameter id="mov2#mpkg11#hym50#page66#pwu14#ln251#par593" name="Book Key" source="data[].ent1#att60" target="mov2#mpkg11#hym50#okcu58#ocp57"/>
+      </Link>
+    </PowerIndexUnit>
+    <DataUnit gr:x="15" gr:y="0" id="mov2#mpkg11#hym50#page66#dau2" name="Details" entity="ent4" displayAttributes="ent4#att24">
+      <Selector id="mov2#mpkg11#hym50#page66#dau2#su14" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="mov2#mpkg11#hym50#page66#dau2#su14#kcond3" name="Author" predicate="in" implied="false"/>
+      </Selector>
+      <Link id="mov2#mpkg11#hym50#page66#dau2#ln39" name="Link39" to="mov2#mpkg11#hym50#page66#pwu14" automaticCoupling="true" type="transport" validate="true"/>
+    </DataUnit>
+  </ContentUnits>
+  <layout:Grid>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="mov2#mpkg11#hym50#page66#dau2">
+          <layout:Attribute attribute="ent4#att24"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="mov2#mpkg11#hym50#page66#pwu14">
+          <layout:Link link="mov2#mpkg11#hym50#page66#pwu14#ln251"/>
+          <layout:Link link="mov2#mpkg11#hym50#page66#pwu14ent1#att12"/>
+          <layout:Link link="mov2#mpkg11#hym50#page66#pwu14ent1#att10"/>
+          <layout:Link link="mov2#mpkg11#hym50#page66#pwu14ent1#att37"/>
+          <layout:Link link="mov2#mpkg11#hym50#page66#pwu14ent1#att39"/>
+          <layout:Link link="mov2#mpkg11#hym50#page66#pwu14ent1#att38"/>
+          <layout:Attribute attribute="ent1#att12"/>
+          <layout:Attribute attribute="ent1#att10"/>
+          <layout:Attribute attribute="ent1#att37"/>
+          <layout:Attribute attribute="ent1#att39"/>
+          <layout:Attribute attribute="ent1#att38"/>
+          <layout:LayoutParameter name="use-empty-unit-message" value="true" type="unit"/>
+          <layout:LayoutParameter name="empty-unit-message" value="nomorebookauthor" type="unit"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+</Page>

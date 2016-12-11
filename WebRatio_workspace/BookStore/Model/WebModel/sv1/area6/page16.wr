@@ -1,0 +1,61 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" gr:x="225" gr:y="0" id="sv1#area6#page16" name="Related Categories" layout:pageLayout="WRDefault/Empty" layout:frameLayout="WRDefault/Empty" ignoreMasterPage="true">
+  <ContentUnits>
+    <HierarchicalIndexUnit id="sv1#area6#page16#hinu3" name="Related Categories" gr:x="0" gr:y="0" sortable="false" entity="ent6" displayAttributes="ent6#att19" linkOrder="sv1#area6#page16#hinu3#ln66">
+      <Selector id="sv1#area6#page16#hinu3#su31" defaultPolicy="fill" booleanOperator="and">
+        <RelationshipRoleCondition id="sv1#area6#page16#hinu3#su31#rcond8" name="Category" predicate="in" implied="false" role="rel11#role3"/>
+      </Selector>
+      <SortAttribute attribute="ent6#att19" order="ascending"/>
+      <Link id="sv1#area6#page16#hinu3#ln66" name="Books" to="sv1#area6#page16#pwu11" type="normal" validate="true">
+        <LinkParameter id="sv1#area6#page16#hinu3#ln66#par16" name="Category Key" source="data[].ent6#att62" target="sv1#area6#page16#pwu11#su5#rcond3.ent6#att62"/>
+        <LinkParameter id="sv1#area6#page16#hinu3#ln66#par17" name="Show List" sourceValue="true" targetVariable="sv1#area6#page16#var13"/>
+      </Link>
+    </HierarchicalIndexUnit>
+    <PowerIndexUnit id="sv1#area6#page16#pwu11" entity="ent1" displayAttributes="ent1#att10" sortable="true" checkable="false" useCountQuery="false" gr:x="25" gr:y="140" name="Book List" linkOrder="sv1#area6#page16#pwu11#ln64">
+      <SortAttribute attribute="ent1#att10" order="ascending"/>
+      <Selector id="sv1#area6#page16#pwu11#su5" defaultPolicy="fill" booleanOperator="and">
+        <RelationshipRoleCondition id="sv1#area6#page16#pwu11#su5#rcond3" role="rel2#rel7" predicate="in" implied="false" name="Category"/>
+      </Selector>
+      <DefaultSortAttribute attribute="ent1#att10" order="ascending"/>
+      <Link id="sv1#area6#page16#pwu11#ln64" name="Details" to="sv1#area6#page21#dau3" type="normal" validate="true" ajaxEnabled="true">
+        <LinkParameter id="sv1#area6#page16#pwu11#ln64#par13" name="Book Key" source="data[].ent1#att60" target="sv1#area6#page21#dau3#su18#kcond4.ent1#att60"/>
+      </Link>
+    </PowerIndexUnit>
+  </ContentUnits>
+  <layout:Grid>
+    <layout:Row>
+      <layout:Cell colspan="4">
+        <layout:Unit unitId="sv1#area6#page16#hinu3">
+          <layout:Attribute attribute="ent6#att19"/>
+          <layout:LayoutParameter name="link-position" value="on_row" type="unit"/>
+          <layout:LayoutParameter name="level-link-position" value="on_row" type="unit"/>
+          <layout:Link link="sv1#area6#page16#hinu3#ln66"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell colspan="8">
+        <layout:Unit unitId="sv1#area6#page16#pwu11" layout:unitVisibilityCondition="sv1#area6#page16#cexpr13">
+          <layout:Attribute attribute="ent1#att10"/>
+          <layout:LayoutParameter name="link-position" value="on_row" type="unit"/>
+          <layout:LayoutParameter name="use-empty-unit-message" value="true" type="unit"/>
+          <layout:LayoutParameter name="empty-unit-message" value="nobooks" type="unit"/>
+          <layout:Link link="sv1#area6#page16#pwu11#ln64"/>
+          <layout:Link link="sv1#area6#page16#pwu11ent1#att10"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell colspan="3"/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+  <Variable id="sv1#area6#page16#var13" name="showlist" value="false"/>
+  <ConditionExpression id="sv1#area6#page16#cexpr13" name="seelist">
+    <TextValue xml:space="preserve">showlist == "true"</TextValue>
+  </ConditionExpression>
+  <Comment xml:space="preserve">This is a popup Page that </Comment>
+</Page>

@@ -1,0 +1,29 @@
+<OperationGroup xmlns:gr="http://www.webratio.com/2006/WebML/Graph" gr:x="150" gr:y="20" id="mov1#opm4#opg11" name="Save Cart" transaction="true">
+  <OperationUnits>
+    <TimeUnit id="mov1#opm4#opg11#tmu2" name="Time" gr:x="275" gr:y="140">
+      <OKLink id="mov1#opm4#opg11#tmu2#oln110" name="OKLink43" to="mov1#opm4#opg11#cru19">
+        <LinkParameter id="mov1#opm4#opg11#tmu2#oln110#par295" name="Current Date" source="currentTimestamp" target="mov1#opm4#opg11#cru19.pkg2#ent10#att54"/>
+      </OKLink>
+    </TimeUnit>
+    <CreateUnit id="mov1#opm4#opg11#cru18" name="Create Cart Item" gr:x="125" gr:y="0" entity="pkg2#ent12" bulk="true">
+      <OKLink id="mov1#opm4#opg11#cru18#oln111" name="OKLink42" to="mov1#opm4#okcu7"/>
+    </CreateUnit>
+    <SelectorUnit id="mov1#opm4#opg11#seu1" name="Select Cart" gr:x="0" gr:y="130" entity="pkg2#ent10">
+      <Selector id="mov1#opm4#opg11#seu1#su46" defaultPolicy="fill" booleanOperator="and"/>
+      <OKLink id="mov1#opm4#opg11#seu1#oln112" name="OKLink80" to="mov1#opm4#opg11#inn14">
+        <LinkParameter id="mov1#opm4#opg11#seu1#oln112#par287" name="Cart Key" source="pkg2#ent10#att52Array" target="mov1#opm4#opg11#inn14.isnotnull"/>
+      </OKLink>
+    </SelectorUnit>
+    <IsNotNullUnit id="mov1#opm4#opg11#inn14" name="Cart Exists?" gr:x="140" gr:y="140">
+      <OKLink id="mov1#opm4#opg11#inn14#oln113" name="OKLink81" to="mov1#opm4#opg11#cru18">
+        <LinkParameter id="mov1#opm4#opg11#inn14#oln113#par294" name="Cart Key" source="inputValue" target="mov1#opm4#opg11#cru18.rel15#role5.pkg2#ent10#att52"/>
+      </OKLink>
+      <KOLink id="mov1#opm4#opg11#inn14#kln35" name="KOLink17" to="mov1#opm4#opg11#tmu2"/>
+    </IsNotNullUnit>
+    <CreateUnit id="mov1#opm4#opg11#cru19" name="Create Cart" gr:x="395" gr:y="130" entity="pkg2#ent10" deleteAllBefore="true">
+      <OKLink id="mov1#opm4#opg11#cru19#oln114" name="OKLink41" to="mov1#opm4#opg11#cru18">
+        <LinkParameter id="mov1#opm4#opg11#cru19#oln114#par293" name="Cart Key" source="pkg2#ent10#att52Array" target="mov1#opm4#opg11#cru18.rel15#role5.pkg2#ent10#att52"/>
+      </OKLink>
+    </CreateUnit>
+  </OperationUnits>
+</OperationGroup>

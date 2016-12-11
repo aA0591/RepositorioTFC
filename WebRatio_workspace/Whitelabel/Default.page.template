@@ -1,0 +1,233 @@
+#?delimiters [%, %], [%=, %]
+<wr:LayoutParameter label="Show title" name="show-title" type="boolean" default="true">
+Defines the print out of the title.
+Allowed values are: true(default) or false.
+</wr:LayoutParameter>
+<wr:LayoutParameter name="show-breadcrumbs" label="Show breadcrumbs" type="boolean" default="true">
+Define if the page must show the navigation path
+</wr:LayoutParameter>
+<wr:LayoutParameter name="page-mode" label="Page mode" type="enum" values="full-page|left-menu|right-menu" default="full-page">
+Page modes:
+full-page: First and second level landmarks on the top menu, no left panel 
+left-menu: First level landmark on top, second and third level on the left panel
+right-menu: First level landmark on top, second and third level on the right panel
+</wr:LayoutParameter>
+<wr:LayoutParameter name="logoHomePage" label="location of the home page" type="string" default="Whitelabel/images/logo.png">
+The path of the image of the application's logo
+</wr:LayoutParameter>
+<wr:LayoutParameter name="show-left-column" label="Show left column" type="boolean" default="false">
+Defines if the left column is shown.
+Default value is false.
+</wr:LayoutParameter>
+<wr:LayoutParameter name="show-right-column" label="Show right column" type="boolean" default="false">
+Defines if the right column is shown.
+Default value is false.
+</wr:LayoutParameter>
+[% setHTMLOutput()
+def showTitle = Boolean.valueOf( params["show-title"] )
+def breadcrumbs = Boolean.valueOf( params[ "show-breadcrumbs" ] )
+def showLeftColumn = params["show-left-column"] == "true"
+def showRightColumn = params["show-right-column"] == "true"
+
+def pageMode = params["page-mode"]
+def rightMenu = false;
+def leftMenu = true;
+if( pageMode=="right-menu" ) {
+	rightMenu = true;
+	leftMenu = false;
+} else if(pageMode=="full-page") {
+	leftMenu = false;
+}
+def homePage = getHomePage(page.selectSingleNode("ancestor::SiteView"));
+
+def pageLinks = page.selectNodes("Link");
+
+def pathHome = params["logoHomePage"]
+%]
+<wr:Page type="HTML5"/>
+<wr:Resources types="jspdeclaration"/>
+<%@ page contentType="text/html; charset=UTF-8"%>
+<% response.setHeader("X-UA-Compatible", "IE=edge"); %>
+<webratio:Page page="<wr:Id context="page"/>"/>
+<html lang="en-us">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+	[%if(enableURLFragments()){%]<wr:BaseURI/>[%}%]
+	
+	<!-- Apple iOS and Android stuff -->
+	<meta name="apple-mobile-web-app-capable" content="no">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.png">
+	
+	<title><wr:Label context="page"/></title>
+	
+	<wr:Resources/>
+	[% def gridType = getLayoutManager(page).getType().toString()
+		if ("STANDARD".equals(gridType)) { /* for "Custom Grid" pages */ %]
+		<wr:RequireResource ref="wl-grid12"/>
+	[%	} %]
+	
+	<script src="Whitelabel/script/script.js" data-wr-resname="wl-init-script"></script>
+</head>
+<body>
+<wr:PageForm>
+	<div id="pageoptions">
+		<wr:CustomLocation name="User"/>
+	</div>
+	
+	<header>
+		<div id="logo">
+			<a href="<wr:Id context="homePage"/>.do"><img src="[%=pathHome%]" alt="WebRatio"/></a>
+		</div>
+		
+		<div id="header" class="landmark">
+			[% if (!getLandmarks(page, 1, null).isEmpty()) { %]
+			<ul id="headernav" class="landmark">
+				<li>
+					<ul>
+						<wr:LandmarkMenu level="1" var="currLand">
+							[% if( getLinkId(homePage)!=getLinkId(currLand)) { %]
+							<wr:Visible>
+								<li>
+									<wr:Link type="normal"/>
+									[% if(pageMode=="full-page") { %]
+										[% if ( getLandmarks(page, 2, currLand).size()>0 ) { %]
+											<ul>
+												<wr:Current>
+													<wr:LandmarkMenu level="2">
+													<wr:Visible>
+														<li><wr:Link type="normal"/></li>
+													</wr:Visible>
+													</wr:LandmarkMenu>
+												</wr:Current>
+												<wr:NonCurrent>
+													<wr:LandmarkMenu level="2">
+													<wr:Visible>
+														<li><wr:Link type="normal"/></li>
+													</wr:Visible>
+													</wr:LandmarkMenu>
+												</wr:NonCurrent>
+											</ul>
+										[% } %]
+									[% } %]
+								</li>
+							</wr:Visible>
+							[% } %]
+						</wr:LandmarkMenu>
+					</ul>
+				</li>
+			</ul>
+			[% } %]
+			[% if( pageLinks.size()>0 ) { %]
+			<ul id="pagelinks" class="landmark">
+				<li>
+					<ul>
+						<wr:PageLinks>
+						<wr:Visible>
+							<li><wr:Link/></li>
+						</wr:Visible>
+						</wr:PageLinks>
+					</ul>
+				</li>
+			</ul>
+			[% } %]
+		</div>
+	</header>
+	
+	[% if( leftMenu || rightMenu ) { %]
+		<nav class="[%= (rightMenu)? "right-menu": "" %]">
+			<ul id="nav" class="landmark">
+				<li class="i_house"><a href="<wr:Id context="homePage"/>.do"><span>Home</span></a></li>
+				<wr:LandmarkMenu level="2" var="currLand">
+				<wr:Visible>
+					<li>
+						<wr:Link>
+							<a href="<wr:URL/>" title="<wr:Label/>"><span><wr:Label/></span></a>
+						</wr:Link>
+						[% if( getLandmarks(page, 3, currLand).size()>0 ) { %]
+							<wr:Current>
+								<ul>
+									<wr:LandmarkMenu level="3">
+									<wr:Visible>
+										<li>
+											<wr:Link>
+												<a href="<wr:URL/>" title="<wr:Label/>"><span><wr:Label/></span></a>
+											</wr:Link>
+										</li>
+									</wr:Visible>
+									</wr:LandmarkMenu>
+								</ul>
+							</wr:Current>
+							<wr:NonCurrent>
+								<ul>
+									<wr:LandmarkMenu level="3">
+									<wr:Visible>
+										<li>
+											<wr:Link>
+												<a href="<wr:URL/>" title="<wr:Label/>"><span><wr:Label/></span></a>
+											</wr:Link>
+										</li>
+									</wr:Visible>
+									</wr:LandmarkMenu>
+								</ul>
+							</wr:NonCurrent>
+						[% } %]
+					</li>
+				</wr:Visible>
+				</wr:LandmarkMenu>
+			</ul>
+		</nav>
+	[% } %]
+			
+		
+	<!-- Page content -->
+	<section id="content" class="[% if (pageMode=="full-page") {%]full[% } else if( rightMenu ) { %]right[% } %]">
+	
+		[% if( breadcrumbs) { %]
+		<div>
+			<ul class="breadcrumb">
+				<wr:NavigationBar>
+					<li>
+						<wr:Link/>
+					</li>
+				</wr:NavigationBar>
+				<li><a class="active" href="#"><wr:Label context="page"/></a></li>
+			</ul>
+		</div>
+		[% } %]
+		
+		<div class="custompagelinks">
+			<wr:CustomLocation name="Page Links"/>
+		</div>
+		
+		[% if (showTitle) { %]
+		<header>
+			<h1><wr:Label context="page"/></h1>
+		</header>
+		[% } %]
+
+		[% if (showLeftColumn) { %]
+			<div id="left-column">
+				<wr:CustomLocation name="Left"/>
+			</div>
+		[% } %]
+		<div id="grid" class="[% if (showLeftColumn) { %]has-left[% } %] [% if (showRightColumn) { %]has-right[% } %]">
+			<wr:CustomLocation name="Top"/>   
+	    	<wr:Grid/>
+    	</div>
+    	[% if (showRightColumn) { %]
+			<div id="right-column">
+				<wr:CustomLocation name="Right"/>
+			</div>
+		[% } %]
+		
+	</section>
+	
+	<!-- Footer -->
+	<footer>Generated by 
+		<a target="_blank" title="WebRatio | High Productivity Web and Mobile App Dev Platform" href="http://www.webratio.com" ><span style="color: #036;">Web</span><img alt="Generated by WebRatio" src="WRResources/WRLogo8.png"><span style="color: #c00;">Ratio</span></a><sup style="font-size: 80%;">&reg;</sup>
+	</footer>
+</wr:PageForm>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<OperationGroup xmlns:gr="http://www.webratio.com/2006/WebML/Graph" gr:x="500" gr:y="-85" id="sv1#opg5" name="Create User Profile and Log In" transaction="true">
+  <OperationUnits>
+    <CreateUnit id="sv1#opg5#cru2" name="Save Customer" gr:x="0" gr:y="0" entity="User">
+      <OKLink id="sv1#opg5#cru2#oln32" name="Link2" to="sv1#opg5#mlu3">
+        <LinkParameter id="sv1#opg5#cru2#oln32#par111" name="First Name" source="User#att30Array" target="sv1#opg5#mlu3.FirstName"/>
+        <LinkParameter id="sv1#opg5#cru2#oln32#par112" name="Last Name" source="User#att31Array" target="sv1#opg5#mlu3.LastName"/>
+        <LinkParameter id="sv1#opg5#cru2#oln32#par113" name="EMail" source="emailArray" target="sv1#opg5#mlu3.to"/>
+      </OKLink>
+      <Link id="sv1#opg5#cru2#ln33" name="Link3" to="sv1#opg5#lgu3" type="transport" validate="true">
+        <LinkParameter id="sv1#opg5#cru2#ln33#par114" name="Username" source="userNameArray" target="sv1#opg5#lgu3.username"/>
+        <LinkParameter id="sv1#opg5#cru2#ln33#par115" name="Password" source="passwordArray" target="sv1#opg5#lgu3.password"/>
+      </Link>
+    </CreateUnit>
+    <MailUnit id="sv1#opg5#mlu3" name="Send ConfirmationEmail" gr:x="155" gr:y="10" format="html" smtpServer="smtp1" template="WEB-INF/descr/mailTemplate/confirmRegistrationEmail.xml.template">
+      <OKLink id="sv1#opg5#mlu3#oln33" name="OKLink38" to="sv1#opg5#lgu3"/>
+      <SubjectTemplate xml:space="preserve">Acme Shop - Confirm of your registration</SubjectTemplate>
+      <KOLink id="sv1#opg5#mlu3#kln6" name="KOLink4" to="sv1#opg5#lgu3" gr:bendpoints="-1,85,179,0"/>
+    </MailUnit>
+    <LoginUnit id="sv1#opg5#lgu3" name="Login" gr:x="15" gr:y="95"/>
+  </OperationUnits>
+</OperationGroup>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle>
+  <Entry key="areyousure">Are You Sure?</Entry>
+  <Entry key="cart.empty">Your shopping cart is currently empty</Entry>
+  <Entry key="cart.total">Total</Entry>
+  <Entry key="clickmessage">(click to improve or reduce quantity of this item)</Entry>
+  <Entry key="nobooks">There are no books yet</Entry>
+  <Entry key="nomorebookauthor">Currently, there are no more books from this author.</Entry>
+  <Entry key="noreviews">Currently there are no any reviews.</Entry>
+  <Entry key="Welcome">Welcome</Entry>
+</Bundle>

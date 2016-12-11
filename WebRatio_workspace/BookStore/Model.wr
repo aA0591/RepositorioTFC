@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?webml version="7.2.0.1"?>
+
+<WebProject xmlns:gr="http://www.webratio.com/2006/WebML/Graph" outputPath="${webapps_loc}/${project_name}" httpPort="8080" httpsPort="8443" gr:showUnitContent="true" gr:showTooltip="true" enableBrowserIntegration="true" adminArea="true" adminUser="manager" adminPassword="bW9vbmxpZ2h0ODc=" adminCryptedPassword="true" adminPath="admin.do">
+  <ServiceDataProviders/>
+  <BundleKey name="areyousure"/>
+  <BundleKey name="nobooks"/>
+  <BundleKey name="nomorebookauthor"/>
+  <BundleKey name="noreviews"/>
+  <Comment xml:space="preserve">This is the BookStore Project View.
+
+By default the views composing this project are:
+- Data Model View
+- Site Views
+	- Administrators
+	- Public
+- Module Views
+	- Administrator Modules
+	- Logged User Modules
+
+The BookStore project by default depends on all the projects installed in your workspace.</Comment>
+  <BundleKey name="Welcome"/>
+</WebProject>

@@ -1,0 +1,140 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" id="sv3#area1#page5" name="Category Management" gr:x="0" gr:y="100" ajaxEnabled="true">
+  <ContentUnits>
+    <PowerIndexUnit id="sv3#area1#page5#pwu4" name="List Categories" linkOrder="sv3#area1#page5#pwu4#ln22 sv3#area1#page5#pwu4#ln77 sv3#area1#page5#pwu4#ln10" gr:x="590" gr:y="110" sortable="true" checkable="false" useCountQuery="false" entity="ent6" displayAttributes="ent6#att19">
+      <Link id="sv3#area1#page5#pwu4#ln22" name="Details" to="sv3#area1#page9#dau1" type="normal" automaticCoupling="true" validate="true" ajaxEnabled="true" ajaxOpenWindow="true" ajaxWindowUseTitle="true" ajaxWindowTitle="Category Details" ajaxWindowClosable="true" ajaxWindowAutoResizing="true" ajaxWindowDraggable="true"/>
+      <SortAttribute attribute="ent6#att19" order="ascending"/>
+      <DefaultSortAttribute attribute="ent6#att19" order="ascending"/>
+      <Link id="sv3#area1#page5#pwu4#ln10" name="Delete" to="sv3#area1#miu1" type="normal" validate="true">
+        <LinkParameter id="sv3#area1#page5#pwu4#ln10#par19" name="#Books" source="data[].ent6#att13" target="sv3#area1#miu1.mov1#mpkg8#hym43#icu53#icp136"/>
+        <LinkParameter id="sv3#area1#page5#pwu4#ln10#par22" name="Category Key" source="data[].ent6#att62" target="sv3#area1#miu1.mov1#mpkg8#hym43#icu53#icp135"/>
+      </Link>
+      <Link id="sv3#area1#page5#pwu4#ln48" name="Link48" to="sv3#area1#page5#seu10" type="transport" validate="false">
+        <LinkParameter id="sv3#area1#page5#pwu4#ln48#par151" name="Category Key" source="data[].rel16#rel10_ent6#att62" target="sv3#area1#page5#seu10#su24#kcond5.ent6#att62"/>
+      </Link>
+      <Link id="sv3#area1#page5#pwu4#ln77" name="Edit" to="sv3#area1#page5#enu7" type="normal" validate="true">
+        <LinkParameter id="sv3#area1#page5#pwu4#ln77#par155" name="Category Key" source="data[].ent6#att62" target="sv3#area1#page5#enu7.ent6#att62"/>
+      </Link>
+      <Link id="sv3#area1#page5#pwu4#ln80" name="Link80" to="sv3#area1#page5#seu7" type="transport" validate="false">
+        <LinkParameter id="sv3#area1#page5#pwu4#ln80#par9" name="oid_Category Key [oid (not in)]" source="data[].ent6#att62" target="sv3#area1#page5#seu7#su15#kcond23.ent6#att62"/>
+      </Link>
+    </PowerIndexUnit>
+    <NoOpContentUnit gr:x="0" gr:y="0" id="sv3#area1#page5#gctu3" linkOrder="sv3#area1#page5#gctu3#ln34" name="Create Category">
+      <Link id="sv3#area1#page5#gctu3#ln34" name="Create New Category" to="sv3#area1#page5#enu7" type="normal" validate="true" ajaxEnabled="true">
+        <LinkParameter id="sv3#area1#page5#gctu3#ln34#par41" name="Category Key" sourceValue="$$NULL$$" target="sv3#area1#page5#enu7.ent6#att62"/>
+      </Link>
+    </NoOpContentUnit>
+    <MultiMessageUnit gr:x="385" gr:y="285" id="sv3#area1#page5#mssu48" name="Notifications"/>
+    <EntryUnit gr:x="175" gr:y="110" id="sv3#area1#page5#enu7" name="Category Information" entity="ent6" fieldOrder="sv3#area1#page5#enu7#fld8 sv3#area1#page5#enu7#fld11 sv3#area1#page5#enu7#msfld2" linkOrder="sv3#area1#page5#enu7#ln11 sv3#area1#page5#enu7#ln24 sv3#area1#page5#enu7#ln36">
+      <Field id="sv3#area1#page5#enu7#fld8" name="name" type="string" modifiable="true" preloaded="true" attribute="ent6#att19">
+        <VRules>
+          <MandatoryValidationRule id="sv3#area1#page5#enu7#fld8#mnd14" name="Mandatory Field" errorMessage="Mandatory Field."/>
+        </VRules>
+      </Field>
+      <MultiSelectionField id="sv3#area1#page5#enu7#msfld2" name="similar categories" type="string" role="rel11#role3"/>
+      <Field id="sv3#area1#page5#enu7#fld11" name="parent category" type="string" modifiable="false" preloaded="true"/>
+      <Field id="sv3#area1#page5#enu7#fld33" name="parent category key" type="string" modifiable="false" preloaded="true" hidden="true"/>
+      <Link id="sv3#area1#page5#enu7#ln11" name=" Edit Parent Category" to="sv3#area1#miu3" type="normal" validate="false" ajaxEnabled="true" ajaxOpenWindow="true" ajaxWindowAutoResizing="true" ajaxWindowClosable="true" ajaxWindowDraggable="true" ajaxWindowModal="true" gr:bendpoints="-113,-251,-153,-1">
+        <LinkParameter id="sv3#area1#page5#enu7#ln11#par30" name="Category Key" source="key.ent6#att62" target="sv3#area1#miu3.mov1#mpkg8#hym42#icu51#icp133"/>
+      </Link>
+      <Link id="sv3#area1#page5#enu7#ln24" name="Save" to="sv3#area1#miu24" type="normal" validate="true">
+        <LinkParameter id="sv3#area1#page5#enu7#ln24#par148" name="Category Object" source="entityBean" target="sv3#area1#miu24.mov1#mpkg8#opm3#icu4#icp11"/>
+        <LinkParameter id="sv3#area1#page5#enu7#ln24#par149" name="Category Key" source="key.ent6#att62" target="sv3#area1#miu24.mov1#mpkg8#opm3#icu4#icp10"/>
+        <LinkParameter id="sv3#area1#page5#enu7#ln24#par150" name="Parent Category Key" source="sv3#area1#page5#enu7#fld33" target="sv3#area1#miu24.mov1#mpkg8#opm3#icu4#icp12"/>
+      </Link>
+      <Link id="sv3#area1#page5#enu7#ln36" name="Cancel" to="sv3#area1#opu1" type="normal" validate="false" gr:bendpoints="-96,144,0,-172"/>
+    </EntryUnit>
+    <SelectorUnit gr:x="400" gr:y="170" id="sv3#area1#page5#seu7" name="Select Similar Categories" entity="ent6">
+      <Link id="sv3#area1#page5#seu7#ln14" name="Link14" to="sv3#area1#page5#enu7" type="transport" validate="true">
+        <LinkParameter id="sv3#area1#page5#seu7#ln14#par182" name="Similar Category Name" source="ent6#att19Array" target="sv3#area1#page5#enu7#msfld2_label"/>
+        <LinkParameter id="sv3#area1#page5#seu7#ln14#par183" name="Similar Category Key" source="ent6#att62Array" target="sv3#area1#page5#enu7#msfld2_output"/>
+      </Link>
+      <Selector id="sv3#area1#page5#seu7#su15" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="sv3#area1#page5#seu7#su15#kcond23" name="Category Key" predicate="notIn" implied="false"/>
+      </Selector>
+    </SelectorUnit>
+    <SelectorUnit gr:x="0" gr:y="110" id="sv3#area1#page5#seu9" name="Select Categories" entity="ent6">
+      <Link id="sv3#area1#page5#seu9#ln35" name="Link35" to="sv3#area1#page5#enu7" type="transport" validate="true">
+        <LinkParameter id="sv3#area1#page5#seu9#ln35#par245" name="Similar Category Name" source="ent6#att19Array" target="sv3#area1#page5#enu7#msfld2_label"/>
+        <LinkParameter id="sv3#area1#page5#seu9#ln35#par246" name="Similar Category Key" source="ent6#att62Array" target="sv3#area1#page5#enu7#msfld2_output"/>
+        <LinkParameter id="sv3#area1#page5#seu9#ln35#par247" name="Category Key" target="sv3#area1#page5#enu7.ent6#att62" sourceValue="$$NULL$$"/>
+      </Link>
+    </SelectorUnit>
+    <SelectorUnit gr:x="400" gr:y="40" id="sv3#area1#page5#seu10" name="Select Parent Category" entity="ent6">
+      <Selector id="sv3#area1#page5#seu10#su24" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="sv3#area1#page5#seu10#su24#kcond5" name="Parent Category" predicate="in" implied="false"/>
+      </Selector>
+      <Link id="sv3#area1#page5#seu10#ln79" name="Link79" to="sv3#area1#page5#enu7" type="transport" validate="true">
+        <LinkParameter id="sv3#area1#page5#seu10#ln79#par160" name="Category Key" source="ent6#att62Array" target="sv3#area1#page5#enu7#fld33_slot"/>
+        <LinkParameter id="sv3#area1#page5#seu10#ln79#par171" name="Parent Category Name" source="ent6#att19Array" target="sv3#area1#page5#enu7#fld11_slot"/>
+      </Link>
+    </SelectorUnit>
+  </ContentUnits>
+  <layout:Grid>
+    <layout:Row>
+      <layout:Cell colspan="6">
+        <layout:Grid containerType="cell">
+          <layout:Row>
+            <layout:Cell>
+              <layout:Unit unitId="sv3#area1#page5#mssu48"/>
+            </layout:Cell>
+          </layout:Row>
+        </layout:Grid>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell colspan="6">
+        <layout:Unit unitId="sv3#area1#page5#gctu3">
+          <layout:Link link="sv3#area1#page5#gctu3#ln34"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="6">
+        <layout:Unit unitId="sv3#area1#page5#pwu4">
+          <layout:Attribute attribute="ent6#att19"/>
+          <layout:Link link="sv3#area1#page5#pwu4#ln22"/>
+          <layout:Link link="sv3#area1#page5#pwu4#ln77"/>
+          <layout:Link link="sv3#area1#page5#pwu4#ln10">
+            <layout:LayoutParameter name="confirmation" value="true" type="link"/>
+            <layout:LayoutParameter name="confirm-message" value="areyousure" type="link"/>
+          </layout:Link>
+          <layout:Link link="sv3#area1#page5#pwu4ent6#att19"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell colspan="6">
+        <layout:Unit unitId="sv3#area1#page5#enu7">
+          <layout:LayoutParameter name="mandatory-fields" value="true" type="unit"/>
+          <layout:Field field="sv3#area1#page5#enu7#fld8"/>
+          <layout:Field field="sv3#area1#page5#enu7#fld11"/>
+          <layout:Field field="sv3#area1#page5#enu7#msfld2"/>
+          <layout:Link link="sv3#area1#page5#enu7#ln11"/>
+          <layout:Link link="sv3#area1#page5#enu7#ln24"/>
+          <layout:Link link="sv3#area1#page5#enu7#ln36"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+  <Comment xml:space="preserve">Default Page for the Area.
+
+Here the administrator can see the list of all the available Categories, edit a Category or simply create a new one from scratch.
+
+It implements the CRUD for Categories.</Comment>
+</Page>

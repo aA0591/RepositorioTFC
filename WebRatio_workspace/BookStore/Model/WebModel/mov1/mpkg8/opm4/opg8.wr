@@ -1,0 +1,24 @@
+<OperationGroup xmlns:gr="http://www.webratio.com/2006/WebML/Graph" id="mov1#mpkg8#opm4#opg8" name="Get Parent Category" transaction="true" gr:x="305" gr:y="0">
+  <OperationUnits>
+    <ParameterCollectorUnit id="mov1#mpkg8#opm4#opg8#pcu1" name="Collect Book Information" gr:x="0" gr:y="165">
+      <OKLink id="mov1#mpkg8#opm4#opg8#pcu1#oln26" name="OKLink20" to="mov1#mpkg8#opm4#opg8#seu2">
+        <LinkParameter id="mov1#mpkg8#opm4#opg8#pcu1#oln26#par113" name="Category Key" source="mov1#mpkg8#opm4#opg8#pcu1#pcp4" target="mov1#mpkg8#opm4#opg8#seu2#su6#kcond22.ent6#att62"/>
+      </OKLink>
+      <CollectorParameter id="mov1#mpkg8#opm4#opg8#pcu1#pcp3" name="Book Key"/>
+      <CollectorParameter id="mov1#mpkg8#opm4#opg8#pcu1#pcp4" name="Category Key"/>
+      <Link id="mov1#mpkg8#opm4#opg8#pcu1#ln55" to="mov1#mpkg8#opm4#okcu1" type="transport" validate="true" name="Link26">
+        <LinkParameter id="mov1#mpkg8#opm4#opg8#pcu1#ln55#par114" source="mov1#mpkg8#opm4#opg8#pcu1#pcp3" name="Book Key" target="mov1#mpkg8#opm4#okcu1#ocp4"/>
+      </Link>
+    </ParameterCollectorUnit>
+    <SelectorUnit id="mov1#mpkg8#opm4#opg8#seu2" name="Select Category" gr:x="25" gr:y="0" entity="ent6">
+      <Selector id="mov1#mpkg8#opm4#opg8#seu2#su6" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="mov1#mpkg8#opm4#opg8#seu2#su6#kcond22" name="Category" predicate="in" implied="false"/>
+      </Selector>
+      <OKLink id="mov1#mpkg8#opm4#opg8#seu2#oln28" to="mov1#mpkg8#opm4#okcu1" name="OKLink21">
+        <LinkParameter id="mov1#mpkg8#opm4#opg8#seu2#oln28#par115" source="ent6#att19Array" name="Category Name" target="mov1#mpkg8#opm4#okcu1#ocp5"/>
+        <LinkParameter id="mov1#mpkg8#opm4#opg8#seu2#oln28#par116" source="ent6#att62Array" name="Category Key" target="mov1#mpkg8#opm4#okcu1#ocp1"/>
+      </OKLink>
+    </SelectorUnit>
+  </OperationUnits>
+  <Comment xml:space="preserve">An operation chain to collect the oid of the Book and find the Category related to that Book.</Comment>
+</OperationGroup>

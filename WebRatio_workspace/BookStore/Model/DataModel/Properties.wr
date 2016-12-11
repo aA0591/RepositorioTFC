@@ -1,0 +1,397 @@
+<DataModel xmlns:db="http://www.webratio.com/2006/WebML/Database" xmlns:gr="http://www.webratio.com/2006/WebML/Graph">
+  <Entity id="User" name="User" duration="persistent" gr:x="255" gr:y="0" attributeOrder="userOID userName password email User#att2 User#att3 User#att4 User#att5 User#att18" db:database="db5" db:table="USER">
+    <Attribute name="oid" id="userOID" type="integer" key="true" db:column="OID"/>
+    <Attribute name="username" id="userName" type="string" db:column="USERNAME">
+      <Comment xml:space="preserve">User's username.</Comment>
+    </Attribute>
+    <Attribute name="password" id="password" type="password" db:column="PASSWORD">
+      <Comment xml:space="preserve">User's password.</Comment>
+    </Attribute>
+    <Attribute name="email" id="email" type="string" db:column="EMAIL">
+      <Comment xml:space="preserve">User's email.</Comment>
+    </Attribute>
+    <Comment xml:space="preserve">An User of the application.</Comment>
+    <Attribute id="User#att2" name="first name" type="string" db:column="FIRST_NAME">
+      <Comment xml:space="preserve">User's first name.</Comment>
+    </Attribute>
+    <Attribute id="User#att3" name="last name" type="string" db:column="LAST_NAME">
+      <Comment xml:space="preserve">User's last name.</Comment>
+    </Attribute>
+    <Attribute id="User#att4" name="gender" type="string" db:column="GENDER">
+      <Comment xml:space="preserve">User's gender.</Comment>
+    </Attribute>
+    <Attribute id="User#att5" name="birthdate" type="date" db:column="BIRTHDATE">
+      <Comment xml:space="preserve">User's birthdate.</Comment>
+    </Attribute>
+    <Attribute id="User#att18" name="shipping address" type="string" db:column="SHIPPING_ADDRESS">
+      <Comment xml:space="preserve">User's shipping address.</Comment>
+    </Attribute>
+  </Entity>
+  <Entity id="Group" name="Group" duration="persistent" gr:x="520" gr:y="70" attributeOrder="groupOID groupName" db:database="db5" db:table="GROUP">
+    <Attribute name="oid" id="groupOID" type="integer" key="true" db:column="OID"/>
+    <Attribute name="group name" id="groupName" type="string" db:column="GROUP_NAME">
+      <Comment xml:space="preserve">The name assigned to the Group.</Comment>
+    </Attribute>
+    <Comment xml:space="preserve">The Group(s) which a User belongs to.</Comment>
+  </Entity>
+  <Entity id="Module" name="Module" duration="persistent" gr:x="515" gr:y="210" attributeOrder="moduleOID moduleID moduleName" db:database="db5" db:table="MODULE">
+    <Attribute name="oid" id="moduleOID" type="integer" key="true" db:column="OID"/>
+    <Attribute name="module id" id="moduleID" type="string" db:column="MODULE_ID">
+      <Comment xml:space="preserve">The ID associated to the Module.</Comment>
+    </Attribute>
+    <Attribute name="module name" id="moduleName" type="string" db:column="MODULE_NAME">
+      <Comment xml:space="preserve">The name associated to the Module.</Comment>
+    </Attribute>
+    <Comment xml:space="preserve">The Module(s) which can be accessed by a Group.</Comment>
+  </Entity>
+  <Entity id="ent1" name="Book" duration="persistent" gr:x="270" gr:y="350" attributeOrder="ent1#att60 ent1#att8 ent1#att9 ent1#att10 ent1#att11 ent1#att12 ent1#att23 ent1#att26 ent1#att27 ent1#att36 ent1#att40 ent1#att37 ent1#att39 ent1#att38 ent1#att17 ent1#att1 ent1#att14 ent1#att15 ent1#att16" db:database="db5" db:table="BOOK">
+    <Attribute name="oid" id="ent1#att60" type="integer" key="true" db:column="OID"/>
+    <Attribute name="isbn" id="ent1#att8" type="string" db:column="ISBN">
+      <Comment xml:space="preserve">The ISBN of the Book.</Comment>
+    </Attribute>
+    <Attribute name="description" id="ent1#att9" type="text" db:column="DESCRIPTION" db:clob="true">
+      <Comment xml:space="preserve">The description of the Book.</Comment>
+    </Attribute>
+    <Attribute name="title" id="ent1#att10" type="string" db:column="TITLE">
+      <Comment xml:space="preserve">The title of the Book.</Comment>
+    </Attribute>
+    <Attribute name="list price" id="ent1#att11" subType="sbt1" type="float" db:column="LIST_PRICE">
+      <Comment xml:space="preserve">The list price of the Book.</Comment>
+    </Attribute>
+    <Attribute name="cover (thumbnail)" id="ent1#att12" contentType="image" type="blob" db:column="COVER_THUMBNAIL">
+      <Comment xml:space="preserve">The thumbnail of the cover of the Book.</Comment>
+    </Attribute>
+    <Attribute name="highlighted" id="ent1#att23" type="boolean" db:column="HIGHLIGHTED">
+      <Comment xml:space="preserve">This attribute indicates if the Book is highlighted or not.</Comment>
+    </Attribute>
+    <Attribute name="price" id="ent1#att26" subType="sbt1" type="float" derivationQuery="Self.ent1#att11 - (Self.ent1#att11 * Self.ent1#att40) / 100" storageType="file" db:table="BOOK_PRICE_VIEW" db:column="DER_ATTR">
+      <Comment xml:space="preserve">The final price of the Book, calculated taking into account the discount and the list price.</Comment>
+      <db:JoinColumn attribute="ent1#att60" name="OID"/>
+    </Attribute>
+    <Attribute name="saving" id="ent1#att27" subType="sbt1" type="float" derivationQuery="Self.ent1#att11 - Self.ent1#att26" storageType="file" db:table="BOOK_SAVING_VIEW" db:column="DER_ATTR">
+      <Comment xml:space="preserve">The saving for the Book, calculated taking into account the price and the list price.</Comment>
+      <db:JoinColumn attribute="ent1#att60" name="OID"/>
+    </Attribute>
+    <Attribute name="cover" id="ent1#att36" contentType="image" type="blob" db:column="COVER">
+      <Comment xml:space="preserve">The cover of the Book.</Comment>
+    </Attribute>
+    <Attribute name="discount" id="ent1#att40" type="float" subType="sbt1" db:column="DISCOUNT">
+      <Comment xml:space="preserve">The discount available purchasing the Book.</Comment>
+    </Attribute>
+    <Attribute name="language" id="ent1#att37" type="string" db:column="LANGUAGE">
+      <Comment xml:space="preserve">The language of the Book.</Comment>
+    </Attribute>
+    <Attribute name="pages" id="ent1#att39" type="string" db:column="PAGES">
+      <Comment xml:space="preserve">The number of pages of the Book.</Comment>
+    </Attribute>
+    <Attribute name="published" id="ent1#att38" type="string" db:column="PUBLISHED">
+      <Comment xml:space="preserve">The year of publication of the Book.</Comment>
+    </Attribute>
+    <Comment xml:space="preserve">Each Book available in the BookStore.</Comment>
+    <Attribute id="ent1#att15" name="# comments" type="integer" derivationQuery="calculated::count(Self.rel5#rel21(as Var1))" storageType="file" db:table="BOOK_COMMENTS_VIEW" db:column="DER_ATTR">
+      <Comment xml:space="preserve">The number of comments for the Book.</Comment>
+      <db:JoinColumn attribute="ent1#att60" name="OID"/>
+    </Attribute>
+    <Attribute id="ent1#att16" name="# rewiews" type="integer" derivationQuery="calculated::count(Self.rel4#rel19(as Var1))" storageType="file" db:table="BOOK_REWIEWS_VIEW" db:column="DER_ATTR">
+      <Comment xml:space="preserve">The number of reviews for the Book.</Comment>
+      <db:JoinColumn attribute="ent1#att60" name="OID"/>
+    </Attribute>
+    <Attribute id="ent1#att17" name="authors list" type="string" db:column="AUTHORS_LIST">
+      <Comment xml:space="preserve">The concatened list of Authors of the Book.</Comment>
+    </Attribute>
+    <Attribute id="ent1#att1" name="category" type="string" derivationQuery="simpleImported::Self.rel2#rel8.ent6#att19">
+      <Comment xml:space="preserve">The concatened list of Categories of the Book.</Comment>
+    </Attribute>
+    <Attribute id="ent1#att14" name="rating" type="integer" db:column="RATING">
+      <Comment xml:space="preserve">The rating for the Book.</Comment>
+    </Attribute>
+  </Entity>
+  <Entity id="ent4" name="Author" duration="persistent" gr:x="545" gr:y="440" attributeOrder="ent4#att61 ent4#att24" db:database="db5" db:table="AUTHOR">
+    <Attribute name="oid" id="ent4#att61" type="integer" key="true" db:column="OID"/>
+    <Attribute name="name" id="ent4#att24" type="string" db:column="NAME">
+      <Comment xml:space="preserve">The fullname of the Author.</Comment>
+    </Attribute>
+    <Comment xml:space="preserve">An Author of one of the Books available in the BookStore.</Comment>
+  </Entity>
+  <Entity id="ent6" name="Category" duration="persistent" gr:x="15" gr:y="430" attributeOrder="ent6#att62 ent6#att19 ent6#att48 ent6#att13" db:database="db5" db:table="CATEGORY">
+    <Attribute name="oid" id="ent6#att62" type="integer" key="true" db:column="OID"/>
+    <Attribute name="category" id="ent6#att19" type="string" db:column="CATEGORY">
+      <Comment xml:space="preserve">The name of the Category.</Comment>
+    </Attribute>
+    <Attribute name="has parent" id="ent6#att48" type="integer" derivationQuery="count(Self.rel16#rel10(as Var1))" storageType="file" db:table="CATEGORY_HAS_PARENT_VIEW" db:column="DER_ATTR">
+      <Comment xml:space="preserve">A flag that indicates wheter the Category has a parent Category.</Comment>
+      <db:JoinColumn attribute="ent6#att62" name="OID"/>
+    </Attribute>
+    <Comment xml:space="preserve">A Category to which a Book could belong.</Comment>
+    <Attribute id="ent6#att13" name="# books" type="integer" derivationQuery="calculated::count(Self.rel2#rel7(as Var1))" storageType="file" db:table="CATEGORY_BOOKS_VIEW" db:column="DER_ATTR">
+      <Comment xml:space="preserve">The number of Books related to the Category.</Comment>
+      <db:JoinColumn attribute="ent6#att62" name="OID"/>
+    </Attribute>
+  </Entity>
+  <Entity id="ent9" name="Editorial Review" duration="persistent" gr:x="545" gr:y="585" attributeOrder="ent9#att33 ent9#att34 ent9#att35 ent9#att49" db:database="db5" db:table="EDITORIAL_REVIEW">
+    <Attribute name="oid" id="ent9#att33" type="integer" key="true" db:column="OID"/>
+    <Attribute name="reviewer" id="ent9#att34" type="string" db:column="REVIEWER">
+      <Comment xml:space="preserve">The name of the User that made the Editorial Review.</Comment>
+    </Attribute>
+    <Attribute name="review" id="ent9#att35" type="text" db:column="REVIEW" db:clob="true">
+      <Comment xml:space="preserve">The text of the Editorial Review.</Comment>
+    </Attribute>
+    <Attribute name="added on" id="ent9#att49" type="timestamp" db:column="ADDED_ON">
+      <Comment xml:space="preserve">The date of publishing of the Editorial Review.</Comment>
+    </Attribute>
+    <Comment xml:space="preserve">An Editorial Review related to a Book.</Comment>
+  </Entity>
+  <Entity id="ent10" name="Comment" duration="persistent" gr:x="5" gr:y="600" attributeOrder="ent10#att41 ent10#att42 ent10#att50" db:database="db5" db:table="COMMENT">
+    <Attribute name="oid" id="ent10#att41" type="integer" key="true" db:column="OID"/>
+    <Attribute name="comment" id="ent10#att42" type="text" db:column="COMMENT" db:clob="true">
+      <Comment xml:space="preserve">The text of the Comment.</Comment>
+    </Attribute>
+    <Attribute name="added on" id="ent10#att50" type="timestamp" db:column="ADDED_ON">
+      <Comment xml:space="preserve">The creation date of the Comment.</Comment>
+    </Attribute>
+    <Comment xml:space="preserve">A Comment related to a Book.</Comment>
+  </Entity>
+  <Entity id="ent12" name="Order" duration="persistent" gr:x="5" gr:y="40" attributeOrder="ent12#att45 ent12#att47 ent12#att72 ent12#att6 ent12#att7" db:database="db5" db:table="ORDER">
+    <Attribute name="oid" id="ent12#att45" type="integer" key="true" db:column="OID"/>
+    <Attribute name="total amount" id="ent12#att47" type="float" derivationQuery="calculated::sum(Self.rel12#role6(as Var1).ent2#att44)" storageType="file" subType="sbt1" db:table="ORDER_TOTAL_AMOUNT_VIEW" db:column="DER_ATTR">
+      <Comment xml:space="preserve">The total amount for the Order.
+</Comment>      <db:JoinColumn attribute="ent12#att45" name="OID"/>    </Attribute>    <Attribute name="date" id="ent12#att72" type="timestamp" db:column="DATE">      <Comment xml:space="preserve">The date of confirmation of the Order.</Comment>
+    </Attribute>
+    <Comment xml:space="preserve">The container of the Books chosen by a User.
+A Cart becomes an effective Order as soon as the User confirms it.</Comment>
+    <Attribute id="ent12#att6" name="status" type="boolean" db:column="STATUS">
+      <Comment xml:space="preserve">The status of the Order.</Comment>
+    </Attribute>
+    <Attribute id="ent12#att7" name="full name" type="string" derivationQuery="calculated::Self.rel1#rel27(as Var1).User#att2 || ' ' || Self.rel1#rel27(as Var1).User#att3" storageType="file" db:table="ORDER_FULL_NAME_VIEW" db:column="DER_ATTR">
+      <Comment xml:space="preserve">The full name of the User that confirmed the Order.</Comment>
+      <db:JoinColumn attribute="ent12#att45" name="OID"/>
+    </Attribute>
+  </Entity>
+  <Relationship id="User2Group_Group2User" name="User_Group" sourceEntity="User" targetEntity="Group" db:database="db5" db:table="USER_GROUP">
+    <RelationshipRole1 id="User2Group" name="UserToGroup" maxCard="N">
+      <Comment xml:space="preserve">A User may be assigned to 0 to N Groups.</Comment>
+      <db:JoinColumn attribute="userOID" name="USER_OID"/>
+    </RelationshipRole1>
+    <RelationshipRole2 id="Group2User" name="GroupToUser" maxCard="N">
+      <Comment xml:space="preserve">A Group may contain 0 to N Users.</Comment>
+      <db:JoinColumn attribute="groupOID" name="GROUP_OID"/>
+    </RelationshipRole2>
+    <Comment xml:space="preserve">Relationship that connects a User to all the Groups to which it belongs.</Comment>
+  </Relationship>
+  <Relationship id="User2DefaultGroup_DefaultGroup2User" name="User_Default Group" sourceEntity="User" targetEntity="Group" gr:bendpoints="111,-42,-107,-37" db:database="db5" db:table="USER">
+    <RelationshipRole1 id="User2DefaultGroup" name="UserToDefault Group" maxCard="1">
+      <Comment xml:space="preserve">A User may be assigned to 1 DefaultGroup only.</Comment>
+      <db:JoinColumn attribute="userOID" name="OID"/>
+    </RelationshipRole1>
+    <RelationshipRole2 id="DefaultGroup2User" name="Default GroupToUser" maxCard="N">
+      <Comment xml:space="preserve">A DefaultGroup may contain 0 to N Users.</Comment>
+      <db:JoinColumn attribute="groupOID" name="GROUP_OID"/>
+    </RelationshipRole2>
+    <Comment xml:space="preserve">Relationship that connects a User to its own DefaultGroup.</Comment>
+  </Relationship>
+  <Relationship id="rel1" name="Order_User" sourceEntity="User" targetEntity="ent12" db:database="db5" db:table="ORDER">
+    <RelationshipRole1 id="rel1#rel28" name="UserToOrder" maxCard="N">
+      <Comment xml:space="preserve">A User may manage 0 to N Orders.</Comment>
+      <db:JoinColumn attribute="userOID" name="USER_OID"/>
+    </RelationshipRole1>
+    <RelationshipRole2 id="rel1#rel27" name="OrderToUser" maxCard="1">
+      <Comment xml:space="preserve">An Order is managed by 1 and 1 User only.</Comment>
+      <db:JoinColumn attribute="ent12#att45" name="OID"/>
+    </RelationshipRole2>
+    <Comment xml:space="preserve">The relationship that connects a User to his Orders.</Comment>
+  </Relationship>
+  <Relationship id="Group2DefaultModule_DefaultModule2Group" name="Group_Default Module" sourceEntity="Group" targetEntity="Module" gr:bendpoints="48,73,48,-77" db:database="db5" db:table="GROUP">
+    <RelationshipRole1 id="Group2DefaultModule" name="GroupToDefault Module" maxCard="1">
+      <Comment xml:space="preserve">A Group belongs to 0 to 1 Default Module.</Comment>
+      <db:JoinColumn attribute="groupOID" name="OID"/>
+    </RelationshipRole1>
+    <RelationshipRole2 id="DefaultModule2Group" name="Default ModuleToGroup" maxCard="N">
+      <Comment xml:space="preserve">A Default Module may be associated to 0 to N Groups.</Comment>
+      <db:JoinColumn attribute="moduleOID" name="MODULE_OID"/>
+    </RelationshipRole2>
+    <Comment xml:space="preserve">Relationship that connects a Group to its own DefaultModule.</Comment>
+  </Relationship>
+  <Relationship id="Group2Module_Module2Group" name="Group_Module" sourceEntity="Group" targetEntity="Module" db:database="db5" db:table="GROUP_MODULE">
+    <RelationshipRole1 id="Group2Module" name="GroupToModule" maxCard="N">
+      <Comment xml:space="preserve">A Group belongs to 0 to N Modules.</Comment>
+      <db:JoinColumn attribute="groupOID" name="GROUP_OID"/>
+    </RelationshipRole1>
+    <RelationshipRole2 id="Module2Group" name="ModuleToGroup" maxCard="N">
+      <Comment xml:space="preserve">A Module may be associated to 0 to N Groups.</Comment>
+      <db:JoinColumn attribute="moduleOID" name="MODULE_OID"/>
+    </RelationshipRole2>
+    <Comment xml:space="preserve">Relationship that connects a Group to all the Modules to which it belongs.</Comment>
+  </Relationship>
+  <Relationship id="rel2" name="Category_Book" sourceEntity="ent1" targetEntity="ent6" db:database="db5" db:table="BOOK">
+    <RelationshipRole1 id="rel2#rel8" name="BookToCategory" maxCard="1">
+      <Comment xml:space="preserve">A Book belongs to 1 and 1 only Category.</Comment>
+      <db:JoinColumn attribute="ent1#att60" name="OID"/>
+    </RelationshipRole1>
+    <RelationshipRole2 id="rel2#rel7" name="CategoryToBook" maxCard="N">
+      <Comment xml:space="preserve">A Category may contain 0 to N Books.</Comment>
+      <db:JoinColumn attribute="ent6#att62" name="CATEGORY_OID"/>
+    </RelationshipRole2>
+    <Comment xml:space="preserve">The relationship that connects a Book to its Categories.</Comment>
+  </Relationship>
+  <Relationship id="rel3" name="Book_Related Book" sourceEntity="ent1" targetEntity="ent1" gr:bendpoints="-33,-233,-33,-233;29,-233,29,-233" db:database="db5" db:table="BOOK_RELATED_BOOK">
+    <RelationshipRole1 id="rel3#rel13" name="BookToRelated Books" maxCard="N">
+      <Comment xml:space="preserve">A Book may be related from 0 to N other Books.</Comment>
+      <db:JoinColumn attribute="ent1#att60" name="BOOK_OID"/>
+    </RelationshipRole1>
+    <RelationshipRole2 id="rel3#rel14" name="Related BooksToBook" maxCard="N">
+      <Comment xml:space="preserve">A Book may be related from 0 to N other Books.</Comment>
+      <db:JoinColumn attribute="ent1#att60" name="BOOK_OID_2"/>
+    </RelationshipRole2>
+    <Comment xml:space="preserve">The relationship that connects the Books with the related Books.</Comment>
+  </Relationship>
+  <Relationship id="rel4" name="Book_Editorial Review" sourceEntity="ent1" targetEntity="ent9" db:database="db5" db:table="EDITORIAL_REVIEW">
+    <RelationshipRole1 id="rel4#rel19" name="BookToEditorial Review" maxCard="N">
+      <Comment xml:space="preserve">A Book may have 0 to N Editorial Reviews.</Comment>
+      <db:JoinColumn attribute="ent1#att60" name="BOOK_OID"/>
+    </RelationshipRole1>
+    <RelationshipRole2 id="rel4#rel20" name="Editorial ReviewToBook" maxCard="1">
+      <Comment xml:space="preserve">An Editorial Review belongs to 1 and 1 Book only.</Comment>
+      <db:JoinColumn attribute="ent9#att33" name="OID"/>
+    </RelationshipRole2>
+    <Comment xml:space="preserve">The relationship that connects a Book to its Reviews.</Comment>
+  </Relationship>
+  <Relationship id="rel5" name="Book_Comment" sourceEntity="ent1" targetEntity="ent10" db:database="db5" db:table="COMMENT">
+    <RelationshipRole1 id="rel5#rel21" name="BookToComment" maxCard="N">
+      <Comment xml:space="preserve">A Book may have 0 to N Comments.</Comment>
+      <db:JoinColumn attribute="ent1#att60" name="BOOK_OID"/>
+    </RelationshipRole1>
+    <RelationshipRole2 id="rel5#rel22" name="CommentToBook" maxCard="1">
+      <Comment xml:space="preserve">A Comment belongs to 1 and 1 Book only.</Comment>
+      <db:JoinColumn attribute="ent10#att41" name="OID"/>
+    </RelationshipRole2>
+    <Comment xml:space="preserve">The relationships that connects a Book to its Comments.</Comment>
+  </Relationship>
+  <Relationship id="rel15" name="Book_Author" sourceEntity="ent1" targetEntity="ent4" db:database="db5" db:table="BOOK_AUTHOR">
+    <RelationshipRole1 id="rel15#rel31" name="BookToAuthor" maxCard="N">
+      <Comment xml:space="preserve">A Book may have 1 or multiple Authors.</Comment>
+      <db:JoinColumn attribute="ent1#att60" name="BOOK_OID"/>
+    </RelationshipRole1>
+    <RelationshipRole2 id="rel15#rel32" name="AuthorToBook" maxCard="N">
+      <Comment xml:space="preserve">An Author may have published 1 to N Books.</Comment>
+      <db:JoinColumn attribute="ent4#att61" name="AUTHOR_OID"/>
+    </RelationshipRole2>
+    <Comment xml:space="preserve">The relationship that connects Books and Authors.</Comment>
+  </Relationship>
+  <Relationship id="rel16" name="Category_Sub Category" sourceEntity="ent6" targetEntity="ent6" gr:bendpoints="-29,98,-29,98;30,98,30,98" db:database="db5" db:table="CATEGORY">
+    <RelationshipRole1 id="rel16#rel9" name="CategoryToSub Category" maxCard="N">
+      <Comment xml:space="preserve">A Category may have 0 to N SubCategories.</Comment>
+      <db:JoinColumn attribute="ent6#att62" name="CATEGORY_OID"/>
+    </RelationshipRole1>
+    <RelationshipRole2 id="rel16#rel10" name="Sub CategoryToCategory" maxCard="1">
+      <Comment xml:space="preserve">A SubCategory may belong to 1 and 1 Category only.</Comment>
+      <db:JoinColumn attribute="ent6#att62" name="OID"/>
+    </RelationshipRole2>
+    <Comment xml:space="preserve">Relationship that connects a Category with its SubCategories.</Comment>
+  </Relationship>
+  <SubType id="sbt1" name="currency" type="float">
+    <Comment xml:space="preserve">The definition for the subtype currency to represent the prices of items.
+
+It is based on the definition of the type float.</Comment>
+  </SubType>
+  <Package gr:x="45" gr:y="785" id="pkg1" name="Cart">
+    <Entity id="pkg1#ent3" name="Cart" duration="volatile" attributeOrder="pkg1#ent3#att25 pkg1#ent3#att28 pkg1#ent3#att29" volatileStorage="database" gr:x="0" gr:y="40">
+      <Attribute id="pkg1#ent3#att25" name="oid" key="true" type="integer"/>
+      <Attribute id="pkg1#ent3#att28" name="date" type="timestamp">
+        <Comment xml:space="preserve">The date of the creation of the Cart.</Comment>
+      </Attribute>
+      <Attribute id="pkg1#ent3#att29" name="total amount" type="float" subType="sbt1" derivationQuery="calculated::sum(Self.rel18#role1(as Var1).pkg1#ent5#att46)">
+        <Comment xml:space="preserve">The total amount for the Cart, sum of the prices of the Items of the Cart.</Comment>
+      </Attribute>
+      <Comment xml:space="preserve">A Cart for a specific User.</Comment>
+    </Entity>
+    <Entity gr:x="250" gr:y="0" id="pkg1#ent5" name="Cart Item" duration="volatile" volatileStorage="database" attributeOrder="pkg1#ent5#att30 pkg1#ent5#att55 pkg1#ent5#att56 pkg1#ent5#att32 pkg1#ent5#att46 pkg1#ent5#att20 pkg1#ent5#att22">
+      <Attribute id="pkg1#ent5#att30" key="true" name="oid" type="integer"/>
+      <Attribute id="pkg1#ent5#att32" name="unitary amount" type="float" subType="sbt1">
+        <Comment xml:space="preserve">The single price of the Item.</Comment>
+      </Attribute>
+      <Attribute id="pkg1#ent5#att46" name="partial amount" type="float" subType="sbt1" derivationQuery="calculated::Self.pkg1#ent5#att56 * Self.pkg1#ent5#att32">
+        <Comment xml:space="preserve">The partial amount of the Item, the product of quantity multiplied per the unitary amount.</Comment>
+      </Attribute>
+      <Attribute id="pkg1#ent5#att55" name="product" type="string">
+        <Comment xml:space="preserve">The product (Book) related to the Item.</Comment>
+      </Attribute>
+      <Attribute id="pkg1#ent5#att56" name="quantity" type="integer">
+        <Comment xml:space="preserve">The quantity of the same Item the User wants to Order.</Comment>
+      </Attribute>
+      <Attribute id="pkg1#ent5#att20" name="title" type="string">
+        <Comment xml:space="preserve">The title of the Item.</Comment>
+      </Attribute>
+      <Attribute id="pkg1#ent5#att22" name="cover (thumbnail)" type="blob" contentType="image">
+        <Comment xml:space="preserve">The cover for the Item.</Comment>
+      </Attribute>
+      <Comment xml:space="preserve">An Item of a Cart.</Comment>
+    </Entity>
+    <Comment xml:space="preserve">The package that contains the volatile entity for the handling of a Cart.</Comment>
+  </Package>
+  <Relationship id="rel18" name="Cart_Item Cart" sourceEntity="pkg1#ent3" targetEntity="pkg1#ent5">
+    <RelationshipRole1 id="rel18#role1" name="CartToItem Cart" maxCard="N">
+      <Comment xml:space="preserve">A Cart may have 0 to N Item Cart.</Comment>
+    </RelationshipRole1>
+    <RelationshipRole2 id="rel18#role2" name="Item CartToCart" maxCard="1">
+      <Comment xml:space="preserve">An Item Cart belongs to one and only one Cart.</Comment>
+    </RelationshipRole2>
+    <Comment xml:space="preserve">The relationship that connects a Cart to its Items.</Comment>
+  </Relationship>
+  <Relationship id="rel11" name="Category_Related Category" sourceEntity="ent6" targetEntity="ent6" gr:bendpoints="28,-99,28,-99;-28,-99,-28,-99" db:database="db5" db:table="CATEGORY_RELATED_CATEGORY">
+    <RelationshipRole1 id="rel11#role3" name="CategoryToRelated Category" maxCard="N">
+      <Comment xml:space="preserve">A Category may be related from 0 to N other Categories.</Comment>
+      <db:JoinColumn attribute="ent6#att62" name="CATEGORY_OID"/>
+    </RelationshipRole1>
+    <RelationshipRole2 id="rel11#role4" name="Related CategoryToCategory" maxCard="N">
+      <Comment xml:space="preserve">A Category may be related from 0 to N other Categories.</Comment>
+      <db:JoinColumn attribute="ent6#att62" name="CATEGORY_OID_2"/>
+    </RelationshipRole2>
+    <Comment xml:space="preserve">The relationship that connects the Category with the related Categories.</Comment>
+  </Relationship>
+  <db:Database id="db5" name="BookStoreDB" type="Apache Derby" url="jdbc:derby://localhost:50124/BookStoreDB;create=true" username="manager" cryptedPassword="true" password="bWFuYWdlcg==" schema="APP">
+    <Comment xml:space="preserve">This is the default database for the BookStore project.
+
+It is an Apache Derby DB.</Comment>
+  </db:Database>
+  <Entity gr:x="0" gr:y="225" id="ent2" name="Order Item" duration="persistent" attributeOrder="ent2#att21 ent2#att31 ent2#att43 ent2#att44" db:database="db5" db:table="ORDER_ITEM">
+    <Attribute id="ent2#att21" key="true" name="oid" type="integer" db:column="OID"/>
+    <Attribute id="ent2#att31" name="quantity" type="integer" db:column="QUANTITY">
+      <Comment xml:space="preserve">The ordered quantity of the same Item.</Comment>
+    </Attribute>
+    <Attribute id="ent2#att43" name="unitary amount" type="float" subType="sbt1" derivationQuery="simpleImported::Self.rel17#role7.ent1#att26" storageType="file">
+      <Comment xml:space="preserve">The unitary amount for the single Item.</Comment>
+    </Attribute>
+    <Attribute id="ent2#att44" name="partial amount" type="float" subType="sbt1" derivationQuery="calculated::Self.ent2#att43 * Self.ent2#att31" storageType="file" db:table="ORDER_ITEM_PARTIAL_AMOUNT_VIEW" db:column="DER_ATTR">
+      <Comment xml:space="preserve">The partial amount of the single Item of an Order.
+</Comment>      <db:JoinColumn attribute="ent2#att21" name="OID"/>    </Attribute>    <Comment xml:space="preserve">The single Items (Books) related to an Order. </Comment>
+  </Entity>
+  <Relationship id="rel12" name="Order Item_Order" sourceEntity="ent2" targetEntity="ent12" db:database="db5" db:table="ORDER_ITEM">
+    <RelationshipRole1 id="rel12#role5" name="Order ItemToOrder" maxCard="1">
+      <Comment xml:space="preserve">An Order Item belongs to 1 and 1 only Order.</Comment>
+      <db:JoinColumn attribute="ent2#att21" name="OID"/>
+    </RelationshipRole1>
+    <RelationshipRole2 id="rel12#role6" name="OrderToOrder Item" maxCard="N">
+      <Comment xml:space="preserve">An Order may contain 1 or more Order Item.</Comment>
+      <db:JoinColumn attribute="ent12#att45" name="ORDER_OID"/>
+    </RelationshipRole2>
+    <Comment xml:space="preserve">The relationship that connects an Order to all its Order Items.</Comment>
+  </Relationship>
+  <Relationship id="rel17" name="Order Item_Book" sourceEntity="ent2" targetEntity="ent1" db:database="db5" db:table="ORDER_ITEM">
+    <RelationshipRole1 id="rel17#role7" name="Order ItemToBook" maxCard="1">
+      <Comment xml:space="preserve">An Order Item is related to 1 and only 1 Book.</Comment>
+      <db:JoinColumn attribute="ent2#att21" name="OID"/>
+    </RelationshipRole1>
+    <RelationshipRole2 id="rel17#role8" name="BookToOrder Item" maxCard="N">
+      <Comment xml:space="preserve">A Book may belong to different Order Items.</Comment>
+      <db:JoinColumn attribute="ent1#att60" name="BOOK_OID"/>
+    </RelationshipRole2>
+    <Comment xml:space="preserve">The relationship that connects a Book and an Order Item.</Comment>
+  </Relationship>
+  <Comment xml:space="preserve">This is the Data Model view of the BookStore project. 
+
+By default there are 12 entities inside the Data Model. They are all representation of the entities of a real world BookStore and they handle all the properties of a Book. 
+
+Two of those entity are volatile, and they are grouped in a reserved package, those units are the ones related to the handling of the Cart.
+
+This project has one Database defined for the Data Model, called BookStoreDB and of type Apache Derby.
+</Comment></DataModel>

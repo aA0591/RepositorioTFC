@@ -1,0 +1,34 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" id="mov1#mpkg9#hym44#page60" name="Review" layout:pageLayout="WRDefault/Empty" gr:x="110" gr:y="10">
+  <ContentUnits>
+    <EntryUnit id="mov1#mpkg9#hym44#page60#enu18" name="Review Information" linkOrder="mov1#mpkg9#hym44#page60#enu18#ln87" gr:x="0" gr:y="0" entity="ent9" fieldOrder="mov1#mpkg9#hym44#page60#enu18#fld38 mov1#mpkg9#hym44#page60#enu18#fld39">
+      <Field id="mov1#mpkg9#hym44#page60#enu18#fld38" name="reviewer" type="string" modifiable="true" preloaded="false" attribute="ent9#att34"/>
+      <Field id="mov1#mpkg9#hym44#page60#enu18#fld39" name="review" type="text" modifiable="true" preloaded="false" attribute="ent9#att35" contentType="text/html"/>
+      <Link id="mov1#mpkg9#hym44#page60#enu18#ln87" name="Save" to="mov1#mpkg9#hym44#opg3#tmu6" type="normal" validate="true" ajaxEnabled="true"/>
+      <Link id="mov1#mpkg9#hym44#page60#enu18#ln88" name="Link88" to="mov1#mpkg9#hym44#opg3#cru16" type="transport" validate="true">
+        <LinkParameter id="mov1#mpkg9#hym44#page60#enu18#ln88#par88" name="Editorial Review Object" source="entityBean" target="mov1#mpkg9#hym44#opg3#cru16.entityBeans"/>
+      </Link>
+    </EntryUnit>
+  </ContentUnits>
+  <layout:Grid>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="mov1#mpkg9#hym44#page60#enu18">
+          <layout:Field field="mov1#mpkg9#hym44#page60#enu18#fld38"/>
+          <layout:Field field="mov1#mpkg9#hym44#page60#enu18#fld39"/>
+          <layout:Link link="mov1#mpkg9#hym44#page60#enu18#ln87"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+</Page>

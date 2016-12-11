@@ -1,0 +1,16 @@
+<OperationGroup xmlns:gr="http://www.webratio.com/2006/WebML/Graph" gr:x="410" gr:y="260" id="mov2#mpkg11#hym52#opg9" name="Modify Review" transaction="true">
+  <OperationUnits>
+    <ModifyUnit id="mov2#mpkg11#hym52#opg9#mfu7" name="Modify Editorial Review" gr:x="135" gr:y="0" entity="ent9">
+      <Selector id="mov2#mpkg11#hym52#opg9#mfu7#su36" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="mov2#mpkg11#hym52#opg9#mfu7#su36#kcond15" name="Editorial Review" predicate="in" implied="false"/>
+      </Selector>
+      <OKLink id="mov2#mpkg11#hym52#opg9#mfu7#oln93" name="OKLink93" to="mov2#mpkg11#hym52#okcu60"/>
+    </ModifyUnit>
+    <TimeUnit id="mov2#mpkg11#hym52#opg9#tmu3" name="Today Time" gr:x="0" gr:y="15">
+      <OKLink id="mov2#mpkg11#hym52#opg9#tmu3#oln94" name="OKLink94" to="mov2#mpkg11#hym52#opg9#mfu7">
+        <LinkParameter id="mov2#mpkg11#hym52#opg9#tmu3#oln94#par232" name="Current Timestamp" source="currentTimestamp" target="mov2#mpkg11#hym52#opg9#mfu7.ent9#att49"/>
+      </OKLink>
+    </TimeUnit>
+  </OperationUnits>
+  <KOLink id="mov2#mpkg11#hym52#opg9#kln15" name="KOLink15" to="mov2#mpkg11#hym52#kocu5" automaticCoupling="true"/>
+</OperationGroup>

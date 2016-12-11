@@ -1,0 +1,16 @@
+<OperationModule xmlns:gr="http://www.webratio.com/2006/WebML/Graph" gr:x="245" gr:y="190" id="mov1#opm4" name="Cart" gr:icon="ModulesIcons/Cart.png">
+  <OperationUnits>
+    <InputCollectorUnit gr:x="-125" gr:y="170" id="mov1#opm4#icu11" name="Input">
+      <InputCollectorParameter id="mov1#opm4#icu11#icp13" name="Price"/>
+      <InputCollectorParameter id="mov1#opm4#icu11#icp14" name="Quantity"/>
+      <InputCollectorParameter id="mov1#opm4#icu11#icp15" name="Product"/>
+      <OKLink id="mov1#opm4#icu11#oln115" name="OKLink115" to="mov1#opm4#opg11#seu1"/>
+      <Link id="mov1#opm4#icu11#ln104" name="Link126" to="mov1#opm4#opg11#cru18" type="transport" validate="true">
+        <LinkParameter id="mov1#opm4#icu11#ln104#par16" name="Price" source="mov1#opm4#icu11#icp13" target="mov1#opm4#opg11#cru18.pkg2#ent12#att59"/>
+        <LinkParameter id="mov1#opm4#icu11#ln104#par25" name="Product" source="mov1#opm4#icu11#icp15" target="mov1#opm4#opg11#cru18.pkg2#ent12#att57"/>
+        <LinkParameter id="mov1#opm4#icu11#ln104#par28" name="Quantity" source="mov1#opm4#icu11#icp14" target="mov1#opm4#opg11#cru18.pkg2#ent12#att58"/>
+      </Link>
+    </InputCollectorUnit>
+    <OKCollectorUnit gr:x="695" gr:y="55" id="mov1#opm4#okcu7" name="Success"/>
+  </OperationUnits>
+</OperationModule>

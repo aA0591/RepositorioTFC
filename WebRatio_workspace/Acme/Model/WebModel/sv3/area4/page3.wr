@@ -1,0 +1,275 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" id="sv3#area4#page3" name="Products Management" gr:x="115" gr:y="0">
+  <ContentUnits>
+    <PowerIndexUnit id="sv3#area4#page3#pwu1" name="Products List" customDescriptor="false" gr:x="0" gr:y="85" sortable="true" checkable="false" useCountQuery="false" entity="pkg1#ent8" displayAttributes="pkg1#ent8#att48 pkg1#ent8#att39 pkg1#ent8#att41 pkg1#ent8#att42 pkg1#ent8#att50 pkg1#ent8#att44" distinct="false" blockFactor="5" blockWindow="4" linkOrder="sv3#area4#page3#pwu1#ln63 sv3#area4#page3#pwu1#ln97">
+      <Selector id="sv3#area4#page3#pwu1#su21" defaultPolicy="fill" booleanOperator="and"/>
+      <VRules>
+        <CheckedUnitItemsValidationRule id="sv3#area4#page3#pwu1#ckd1" name="Validate Product Number" predicate="min" itemCount="1"/>
+      </VRules>
+      <Link id="sv3#area4#page3#pwu1#ln97" name="Delete" to="sv3#area4#dlu5" automaticCoupling="true" type="normal" validate="true"/>
+      <Link id="sv3#area4#page3#pwu1#ln63" name="Edit" to="sv3#area4#page3#seu7" automaticCoupling="true" type="normal" validate="true" ajaxEnabled="true"/>
+      <DefaultSortAttribute attribute="pkg1#ent8#att48" order="ascending"/>
+      <DefaultSortAttribute attribute="pkg1#ent8#att39" order="ascending"/>
+      <DefaultSortAttribute attribute="pkg1#ent8#att41" order="ascending"/>
+      <DefaultSortAttribute attribute="pkg1#ent8#att42" order="ascending"/>
+      <DefaultSortAttribute attribute="pkg1#ent8#att50" order="ascending"/>
+      <SortAttribute attribute="pkg1#ent8#att48" order="ascending"/>
+      <SortAttribute attribute="pkg1#ent8#att39" order="ascending"/>
+      <SortAttribute attribute="pkg1#ent8#att41" order="ascending"/>
+      <SortAttribute attribute="pkg1#ent8#att42" order="ascending"/>
+      <SortAttribute attribute="pkg1#ent8#att50" order="ascending"/>
+    </PowerIndexUnit>
+    <EntryUnit gr:x="300" gr:y="310" id="sv3#area4#page3#enu8" name="Product Info" entity="pkg1#ent8" fieldOrder="sv3#area4#page3#enu8#sfld9 sv3#area4#page3#enu8#fld14 sv3#area4#page3#enu8#fld16 sv3#area4#page3#enu8#fld17 sv3#area4#page3#enu8#fld15 sv3#area4#page3#enu8#fld21 sv3#area4#page3#enu8#fld26" linkOrder="sv3#area4#page3#enu8#ln73 sv3#area4#page3#enu8#ln27">
+      <Field id="sv3#area4#page3#enu8#fld14" name="code" type="integer" modifiable="true" attribute="pkg1#ent8#att39">
+        <VRules>
+          <MandatoryValidationRule id="sv3#area4#page3#enu8#fld14#mnd15" name="Mandatory Field"/>
+        </VRules>
+      </Field>
+      <Field id="sv3#area4#page3#enu8#fld15" name="description" type="text" modifiable="true" attribute="pkg1#ent8#att40"/>
+      <Field id="sv3#area4#page3#enu8#fld16" name="name" type="string" modifiable="true" attribute="pkg1#ent8#att41">
+        <VRules>
+          <MandatoryValidationRule id="sv3#area4#page3#enu8#fld16#mnd19" name="Mandatory Field"/>
+        </VRules>
+      </Field>
+      <Field id="sv3#area4#page3#enu8#fld17" name="price" type="float" modifiable="true" attribute="pkg1#ent8#att42">
+        <VRules>
+          <MandatoryValidationRule id="sv3#area4#page3#enu8#fld17#mnd21" name="Mandatory Field"/>
+        </VRules>
+      </Field>
+      <Field id="sv3#area4#page3#enu8#fld21" name="thumbnail" type="blob" modifiable="true" contentType="image" attribute="pkg1#ent8#att43"/>
+      <Field id="sv3#area4#page3#enu8#fld26" name="highlighted" type="boolean" modifiable="true" attribute="pkg1#ent8#att44"/>
+      <Link id="sv3#area4#page3#enu8#ln73" name="Save" to="sv3#area4#miu4" type="normal" validate="true">
+        <LinkParameter id="sv3#area4#page3#enu8#ln73#par278" name="Product Key" source="key.pkg1#ent8#att38" target="sv3#area4#miu4.mov1#mpkg1#opm8#icu10#icp56"/>
+        <LinkParameter id="sv3#area4#page3#enu8#ln73#par279" name="Product Object" source="entityBean" target="sv3#area4#miu4.mov1#mpkg1#opm8#icu10#icp57"/>
+      </Link>
+      <SelectionField id="sv3#area4#page3#enu8#sfld9" name="category" type="string" role="rel12#rel8"/>
+      <Link id="sv3#area4#page3#enu8#ln27" name="Cancel" to="sv3#area4#opu4" type="normal" validate="false"/>
+    </EntryUnit>
+    <MultiMessageUnit gr:x="50" gr:y="0" id="sv3#area4#page3#mssu1" name="Notifications"/>
+    <SelectorUnit gr:x="0" gr:y="200" id="sv3#area4#page3#seu7" name="Selected Product" entity="pkg1#ent8">
+      <Selector id="sv3#area4#page3#seu7#su27" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="sv3#area4#page3#seu7#su27#kcond18" name="Product" predicate="in" implied="false"/>
+      </Selector>
+      <Link id="sv3#area4#page3#seu7#ln64" name="Link64" to="sv3#area4#page3#enu8" automaticCoupling="true" type="transport" validate="true" gr:bendpoints="93,100,-212,0"/>
+      <Link id="sv3#area4#page3#seu7#ln66" name="Link66" to="sv3#area4#page3#seu11" automaticCoupling="true" type="transport" validate="true"/>
+      <Link id="sv3#area4#page3#seu7#ln71" name="Link71" to="sv3#area4#page3#seu12" automaticCoupling="true" type="transport" validate="true"/>
+    </SelectorUnit>
+    <SelectorUnit gr:x="135" gr:y="200" id="sv3#area4#page3#seu11" name="Related Tech Record" entity="pkg1#ent9">
+      <Selector id="sv3#area4#page3#seu11#su29" defaultPolicy="fill" booleanOperator="and">
+        <RelationshipRoleCondition id="sv3#area4#page3#seu11#su29#rcond6" name="Product" role="rel10#rel4" predicate="in" implied="false"/>
+      </Selector>
+      <Link id="sv3#area4#page3#seu11#ln68" name="Link68" to="sv3#area4#page3#meu2" automaticCoupling="true" type="transport" validate="true"/>
+    </SelectorUnit>
+    <MultiEntryUnit id="sv3#area4#page3#meu1" entity="pkg1#ent7" minLength="1" name="Photo Gallery" gr:x="310" gr:y="90" fieldOrder="sv3#area4#page3#meu1#fld71 sv3#area4#page3#meu1#fld70">
+      <Field id="sv3#area4#page3#meu1#fld70" attribute="pkg1#ent7#att36" type="text" modifiable="true" name="description"/>
+      <Field id="sv3#area4#page3#meu1#fld71" attribute="pkg1#ent7#att37" type="blob" contentType="image" modifiable="true" name="picture"/>
+      <Link id="sv3#area4#page3#meu1#ln74" name="Photo Gallery Transport Link" type="transport" to="sv3#area4#miu4">
+        <LinkParameter id="sv3#area4#page3#meu1#ln74#par276" name="Image Objects" source="entityBeans" target="sv3#area4#miu4.mov1#mpkg1#opm8#icu10#icp59"/>
+      </Link>
+    </MultiEntryUnit>
+    <SelectorUnit id="sv3#area4#page3#seu12" name="Related Photo Gallery" gr:x="140" gr:y="85" entity="pkg1#ent7">
+      <Selector id="sv3#area4#page3#seu12#su30" defaultPolicy="fill" booleanOperator="and">
+        <RelationshipRoleCondition id="sv3#area4#page3#seu12#su30#rcond7" name="Product" predicate="in" implied="false" role="rel11#rel6"/>
+      </Selector>
+      <Link id="sv3#area4#page3#seu12#ln72" name="Link72" to="sv3#area4#page3#meu1" type="transport" validate="true" automaticCoupling="true"/>
+    </SelectorUnit>
+    <MultiEntryUnit id="sv3#area4#page3#meu2" minLength="1" name="Technical Records" gr:x="310" gr:y="205" entity="pkg1#ent9">
+      <Link id="sv3#area4#page3#meu2#ln83" name="Tech Record Transport Link" to="sv3#area4#miu4" type="transport">
+        <LinkParameter id="sv3#area4#page3#meu2#ln83#par277" name="Tech Record Objects" source="entityBeans" target="sv3#area4#miu4.mov1#mpkg1#opm8#icu10#icp58"/>
+      </Link>
+      <Field id="sv3#area4#page3#meu2#fld74" name="colors" type="blob" modifiable="true" contentType="image" attribute="pkg1#ent9#att46"/>
+      <Field id="sv3#area4#page3#meu2#fld75" name="dimensions" type="string" modifiable="true" attribute="pkg1#ent9#att47"/>
+    </MultiEntryUnit>
+    <SelectorUnit gr:x="310" gr:y="420" id="sv3#area4#page3#seu14" name="Categories" entity="pkg1#ent1">
+      <Link id="sv3#area4#page3#seu14#ln92" name="Link92" to="sv3#area4#page3#enu8" type="transport" validate="true">
+        <LinkParameter id="sv3#area4#page3#seu14#ln92#par195" name="Category Name" source="pkg1#ent1#att2Array" target="sv3#area4#page3#enu8#sfld9_label"/>
+        <LinkParameter id="sv3#area4#page3#seu14#ln92#par196" name="Category Key" source="pkg1#ent1#att1Array" target="sv3#area4#page3#enu8#sfld9_output"/>
+      </Link>
+    </SelectorUnit>
+  </ContentUnits>
+  <layout:Grid>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv3#area4#page3#mssu1"/>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell rowspan="3" colspan="6">
+        <layout:Unit unitId="sv3#area4#page3#pwu1">
+          <layout:Link link="sv3#area4#page3#pwu1#ln63"/>
+          <layout:Link link="sv3#area4#page3#pwu1#ln97">
+            <layout:LayoutParameter name="confirmation" value="true" type="link"/>
+          </layout:Link>
+          <layout:Link link="sv3#area4#page3#pwu1pkg1#ent8#att48"/>
+          <layout:Link link="sv3#area4#page3#pwu1pkg1#ent8#att39"/>
+          <layout:Link link="sv3#area4#page3#pwu1pkg1#ent8#att41"/>
+          <layout:Link link="sv3#area4#page3#pwu1pkg1#ent8#att42"/>
+          <layout:Link link="sv3#area4#page3#pwu1pkg1#ent8#att50"/>
+          <layout:Link link="sv3#area4#page3#pwu1First"/>
+          <layout:Link link="sv3#area4#page3#pwu1Previous"/>
+          <layout:Link link="sv3#area4#page3#pwu1Block"/>
+          <layout:Link link="sv3#area4#page3#pwu1Next"/>
+          <layout:Link link="sv3#area4#page3#pwu1Last"/>
+          <layout:Attribute attribute="pkg1#ent8#att48"/>
+          <layout:Attribute attribute="pkg1#ent8#att39"/>
+          <layout:Attribute attribute="pkg1#ent8#att41"/>
+          <layout:Attribute attribute="pkg1#ent8#att42"/>
+          <layout:Attribute attribute="pkg1#ent8#att50"/>
+          <layout:Attribute attribute="pkg1#ent8#att44"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell colspan="6" layout:cellLayout="Print Frame" label="Product Info">
+        <layout:Grid containerType="grid" label="Product Info">
+          <layout:Row>
+            <layout:Cell colspan="6">
+              <layout:Field unitId="sv3#area4#page3#enu8" mode="full" field="sv3#area4#page3#enu8#sfld9"/>
+            </layout:Cell>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell colspan="6">
+              <layout:Field unitId="sv3#area4#page3#enu8" mode="full" field="sv3#area4#page3#enu8#fld14"/>
+            </layout:Cell>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+          </layout:Row>
+          <layout:Row>
+            <layout:Cell colspan="6">
+              <layout:Field unitId="sv3#area4#page3#enu8" mode="full" field="sv3#area4#page3#enu8#fld16"/>
+            </layout:Cell>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell colspan="6">
+              <layout:Field unitId="sv3#area4#page3#enu8" mode="full" field="sv3#area4#page3#enu8#fld17"/>
+            </layout:Cell>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+          </layout:Row>
+          <layout:Row>
+            <layout:Cell colspan="6">
+              <layout:Field unitId="sv3#area4#page3#enu8" mode="full" field="sv3#area4#page3#enu8#fld21"/>
+            </layout:Cell>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell colspan="6">
+              <layout:Field unitId="sv3#area4#page3#enu8" mode="full" field="sv3#area4#page3#enu8#fld26"/>
+            </layout:Cell>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+          </layout:Row>
+          <layout:Row>
+            <layout:Cell colspan="12">
+              <layout:Field unitId="sv3#area4#page3#enu8" mode="full" field="sv3#area4#page3#enu8#fld15"/>
+            </layout:Cell>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+          </layout:Row>
+          <layout:Row>
+            <layout:Cell colspan="12">
+              <layout:Unit unitId="sv3#area4#page3#enu8" manualFields="true" layout:frameLayout="None">
+                <layout:Link link="sv3#area4#page3#enu8#ln73"/>
+                <layout:Link link="sv3#area4#page3#enu8#ln27"/>
+              </layout:Unit>
+            </layout:Cell>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+            <layout:Cell/>
+          </layout:Row>
+        </layout:Grid>
+        <layout:LayoutParameter name="label-position" value="top" type="field"/>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell colspan="6">
+        <layout:Unit unitId="sv3#area4#page3#meu2" layout:unitLayout="WRDefault/Dynamic">
+          <layout:Field field="sv3#area4#page3#meu2#fld74"/>
+          <layout:Field field="sv3#area4#page3#meu2#fld75"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell colspan="6">
+        <layout:Unit unitId="sv3#area4#page3#meu1" layout:unitLayout="WRDefault/Dynamic">
+          <layout:Field field="sv3#area4#page3#meu1#fld71"/>
+          <layout:Field field="sv3#area4#page3#meu1#fld70"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+</Page>

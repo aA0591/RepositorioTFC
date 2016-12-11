@@ -1,0 +1,9 @@
+<Area xmlns:gr="http://www.webratio.com/2006/WebML/Graph" gr:x="-185" gr:y="-940" id="sv3#area2" name="Order Management" landmark="true" defaultPage="sv3#area2#page42">
+  <OperationUnits>
+    <ModuleInstanceUnit id="sv3#area2#miu6" name="Export Cart As PDF" gr:x="370" gr:y="55" moduleId="mov2#mpkg13#hym54"/>
+    <ModuleInstanceUnit id="sv3#area2#miu7" name="Order Details" gr:x="205" gr:y="225" moduleId="mov1#mpkg10#hym49">
+      <OKLink id="sv3#area2#miu7#oln5" name="OKLink5" to="sv3#area2#page42" automaticCoupling="true" gr:bendpoints="-91,-1,-1,179"/>
+    </ModuleInstanceUnit>
+  </OperationUnits>
+  <Comment xml:space="preserve">Area for handling of Orders.</Comment>
+</Area>

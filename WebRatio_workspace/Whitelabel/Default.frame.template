@@ -1,0 +1,35 @@
+#?delimiters [%, %], [%=, %]
+<wr:LayoutParameter label="Show Header" name="show-header" type="boolean" default="true">
+Defines the rendition of the header of the frame.
+Allowed values are: true (default) or false.
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Collapsible" name="collapsible" type="boolean" default="false">
+Defines if the frame is collapsible or not.
+Allowed values are: true or false (default).
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Header Icon" name="icon-name" type="string">
+Defines the icon name located under the css folder
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Draggable" name="draggable" type="boolean" default="false">
+Defines if the frame is draggable
+</wr:LayoutParameter>
+[%import org.apache.commons.lang.StringUtils
+setHTMLOutput()%]
+[% 
+def showHeader = Boolean.valueOf( params[ "show-header" ] );
+def expandable = "data-collapsible="+params["collapsible"];
+def draggable = "data-sortable="+params["draggable"];
+def useIcon = params["use-header-icon"]
+def icon = ( !StringUtils.isBlank( params["icon-name"] ) ) ? "data-icon="+params["icon-name"]+"" : "";
+def name = (element["name"])  ?: element["label"]
+%]
+<section class="widget" [%= expandable %] [%= draggable %] [%= icon %] id="[%= name.replace(" ", "-").toLowerCase() %]">
+	[% if( showHeader ) { %]
+		<header>
+			<h3 class="handle"><wr:Label context="element"/></h3>
+		</header>
+	[% } %]
+	<div>
+		<wr:FrameContent/>
+	</div>
+</section>

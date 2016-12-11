@@ -1,0 +1,251 @@
+#?delimiters [%, %], [%=, %]
+[%
+import org.apache.commons.lang.math.NumberUtils
+import org.apache.commons.lang.StringUtils
+setHTMLOutput()
+
+params[ "plugin" ]=="false"
+
+def years = NumberUtils.toInt(unit["years"], 5)
+
+def unitId = "calendar"+unit.hashCode()
+
+def getInfoLevel( attr ) {
+	def infoLevel = attr.selectSingleNode("Property[@name='informationLevel']/@value")?.getStringValue();
+	
+	def level = ""
+	switch( infoLevel ) {
+	 case "high":
+	 	level = "data-information-level=high" 
+	 	break;
+	 case "medium":
+	 	level = "data-information-level=medium" 
+	 	break;
+	 case "low":
+	 	level = "data-information-level=low" 
+	 	break;
+	}
+	
+  	return level;
+}
+
+def getJSONevents() {
+	for( date in unit["date"] ) {
+		println date
+	}
+}
+
+%]
+<wr:RequireResource ref="wl-wr-calendar"/>
+
+<wr:Frame>
+	[% if(params[ "plugin" ]=="true") { %]
+	<div class="plain">
+		<div class="plain EventCalendarUnit">
+			<div class="calendar" id="[%= unitId %]"
+				data-header="small-today-views"
+				data-weekends="true"
+				data-editable="true"
+				data-disable-dragging="false"
+				data-disable-Resizing="false"
+				data-all-day-default="true"
+				data-first-day="1"
+				data-week-mode="fixed"></div>
+		</div>
+	</div>
+	<script>
+		jQuery( document ).ready( function( $ ) {
+			$( '#[%= unitId %]' ).fullCalendar( {
+				editable: true,
+				events: [
+					<c:forEach var="level1current" varStatus="level1status" items="${<wr:Id context="unit" />.date}">
+						<c:set var="level1" value="${level1status.index}"/>
+						[% def outgoingLinks = unit.selectNodes("layout:Link[LinkParameter[string(@_exp) != 't'][@source = 'date[].date'] and not(LinkParameter[starts-with(@source, 'date[].data[].')])][string(@_exp) != 't']") %]
+						[% def dateLink = (outgoingLinks.size()==1)? outgoingLinks[0] : null %]
+						<c:if test="${level1current.dataSize gt 0}">
+							<c:forEach var="level2current" varStatus="level2status" items="${level1current.data}">
+								<c:set var="level2" value="${level2status.index}"/>
+								[% def lev2Links = unit.selectNodes("layout:Link[not(LinkParameter) or LinkParameter[string(@_exp) != 't'][@source != 'date[].date']][string(@_exp) != 't']") %]
+								{
+									title: "<wr:Iterate var="attr" context="unit" select="layout:Attribute"><wr:Value item="'level2current'" position="'level1,level2'" class="attribute"/></wr:Iterate>",
+									url: [% if(lev2Links.size()==1) { %]"<wr:URL context="lev2Links[0]" position="'level1,level2'"/>"[% } else { %] undefined [% } %],
+									start: "<fmt:formatDate value="${level1current.date}" pattern="EEE, d MMM yyyy HH:mm:ss Z"/>"
+									
+								}<c:if test="${not(level2status.last)}">,</c:if>
+							</c:forEach>
+						</c:if>
+					</c:forEach>
+			        
+			    ]
+			} );
+		});
+	</script>
+	[% } else { %]
+	<div class="plain">
+		<div class="plain EventCalendarUnit">
+			<header class="g12 alpha omega">
+				<h2 class="g6 alpha omega">${<wr:Id context="unit" />.monthNames[<wr:Id context="unit" />.currentMonth]} ${<wr:Id context="unit" />.currentYear}</h2>
+				<div class="g6 alpha omega buttons r">
+					<!-- Month selection -->
+					<select name="<wr:Id context="unit" />" onChange="if (this.value!='') {window.location.href=[%if(enableURLFragments()){%]'<%=wrBaseURI%>' + [%}%]this.value}" class="<wr:StyleClass/> month">
+		            <wr:Iterate var="link" context="unit" select="layout:Link[contains(@id, '-month-')]">
+		              [% def month = NumberUtils.toInt(link.valueOf("LinkParameter/@sourceValue")) %]
+		              <c:choose>
+		                <c:when test="${<wr:Id context="unit" />.currentMonth eq '[%= month%]'}">
+		                  <option selected value="<wr:URL context="link"/>"> 
+		                      <c:out value="${<wr:Id context="unit" />.monthNames[[%= month%]]}"/>
+		                  </option>
+		                </c:when>
+		                <c:otherwise>
+		                   <option value="<wr:URL context="link"/>"> 
+		                      <c:out value="${<wr:Id context="unit" />.monthNames[[%= month%]]}"/>
+		                   </option>
+		                </c:otherwise>
+		              </c:choose>
+		            </wr:Iterate>
+		            </select>
+		            
+		            <!-- Year selection -->
+					<c:set var="index" value="0"/>
+					[% def yearLink = unit.selectSingleNode("layout:Link[contains(@id, '-year')]") %]
+					<select name="<wr:Id context="unit" />" onChange="if (this.value!='') {window.location.href=[%if(enableURLFragments()){%]'<%=wrBaseURI%>' + [%}%]this.value}" class="<wr:StyleClass/> month">
+					<c:forEach var="current" varStatus="status" items="${<wr:Id context="unit" />.years}" begin="1" end="[%= years%]">
+						<c:set var="index" value="${status.index}"/>
+						<c:choose>
+		                	<c:when test="${current eq <wr:Id context="unit" />.currentYear}">
+		                		<option selected value="<wr:URL context="yearLink"/>">
+		                			<c:out value="${current}"/>
+		                		</option>
+		                	</c:when>
+		                	<c:otherwise>
+		                		<option value="<wr:URL context="yearLink"/>">
+		                			<c:out value="${current}"/>
+		                		</option>
+			                </c:otherwise>
+						</c:choose>
+					</c:forEach>
+					</select>
+					<c:set var="index" value="${index + 1}"/>
+				</div>
+			</header>
+			
+			<div class="clear"></div>
+			
+			<section>
+				<table>
+					<thead>
+						<tr>
+							<c:forEach var="dayNamecurrent" varStatus="dayNamestatus" items="${<wr:Id context="unit" />.dayOfWeekNames}">
+			                    <th class="<wr:StyleClass/> day">
+			                       <c:out value="${dayNamecurrent}"/>
+			                    </th>
+							</c:forEach>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+						<!-- Previous month days -->
+						<c:set var="firstWeekDay" value="${<wr:Id context="unit" />.daysOfWeek[0]}"/>
+						<c:if test="${firstWeekDay != 1}">
+							<c:forEach varStatus="index" begin="1" end="${firstWeekDay-1}">
+								<td class="prevMonth">&nbsp;</td>
+							</c:forEach>
+						</c:if>
+						
+						<!-- Current month days -->
+						<c:forEach var="level1current" varStatus="level1status" items="${<wr:Id context="unit" />.date}">
+							<c:set var="level1" value="${level1status.index}"/>
+							<c:set var="weekDay" value="${<wr:Id context="unit" />.daysOfWeek[level1]}"/>
+							
+							<c:set var="currentDate"><fmt:formatDate value="${level1current.date}" pattern="yyyy-MM-dd"/></c:set>
+							<c:set var="cellDate"><fmt:formatDate value="${<wr:Id context="unit" />.currentDate}" pattern="yyyy-MM-dd"/></c:set>
+							    
+							<td class="<c:if test="${currentDate eq cellDate}">today</c:if>">
+								<div style="position: relative;">
+								[% def outgoingLinks = unit.selectNodes("layout:Link[LinkParameter[string(@_exp) != 't'][@source = 'date[].date'] and not(LinkParameter[starts-with(@source, 'date[].data[].')])][string(@_exp) != 't']") %]
+								<div class="date-header">
+									
+									<span class="dayOfMonth" data-full-date="<fmt:formatDate value="${level1current.date}" pattern="d MMMM yyyy"/>"><fmt:formatDate value="${level1current.date}" pattern="d"/></span>
+									
+									[% if(outgoingLinks.size() > 0){ %]
+										<span>
+											<wr:Iterate var="link" context="unit" select="layout:Link[LinkParameter/@source='date[].date']">
+												<wr:Visible position="'level1'">
+													<wr:Link context="link" position="'level1'" class="link" type="normal"/>
+												</wr:Visible>
+											</wr:Iterate>
+										</span>
+									[% } %]
+								</div>
+								
+								<c:if test="${level1current.dataSize gt 0}">
+									<ul class="date-events">
+										<c:forEach var="level2current" varStatus="level2status" items="${level1current.data}">
+											<c:set var="level2" value="${level2status.index}"/>
+											<li class="entry">
+												[% def lev2Links = unit.selectNodes("layout:Link[not(LinkParameter) or LinkParameter[string(@_exp) != 't'][@source != 'date[].date']][string(@_exp) != 't']") %]
+								  				[% if(lev2Links.size() == 1) { %]
+													<a class="<wr:StyleClass context="lev2Links[0]"/>" href="<wr:URL context="lev2Links[0]" position="'level1,level2'"/>"  onclick="<wr:AjaxURL context="lev2Links[0]" position="'level1,level2'"/>">
+								  				[% } %]
+									  				<div class="value g[%= (lev2Links.size()>1) ? 6: 12 %] alpha">
+											  			<wr:Iterate var="attr" context="unit" select="layout:Attribute">
+															<span [%= getInfoLevel(attr) %] class="attribute" title="<wr:Value item="'level2current'" position="'level1,level2'" class="attribute"/>">
+																<wr:Value item="'level2current'" position="'level1,level2'" class="attribute"/>
+															</span>
+														</wr:Iterate>
+													</div>
+								  				[% if(lev2Links.size() == 1) { %]
+													</a>
+								  				[% } %]
+												
+												[% if(lev2Links.size() > 1){%]
+													<div class="links g6 omega">
+													[% for(link in lev2Links){ %]
+														<wr:Link context="link" position="'level1,level2'"/>
+													[% } %]
+													</div>
+												[% } %]
+											</li>
+										</c:forEach>
+									</ul>
+								</c:if>
+								</div>
+							</td>
+							
+							<c:if test="${weekDay == 7 && not(level1status.last)}">
+								<!-- New row -->
+								</tr><tr>
+							</c:if>
+							
+						</c:forEach>
+						
+						<c:set var="size" value="${<wr:Id context="unit" />.datesSize}"/>
+						
+						<!-- Next month days -->
+						<c:set var="lastWeekDay" value="${<wr:Id context="unit" />.daysOfWeek[size-1]}"/>
+						<c:if test="${lastWeekDay != 7}">
+							<c:forEach var="index" begin="${lastWeekDay + 1}" end="7">
+							  <td class="nextMonth"><c:out value="${index-lastWeekDay}"/></td>
+							</c:forEach>
+						</c:if>
+						</tr>
+					</tbody>
+					
+					<tfoot>
+					</tfoot>
+				</table>
+			</section>
+			
+			<footer>
+				<a name="[%= unitId %]_details" href="#"></a>
+			</footer>
+			
+			<div class="clear"></div>
+			
+			<script>
+				jQuery( '.EventCalendarUnit' ).wr_Calendar();
+			</script>
+		</div>
+	</div>
+	[% } %]
+</wr:Frame>

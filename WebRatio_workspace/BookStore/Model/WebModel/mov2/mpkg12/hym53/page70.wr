@@ -1,0 +1,123 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" id="mov2#mpkg12#hym53#page70" name="Registration" gr:x="295" gr:y="20">
+  <ContentUnits>
+    <EntryUnit id="mov2#mpkg12#hym53#page70#enu20" name="User Information" gr:x="0" gr:y="0" entity="User" fieldOrder="mov2#mpkg12#hym53#page70#enu20#fld47 mov2#mpkg12#hym53#page70#enu20#fld48 mov2#mpkg12#hym53#page70#enu20#fld60 mov2#mpkg12#hym53#page70#enu20#sfld13 mov2#mpkg12#hym53#page70#enu20#fld46 mov2#mpkg12#hym53#page70#enu20#fld44 mov2#mpkg12#hym53#page70#enu20#fld45 mov2#mpkg12#hym53#page70#enu20#fld62 mov2#mpkg12#hym53#page70#enu20#fld61 mov2#mpkg12#hym53#page70#enu20#msfld1 mov2#mpkg12#hym53#page70#enu20#fld63" linkOrder="mov2#mpkg12#hym53#page70#enu20#ln126">
+      <Field id="mov2#mpkg12#hym53#page70#enu20#fld44" name="username" type="string" modifiable="true" attribute="userName">
+        <VRules>
+          <MandatoryValidationRule id="mov2#mpkg12#hym53#page70#enu20#fld44#mnd3" name="Mandatory UserName" errorMessage="Mandatory Field"/>
+        </VRules>
+      </Field>
+      <Field id="mov2#mpkg12#hym53#page70#enu20#fld45" name="password" type="password" modifiable="true" attribute="password">
+        <VRules>
+          <MandatoryValidationRule id="mov2#mpkg12#hym53#page70#enu20#fld45#mnd11" name="Mandatory password" errorMessage="Obbligatory field"/>
+        </VRules>
+      </Field>
+      <Field id="mov2#mpkg12#hym53#page70#enu20#fld46" name="email" type="string" modifiable="true" attribute="email">
+        <VRules>
+          <MandatoryValidationRule id="mov2#mpkg12#hym53#page70#enu20#fld46#mnd13" name="Mandatory e-mail" errorMessage="Obbligatory field"/>
+          <EMailValidationRule id="mov2#mpkg12#hym53#page70#enu20#fld46#email1" name="email validation" errorMessage="Wrong Email"/>
+        </VRules>
+      </Field>
+      <Field id="mov2#mpkg12#hym53#page70#enu20#fld47" name="first name" type="string" modifiable="true" attribute="User#att2">
+        <VRules>
+          <MandatoryValidationRule id="mov2#mpkg12#hym53#page70#enu20#fld47#mnd15" name="Mandatory name" errorMessage="Obbligatory field"/>
+        </VRules>
+      </Field>
+      <Field id="mov2#mpkg12#hym53#page70#enu20#fld48" name="last name" type="string" modifiable="true" attribute="User#att3">
+        <VRules>
+          <MandatoryValidationRule id="mov2#mpkg12#hym53#page70#enu20#fld48#mnd16" name="Mandatory Last name" errorMessage="Obbligatory field"/>
+        </VRules>
+      </Field>
+      <Field id="mov2#mpkg12#hym53#page70#enu20#fld60" name="birth date" type="date" modifiable="true" attribute="User#att5" preloaded="false">
+        <VRules>
+          <MandatoryValidationRule id="mov2#mpkg12#hym53#page70#enu20#fld60#mnd17" name="Mandatory Birthdate" errorMessage="Obbligatory field"/>
+        </VRules>
+      </Field>
+      <Field id="mov2#mpkg12#hym53#page70#enu20#fld61" name="shipping address" type="string" modifiable="true" attribute="User#att18">
+        <VRules>
+          <MandatoryValidationRule id="mov2#mpkg12#hym53#page70#enu20#fld61#mnd1" name="Mandatory shipping address" errorMessage="Mandatory Field"/>
+        </VRules>
+      </Field>
+      <VRules/>
+      <Field id="mov2#mpkg12#hym53#page70#enu20#fld62" name="confirm password" ajaxEventEnabled="false" type="password" modifiable="true">
+        <VRules>
+          <CompareValidationRule id="mov2#mpkg12#hym53#page70#enu20#fld62#cmp1" name="Require Same Password" predicate="eq" valueField="mov2#mpkg12#hym53#page70#enu20#fld45" errorMessage="This field and password have to be equal!!!"/>
+          <MandatoryValidationRule id="mov2#mpkg12#hym53#page70#enu20#fld62#mnd18" name="Mandatory password" errorMessage="Obbligatory field"/>
+        </VRules>
+      </Field>
+      <Field id="mov2#mpkg12#hym53#page70#enu20#fld63" name="captcha" type="string" modifiable="true">
+        <VRules>
+          <CaptchaValidationRule id="mov2#mpkg12#hym53#page70#enu20#fld63#captcha1" name="Captcha validation" errorMessage="The code written is wrong; please digit the correct code..." cfg_ignoreCase="true"/>
+        </VRules>
+      </Field>
+      <MultiSelectionField id="mov2#mpkg12#hym53#page70#enu20#msfld1" name="terms and conditions" type="string" slotOrder="mov2#mpkg12#hym53#page70#enu20#msfld1#slot1">
+        <Slot id="mov2#mpkg12#hym53#page70#enu20#msfld1#slot1" name="select terms and conditions" label="true" output="true" value="Accept Terms and Conditions"/>
+        <VRules>
+          <MandatoryValidationRule id="mov2#mpkg12#hym53#page70#enu20#msfld1#mnd19" name="Mandatory terms and conditions" errorMessage="You have to accept the conditions"/>
+        </VRules>
+      </MultiSelectionField>
+      <SelectionField id="mov2#mpkg12#hym53#page70#enu20#sfld13" name="gender" type="string" attribute="User#att4">
+        <Slot id="mov2#mpkg12#hym53#page70#enu20#sfld13#slot2" name="gender" value="Male|Female" label="true" output="true"/>
+        <VRules>
+          <MandatoryValidationRule id="mov2#mpkg12#hym53#page70#enu20#sfld13#mnd2" name="Mandatory Field" errorMessage="Choose a Gender"/>
+        </VRules>
+      </SelectionField>
+      <Link id="mov2#mpkg12#hym53#page70#enu20#ln125" name="Link125" to="mov2#mpkg12#hym53#opg13#cru9" type="transport" validate="true" gr:bendpoints="132,-41,-353,-41;415,-41,-70,-41">
+        <LinkParameter id="mov2#mpkg12#hym53#page70#enu20#ln125#par267" name="Group Key" target="mov2#mpkg12#hym53#opg13#cru9.User2DefaultGroup.groupOID" sourceValue="1"/>
+        <LinkParameter id="mov2#mpkg12#hym53#page70#enu20#ln125#par268" name="Group Key" target="mov2#mpkg12#hym53#opg13#cru9.User2Group.groupOID" sourceValue="1"/>
+        <LinkParameter id="mov2#mpkg12#hym53#page70#enu20#ln125#par269" name="User Object" source="entityBean" target="mov2#mpkg12#hym53#opg13#cru9.entityBeans"/>
+      </Link>
+      <Link id="mov2#mpkg12#hym53#page70#enu20#ln126" name="Confirm" to="mov2#mpkg12#hym53#opg13#scu10" type="normal" validate="true" ajaxEnabled="true">
+        <LinkParameter id="mov2#mpkg12#hym53#page70#enu20#ln126#par270" name="Birth Date" source="mov2#mpkg12#hym53#page70#enu20#fld60" target="mov2#mpkg12#hym53#opg13#scu10.timein"/>
+      </Link>
+    </EntryUnit>
+    <MultiMessageUnit id="mov2#mpkg12#hym53#page70#mssu5" name="Notifications" gr:x="25" gr:y="100"/>
+  </ContentUnits>
+  <layout:Grid>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="mov2#mpkg12#hym53#page70#mssu5"/>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="mov2#mpkg12#hym53#page70#enu20">
+          <layout:Field field="mov2#mpkg12#hym53#page70#enu20#fld47"/>
+          <layout:Field field="mov2#mpkg12#hym53#page70#enu20#fld48"/>
+          <layout:Field field="mov2#mpkg12#hym53#page70#enu20#fld60"/>
+          <layout:Field field="mov2#mpkg12#hym53#page70#enu20#sfld13"/>
+          <layout:Field field="mov2#mpkg12#hym53#page70#enu20#fld46"/>
+          <layout:Field field="mov2#mpkg12#hym53#page70#enu20#fld44"/>
+          <layout:Field field="mov2#mpkg12#hym53#page70#enu20#fld45"/>
+          <layout:Field field="mov2#mpkg12#hym53#page70#enu20#fld62"/>
+          <layout:Field field="mov2#mpkg12#hym53#page70#enu20#fld61"/>
+          <layout:Field field="mov2#mpkg12#hym53#page70#enu20#msfld1"/>
+          <layout:Field field="mov2#mpkg12#hym53#page70#enu20#fld63"/>
+          <layout:Link link="mov2#mpkg12#hym53#page70#enu20#ln126"/>
+          <layout:LayoutParameter name="mandatory-fields" value="true" type="unit"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+</Page>

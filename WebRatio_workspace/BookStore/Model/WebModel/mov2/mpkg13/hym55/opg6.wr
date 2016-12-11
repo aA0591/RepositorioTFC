@@ -1,0 +1,44 @@
+<OperationGroup xmlns:gr="http://www.webratio.com/2006/WebML/Graph" gr:x="130" gr:y="30" id="mov2#mpkg13#hym55#opg6" name="Save Order" transaction="true">
+  <OperationUnits>
+    <DeleteUnit id="mov2#mpkg13#hym55#opg6#dlu4" name="Delete Cart Items" gr:x="560" gr:y="115" entity="pkg1#ent5">
+      <Selector id="mov2#mpkg13#hym55#opg6#dlu4#su34" defaultPolicy="fill" booleanOperator="and">
+        <AttributesCondition id="mov2#mpkg13#hym55#opg6#dlu4#su34#acond16" name="Cart Item Key" predicate="notNull" booleanOperator="or" implied="false" attributes="pkg1#ent5#att30"/>
+      </Selector>
+      <OKLink id="mov2#mpkg13#hym55#opg6#dlu4#oln77" name="OKLink77" to="mov2#mpkg13#hym55#opg6#dlu5" automaticCoupling="true"/>
+    </DeleteUnit>
+    <DeleteUnit id="mov2#mpkg13#hym55#opg6#dlu5" name="Delete Cart" gr:x="725" gr:y="115" entity="pkg1#ent3">
+      <Selector id="mov2#mpkg13#hym55#opg6#dlu5#su35" defaultPolicy="fill" booleanOperator="and">
+        <AttributesCondition id="mov2#mpkg13#hym55#opg6#dlu5#su35#acond17" name="Cart Key" predicate="notNull" booleanOperator="or" implied="false" attributes="pkg1#ent3#att25"/>
+      </Selector>
+      <OKLink id="mov2#mpkg13#hym55#opg6#dlu5#oln89" name="OKLink89" to="mov2#mpkg13#hym55#okcu18"/>
+    </DeleteUnit>
+    <CreateUnit id="mov2#mpkg13#hym55#opg6#cru3" name="Create Order" gr:x="120" gr:y="120" entity="ent12">
+      <OKLink id="mov2#mpkg13#hym55#opg6#cru3#oln79" name="OKLink79" to="mov2#mpkg13#hym55#opg6#seu14"/>
+      <Link id="mov2#mpkg13#hym55#opg6#cru3#ln111" name="Link111" to="mov2#mpkg13#hym55#opg6#cru5" type="transport" automaticCoupling="true" validate="true" gr:bendpoints="10,53,-255,53;237,53,-28,53"/>
+      <Link id="mov2#mpkg13#hym55#opg6#cru3#ln113" name="Link113" to="mov2#mpkg13#hym55#okcu18" type="transport" validate="true" gr:bendpoints="117,-83,-628,-83;613,-84,-132,-84">
+        <LinkParameter id="mov2#mpkg13#hym55#opg6#cru3#ln113#par230" name="Order Key" source="ent12#att45Array" target="mov2#mpkg13#hym55#okcu18#ocp6"/>
+      </Link>
+    </CreateUnit>
+    <TimeUnit id="mov2#mpkg13#hym55#opg6#tmu2" name="Date Time" gr:x="0" gr:y="130">
+      <OKLink id="mov2#mpkg13#hym55#opg6#tmu2#oln80" name="OKLink80" to="mov2#mpkg13#hym55#opg6#cru3">
+        <LinkParameter id="mov2#mpkg13#hym55#opg6#tmu2#oln80#par224" name="Current Date" source="currentTimestamp" target="mov2#mpkg13#hym55#opg6#cru3.ent12#att72"/>
+        <LinkParameter id="mov2#mpkg13#hym55#opg6#tmu2#oln80#par225" name="Status" target="mov2#mpkg13#hym55#opg6#cru3.ent12#att6" sourceValue="false"/>
+      </OKLink>
+    </TimeUnit>
+    <SelectorUnit id="mov2#mpkg13#hym55#opg6#seu14" name="Select Items" gr:x="250" gr:y="120" entity="pkg1#ent5">
+      <OKLink id="mov2#mpkg13#hym55#opg6#seu14#oln81" name="OKLink81" to="mov2#mpkg13#hym55#opg6#cru5">
+        <LinkParameter id="mov2#mpkg13#hym55#opg6#seu14#oln81#par226" name="Product" source="pkg1#ent5#att55Array" target="mov2#mpkg13#hym55#opg6#cru5.rel17#role7.ent1#att60"/>
+        <LinkParameter id="mov2#mpkg13#hym55#opg6#seu14#oln81#par227" name="Quantity" source="pkg1#ent5#att56Array" target="mov2#mpkg13#hym55#opg6#cru5.ent2#att31"/>
+      </OKLink>
+    </SelectorUnit>
+    <CreateUnit id="mov2#mpkg13#hym55#opg6#cru5" name="Create Order Items" gr:x="390" gr:y="120" entity="ent2" bulk="true">
+      <OKLink id="mov2#mpkg13#hym55#opg6#cru5#oln82" name="OKLink82" to="mov2#mpkg13#hym55#opg6#dlu4"/>
+    </CreateUnit>
+    <GetUnit id="mov2#mpkg13#hym55#opg6#gtu1" name="Get Current User" gr:x="110" gr:y="0" contextParameters="UserCtxParam">
+      <Link id="mov2#mpkg13#hym55#opg6#gtu1#ln112" name="Link112" to="mov2#mpkg13#hym55#opg6#cru3" type="transport" validate="true">
+        <LinkParameter id="mov2#mpkg13#hym55#opg6#gtu1#ln112#par228" name="User Key" source="mov2#mpkg13#hym55#opg6#gtu1.UserCtxParam" target="mov2#mpkg13#hym55#opg6#cru3.rel1#rel27.userOID"/>
+      </Link>
+    </GetUnit>
+  </OperationUnits>
+  <KOLink id="mov2#mpkg13#hym55#opg6#kln11" name="KOLink11" to="mov2#mpkg13#hym55#kocu4" automaticCoupling="true"/>
+</OperationGroup>

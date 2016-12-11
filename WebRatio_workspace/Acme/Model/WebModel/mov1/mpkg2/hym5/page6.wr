@@ -1,0 +1,37 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" id="mov1#mpkg2#hym5#page6" name="Combination" ignoreMasterPage="true" layout:pageLayout="WRDefault/Empty" gr:x="195" gr:y="5">
+  <ContentUnits>
+    <DataUnit id="mov1#mpkg2#hym5#page6#dau10" name="Details" gr:x="0" gr:y="0" entity="ent4" displayAttributes="ent4#att3 ent4#att4 ent4#att5 ent4#att6 ent4#att7 ent4#att20 ent4#att21 ent4#att22 ent4#att51">
+      <Selector id="mov1#mpkg2#hym5#page6#dau10#su11" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="mov1#mpkg2#hym5#page6#dau10#su11#kcond11" name="Combination" predicate="in" implied="false"/>
+      </Selector>
+    </DataUnit>
+  </ContentUnits>
+  <layout:Grid>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="mov1#mpkg2#hym5#page6#dau10">
+          <layout:Attribute attribute="ent4#att3"/>
+          <layout:Attribute attribute="ent4#att4"/>
+          <layout:Attribute attribute="ent4#att5"/>
+          <layout:Attribute attribute="ent4#att6" layout:attributeVisibilityCondition="cexpr4"/>
+          <layout:Attribute attribute="ent4#att7"/>
+          <layout:Attribute attribute="ent4#att20"/>
+          <layout:Attribute attribute="ent4#att21"/>
+          <layout:Attribute attribute="ent4#att22"/>
+          <layout:Attribute attribute="ent4#att51"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+</Page>

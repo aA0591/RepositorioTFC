@@ -1,0 +1,109 @@
+#?delimiters [%, %], [%=, %]
+<wr:LayoutParameter label="Columns Number" name="num-cols" type="enum" values="1|2|3|4|5|6" default="1">
+Defines the number of columns to be used.
+Allowed values are: 1(default),2,3,4,5,6.
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Show Attribute Name" name="show-attribute-name" type="enum" values="top|left|false" default="left">
+Defines the rendition of the attribute labels.
+Allowed values are: true(default) or false.
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Use Empty Unit Message" name="use-empty-unit-message" type="boolean" default="false">
+Defines the usage of a message for empty units.
+Allowed values are: true(default) or false.
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Empty Unit Message" name="empty-unit-message" type="string" default="emptyUnitMessage">
+Defines the key of the message to use if the unit is empty.
+Default value: emptyUnitMessage
+</wr:LayoutParameter>
+[%
+import org.apache.commons.lang.math.NumberUtils
+import org.apache.commons.lang.StringUtils
+
+setHTMLOutput()
+
+def unitId = unit["id"]
+def numCols = NumberUtils.toInt(params["num-cols"])
+def linkOrientation = params["link-orientation"]
+def showAttributeName = params["show-attribute-name"]
+def linkPosition = params["link-position"]
+def useAlternate = params["use-alternate"]=="true"
+def useEmptyUnitMessage = params["use-empty-unit-message"]
+def emptyUnitMessage = params["empty-unit-message"]
+def atts = unit.selectNodes("layout:Attribute")
+def links = unit.selectNodes("layout:Link")
+
+def attributeNameOrientationClass = (showAttributeName != "false") ? " header"+StringUtils.capitalize(showAttributeName) : "";
+
+def sectionWidth = (12 / numCols).intValue()
+def widthCounter = 0
+
+%]
+[% if (useEmptyUnitMessage != "true") { %]
+<c:if test="${not(empty <wr:Id context="unit" />) and (<wr:Id context="unit" />.dataSize gt 0)}">
+[% } else { %]
+<c:choose>
+<c:when test="${not(empty <wr:Id context="unit" />) and (<wr:Id context="unit" />.dataSize gt 0)}">
+[% } %]
+	<wr:Frame>
+		<div class="plain <wr:StyleClass/>">
+			<div class="plain DataUnit">
+			[% if (atts.size()) { %]
+				<div class="container_12 attributes[%= attributeNameOrientationClass %]">
+					<wr:Iterate var="attr" context="unit" select="layout:Attribute">
+					[% 	widthCounter += sectionWidth
+						if (widthCounter > 12) {
+							widthCounter = sectionWidth 
+					%]	<div class="clear">&nbsp;</div>	
+					[% 	} 
+					
+						def gridClass = "grid_" + sectionWidth
+						if (widthCounter == sectionWidth) //first of row
+							gridClass += " alpha"
+						if ((widthCounter + sectionWidth) > 12) //last of row
+							gridClass += " omega"
+					%]
+					<wr:Visible>
+						<section class="[%= gridClass %] attribute[% if ("left".equals(showAttributeName)) {%] leftLabel[% } %]">
+						[% if (showAttributeName != "false") { %]
+							<div class="<wr:StyleClass/> header">
+								<wr:Label/>
+							</div>
+		        		[% } %]
+			        		<div class="<wr:StyleClass/> value [%= attr["type"]%]">
+			        			<wr:Value/>
+			        		</div>
+		                </section>
+		             </wr:Visible>
+		            </wr:Iterate>
+		            <div class="clear">&nbsp;</div>
+		         </div>
+				
+			[% } %]	
+			[% if (links.size()) { %]
+	            <section class="buttons r">
+					<wr:Iterate var="link" context="unit" select="layout:Link">
+						<wr:Visible>
+							<wr:Link type="link" class="btn"/>
+						</wr:Visible>
+					</wr:Iterate>
+	            </section>
+	         [% } %]
+	         	<div class="clear">&nbsp;</div>	
+			 </div>
+		 </div>
+	</wr:Frame>
+[% if (useEmptyUnitMessage != "true") { %]
+</c:if>
+[% } else { %]
+</c:when>
+<c:otherwise>
+	<wr:Frame>
+		<div class="plain <wr:StyleClass/>">
+			<div class="alert info" data-sticky="true">
+				<bean:message key="[%printJSPTagValue(emptyUnitMessage)%]"/>
+			</div>
+		</div>
+	</wr:Frame>
+</c:otherwise>
+</c:choose>
+[% } %]

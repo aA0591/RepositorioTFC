@@ -1,0 +1,8 @@
+<HybridModule xmlns:gr="http://www.webratio.com/2006/WebML/Graph" id="mov2#mpkg12#hym53" name="Registration" gr:icon="ModulesIcons/NewUser.png" gr:x="0" gr:y="0">
+  <OperationUnits>
+    <InputCollectorUnit id="mov2#mpkg12#hym53#icu65" name="Input" gr:x="-20" gr:y="85">
+      <OKLink id="mov2#mpkg12#hym53#icu65#oln246" name="OKLink246" to="mov2#mpkg12#hym53#page70" automaticCoupling="true"/>
+    </InputCollectorUnit>
+  </OperationUnits>
+  <Comment xml:space="preserve">Hybrid Module that contains the logic necessary to register a new User on the database.</Comment>
+</HybridModule>
